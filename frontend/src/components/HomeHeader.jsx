@@ -36,6 +36,8 @@ const Header = () => {
   const [isServicesDropdownOpen, setIsServicesDropdownOpen] = useState(false);
   const [isAiDropdownOpen, setIsAiDropdownOpen] = useState(false);
 
+  const navigate = useNavigate();
+
   const navItems = [
     "Home",
     "Services",
@@ -75,8 +77,6 @@ const Header = () => {
     { name: "Data Analytics", icon: faChartLine, link: "/ai/data-analytics" },
   ];
 
-  const navigate = useNavigate();
-
   return (
     <Box
       w="100%"
@@ -112,6 +112,14 @@ const Header = () => {
                   if (item === "Services") setIsServicesDropdownOpen(false);
                   if (item === "AI Services") setIsAiDropdownOpen(false);
                 }}
+                onClick={() => {
+                  if (item === "Portfolio") {
+                    navigate("/portfolio");
+                  } else if (item !== "Services" && item !== "AI Services") {
+                    navigate(`/${item.toLowerCase()}`);
+                  }
+                }}
+                cursor="pointer"
               >
                 <Box
                   px={3}
@@ -120,17 +128,16 @@ const Header = () => {
                   alignItems="center"
                   justifyContent="center"
                   borderTop={activeLink === item ? "3px solid #FED904" : "none"}
-                  cursor="pointer"
                   py={6}
                 >
-                  <Link
+                  <Text
                     fontSize="18px"
                     fontWeight="600"
                     color={activeLink === item ? "#FED904" : "white"}
                     _hover={{ color: "#FED904" }}
                   >
                     {item} {["Services", "AI Services"].includes(item) && <FontAwesomeIcon icon={faCaretDown} />}
-                  </Link>
+                  </Text>
                 </Box>
 
                 {/* Services Dropdown Menu */}
@@ -160,41 +167,6 @@ const Header = () => {
                         onClick={() => navigate(service.link)}
                       >
                         <FontAwesomeIcon icon={service.icon} style={{ marginRight: "10px" }} />
-                        <Text fontSize="15px" fontWeight="500" whiteSpace="nowrap">
-                          {service.name}
-                        </Text>
-                      </Flex>
-                    ))}
-                  </Box>
-                )}
-
-                {/* AI Services Dropdown Menu */}
-                {item === "AI Services" && isAiDropdownOpen && (
-                  <Box
-                    position="absolute"
-                    top="100%"
-                    left="0"
-                    bg="rgb(245, 239, 233)"
-                    w="300px"
-                    borderRadius="8px"
-                    boxShadow="md"
-                    p="15px"
-                    zIndex="1000"
-                    display="grid"
-                    gridTemplateColumns="1fr"
-                    gap="10px"
-                  >
-                    {aiServices.map((service) => (
-                      <Flex
-                        key={service.name}
-                        align="center"
-                        cursor="pointer"
-                        p="10px"
-                        borderRadius="6px"
-                        _hover={{ bg: "#FFD700" }}
-                        onClick={() => navigate(service.link)}
-                      >
-                        <FontAwesomeIcon icon={service.icon} style={{ marginRight: "8px" }} />
                         <Text fontSize="15px" fontWeight="500" whiteSpace="nowrap">
                           {service.name}
                         </Text>

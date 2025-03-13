@@ -1,4 +1,4 @@
-import Header from "../components/Header";
+import Header from "../components/HomeHeader";
 import HeroBanner from "../components/HeroBanner";
 import Number from "../components/Number";
 import LinkSection from "../components/LinkSection";

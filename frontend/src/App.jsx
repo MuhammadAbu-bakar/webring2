@@ -1,27 +1,31 @@
-import { useState } from 'react'
-import Header from "./components/Header"
-import Footer from './components/Footer'
-import HomePage from './pages/HomePage'
-import ServicesPage from './pages/ServicesPage'
-import { Routes, Route } from "react-router-dom";
-import './App.css'
-
+import { Routes, Route, useLocation } from "react-router-dom";
+import HomeHeader from "./components/HomeHeader";
+import ServicesHeader from "./components/ServicesHeader";
+import Footer from "./components/Footer";
+import HomePage from "./pages/HomePage";
+import ServicesPage from "./pages/ServicesPage";
+import PortfolioPage from "./pages/PortfolioPage";
+import ContactPage from "./pages/ContactPage";
+import "./App.css";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const location = useLocation();
 
   return (
     <>
-    <Header />
-    <HomePage />
-    {/* <Routes>
+      {location.pathname === "/" ? <HomeHeader /> : <ServicesHeader />}
+
+      <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/services" element={<ServicesPage />} />
         <Route path="/services/:service1" element={<ServicesPage />} />
-      </Routes> */}
+        <Route path="/portfolio" element={<PortfolioPage />} />
+        <Route path="/contact" element={<ContactPage />} />
+      </Routes>
+
       <Footer />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
