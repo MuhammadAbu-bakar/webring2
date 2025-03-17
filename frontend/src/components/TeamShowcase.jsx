@@ -1,4 +1,4 @@
-import { Box, Text, VStack, Flex, Image } from "@chakra-ui/react";
+import { Box, Text, VStack, Grid, Image } from "@chakra-ui/react";
 
 const teamMembers = [
   { name: "Member 1", image: "/member1.png" },
@@ -37,12 +37,11 @@ const TeamShowcase = () => {
         </Text>
       </VStack>
 
-      {/* Image Grid */}
-      <Flex
+      {/* Image Grid (Fixed 4 Images in One Row on Desktop) */}
+      <Grid
         w="100%"
         maxW="1723px"
-        flexWrap="wrap"
-        align="center"
+        templateColumns={{ base: "1fr", md: "repeat(2, 1fr)", lg: "repeat(4, 1fr)" }} // Forces 4 images in one row on large screens
         gap="20px"
       >
         {teamMembers.map((member, index) => (
@@ -50,12 +49,12 @@ const TeamShowcase = () => {
             key={index}
             src={member.image}
             alt={member.name}
-            w={{ base: "100%", md: "calc(50% - 20px)", lg: "377px" }}
+            w="100%"
             h={{ base: "auto", lg: "466px" }}
             objectFit="cover"
           />
         ))}
-      </Flex>
+      </Grid>
     </Box>
   );
 };

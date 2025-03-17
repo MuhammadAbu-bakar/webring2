@@ -1,6 +1,7 @@
-import React from 'react'
+import React from "react";
 import {
-  Container,
+  Grid,
+  GridItem,
   Heading,
   Box,
   Image,
@@ -11,47 +12,47 @@ import {
 } from "@chakra-ui/react";
 import { useState } from "react";
  
- 
 const FloatingLabelInput = () => {
   return (
     <Box>
       <Box
         display="flex"
         flexDirection="row"
-        gap="20px"
+        gap="50px"
         alignItems="center"
-        justifyContent="center"
+        justifyContent="left"
         height="50px"
-        bg="#14140F"
+       
         color="white"
       >
         <FloatingInput label="Full Name*" type="text" id="name" />
         <FloatingInput label="Email Address*" type="email" id="email" />
       </Box>
-      <Box  
+      <Box
         alignItems="center"
         justifyContent="center"
-        marginTop={"15px"}
+        marginTop={{base: "10px", sm: "5px", md: "7px", lg: "10px", xl: "15px" }}
         height="50px"
-        bg="#14140F"
+       
         color="white"
         width="100%"
       >
-        <FloatingInput label="Website Link*" type="url" id="website" width="100%" />
+        <FloatingInput
+          label="Website Link*"
+          type="url"
+          id="website"
+          width="100%"
+        />
       </Box>
       <Box
         alignItems="center"
         justifyContent="center"
-        marginTop={"25px"}
-        bg="#14140F"
+        marginTop={{base: "10px", sm: "14px", md: "16px", lg: "19px", xl: "25px" }}
         color="white"
         width={"100%"}
       >
-       
         <FloatingTextarea label="How Can We Help You*" id="message" />
       </Box>
-     
-     
     </Box>
   );
 };
@@ -61,7 +62,7 @@ const FloatingInput = ({ label, type, id, width }) => {
   const [value, setValue] = useState("");
  
   return (
-    <Box position="relative" width={width || "300px"} mb={4}>
+    <Box position="relative" width={width || "100%"} mb={4}>
       <Input
         type={type}
         id={id}
@@ -72,6 +73,7 @@ const FloatingInput = ({ label, type, id, width }) => {
         bg="transparent"
         border="none"
         borderBottom="2px solid white"
+        borderRadius={"none"}
         color="white"
         fontSize="16px"
         py={2}
@@ -109,6 +111,7 @@ const FloatingTextarea = ({ label, id }) => {
         bg="transparent"
         border="none"
         borderBottom="2px solid white"
+        borderRadius={"none"}
         color="white"
         fontSize="16px"
         py={2}
@@ -136,7 +139,8 @@ const contactCards = [
   {
     id: 1,
     title: "Headquarters",
-    description: "65-Z Block, Phase 3, DHA, Lahore, Lahore, Pakistan, Punjab 54810, PK",
+    description:
+      "65-Z Block, Phase 3, DHA, Lahore, Lahore, Pakistan, Punjab 54810, PK",
     image: "/map.png",
   },
   {
@@ -156,57 +160,155 @@ const contactCards = [
 function Contect() {
   return (
     <Box width={"100%"} padding={0} margin={0}>
-        <Image src="/Background.png" width="100%" height="543px" objectFit="cover" />
-          {/* Cards */}
-          <Box width="100%" padding="100px">
-              <Container maxW="1920px" display="flex" flexWrap="wrap" justifyContent="center" gap="24px">
-                {contactCards.map((card) => (
-                  <Box
-                    key={card.id}
-                    width={{ base: "100%", md: "407px" }}
-                    height="347px"
-                    bgColor="#F8F8F6"
-                    borderRadius="xl"
-                    position="relative"
-                    p={4}
-                   
-                  >
-                    <Image src={card.image} width="36px" height="40px" mt="40px" ml={"35px"}/>
-                    <Heading fontSize="32px" mt="50px" ml={"35px"} >{card.title}</Heading>
-                    <Text fontSize="16px" fontWeight="normal"  mt="65px" ml={"35px"}>{card.description}</Text>
-                  </Box>
-                ))}
-              </Container>
-            </Box>
-   
-          {/* Form Box */}
-          <Box width="100%" height="989px" position="absolute" gap={10}>
-            <Image src="/Rectangle 39.png" width="50%" height="891px" zIndex={1} position="absolute" />
-   
-            <Box width="100%" height="842px" position="absolute" top="147px"  display="flex" bgColor="#14140F" justifyContent="end" alignItems="center">
-              <Box top={"110px"}  position="absolute" zIndex={2} width="650px" height="659px">
-                <Box width={"606px"} height={"184px"} gap={"29px"} padding={"0"} margin={"0"}>  
-                  <Heading  color="white" fontSize="64px" width={"500px"} marginBottom={"25px"} lineHeight={"73px"}>Have Any Project on Your Mind?</Heading>
-                  <Text color="white" fontSize="16px" fontWeight="normal" >
-                    Great! We're excited to hear from you and let's start something
+      {/* Header Section */}
+          <Box position="relative" width="100%">
+            {/* Background Image */}
+            <Image
+              src="/portfolioBanner.png"
+              width="100%"
+              height={{ base: "300px", md: "330px", lg: "470px" }}
+              objectFit="cover"
+            />
+ 
+            {/* Color Overlay */}
+            <Box
+              position="absolute"
+              top="0"
+              left="0"
+              width="100%"
+              height="100%"
+              
+            />
+ 
+            {/* Heading */}
+            <Heading
+              textAlign="center"
+              zIndex="1"
+              position="absolute"
+              top="50%"
+              left="50%"
+              transform="translate(-50%, -50%)"
+              fontSize={{ base: "32px", md: "44px", lg: "56px" }}
+              fontWeight="bold"
+              color="white"
+            >
+              Contact
+            </Heading>
+          </Box>
+ 
+ 
+ 
+      {/* Cards Section */}
+      <Box width="100%" px={{ base: "20px", sm: "40px", md: "60px", lg: "80px", xl: "100px" }} mb="10%" mt={"5%"}>
+        <Box maxW="1920px" mx="auto">
+          {/* Responsive Grid Layout */}
+          <Grid
+            templateColumns={{ base: "1fr", sm: "repeat(2, 1fr)", lg: "repeat(3, 1fr)" }}
+            gap={6} // Adds spacing between cards
+            justifyContent="center"
+            alignItems="center"
+            mt="20px"
+            mb="20px"
+          >
+            {contactCards.map((card) => (
+              <GridItem key={card.id}>
+                <Box
+                  width="100%"
+                  maxW={{ base: "100%", sm: "310px", lg: "400px", xl: "520px" }}
+                  height={{ base: "auto", sm: "210px", lg: "250px", xl: "300px" }}
+                  bgColor="#F8F8F6"
+                  borderRadius="xl"
+                  p={10}
+                  gap={10}
+                  textAlign="left"
+                >
+                  <Image
+                    src={card.image}
+                    width={{ base: "28px", sm: "36px", lg: "32px" }}
+                    height={{ base: "32px", sm: "40px", lg: "36px" }}
+                    mb={5}
+                  />
+                  <Heading fontSize={{ base: "20px", sm: "22px", lg: "24px", xl: "30px" }} mt={"20px"} fontWeight="bold">
+                    {card.title}
+                  </Heading>
+                  <Text fontSize={{ base: "14px", sm: "15px", lg: "16px", xl: "20px" }} mt={"30px"} fontWeight="normal" >
+                    {card.description}
                   </Text>
                 </Box>
-   
-                {/* Contact Form */}
-                <Box width={"100%"} gap="40px" marginY="70px">
-                 
-                  <FloatingLabelInput />
-   
-                  <Button width="194px" height="56px" marginTop={"20px"} bgColor="#FED904" borderRadius={"5px"} color="#14140F" fontSize="20px">
-                    Send Message
-                  </Button>
-                   
-                </Box>
-              </Box>
+              </GridItem>
+            ))}
+          </Grid>
+        </Box>
+      </Box>
+ 
+ 
+      {/* Form Box */}
+      <Box width="100%" display={"flex"} bgColor="#14140F">
+        <Box width={{base: "0", sm: "0", md: "0", lg: "45%", xl: "45%" }} >
+          <Image
+            src="/Rectangle 39.png"
+            width={{base: "0", lg: "45%", xl: "45%"}}
+            height={{base: "0", lg: "620px"}}
+            marginTop={{base: "0", md: "-25px", lg: "-50px", xl: "-70px" }}
+            position="absolute"
+          />
+        </Box>
+ 
+        <Box
+          width={{base: "100%", sm: "100%", md: "100%", lg: "55%", xl: "55%" }}
+          display="flex"
+          bgColor="#14140F"
+          justifyContent={{base: "center", sm: "center", md: "center", lg: "end", xl: "end" }}
+          alignItems="center"
+        >
+          <Box
+            width="80%"
+            marginRight="60px"
+            marginTop={"40px"}
+          >
+            <Box
+              width={"100%"}
+              gap={{ sm: "12px", md: "5px", lg: "20px", xl: "29px" }}
+            >
+              <Heading
+                color="white"
+                fontSize={{base: "32px", sm: "30px", md: "30px", lg: "43px" }}
+                marginBottom={{base: "12px", sm: "18px", md: "10px", lg: "20px" }}
+                lineHeight={{ sm: "30px", md: "45px", lg: "55px" }}
+              >
+                Have Any Project on Your Mind?
+              </Heading>
+              <Text color="white" fontSize="16px" fontWeight="normal">
+                Great! We're excited to hear from you and let's start something
+              </Text>
+            </Box>
+ 
+            {/* Contact Form */}
+            <Box
+              width="100%"
+              gap={{base: "10px", sm: "10px", md: "20px", lg: "30px", xl: "40px" }}
+              marginY={{base: "25px", sm: "15px", md: "", lg: "25px" }}
+            >
+              <FloatingLabelInput />
+ 
+              <Button
+                width="184px"
+                height="56px"
+                marginTop={{ sm: "4px", md: "8px", lg: "10px" }}
+                bgColor="#FED904"
+                borderRadius={"5px"}
+                color="#14140F"
+                fontSize="20px"
+              >
+                Send Message
+              </Button>
             </Box>
           </Box>
         </Box>
-  )
+ 
+      </Box>
+    </Box>
+  );
 }
  
-export default Contect
+export default Contect;
