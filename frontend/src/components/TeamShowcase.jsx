@@ -41,18 +41,47 @@ const TeamShowcase = () => {
       <Grid
         w="100%"
         maxW="1723px"
-        templateColumns={{ base: "1fr", md: "repeat(2, 1fr)", lg: "repeat(4, 1fr)" }} // Forces 4 images in one row on large screens
+        templateColumns={{ base: "1fr", md: "repeat(2, 1fr)", lg: "repeat(4, 1fr)" }}
         gap="20px"
       >
         {teamMembers.map((member, index) => (
-          <Image
+          <Box
             key={index}
-            src={member.image}
-            alt={member.name}
-            w="100%"
-            h={{ base: "auto", lg: "466px" }}
-            objectFit="cover"
-          />
+            position="relative"
+            overflow="hidden"
+            _hover={{ cursor: "pointer" }}
+          >
+            <Image
+              src={member.image}
+              alt={member.name}
+              w="100%"
+              h={{ base: "auto", lg: "466px" }}
+              objectFit="cover"
+              filter="grayscale(100%)"
+              transition="filter 0.3s ease"
+              _hover={{ filter: "grayscale(0%)" }}
+            />
+            {/* Overlay for Name */}
+            <Box
+              position="absolute"
+              bottom="0"
+              left="0"
+              w="100%"
+              bg="rgba(0, 0, 0, 0.7)"
+              color="white"
+              display="flex"
+              justifyContent="center"
+              alignItems="center"
+              opacity="0" // Hidden by default
+              h="60px" // Fixed height for the name
+              transition="opacity 0.3s ease" // Fade in/out animation
+              _hover={{ opacity: "1" }} // Visible on hover
+            >
+              <Text fontSize="20px" fontWeight="700" textAlign="center">
+                {member.name}
+              </Text>
+            </Box>
+          </Box>
         ))}
       </Grid>
     </Box>

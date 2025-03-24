@@ -24,12 +24,6 @@ const ServicesPage=()=>{
           <HeroBanner2 />
           <Skills2 />
         </>
-        
-
-
-
-
-          
 
     );
         

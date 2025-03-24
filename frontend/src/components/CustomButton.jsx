@@ -1,9 +1,10 @@
 import { Button } from "@chakra-ui/react";
-
-const CustomButton = ({ text, onClick, width = "175px", height = "56px" }) => {
+ 
+const CustomButton = ({ text, onClick,  }) => {
   return (
     <Button
       bg="#FED904"
+      display={{ base: "none", md: "none", lg: "none", xl: "flex" }}
       color="#26241C"
       fontFamily="Poppins"
       fontWeight="500"
@@ -19,5 +20,5 @@ const CustomButton = ({ text, onClick, width = "175px", height = "56px" }) => {
     </Button>
   );
 };
-
+ 
 export default CustomButton;

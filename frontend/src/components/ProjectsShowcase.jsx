@@ -1,5 +1,10 @@
 import { Box, Text, VStack, HStack, Image, Flex } from "@chakra-ui/react";
 import { FaCheckCircle } from "react-icons/fa";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { FreeMode, Scrollbar, Mousewheel } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/free-mode";
+import "swiper/css/scrollbar";
 
 const projects = [
   { title: "App Development", image: "/app.png" },
@@ -58,44 +63,55 @@ const ProjectShowcase = () => {
         </VStack>
 
         {/* Slider Section */}
-        <Box flex="1" overflowX={{ base: "auto", lg: "hidden" }} py="10px" ml={{ base: "0", lg: "50px" }} maxW="100%">
-          <HStack spacing="20px" minW="fit-content" overflowX={{ base: "auto", lg: "visible" }} px={{ base: "10px", lg: "0" }}>
-            {projects.map((project, index) => (
-              <Box
-                key={index}
-                w={{ base: "250px", md: "300px", lg: "346px" }}
-                h={{ base: "450px", md: "500px", lg: "595px" }}
-                bg="#000"
-                borderRadius="10px"
-                position="relative"
-                flexShrink="0"
+        <Box flex="1" overflowX="hidden" py="10px" ml={{ base: "0", lg: "50px" }} maxW="100%">
+      <Swiper
+        spaceBetween={20}
+        slidesPerView="auto"
+        freeMode={true}
+        scrollbar={{ draggable: true }}
+        mousewheel={{ forceToAxis: true }}
+        modules={[FreeMode, Scrollbar, Mousewheel]}
+        style={{ padding: "10px" }}
+      >
+        {projects.map((project, index) => (
+          <SwiperSlide key={index} style={{ width: "auto" }}>
+            <Box
+              w={{ base: "250px", md: "300px", lg: "346px" }}
+              h={{ base: "450px", md: "500px", lg: "595px" }}
+              bg="#000"
+              borderRadius="10px"
+              position="relative"
+              flexShrink="0"
+            >
+              <Text
+                fontSize={{ base: "24px", md: "30px", lg: "38px" }}
+                fontWeight="500"
+                color="#FFFFFF"
+                position="absolute"
+                top="34.7px"
+                left="25px"
+                w="80%"
               >
-                <Text
-                  fontSize={{ base: "24px", md: "30px", lg: "38px" }}
-                  fontWeight="500"
-                  color="#FFFFFF"
-                  position="absolute"
-                  top="34.7px"
-                  left="25px"
-                  w="80%"
-                >
-                  {project.title}
-                </Text>
-                <Image
-                  src={project.image}
-                  alt={project.title}
-                  w="90%"
-                  h="auto"
-                  position="absolute"
-                  top="50%"
-                  left="50%"
-                  transform="translate(-50%, -50%)"
-                  objectFit="contain"
-                />
-              </Box>
-            ))}
-          </HStack>
-        </Box>
+                {project.title}
+              </Text>
+              <img
+                src={project.image}
+                alt={project.title}
+                style={{
+                  width: "90%",
+                  height: "auto",
+                  position: "absolute",
+                  top: "50%",
+                  left: "50%",
+                  transform: "translate(-50%, -50%)",
+                  objectFit: "contain",
+                }}
+              />
+            </Box>
+          </SwiperSlide>
+        ))}
+      </Swiper>
+    </Box>
       </Flex>
     </Box>
   );

@@ -87,8 +87,18 @@ const TechLogosSection = () => {
               <Image
                 src={logo.src}
                 alt={logo.name}
-                w={logo.name === "Amazon" ? { base: "150px", md: "220px" } : { base: "100px", md: "134px" }}
-                h={logo.name === "Amazon" ? { base: "40px", md: "65px" } : { base: "70px", md: "92px" }}
+                w={
+                  logo.name === "Amazon" 
+                    ? { base: "155px", md: "225px" } 
+                    : { base: "105px", md: "140px" }
+                }
+                h={
+                  logo.name === "React" 
+                    ? { base: "100px", md: "120px" } // Increased height for React
+                    : logo.name === "Amazon" 
+                    ? { base: "60px", md: "70px" } 
+                    : { base: "80px", md: "95px" }
+                }
               />
               <Text fontSize={{ base: "14px", md: "18px" }} fontWeight="500" pt={{ base: 4, md: 8 }}>
                 {logo.name}

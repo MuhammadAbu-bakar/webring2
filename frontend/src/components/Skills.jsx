@@ -15,7 +15,7 @@ const skills = [
 const SkillCard = ({ image, title, description }) => (
   <Box bg="#F8F8F6" borderRadius="15px" p="50px" w="100%" maxW={{ base: "100%", md: "554px" }} h="390px">
     <VStack align="flex-start" spacing="25px">
-      <Image src={image} alt={title} w="69px" h="69px" />
+      <Image src={image} alt={title} w="25%" h="25%" />
       <Text fontSize="30px" fontWeight="700" color="#26241C">{title}</Text>
       <Text fontSize={{ base: "18px", md: "24px" }} fontWeight="400" lineHeight="28.8px" color="#26241C">{description}</Text>
     </VStack>
