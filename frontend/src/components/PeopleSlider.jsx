@@ -9,21 +9,24 @@ const testimonials = [
     subtext: "Webring’s Premier Web Development Services are Here to Help You Unlock Web Excellence. Together, let's work on more projects!",
     name: "Daniyal Sultan",
     position: "Founder & CEO",
-    image: "/CEOdp.png"
+    image: "/CEOdp.png",
+    linkedin: "https://www.linkedin.com/in/daniyal-sultan/"
   },
   {
     text: "Advancing Digital Innovation: The Strategic Vision of Your Web Development Firm with Our CTO",
     subtext: "Advancing Your Digital Path: Investigate Cutting-Edge Web Solutions with Our CTO's Strategic Perspective at Your Web Development Company",
     name: "Adil Waqar",
     position: "CTO",
-    image: "/adilll.png"
+    image: "/adilll.png",
+    linkedin: "https://www.linkedin.com/in/muhammad-adil-waqar/"
   },
   {
     text: "Managing Projects for Success as Your Web Development Project Manager: Navigating Digital Excellence",
     subtext: "Guiding Web Development Success: Taking Charge of Projects and Getting Them Done Right as Your Committed Project Manager",
     name: "Muhammad Ibrahim",
     position: "Director",
-    image: "/.png"
+    image: "/.png",
+    linkedin: "https://www.linkedin.com/in/syed490/"
   }
 ];
 
@@ -42,7 +45,20 @@ const TestimonialSlider = () => {
     <Box maxW="1920px" mx="auto" py="50px" px={{ base: "20px", lg: "100px" }}>
       <Flex justify="center" align="center" wrap="nowrap" gap={5}>
         {/* Left Arrow */}
-        <Box w="38px" h="38px" bg="#FED904" borderRadius="50px" display="flex" alignItems="center" justifyContent="center" cursor="pointer" onClick={prevSlide}>
+        <Box 
+          w="38px" 
+          h="38px" 
+          minW="38px" 
+          minH="38px"
+          bg="#FED904" 
+          borderRadius="50px" 
+          display="flex" 
+          alignItems="center" 
+          justifyContent="center" 
+          cursor="pointer" 
+          onClick={prevSlide}
+          flexShrink={0}
+        >
           <FontAwesomeIcon icon={faArrowLeft} color="#000" />
         </Box>
 
@@ -59,7 +75,18 @@ const TestimonialSlider = () => {
             textAlign={{ base: "center", lg: "left" }}
           >
             <Flex align="center" justify="space-between" direction={{ base: "column", lg: "row" }}>
-              <Button bg="#FED904" color="#F8F8F6" borderRadius="10px" px={6} py={2}>
+              <Button
+                as="a"
+                href={testimonials[index].linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                bg="#FED904"
+                color="#F8F8F6"
+                borderRadius="10px"
+                px={6}
+                py={2}
+                _hover={{ bg: "#E6C400" }}
+              >
                 LinkedIn
               </Button>
             </Flex>
@@ -88,7 +115,20 @@ const TestimonialSlider = () => {
         </Box>
 
         {/* Right Arrow */}
-        <Box w="38px" h="38px" bg="#FED904" borderRadius="50px" display="flex" alignItems="center" justifyContent="center" cursor="pointer" onClick={nextSlide}>
+        <Box 
+          w="38px" 
+          h="38px" 
+          minW="38px" 
+          minH="38px"
+          bg="#FED904" 
+          borderRadius="50px" 
+          display="flex" 
+          alignItems="center" 
+          justifyContent="center" 
+          cursor="pointer" 
+          onClick={nextSlide}
+          flexShrink={0}
+        >
           <FontAwesomeIcon icon={faArrowRight} color="#000" />
         </Box>
       </Flex>

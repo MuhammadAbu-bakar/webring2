@@ -11,10 +11,90 @@ import {
   Button,
 } from "@chakra-ui/react";
 import { useState } from "react";
- 
+import Swal from 'sweetalert2'
+
 const FloatingLabelInput = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    website: "",
+    message: ""
+  });
+  const [errors, setErrors] = useState({});
+  const [isSubmitted, setIsSubmitted] = useState(false);
+
+  const validateForm = () => {
+    let tempErrors = {};
+    if (!formData.name.trim()) tempErrors.name = "Full Name is required";
+    if (!formData.email.trim()) {
+      tempErrors.email = "Email is required";
+    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+      tempErrors.email = "Email is invalid";
+    }
+    if (!formData.website.trim()) {
+      tempErrors.website = "Website Link is required";
+    } else if (!/^(https?:\/\/)?([\w-]+\.)+[\w-]+(\/[\w-./?%&=]*)?$/.test(formData.website)) {
+      tempErrors.website = "Please enter a valid URL";
+    }
+    if (!formData.message.trim()) tempErrors.message = "Message is required";
+    
+    setErrors(tempErrors);
+    return Object.keys(tempErrors).length === 0;
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    
+    if (validateForm()) {
+      try {
+        const response = await fetch("https://api.web3forms.com/submit", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json"
+          },
+          body: JSON.stringify({
+            access_key: "aa109a66-539c-411d-8c45-a9867966cb45",
+            name: formData.name,
+            email: formData.email,
+            website: formData.website,
+            message: formData.message,
+            bcc:["adil@asture.co","adil@webring.ltd"]
+          })
+        });
+
+        const result = await response.json();
+        
+        if (result.success) {
+          console.log("Success", result);
+          setIsSubmitted(true);
+          setFormData({ name: "", email: "", website: "", message: "" }); // Reset form
+          Swal.fire({
+            title: "Success!",
+            text: "Message sent successfully!",
+            icon: "success"
+          });
+        } else {
+          console.error("Submission failed", result);
+          setErrors({ submit: "Failed to send message. Please try again." });
+        }
+      } catch (error) {
+        console.error("Error:", error);
+        setErrors({ submit: "An error occurred. Please try again." });
+      }
+    }
+  };
+
+  const handleChange = (field) => (value) => {
+    setFormData({ ...formData, [field]: value });
+    if (errors[field]) {
+      setErrors({ ...errors, [field]: "" });
+    }
+    if (isSubmitted) setIsSubmitted(false);
+  };
+
   return (
-    <Box>
+    <Box as="form" onSubmit={handleSubmit}>
       <Box
         display="flex"
         flexDirection="row"
@@ -22,18 +102,32 @@ const FloatingLabelInput = () => {
         alignItems="center"
         justifyContent="left"
         height="50px"
-       
         color="white"
       >
-        <FloatingInput label="Full Name*" type="text" id="name" />
-        <FloatingInput label="Email Address*" type="email" id="email" />
+        <FloatingInput 
+          label="Full Name*" 
+          type="text" 
+          id="name" 
+          required 
+          value={formData.name}
+          onChange={handleChange("name")}
+          error={errors.name}
+        />
+        <FloatingInput 
+          label="Email Address*" 
+          type="email" 
+          id="email" 
+          required 
+          value={formData.email}
+          onChange={handleChange("email")}
+          error={errors.email}
+        />
       </Box>
       <Box
         alignItems="center"
         justifyContent="center"
         marginTop={{base: "10px", sm: "5px", md: "7px", lg: "10px", xl: "15px" }}
         height="50px"
-       
         color="white"
         width="100%"
       >
@@ -42,6 +136,9 @@ const FloatingLabelInput = () => {
           type="url"
           id="website"
           width="100%"
+          value={formData.website}
+          onChange={handleChange("website")}
+          error={errors.website}
         />
       </Box>
       <Box
@@ -51,23 +148,42 @@ const FloatingLabelInput = () => {
         color="white"
         width={"100%"}
       >
-        <FloatingTextarea label="How Can We Help You*" id="message" />
+        <FloatingTextarea 
+          label="How Can We Help You*" 
+          id="message" 
+          value={formData.message}
+          onChange={handleChange("message")}
+          error={errors.message}
+        />
       </Box>
+      <Button
+        width="184px"
+        height="56px"
+        marginTop={{ sm: "4px", md: "8px", lg: "10px" }}
+        bgColor="#FED904"
+        borderRadius={"5px"}
+        color="#14140F"
+        fontSize="20px"
+        type="submit"
+        isLoading={isSubmitted && !errors.submit}
+      >
+        Send Message
+      </Button>
+      
     </Box>
   );
 };
- 
-const FloatingInput = ({ label, type, id, width }) => {
+
+const FloatingInput = ({ label, type, id, width, value, onChange, error }) => {
   const [isFocused, setIsFocused] = useState(false);
-  const [value, setValue] = useState("");
- 
+
   return (
     <Box position="relative" width={width || "100%"} mb={4}>
       <Input
         type={type}
         id={id}
         value={value}
-        onChange={(e) => setValue(e.target.value)}
+        onChange={(e) => onChange(e.target.value)}
         onFocus={() => setIsFocused(true)}
         onBlur={() => setIsFocused(value !== "")}
         bg="transparent"
@@ -92,20 +208,24 @@ const FloatingInput = ({ label, type, id, width }) => {
       >
         {label}
       </Box>
+      {error && (
+        <Text color="red.300" fontSize="12px" mt={1}>
+          {error}
+        </Text>
+      )}
     </Box>
   );
 };
- 
-const FloatingTextarea = ({ label, id }) => {
+
+const FloatingTextarea = ({ label, id, value, onChange, error }) => {
   const [isFocused, setIsFocused] = useState(false);
-  const [value, setValue] = useState("");
- 
+
   return (
     <Box position="relative" width="100%" mb={4}>
       <Textarea
         id={id}
         value={value}
-        onChange={(e) => setValue(e.target.value)}
+        onChange={(e) => onChange(e.target.value)}
         onFocus={() => setIsFocused(true)}
         onBlur={() => setIsFocused(value !== "")}
         bg="transparent"
@@ -131,10 +251,15 @@ const FloatingTextarea = ({ label, id }) => {
       >
         {label}
       </Box>
+      {error && (
+        <Text color="red.300" fontSize="12px" mt={1}>
+          {error}
+        </Text>
+      )}
     </Box>
   );
 };
- 
+
 const contactCards = [
   {
     id: 1,
@@ -156,55 +281,46 @@ const contactCards = [
     image: "/phone.png",
   },
 ];
- 
+
 function Contect() {
   return (
     <Box width={"100%"} padding={0} margin={0}>
       {/* Header Section */}
-          <Box position="relative" width="100%">
-            {/* Background Image */}
-            <Image
-              src="/portfolioBanner.png"
-              width="100%"
-              height={{ base: "300px", md: "330px", lg: "470px" }}
-              objectFit="cover"
-            />
- 
-            {/* Color Overlay */}
-            <Box
-              position="absolute"
-              top="0"
-              left="0"
-              width="100%"
-              height="100%"
-              
-            />
- 
-            {/* Heading */}
-            <Heading
-              textAlign="center"
-              zIndex="1"
-              position="absolute"
-              top="50%"
-              left="50%"
-              transform="translate(-50%, -50%)"
-              fontSize={{ base: "32px", md: "44px", lg: "56px" }}
-              fontWeight="bold"
-              color="white"
-            >
-              Contact
-            </Heading>
-          </Box>
- 
- 
- 
+      <Box position="relative" width="100%">
+        <Image
+          src="/portfolioBanner.png"
+          width="100%"
+          height={{ base: "300px", md: "330px", lg: "470px" }}
+          objectFit="cover"
+        />
+        <Box
+          position="absolute"
+          top="0"
+          left="0"
+          width="100%"
+          height="100%"
+        />
+        <Heading
+          textAlign="center"
+          zIndex="1"
+          position="absolute"
+          top="50%"
+          left="50%"
+          transform="translate(-50%, -50%)"
+          fontSize={{ base: "32px", md: "44px", lg: "56px" }}
+          fontWeight="bold"
+          color="white"
+        >
+          Contact
+        </Heading>
+      </Box>
+
       {/* Cards Section */}
       <Box width="100%" px={{ base: "20px", sm: "40px", md: "60px", lg: "80px", xl: "100px" }} mb="10%" mt={"5%"}>
         <Box maxW="1920px" mx="auto">
-          {/* Responsive Grid Layout */}
           <Grid
             templateColumns={{ base: "1fr", sm: "repeat(2, 1fr)", lg: "repeat(3, 1fr)" }}
-            gap={6} // Adds spacing between cards
+            gap={6}
             justifyContent="center"
             alignItems="center"
             mt="20px"
@@ -240,11 +356,10 @@ function Contect() {
           </Grid>
         </Box>
       </Box>
- 
- 
+
       {/* Form Box */}
       <Box width="100%" display={"flex"} bgColor="#14140F">
-        <Box width={{base: "0", sm: "0", md: "0", lg: "45%", xl: "45%" }} >
+        <Box width={{base: "0", sm: "0", md: "0", lg: "45%", xl: "45%" }}>
           <Image
             src="/Rectangle 39.png"
             width={{base: "0", lg: "45%", xl: "45%"}}
@@ -253,7 +368,7 @@ function Contect() {
             position="absolute"
           />
         </Box>
- 
+
         <Box
           width={{base: "100%", sm: "100%", md: "100%", lg: "55%", xl: "55%" }}
           display="flex"
@@ -282,33 +397,19 @@ function Contect() {
                 Great! We're excited to hear from you and let's start something
               </Text>
             </Box>
- 
-            {/* Contact Form */}
+
             <Box
               width="100%"
               gap={{base: "10px", sm: "10px", md: "20px", lg: "30px", xl: "40px" }}
               marginY={{base: "25px", sm: "15px", md: "", lg: "25px" }}
             >
               <FloatingLabelInput />
- 
-              <Button
-                width="184px"
-                height="56px"
-                marginTop={{ sm: "4px", md: "8px", lg: "10px" }}
-                bgColor="#FED904"
-                borderRadius={"5px"}
-                color="#14140F"
-                fontSize="20px"
-              >
-                Send Message
-              </Button>
             </Box>
           </Box>
         </Box>
- 
       </Box>
     </Box>
   );
 }
- 
+
 export default Contect;

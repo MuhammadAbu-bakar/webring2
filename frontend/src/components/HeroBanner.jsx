@@ -5,7 +5,7 @@ const HeroBanner = () => {
     <Box
       w="100%"
       maxW="1920px"
-      h={{ base: "auto", md: "916px" }}
+      h={{ base: "500px", md: "916px" }} // Increased height on mobile
       position="relative"
       backgroundImage="url('/pic.png')"
       backgroundSize="cover"
@@ -26,7 +26,11 @@ const HeroBanner = () => {
         textAlign={{ base: "center", md: "left" }}
       >
         {/* Text and Button Wrapper */}
-        <VStack align={{ base: "center", md: "start" }} spacing={{ base: "20px", md: "40px" }}>
+        <VStack
+          align={{ base: "center", md: "start" }}
+          spacing={{ base: "20px", md: "40px" }}
+          display={{ base: "none", md: "flex" }} // Hide on mobile, show on desktop
+        >
           {/* Empowerment Text */}
           <Text
             fontFamily="Syne"

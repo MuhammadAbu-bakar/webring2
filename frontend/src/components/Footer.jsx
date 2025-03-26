@@ -21,7 +21,6 @@ const Footer = () => {
           <Text fontSize="18px" fontWeight="400" color="#F8F8F6">
             We offer unparalleled expertise and dedicated<br/> support to drive your business toward<br/> sustained growth and success.
           </Text>
-          {/* Input & Button */}
           <HStack spacing={2} w={{ base: "100%", md: "350px" }} h="46px">
             <Input placeholder="Enter Your Email" bg="gray.800" border="none" _focus={{ bg: "gray.700" }} />
             <Button bg="yellow.400" color="black" _hover={{ bg: "yellow.500" }}>
@@ -41,8 +40,7 @@ const Footer = () => {
           <Button bg="yellow.400" color="black" _hover={{ bg: "yellow.500" }}>
             Get an appointment now
           </Button>
-          {/* Stats Section */}
-        <HStack spacing={6} mt={4} align="center">
+          <HStack spacing={6} mt={4} align="center">
             <VStack color="#F8F8F6">
               <Text fontWeight="bold">2 Mins</Text>
               <Text fontSize="xs">Response Time</Text>
@@ -59,8 +57,6 @@ const Footer = () => {
         </VStack>
       </Flex>
 
-        
-
       {/* Services, Company & Contact Info Section */}
       <Flex
         wrap="wrap"
@@ -74,28 +70,90 @@ const Footer = () => {
       >
         {/* Services Section */}
         <Box w={{ base: "100%", md: "404px" }} mb={6}>
-          <VStack align="start" color="#F8F8F6">
-            <Text fontWeight="800">Services</Text>
-            <Link color="white">Web Development</Link>
-            <Link color="white">App Development</Link>
-            <Link color="white">Game Development</Link>
-            <Link color="white">Graphic Designing</Link>
-            <Link color="white">Social Media Marketing</Link>
-            <Link color="white">Content Writing</Link>
-          </VStack>
+          <Text fontWeight="800" color="#F8F8F6" mb={2}>Services</Text>
+          <Flex direction={{ base: "column", md: "row" }} gap={{ base: 0, md: 10 }}>
+            {/* Single column for mobile */}
+            <VStack
+              align="start"
+              color="#F8F8F6"
+              spacing={4}
+              display={{ base: "flex", md: "none" }}
+            >
+              <Link color="white">Web Development</Link>
+              <Link color="white">App Development</Link>
+              <Link color="white">Game Development</Link>
+              <Link color="white">Graphic Designing</Link>
+              <Link color="white">Social Media Marketing</Link>
+              <Link color="white">Content Writing</Link>
+            </VStack>
+            {/* Two columns for desktop */}
+            <VStack
+              align="start"
+              color="#F8F8F6"
+              spacing={4}
+              display={{ base: "none", md: "flex" }}
+              w="50%"
+            >
+              <Link color="white">Web Development</Link>
+              <Link color="white">App Development</Link>
+              <Link color="white">Game Development</Link>
+            </VStack>
+            <VStack
+              align="start"
+              color="#F8F8F6"
+              spacing={4}
+              display={{ base: "none", md: "flex" }}
+              w="50%"
+            >
+              <Link color="white">Graphic Designing</Link>
+              <Link color="white">Social Media Marketing</Link>
+              <Link color="white">Content Writing</Link>
+            </VStack>
+          </Flex>
         </Box>
 
         {/* Company Section */}
         <Box w={{ base: "100%", md: "227px" }} mb={6}>
-          <VStack align="start">
-            <Text fontWeight="800" color="#F8F8F6">Company</Text>
-            <Link color="white">About Us</Link>
-            <Link color="white">Contact Us</Link>
-            <Link color="white">Services</Link>
-            <Link color="white">Blog</Link>
-            <Link color="white">Team</Link>
-            <Link color="white">Partners</Link>
-          </VStack>
+          <Text fontWeight="800" color="#F8F8F6" mb={2}>Company</Text>
+          <Flex direction={{ base: "column", md: "row" }} gap={{ base: 0, md: 8 }}>
+            {/* Single column for mobile */}
+            <VStack
+              align="start"
+              color="#F8F8F6"
+              spacing={4}
+              display={{ base: "flex", md: "none" }}
+            >
+              <Link color="white">About Us</Link>
+              <Link color="white">Contact Us</Link>
+              <Link color="white">Services</Link>
+              <Link color="white">Blog</Link>
+              <Link color="white">Team</Link>
+              <Link color="white">Partners</Link>
+            </VStack>
+            {/* Two columns for desktop */}
+            <VStack
+              align="start"
+              color="#F8F8F6"
+              spacing={4}
+              display={{ base: "none", md: "flex" }}
+              w="50%"
+            >
+              <Link color="white">About Us</Link>
+              <Link color="white">Contact Us</Link>
+              <Link color="white">Services</Link>
+            </VStack>
+            <VStack
+              align="start"
+              color="#F8F8F6"
+              spacing={4}
+              display={{ base: "none", md: "flex" }}
+              w="50%"
+            >
+              <Link color="white">Blog</Link>
+              <Link color="white">Team</Link>
+              <Link color="white">Partners</Link>
+            </VStack>
+          </Flex>
         </Box>
 
         {/* Contact Info Section */}
@@ -108,7 +166,7 @@ const Footer = () => {
       </Flex>
 
       {/* Copyright */}
-      <Text fontSize="xs" textAlign="center" mt={10} color="#F8F8F6">
+      <Text fontSize="16px" textAlign={{base:"center",md:"end"}} mt={10} color="#9A9579">
         © 2024 All rights reserved by Webring.ltd
       </Text>
     </Box>
