@@ -456,70 +456,114 @@ const Header = () => {
     ),
   });
 
+
+  //navbar
   return (
-    <Box as="header" bg="white" px={{ base: "20px", md: "50px", lg: "100px" }} py="20px" width="100%" height="auto">
-      <Flex direction={{ base: "row", md: "row" }} justify="space-between" align="center">
-        {/* Logo */}
-        <Image src="/webring.png" alt="Webring Logo" width={{ base: "90px", md: "100px" }} height="auto" />
-
-        {/* Navigation Links */}
-        <HStack
-          display={{ base: "none", md: "none", lg: "flex" }}
-          mt={"10px"}
-          spacing={{ base: "20px", md: "30px" }}
+    <Box
+      as="header"
+      bg="white"
+      px={{ base: "20px", md: "50px", lg: "100px" }}
+      width="100%"
+      height="80px"
+      mb="13px"
+    >
+      <Flex
+        direction={{ base: "row", md: "row" }}
+        justify="space-between" // Keep logo on left, everything else on right
+        align="center"
+        height="100%"
+      >
+        {/* Logo (Left Side) */}
+        <Image
+          src="/webring.png"
+          alt="Webring Logo"
+          width={{ base: "90px", md: "100px" }}
           height="auto"
-          gap={{ base: "20px", md: "20px", lg: "27px" }}
+        />
+
+        {/* Right Section (Nav Links + Contact Us Button) */}
+        <HStack
+          spacing={{ base: "20px", md: "30px" }}
+          align="center"
+          justify="flex-end" // Aligns content to the right
         >
-          {["Home", "About", "Services", "Industries", "Technologies", "Insights", "Portfolio", "Blog"].map((item) => (
-            <Box
-              key={item}
-              position="relative"
-              onMouseEnter={() => handleDropdownOpen(item)}
-              onMouseLeave={() => handleDropdownClose(item)}
-              cursor="pointer"
-            >
-              <HStack spacing="4px">
-                <Text
-                  fontFamily="DM Sans"
-                  fontWeight="500"
-                  fontSize={{ base: "18px", lg: "20px" }}
-                  lineHeight="100%"
-                  color="#26241C"
-                  cursor="pointer"
-                  onClick={() => handleNavigation(item)}
-                >
-                  {item}
-                </Text>
-                {(item === "About" || item === "Services") && <FontAwesomeIcon icon={faCaretDown} />}
-              </HStack>
+          {/* Navigation Links */}
+          <HStack
+            display={{ base: "none", md: "none", lg: "flex" }}
+            spacing={{ base: "20px", md: "30px" }}
+            gap={{ base: "20px", md: "20px", lg: "27px" }}
+          >
+            {[
+              "Home",
+              "About",
+              "Services",
+              "Industries",
+              "Technologies",
+              "Insights",
+              "Portfolio",
+              "Blog",
+            ].map((item) => (
+              <Box
+                key={item}
+                position="relative"
+                onMouseEnter={() => handleDropdownOpen(item)}
+                onMouseLeave={() => handleDropdownClose(item)}
+                cursor="pointer"
+              >
+                <HStack spacing="4px">
+                  <Text
+                    fontFamily="DM Sans"
+                    fontWeight="500"
+                    fontSize={{ base: "18px", lg: "20px" }}
+                    lineHeight="100%"
+                    color="#26241C"
+                    cursor="pointer"
+                    onClick={() => handleNavigation(item)}
+                  >
+                    {item}
+                  </Text>
+                  {(item === "About" || item === "Services") && (
+                    <FontAwesomeIcon icon={faCaretDown} />
+                  )}
+                </HStack>
 
-              {/* Dropdown Menus */}
-              {renderDropdownMenu(item)}
-            </Box>
-          ))}
-        </HStack>
+                {/* Dropdown Menus */}
+                {renderDropdownMenu(item)}
+              </Box>
+            ))}
+          </HStack>
 
-        {/* Right Section (Search, Contact Button, Hamburger Menu) */}
-        <HStack display={{ base: "none", md: "none", lg: "none", xl: "flex" }} spacing="16px" gap={"20px"}>
-          <FontAwesomeIcon icon={faMagnifyingGlass} style={{ width: "24px", height: "24px" }} />
+          {/* Contact Us Button */}
           <Button
-            width={{ base: "90px", md: "120px" }}
-            height="40px"
-            bg="#FFD700"
+            bg="#FED904"
+            display={{ base: "none", md: "none", lg: "none", xl: "flex" }}
             color="#26241C"
-            fontSize="14px"
+            fontFamily="Poppins"
+            fontWeight="500"
+            fontSize="20px"
+            lineHeight="24px"
+            borderRadius="4px"
+            w="175px"
+            h="56px"
+            _hover={{ bg: "yellow.500" }}
+            ml="40px"
             onClick={() => navigate("/contact")}
           >
             Contact Us
           </Button>
-        </HStack>
 
-        {/* Hamburger Menu (Visible on Mobile) */}
-        <Button display={{ base: "block", md: "block", lg: "none" }} bgColor={"white"} onClick={toggleMobileMenu}>
-          {isMobileMenuOpen ? <CloseIcon boxSize={6} /> : <HamburgerIcon boxSize={7} />}
-        </Button>
+          {/* Hamburger Menu (Visible on Mobile) */}
+          <Button
+            display={{ base: "block", md: "block", lg: "none" }}
+            bgColor="white"
+            onClick={toggleMobileMenu}
+          >
+            {isMobileMenuOpen ? <CloseIcon boxSize={6} /> : <HamburgerIcon boxSize={7} />}
+          </Button>
+        </HStack>
       </Flex>
 
+      {/* Mobile Menu */}
       {isMobileMenuOpen && (
         <VStack
           bg="black"
@@ -531,12 +575,21 @@ const Header = () => {
           spacing="10px"
           p="20px"
           zIndex="100"
-          borderRadius="10px" // Adds rounded corners
-          transform={isMobileMenuOpen ? "translateY(0)" : "translateY(-10px)"} // Smooth slide effect
-          transition="transform 0.3s ease-in-out, opacity 0.3s ease-in-out" // Smooth animation
-          opacity={isMobileMenuOpen ? 1 : 0} // Fade-in effect
+          borderRadius="10px"
+          transform={isMobileMenuOpen ? "translateY(0)" : "translateY(-10px)"}
+          transition="transform 0.3s ease-in-out, opacity 0.3s ease-in-out"
+          opacity={isMobileMenuOpen ? 1 : 0}
         >
-          {["Home", "About", "Services", "Industries", "Technologies", "Insights", "Portfolio", "Blog"].map((item) => (
+          {[
+            "Home",
+            "About",
+            "Services",
+            "Industries",
+            "Technologies",
+            "Insights",
+            "Portfolio",
+            "Blog",
+          ].map((item) => (
             <Text
               key={item}
               fontFamily="DM Sans"
@@ -545,7 +598,7 @@ const Header = () => {
               color="white"
               cursor="pointer"
               onClick={() => handleNavigation(item)}
-              _hover={{ bg: "#f4f4f4", transform: "scale(1.05)" }} // Subtle hover effect
+              _hover={{ bg: "#f4f4f4", transform: "scale(1.05)" }}
               transition="all 0.2s ease-in-out"
               w="100%"
               py="5px"

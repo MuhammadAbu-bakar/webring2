@@ -3,8 +3,8 @@ import { Box, Grid, Text, VStack, HStack, Image, useBreakpointValue } from "@cha
 const skills = [
   { image: "/web-development.png", title: "Web Development", description: "Delivering high-performance web solutions with tailored design and functionality." },
   { image: "/app-development.png", title: "App Development", description: "Transforming your vision into optimized Android and iOS apps with a focus on performance and user experience." },
-  { image: "/game-development.png", title: "Game Development", description: "Bringing your gaming concepts to life with expert developers, delivering immersive, console-ready experiences." },
-  { image: "/graphic-designing.png", title: "Graphic Designing", description: "Creating innovative designs and digital products that deliver exceptional user experiences." },
+  { image: "/coding.png", title: "Game Development", description: "Bringing your gaming concepts to life with expert developers, delivering immersive, console-ready experiences." },
+  { image: "/vector (1).png", title: "Graphic Designing", description: "Creating innovative designs and digital products that deliver exceptional user experiences." },
   { image: "/social-media-marketing.png", title: "Social Media Marketing", description: "Grow Your Business Through Our Marketing Digital Agency." },
   { image: "/content-writing.png", title: "Content Writing", description: "Enhancing your brand with premium content that captivates and inspires your audience." },
   { image: "/performance-marketing.png", title: "Performance Marketing", description: "Driving results with data-driven strategies to maximize ROI and boost your brand’s digital presence." },

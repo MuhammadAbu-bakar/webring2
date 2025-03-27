@@ -1,11 +1,14 @@
 import { Box, Button, Text, VStack } from "@chakra-ui/react";
+import { useNavigate } from "react-router-dom"; // Add this import
 
 const HeroBanner = () => {
+  const navigate = useNavigate(); // Initialize the navigate function
+
   return (
     <Box
       w="100%"
       maxW="1920px"
-      h={{ base: "500px", md: "916px" }} // Increased height on mobile
+      h={{ base: "500px", md: "916px" }}
       position="relative"
       backgroundImage="url('/pic.png')"
       backgroundSize="cover"
@@ -29,7 +32,7 @@ const HeroBanner = () => {
         <VStack
           align={{ base: "center", md: "start" }}
           spacing={{ base: "20px", md: "40px" }}
-          display={{ base: "none", md: "flex" }} // Hide on mobile, show on desktop
+          display={{ base: "none", md: "flex" }}
         >
           {/* Empowerment Text */}
           <Text
@@ -82,8 +85,9 @@ const HeroBanner = () => {
             fontWeight="600"
             _hover={{ bg: "yellow.500" }}
             mt={{ base: "20px", md: "40px" }}
+            onClick={() => navigate("/contact-form")} // Updated to use navigate
           >
-            Let's Talk →
+            GET A QUOTE
           </Button>
         </VStack>
       </Box>

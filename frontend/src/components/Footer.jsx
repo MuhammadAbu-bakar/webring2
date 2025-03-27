@@ -69,14 +69,14 @@ const Footer = () => {
         textAlign="left"
       >
         {/* Services Section */}
-        <Box w={{ base: "100%", md: "404px" }} mb={6}>
-          <Text fontWeight="800" color="#F8F8F6" mb={2}>Services</Text>
+        <Box w={{ base: "100%", md: "404px" }} mb={6} font="DM Sans">
+          <Text fontWeight="500" color="#F8F8F6" mb={6}>Services</Text>
           <Flex direction={{ base: "column", md: "row" }} gap={{ base: 0, md: 10 }}>
             {/* Single column for mobile */}
             <VStack
               align="start"
               color="#F8F8F6"
-              spacing={4}
+              spacing={8}
               display={{ base: "flex", md: "none" }}
             >
               <Link color="white">Web Development</Link>
@@ -90,7 +90,7 @@ const Footer = () => {
             <VStack
               align="start"
               color="#F8F8F6"
-              spacing={4}
+              spacing={8}
               display={{ base: "none", md: "flex" }}
               w="50%"
             >
@@ -101,7 +101,7 @@ const Footer = () => {
             <VStack
               align="start"
               color="#F8F8F6"
-              spacing={4}
+              spacing={8}
               display={{ base: "none", md: "flex" }}
               w="50%"
             >
@@ -114,13 +114,13 @@ const Footer = () => {
 
         {/* Company Section */}
         <Box w={{ base: "100%", md: "227px" }} mb={6}>
-          <Text fontWeight="800" color="#F8F8F6" mb={2}>Company</Text>
+          <Text fontWeight="500" color="#F8F8F6" mb={6}>Company</Text>
           <Flex direction={{ base: "column", md: "row" }} gap={{ base: 0, md: 8 }}>
             {/* Single column for mobile */}
             <VStack
               align="start"
               color="#F8F8F6"
-              spacing={4}
+              spacing={8}
               display={{ base: "flex", md: "none" }}
             >
               <Link color="white">About Us</Link>
@@ -134,7 +134,7 @@ const Footer = () => {
             <VStack
               align="start"
               color="#F8F8F6"
-              spacing={4}
+              spacing={8}
               display={{ base: "none", md: "flex" }}
               w="50%"
             >
@@ -145,7 +145,7 @@ const Footer = () => {
             <VStack
               align="start"
               color="#F8F8F6"
-              spacing={4}
+              spacing={8}
               display={{ base: "none", md: "flex" }}
               w="50%"
             >
@@ -157,11 +157,11 @@ const Footer = () => {
         </Box>
 
         {/* Contact Info Section */}
-        <VStack align="start" color="#F8F8F6" w={{ base: "100%", md: "auto" }}>
-          <Text fontWeight="800">Phone</Text>
-          <Text>+92 319 6780744</Text>
-          <Text fontWeight="800" mt={5}>Mail</Text>
-          <Text>info@webring.ltd</Text>
+        <VStack align="start" color="#F8F8F6" w={{ base: "100%", md: "auto" }} font="DM Sans">
+          <Text fontWeight="500">Phone</Text>
+          <Text pt="20px">+92 319 6780744</Text>
+          <Text fontWeight="500" mt={5}>Mail</Text>
+          <Text pt="20px">info@webring.ltd</Text>
         </VStack>
       </Flex>
 

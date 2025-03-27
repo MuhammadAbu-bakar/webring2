@@ -12,6 +12,7 @@ import OurPartnerPage from "./pages/OurPartnerPage";
 import BlogDetailPage from "./pages/BlogDetailPage";
 import OurMissionPage from "./pages/OurMissionPage";
 import ServicesDetailPage from "./pages/ServicesDetailPage";
+import ContactForm from "./pages/ContactForm";
 
 
 import "./App.css";
@@ -34,6 +35,7 @@ function App() {
         <Route path="/who-we-are" element={<WhoWeArePage />} />
         <Route path="/our-partner" element={<OurPartnerPage />} />
         <Route path="/our-mission" element={<OurMissionPage />} />
+        <Route path="/contact-form" element={<ContactForm />} />
       </Routes>
 
       <Footer />

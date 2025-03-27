@@ -17,10 +17,11 @@ import {
   faCaretDown,
   faChevronRight,
 } from "@fortawesome/free-solid-svg-icons";
-import { useNavigate } from "react-router-dom";
+import { useNavigate,useLocation } from "react-router-dom";
  
 const HomeHeader = () => {
   const navigate = useNavigate();
+  const location = useLocation();
 
   const [activeLink, setActiveLink] = useState("Home");
   const [isVisible, setIsVisible] = useState(true);
@@ -35,9 +36,18 @@ const HomeHeader = () => {
     const toggleMobileMenu = () => {
       setMobileMenuOpen(!isMobileMenuOpen);
     };
-    const handleNavigation = (route) => {
-      navigate(`/${route.toLowerCase()}`);
-      setIsMobileMenuOpen(false); // Close menu after navigation
+    const handleNavigation = (item) => {
+      // Don't navigate if already on the target page
+      const targetPath = item === "Home" ? "/" : `/${item.toLowerCase()}`;
+      
+      if (location.pathname !== targetPath) {
+        navigate(targetPath);
+      }
+      
+      // Close mobile menu if open
+      setIsMobileMenuOpen(false);
+      // Update active link
+      setActiveLink(item);
     };
  
   const navItems = [
@@ -56,10 +66,17 @@ const HomeHeader = () => {
       setIsVisible(currentScrollY < lastScrollY || currentScrollY < 50);
       setLastScrollY(currentScrollY);
     };
- 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, [lastScrollY]);
+
+  useEffect(() => {
+    const path = location.pathname === "/" ? "Home" : location.pathname.slice(1);
+    const capitalizedPath = path.charAt(0).toUpperCase() + path.slice(1);
+    if (navItems.includes(capitalizedPath)) {
+      setActiveLink(capitalizedPath);
+    }
+  }, [location.pathname]);
  
   const servicesCategories = [
     {
@@ -157,7 +174,7 @@ const HomeHeader = () => {
     { title: "About Webring", desc: "Empowering startups and enterprises with custom digital solutions for transformation." },
     { title: "Life At Webring", desc: "Join our inclusive, dynamic tech team. Grow, innovate, and thrive with us." },
     { title: "Blogs", desc: "Explore insights and trends in tech with our expert-written blogs." },
-    { title: "Press", desc: "Get the latest news and updates about TekRevol’s impact." },
+    { title: "Press", desc: "Get the latest news and updates about TekRevol's impact." },
     { title: "Podcast", desc: "Listen to expert talks on tech and digital transformation." },
     { title: "Events", desc: "Attend our events and webinars to learn and network." },
     { title: "Referral Program", desc: "Refer talent to Webring and earn rewards." },
@@ -203,7 +220,7 @@ const HomeHeader = () => {
 
     
  
- 
+ //navbar
   return (
     <Box
       w="100%"
@@ -246,10 +263,14 @@ const HomeHeader = () => {
                   if (item === "Insights") setIsInsightsDropdownOpen(false);
                 }}
                 onClick={() => {
-                  if (item === "Portfolio") {
-                    navigate("/portfolio");
-                  } else if (item !== "Services" && item !== "AI Services" && item !== "Industries") {
-                    navigate(`/${item.toLowerCase()}`);
+                  if (item === "Home") {
+                    handleNavigation("Home");
+                  } else if (item === "Portfolio") {
+                    handleNavigation("Portfolio");
+                  } else if (item === "Services") {
+                    handleNavigation("Services");
+                  } else {
+                    handleNavigation(item);
                   }
                 }}
                 cursor="pointer"
@@ -296,7 +317,7 @@ const HomeHeader = () => {
                       <Text fontSize="16px" fontWeight="400" font="Yantramanav" mb="20px" ml="155px" whiteSpace="pre-line">
                         Transforming business with our<br/> future-ready tech solutions. Get<br/> custom products for accelerated<br/> digital transformation across<br/> industries globally.
                       </Text>
-                      <Image src="/Lphone.png" alt="Design Image" width="100%" borderRadius="8px" />
+                      <Image src="/Lphone.png" alt="Design Image" width="85%" borderRadius="8px" ml="25px" />
                     </Box>
  
                     {/* Right Section with Services Categories */}
@@ -358,9 +379,9 @@ const HomeHeader = () => {
         Built to Win with AI
       </Text>
       <Text fontSize="16px" fontWeight="400" font="Yantramanav" mb="20px" ml="155px">
-        Harness the power of AI to transform your business. Our AI services are designed to drive innovation, efficiency, and growth across industries.
+        Harness the power of AI to transform<br/> your business. Our AI services are<br/> designed to drive innovation, efficiency,<br/> and growth across industries.
       </Text>
-      <Image src="/aiHeader.jpg" alt="AI Design Image" width="50%" borderRadius="8px" ml="155px" />
+      <Image src="/aiHeader.jpg" alt="AI Design Image" width="55%" borderRadius="8px" ml="155px" />
     </Box>
 
     {/* Right Section with AI Services Categories */}
@@ -405,9 +426,9 @@ const HomeHeader = () => {
                         Built to Win
                       </Text>
                       <Text fontSize="16px" fontWeight="400" font="Yantramanav" mb="20px"  whiteSpace="pre-line" ml="70px">
-                        Transforming business with our future-ready tech solutions. Get custom products for accelerated digital transformation across industries globally.
+                        Transforming business with our future-<br/>ready tech solutions. Get custom<br/> products for accelerated digital<br/> transformation across industries globally.
                       </Text>
-                      <Image ml="70px" pt="25px"src="/industriesHeader.jpg" alt="Design Image" width="80%" borderRadius="8px" />
+                      <Image ml="70px" pt="25px"src="/industriesHeader.jpg" alt="Design Image" width="65%" borderRadius="8px" />
                         </Box>
  
                       {/* Right Section - Industry List */}
@@ -456,9 +477,9 @@ const HomeHeader = () => {
                         Built to Win
                       </Text>
                       <Text fontSize="16px" fontWeight="400" font="Yantramanav" mb="20px" ml="100px" whiteSpace="pre-line" >
-                        Transforming business with our future-ready tech<br/> solutions. Get custom products for accelerated<br/> digital transformation across industries globally.
+                        Transforming business with our future-<br/>ready tech solutions. Get custom<br/> products for accelerated digital<br/> transformation across industries<br/> globally.
                       </Text>
-                      <Image src="/technologiesHeader.png" alt="Design Image" width="60%" borderRadius="8px" ml={"90px"}/>
+                      <Image src="/technologiesHeader.png" alt="Design Image" width="45%" borderRadius="8px" ml={"90px"}/>
                     </Box>
  
                     {/* Right Section with Services Categories */}
@@ -514,7 +535,7 @@ const HomeHeader = () => {
                       <Text fontSize="16px" fontWeight="400" font="Yantramanav" mb="20px" ml="100px">
                         Transforming business with our future-ready tech solutions. Get custom products for accelerated digital transformation across industries globally.
                       </Text>
-                      <Image ml="50px" src="/Lphone.png" alt="Design Image" width="100%" borderRadius="8px" />
+                      <Image ml="50px" src="/Lphone.png" alt="Design Image" width="300px" borderRadius="8px" />
                     </Box>
  
                       {/* Right Section  */}
@@ -547,8 +568,8 @@ const HomeHeader = () => {
             ))}
           </HStack>
  
-          {/* Get a Quote Button */}
-          <CustomButton text="GET A QUOTE" onClick={() => alert("Quote Requested!")} />
+          {/* Contact Us Button */}
+          <CustomButton text="Contact Us" onClick={() => navigate("/contact")}  />
          
          
         </Flex>
