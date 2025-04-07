@@ -82,7 +82,7 @@ const HomeHeader = () => {
     {
       title: "Mobile App Development",
       services: [
-        { name: "ISO App Development", icon: faChevronRight, link: "/services/iso-app-development" },
+        { name: "ISO App Development", icon: faChevronRight, link: "/app-development" },
         { name: "Android App Development", icon: faChevronRight, link: "/services/android-app-development" },
         { name: "Cross Platform App Development", icon: faChevronRight, link: "/services/cross-platform-app-development" },
       ],
@@ -113,9 +113,9 @@ const HomeHeader = () => {
     {
       title: "Artificial Intelligence",
       services: [
-        { name: "Generative AI", icon: faChevronRight, link: "/services/generative-ai" },
-        { name: "Natural Language Processing", icon: faChevronRight, link: "/services/nlp" },
-        { name: "Speech Recognition", icon: faChevronRight, link: "/services/speech-recognition" },
+        { name: "Generative AI", icon: faChevronRight, link: "/generative-ai" },
+        { name: "Natural Language Processing", icon: faChevronRight, link: "/nlp" },
+        { name: "Speech Recognition", icon: faChevronRight, link: "/speech-recognition" },
       ],
     },
     {
@@ -338,9 +338,11 @@ const HomeHeader = () => {
                                 _hover={{ bg: "#FFD700" }}
                                 onClick={() => {
                                   if (category.title === "Web Development") {
-                                    navigate("/services/web-development"); // Navigate to the Web Development page
+                                    navigate("/web-development"); // Changed to direct path
+                                  } else if (category.title === "Mobile App Development") {
+                                    navigate("/app-development"); // Direct to app dev page
                                   } else {
-                                    navigate(service.link); // Navigate to other service pages
+                                    navigate(service.link);
                                   }
                                 }}
                               >

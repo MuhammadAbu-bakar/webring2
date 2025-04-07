@@ -13,6 +13,11 @@ import BlogDetailPage from "./pages/BlogDetailPage";
 import OurMissionPage from "./pages/OurMissionPage";
 import ServicesDetailPage from "./pages/ServicesDetailPage";
 import ContactForm from "./pages/ContactForm";
+import AppDevPage from "./pages/AppDevPage";
+import ShopifyDevPage from "./pages/ShopifyDevPage";
+import WebConsultancyPage from "./pages/WebConsultancyPage";
+import PerformMarketPage from "./pages/PerformMarketPage";
+import WebDevPage from "./pages/WebDevPage";
 
 
 import "./App.css";
@@ -27,7 +32,7 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/services" element={<ServicesPage />} />
-        <Route path="/services/web-development" element={<ServicesDetailPage />} />
+        <Route path="/web-development" element={<ServicesDetailPage />} />
         <Route path="/portfolio" element={<PortfolioPage />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/blog" element={<BlogPage />} />
@@ -36,6 +41,11 @@ function App() {
         <Route path="/our-partner" element={<OurPartnerPage />} />
         <Route path="/our-mission" element={<OurMissionPage />} />
         <Route path="/contact-form" element={<ContactForm />} />
+        <Route path="/app-development" element={<AppDevPage />} />
+        <Route path="/shopify-development" element={<ShopifyDevPage />} />
+        <Route path="/web-consultancy" element={<WebConsultancyPage />} />
+        <Route path="/perform-market" element={<PerformMarketPage />} />
+        <Route path="/web-developmentt" element={<WebDevPage />} />
       </Routes>
 
       <Footer />
