@@ -77,7 +77,7 @@ const Header = () => {
   {/* Left Side: Text Content */}
   <Box maxW={{ base: '100%', md: '50%' }} mb={{ base: 8, md: 0 }}>
     <Heading fontSize="18px" fontWeight="700" color="#FED904" fontFamily="Montserrat, Sans-serif">
-      Top Rated Mobile App Development Company
+      Graphic Designing & UI/UX Design
     </Heading>
     <Heading as="h1" size="2xl" mb={4} color="white" fontSize="26px" lineHeight="40px">
       Empowering Your Ideas Through App<br/> Development For Both Android And<br/> iOS
@@ -89,7 +89,7 @@ const Header = () => {
     Elevate your brand’s digital presence with our top rated mobile app development company for captivating and the best user friendly app development for both Android and iOS that inspires and engages your audience.
     </Text>
     <Text fontSize="xl" fontWeight="bold" color="#FED904" mb={4}>
-      App Development Charges:
+      Graphic Designing Charges:
     </Text>
     <Text fontSize="xl" fontWeight="bold" color="white" mb={4}>
       $30-$60/ Hour

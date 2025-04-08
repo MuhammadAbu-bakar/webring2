@@ -1,5 +1,13 @@
-import { Box, Image, Text, HStack } from "@chakra-ui/react";
-import { useRef } from "react";
+import { Box, Image, Text, IconButton } from "@chakra-ui/react";
+import { useRef, useEffect, useState } from "react";
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation } from 'swiper/modules';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
+
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/navigation';
 
 const techLogos = [
   { name: "Javascript", src: "/javascript.png" },
@@ -14,28 +22,9 @@ const techLogos = [
 ];
 
 const TechLogosSection = () => {
-  const scrollRef = useRef(null);
-  let isDragging = false;
-  let startX;
-  let scrollLeft;
-
-  const startDrag = (e) => {
-    isDragging = true;
-    startX = e.pageX - scrollRef.current.offsetLeft;
-    scrollLeft = scrollRef.current.scrollLeft;
-  };
-
-  const stopDrag = () => {
-    isDragging = false;
-  };
-
-  const doDrag = (e) => {
-    if (!isDragging) return;
-    e.preventDefault();
-    const x = e.pageX - scrollRef.current.offsetLeft;
-    const walk = (x - startX) * 2; // Scroll speed
-    scrollRef.current.scrollLeft = scrollLeft - walk;
-  };
+  const [swiperInstance, setSwiperInstance] = useState(null);
+  const navigationPrevRef = useRef(null);
+  const navigationNextRef = useRef(null);
 
   return (
     <Box 
@@ -43,69 +32,138 @@ const TechLogosSection = () => {
       maxW="1923px" 
       h="auto" 
       mx="auto" 
-      px={{ base: "10px", sm: "20px", md: "50px" }} 
-      display="flex" 
-      alignItems="center" 
-      justifyContent="center"
-      overflowX="hidden"
+      px={{ base: "10px", sm: "20px", md: "50px" }}
+      position="relative"
     >
-      <Box position="relative" w="100%" overflow="hidden">
-        <HStack
-          ref={scrollRef}
-          spacing={{ base: "10px", md: "20px" }}
-          overflowX="auto"
-          whiteSpace="nowrap"
-          scrollBehavior="smooth"
-          css={{
-            '&::-webkit-scrollbar': { display: 'none' },
-            '-ms-overflow-style': 'none',
-            'scrollbar-width': 'none'
+      {/* Navigation Arrows */}
+      <IconButton 
+        ref={navigationPrevRef}
+        aria-label="Previous slide"
+        position="absolute"
+        left={{ base: "5px", md: "10px" }}
+        top="50%"
+        transform="translateY(-50%)"
+        zIndex="10"
+        bg="white"
+        borderRadius="full"
+        boxShadow="md"
+        color="gray.700"
+        _hover={{ bg: "gray.100" }}
+        size={{ base: "sm", md: "md" }}
+        onClick={() => swiperInstance?.slidePrev()}
+      >
+        <FontAwesomeIcon icon={faChevronLeft} />
+      </IconButton>
+        
+      
+      
+      <IconButton
+        ref={navigationNextRef}
+        aria-label="Next slide"
+        position="absolute"
+        right={{ base: "5px", md: "10px" }}
+        top="50%"
+        transform="translateY(-50%)"
+        zIndex="10"
+        bg="white"
+        borderRadius="full"
+        boxShadow="md"
+        color="gray.700"
+        _hover={{ bg: "gray.100" }}
+        size={{ base: "sm", md: "md" }}
+        onClick={() => swiperInstance?.slideNext()}
+      >
+        <FontAwesomeIcon icon={faChevronRight} />
+      </IconButton>
+        
+    
+
+      <Box position="relative" w="100%" px={{ base: "30px", md: "50px" }}>
+        <Swiper
+          modules={[Navigation]}
+          spaceBetween={20}
+          slidesPerView={'auto'}
+          centeredSlides={true}
+          loop={true}
+          onSwiper={(swiper) => setSwiperInstance(swiper)}
+          navigation={{
+            prevEl: navigationPrevRef.current,
+            nextEl: navigationNextRef.current,
           }}
-          onMouseDown={startDrag}
-          onMouseLeave={stopDrag}
-          onMouseUp={stopDrag}
-          onMouseMove={doDrag}
-          w="100%"
-          pb={{ base: "10px", md: "20px" }} // Prevents horizontal scrollbars
+          onInit={(swiper) => {
+            // Delay the navigation setup slightly to ensure refs are available
+            setTimeout(() => {
+              swiper.params.navigation.prevEl = navigationPrevRef.current;
+              swiper.params.navigation.nextEl = navigationNextRef.current;
+              swiper.navigation.init();
+              swiper.navigation.update();
+            }, 100);
+          }}
+          breakpoints={{
+            320: {
+              slidesPerView: 1.2,
+              spaceBetween: 10
+            },
+            480: {
+              slidesPerView: 1.5,
+              spaceBetween: 15
+            },
+            640: {
+              slidesPerView: 2,
+              spaceBetween: 15
+            },
+            768: {
+              slidesPerView: 2.5,
+              spaceBetween: 20
+            },
+            1024: {
+              slidesPerView: 3,
+              spaceBetween: 25
+            },
+            1280: {
+              slidesPerView: 4,
+              spaceBetween: 30
+            }
+          }}
         >
           {techLogos.map((logo, index) => (
-            <Box
-              key={index}
-              w={{ base: "250px", sm: "280px", md: "330px" }}
-              h={{ base: "150px", md: "200px" }}
-              borderRadius="10px"
-              boxShadow="md"
-              bg="white"
-              display="flex"
-              flexDirection="column"
-              alignItems="center"
-              justifyContent="center"
-              transition="0.3s"
-              _hover={{ boxShadow: "lg" }}
-              flexShrink="0"
-            >
-              <Image
-                src={logo.src}
-                alt={logo.name}
-                w={
-                  logo.name === "Amazon" 
-                    ? { base: "155px", md: "225px" } 
-                    : { base: "105px", md: "140px" }
-                }
-                h={
-                  logo.name === "React" 
-                    ? { base: "100px", md: "120px" } // Increased height for React
-                    : logo.name === "Amazon" 
-                    ? { base: "60px", md: "70px" } 
-                    : { base: "80px", md: "95px" }
-                }
-              />
-              <Text fontSize={{ base: "14px", md: "18px" }} fontWeight="500" pt={{ base: 4, md: 8 }}>
-                {logo.name}
-              </Text>
-            </Box>
+            <SwiperSlide key={index} style={{ width: 'auto' }}>
+              <Box
+                w={{ base: "250px", sm: "280px", md: "330px" }}
+                h={{ base: "150px", md: "200px" }}
+                borderRadius="10px"
+                boxShadow="md"
+                bg="white"
+                display="flex"
+                flexDirection="column"
+                alignItems="center"
+                justifyContent="center"
+                transition="0.3s"
+                _hover={{ boxShadow: "lg" }}
+              >
+                <Image
+                  src={logo.src}
+                  alt={logo.name}
+                  w={
+                    logo.name === "Amazon" 
+                      ? { base: "155px", md: "225px" } 
+                      : { base: "105px", md: "140px" }
+                  }
+                  h={
+                    logo.name === "React" 
+                      ? { base: "100px", md: "120px" }
+                      : logo.name === "Amazon" 
+                      ? { base: "60px", md: "70px" } 
+                      : { base: "80px", md: "95px" }
+                  }
+                />
+                <Text fontSize={{ base: "14px", md: "18px" }} fontWeight="500" pt={{ base: 4, md: 8 }}>
+                  {logo.name}
+                </Text>
+              </Box>
+            </SwiperSlide>
           ))}
-        </HStack>
+        </Swiper>
       </Box>
     </Box>
   );

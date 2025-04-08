@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 const skills = [
   { image: "/web-development.png", title: "Web Development", description: "Delivering high-performance web solutions with tailored design and functionality.", navigateTo: "/web-developmentt"},
   { image: "/app-development.png", title: "App Development", description: "Transforming your vision into optimized Android and iOS apps with a focus on performance and user experience.", navigateTo: "/app-development" },
-  { image: "/coding.png", title: "Game Development", description: "Bringing your gaming concepts to life with expert developers, delivering immersive, console-ready experiences.", navigateTo: "/game-development" },
+  // { image: "/coding.png", title: "Game Development", description: "Bringing your gaming concepts to life with expert developers, delivering immersive, console-ready experiences.", navigateTo: "/game-development" },
   { image: "/vector (1).png", title: "Graphic Designing", description: "Creating innovative designs and digital products that deliver exceptional user experiences.", navigateTo: "/graphic-designing" },
   { image: "/social-media-marketing.png", title: "Social Media Marketing", description: "Grow Your Business Through Our Marketing Digital Agency.", navigateTo: "/social-media" },
   { image: "/content-writing.png", title: "Content Writing", description: "Enhancing your brand with premium content that captivates and inspires your audience.", navigateTo: "/content-writing" },

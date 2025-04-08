@@ -55,12 +55,12 @@ const HomeHeader = () => {
     "Home",
     "About",
     "Services",
-    "Industries", // Added Industries
-    "Technologies",
-    "Insights",
+    // "Industries", // Added Industries
+    // "Technologies",
+    // "Insights",
     "Portfolio",
     "Blog",
-    "AI Services",
+    // "AI Services",
   ];
  
   useEffect(() => {
@@ -304,8 +304,8 @@ const HomeHeader = () => {
                   <Box
                     position="absolute"
                     top="100%"
-                    left="37%"
-                    transform={{ md:"translateX(-30%)", lg:"translateX(-34%)", xl:"translateX(-34%)" }}
+                    left="65%"
+                    transform={{ md:"translateX(-30%)", lg:"translateX(-66%)", xl:"translateX(-66%)" }}
                     bg="#FFFFFF"
                     w={{ md: "900px", lg:"1140px", xl: "1500px" }}
                     boxShadow="md"
@@ -604,7 +604,7 @@ const HomeHeader = () => {
           </HStack>
  
           {/* Contact Us Button */}
-          <CustomButton text="Contact Us" onClick={() => navigate("/contact")}  />
+          <CustomButton text="Contact Us"  onClick={() => navigate("/contact-form")}  />
          
          
         </Flex>

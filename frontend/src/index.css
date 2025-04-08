@@ -1,0 +1,13 @@
+/* index.css or global.css */
+body {
+  background-color: white;
+  color: black;
+}
+
+/* ignore prefers-color-scheme */
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: white !important;
+    color: black !important;
+  }
+}

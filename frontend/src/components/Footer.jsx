@@ -1,7 +1,10 @@
 import { Box, Flex, VStack, HStack, Text, Input, Button, Link, Image } from "@chakra-ui/react";
+import { useNavigate } from "react-router-dom";
 
 const Footer = () => {
+  const navigate = useNavigate();
   return (
+    
     <Box as="footer" bg="#14140F" color="white" py={10} px={{ base: 6, md: 20 }} w="100%">
       {/* Main Footer Content */}
       <Flex
@@ -21,12 +24,6 @@ const Footer = () => {
           <Text fontSize="18px" fontWeight="400" color="#F8F8F6">
             We offer unparalleled expertise and dedicated<br/> support to drive your business toward<br/> sustained growth and success.
           </Text>
-          <HStack spacing={2} w={{ base: "100%", md: "350px" }} h="46px">
-            <Input placeholder="Enter Your Email" bg="gray.800" border="none" _focus={{ bg: "gray.700" }} />
-            <Button bg="yellow.400" color="black" _hover={{ bg: "yellow.500" }}>
-              Get Started
-            </Button>
-          </HStack>
         </VStack>
 
         {/* Right Section */}
@@ -37,7 +34,7 @@ const Footer = () => {
           <Text fontSize="sm">
             Our team of IT specialists is eager to collaborate with you, offering tailored insights and solutions designed to meet your unique business needs.
           </Text>
-          <Button bg="yellow.400" color="black" _hover={{ bg: "yellow.500" }}>
+          <Button bg="yellow.400" color="black" _hover={{ bg: "yellow.500" }} onClick={() => navigate("/contact-form")}>
             Get an appointment now
           </Button>
           <HStack spacing={6} mt={4} align="center">

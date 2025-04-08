@@ -183,8 +183,8 @@ const Header = () => {
         <Box
           position="absolute"
           top="50px"
-          left="40%"
-          transform="translateX(-40%)"
+          left="65%"
+          transform="translateX(-65%)"
           bg="#FFFFFF"
           w={{ base: "90%", md: "1540px" }}
           boxShadow="md"
@@ -501,12 +501,12 @@ const Header = () => {
               "Home",
               "About",
               "Services",
-              "Industries",
-              "Technologies",
-              "Insights",
+              // "Industries",
+              // "Technologies",
+              // "Insights",
               "Portfolio",
               "Blog",
-              "AI Services",
+              // "AI Services",
             ].map((item) => (
               <Box
                 key={item}
@@ -541,8 +541,8 @@ const Header = () => {
             bg="#FED904"
             display={{ base: "none", md: "none", lg: "none", xl: "flex" }}
             color="#26241C"
-            fontFamily="Poppins"
-            fontWeight="500"
+            fontFamily="'Inter', -apple-system, BlinkMacSystemFont, sans-serif"
+            fontWeight="600"
             fontSize="20px"
             lineHeight="24px"
             borderRadius="4px"

@@ -75,14 +75,14 @@ const HeroBanner = () => {
 
           {/* Call-to-Action Button */}
           <Button
-            w={{ base: "160px", md: "220px" }}
-            h={{ base: "50px", md: "72px" }}
+            w={{ base: "160px", md: "200px" }}
+            h={{ base: "50px", md: "60px" }}
             borderRadius="5.38px"
             p="15px 28px"
             bg="#FED904"
             color="black"
-            fontSize={{ base: "16px", md: "22px" }}
-            fontWeight="600"
+            fontSize={{ base: "16px", md: "20px" }}
+            fontWeight="700"
             _hover={{ bg: "yellow.500" }}
             mt={{ base: "20px", md: "40px" }}
             onClick={() => navigate("/contact-form")} // Updated to use navigate

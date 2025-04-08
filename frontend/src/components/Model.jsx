@@ -57,7 +57,7 @@ const OurModelSection = () => {
             zIndex={1}
           >
             {/* Step Icon Box */}
-            <Flex w="50px" h="50px" bg="#FFFBE6" borderRadius="10px" alignItems="center" justifyContent="center" mr="20px">
+            <Flex w="60px" h="60px" bg="#FFFBE6" borderRadius="10px" alignItems="center" justifyContent="center" mr="20px">
               <Image src={step.icon} alt={step.title} w="40px" h="30px" />
             </Flex>
  
