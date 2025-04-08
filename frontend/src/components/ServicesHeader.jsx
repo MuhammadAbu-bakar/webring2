@@ -161,6 +161,7 @@ const Header = () => {
           p="10px"
           zIndex="1000"
           minWidth="200px"
+          mt="30px"
         >
           <VStack align="start" spacing="10px">
             <Text fontFamily="DM Sans" fontWeight="500" fontSize="18px" color="#26241C" cursor="pointer" _hover={{ color: "#FFD700" }} onClick={() => navigate("/who-we-are")}>
@@ -472,6 +473,7 @@ const Header = () => {
         justify="space-between" // Keep logo on left, everything else on right
         align="center"
         height="100%"
+        
       >
         {/* Logo (Left Side) */}
         <Image
@@ -486,12 +488,14 @@ const Header = () => {
           spacing={{ base: "20px", md: "30px" }}
           align="center"
           justify="flex-end" // Aligns content to the right
+          
         >
           {/* Navigation Links */}
           <HStack
             display={{ base: "none", md: "none", lg: "flex" }}
             spacing={{ base: "20px", md: "30px" }}
             gap={{ base: "20px", md: "20px", lg: "27px" }}
+            
           >
             {[
               "Home",
@@ -502,6 +506,7 @@ const Header = () => {
               "Insights",
               "Portfolio",
               "Blog",
+              "AI Services",
             ].map((item) => (
               <Box
                 key={item}
@@ -512,9 +517,9 @@ const Header = () => {
               >
                 <HStack spacing="4px">
                   <Text
-                    fontFamily="DM Sans"
-                    fontWeight="500"
-                    fontSize={{ base: "18px", lg: "20px" }}
+                    fontWeight={600}
+                    fontFamily="'Inter', -apple-system, BlinkMacSystemFont, sans-serif"
+                    fontSize={{ base: "18px", lg: "18px" }}
                     lineHeight="100%"
                     color="#26241C"
                     cursor="pointer"
@@ -522,9 +527,7 @@ const Header = () => {
                   >
                     {item}
                   </Text>
-                  {(item === "About" || item === "Services") && (
-                    <FontAwesomeIcon icon={faCaretDown} />
-                  )}
+                  
                 </HStack>
 
                 {/* Dropdown Menus */}

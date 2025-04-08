@@ -26,6 +26,7 @@ const HomeHeader = () => {
   const [activeLink, setActiveLink] = useState("Home");
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
+  const [isAboutDropdownOpen, setIsAboutDropdownOpen] = useState(false);
   const [isServicesDropdownOpen, setIsServicesDropdownOpen] = useState(false);
   const [isAiDropdownOpen, setIsAiDropdownOpen] = useState(false);
   const [isIndustriesDropdownOpen, setIsIndustriesDropdownOpen] = useState(false); // State for Industries dropdown
@@ -52,11 +53,13 @@ const HomeHeader = () => {
  
   const navItems = [
     "Home",
+    "About",
     "Services",
     "Industries", // Added Industries
     "Technologies",
     "Insights",
     "Portfolio",
+    "Blog",
     "AI Services",
   ];
  
@@ -243,7 +246,7 @@ const HomeHeader = () => {
  
         {/* Desktop Navigation */}
         <Flex display={{ base: "none", md: "flex" }} w="auto" h="100%" gap="30px" align="center">
-          <HStack spacing="30px" display={{ base: "none", md: "none", lg: "flex" }}>
+          <HStack spacing="30px" display={{ base: "none", md: "none", lg: "flex" }} font="DM Sans">
             {navItems.map((item) => (
               <Box
                 key={item}
@@ -254,6 +257,7 @@ const HomeHeader = () => {
                   if (item === "Industries") setIsIndustriesDropdownOpen(true);
                   if (item === "Technologies") setIsTechnologiesDropdownOpen(true); // Handle Industries dropdown
                   if (item === "Insights") setIsInsightsDropdownOpen(true);
+                  if (item === "About") setIsAboutDropdownOpen(true);
                 }}
                 onMouseLeave={() => {
                   if (item === "Services") setIsServicesDropdownOpen(false);
@@ -261,6 +265,7 @@ const HomeHeader = () => {
                   if (item === "Industries") setIsIndustriesDropdownOpen(false);
                   if (item === "Technologies") setIsTechnologiesDropdownOpen(false); // Handle Industries dropdown
                   if (item === "Insights") setIsInsightsDropdownOpen(false);
+                  if (item === "About") setIsAboutDropdownOpen(false);
                 }}
                 onClick={() => {
                   if (item === "Home") {
@@ -300,7 +305,7 @@ const HomeHeader = () => {
                     position="absolute"
                     top="100%"
                     left="37%"
-                    transform={{ md:"translateX(-30%)", lg:"translateX(-37%)", xl:"translateX(-42%)" }}
+                    transform={{ md:"translateX(-30%)", lg:"translateX(-34%)", xl:"translateX(-34%)" }}
                     bg="#FFFFFF"
                     w={{ md: "900px", lg:"1140px", xl: "1500px" }}
                     boxShadow="md"
@@ -358,6 +363,34 @@ const HomeHeader = () => {
                     </Box>
                   </Box>
                 )}
+
+                {item === "About" && isAboutDropdownOpen &&(
+                      
+                        <Box
+                          position="absolute"
+                          top="100%"
+                          left="0"
+                          bg="white"
+                          boxShadow="md"
+                          borderRadius="8px"
+                          p="10px"
+                          zIndex="1000"
+                          minWidth="200px"
+                        >
+                          <VStack align="start" spacing="10px">
+                            <Text fontFamily="DM Sans" fontWeight="500" fontSize="18px" color="#26241C" cursor="pointer" _hover={{ color: "#FFD700" }} onClick={() => navigate("/who-we-are")}>
+                              Who We Are
+                            </Text>
+                            <Text fontFamily="DM Sans" fontWeight="500" fontSize="18px" color="#26241C" cursor="pointer" _hover={{ color: "#FFD700" }} onClick={() => navigate("/our-partner")}>
+                              Our Partner
+                            </Text>
+                            <Text fontFamily="DM Sans" fontWeight="500" fontSize="18px" color="#26241C" cursor="pointer" _hover={{ color: "#FFD700" }} onClick={() => navigate("/our-mission")}>
+                              Our Mission
+                            </Text>
+                          </VStack>
+                        </Box>
+                )}
+                    
  
                
                 {/* AI Services Dropdown Menu */}
@@ -413,8 +446,8 @@ const HomeHeader = () => {
                   <Box
                     position="absolute"
                     top="100%"
-                    left="44%"
-                    transform={{ lg:"translateX(-46%)", xl:"translateX(-50%)" }}
+                    left="42%"
+                    transform={{ lg:"translateX(-42%)", xl:"translateX(-42%)" }}
                     bg="#FFFFFF"
                     w={{ md: "900px", lg:"1140px", xl: "1500px" }}
                     boxShadow="md"
@@ -521,7 +554,7 @@ const HomeHeader = () => {
                     position="absolute"
                     top="100%"
                     left="62%"
-                    transform={{ lg:"translateX(-70%)", xl:"translateX(-67%)" }}
+                    transform={{ lg:"translateX(-60%)", xl:"translateX(-60%)" }}
                     bg="#FFFFFF"
                     w={{ md: "900px", lg:"1140px", xl: "1400px" }}
                     boxShadow="md"
