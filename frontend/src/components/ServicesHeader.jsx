@@ -20,15 +20,15 @@ const Header = () => {
 
   const servicesCategories = [
     {
-      title: "Mobile App Development",
+      title: "App Development",
       services: [
-        { name: "ISO App Development", icon: faChevronRight, link: "/services/iso-app-development" },
+        { name: "ISO App Development", icon: faChevronRight, link: "/app-development" },
         { name: "Android App Development", icon: faChevronRight, link: "/services/android-app-development" },
         { name: "Cross Platform App Development", icon: faChevronRight, link: "/services/cross-platform-app-development" },
       ],
     },
     {
-      title: "Staff Augmentation",
+      title: "Graphic Designing",
       services: [
         { name: "Hire Android App Developer", icon: faChevronRight, link: "/services/hire-android-developer" },
         { name: "Hire ISO App Developer", icon: faChevronRight, link: "/services/hire-iso-developer" },
@@ -36,7 +36,7 @@ const Header = () => {
       ],
     },
     {
-      title: "Custom Software Development",
+      title: "Content Writing",
       services: [
         { name: "ERP Solution", icon: faChevronRight, link: "/services/erp-solution" },
         { name: "CRM Solution", icon: faChevronRight, link: "/services/crm-solution" },
@@ -51,15 +51,15 @@ const Header = () => {
       ],
     },
     {
-      title: "Artificial Intelligence",
+      title: "Shopify Store Development",
       services: [
-        { name: "Generative AI", icon: faChevronRight, link: "/services/generative-ai" },
-        { name: "Natural Language Processing", icon: faChevronRight, link: "/services/nlp" },
-        { name: "Speech Recognition", icon: faChevronRight, link: "/services/speech-recognition" },
+        { name: "Generative AI", icon: faChevronRight, link: "/generative-ai" },
+        { name: "Natural Language Processing", icon: faChevronRight, link: "/nlp" },
+        { name: "Speech Recognition", icon: faChevronRight, link: "/speech-recognition" },
       ],
     },
     {
-      title: "Digital Marketing Services",
+      title: "Social Media Marketing",
       services: [
         { name: "Social Media Marketing", icon: faChevronRight, link: "/services/social-media-marketing" },
         { name: "Search Engine Marketing", icon: faChevronRight, link: "/services/search-engine-marketing" },

@@ -17,7 +17,7 @@ const HomePage=()=>{
             <HeroBanner />
             <Number />
             <LinkSection />
-            <Services />
+            {/* <Services /> */}
             <CustomIT />
             <Model />
             <Skills />

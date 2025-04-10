@@ -10,7 +10,7 @@ const skills = [
   { image: "/content-writing.png", title: "Content Writing", description: "Enhancing your brand with premium content that captivates and inspires your audience.", navigateTo: "/content-writing" },
   { image: "/performance-marketing.png", title: "Performance Marketing", description: "Driving results with data-driven strategies to maximize ROI and boost your brand's digital presence." , navigateTo: "/perform-market"},
   { image: "/shopify-store.png", title: "Shopify Store Development", description: "Building high-performance, visually appealing Shopify stores that drive conversions and enhance user experience.", navigateTo: "/shopify-development" },
-  { image: "/web-consultancy.png", title: "Web Development Consultancy", description: "Delivering expert guidance and solutions to optimize web development and achieve your business goals.", navigateTo: "/web-consultancy" },
+  // { image: "/web-consultancy.png", title: "Web Development Consultancy", description: "Delivering expert guidance and solutions to optimize web development and achieve your business goals.", navigateTo: "/web-consultancy" },
 ];
 
 const SkillCard = ({ image, title, description, navigateTo }) => {
@@ -33,7 +33,7 @@ const SkillCard = ({ image, title, description, navigateTo }) => {
       }}
     >
       <VStack align="flex-start" spacing="25px">
-        <Image src={image} alt={title} w="69px" h="69px" />
+        <Image src={image} alt={title} boxSize="80px" objectFit="contain" />
         <Text fontSize="30px" fontWeight="700" color="#26241C">{title}</Text>
         <Text fontSize={{ base: "18px", md: "24px" }} fontWeight="400" lineHeight="28.8px" color="#26241C">{description}</Text>
       </VStack>

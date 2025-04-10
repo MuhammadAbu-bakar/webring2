@@ -1,5 +1,7 @@
-import { Box, Text, VStack, HStack, Image, Flex } from "@chakra-ui/react";
-import { useRef } from "react";
+import { Box, Text, VStack, HStack, Image, Flex, IconButton } from "@chakra-ui/react";
+import { useRef, useState } from "react";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 
 const testimonials = [
   {
@@ -30,11 +32,29 @@ const testimonials = [
 
 const Testimonials = () => {
   const sliderRef = useRef(null);
+  const [currentIndex, setCurrentIndex] = useState(0);
 
-  const handleWheelScroll = (event) => {
+  const scrollToTestimonial = (index) => {
     if (sliderRef.current) {
-      sliderRef.current.scrollLeft += event.deltaY;
+      const container = sliderRef.current;
+      const cardWidth = container.firstChild?.offsetWidth || 0;
+      const gap = parseInt(window.getComputedStyle(container).gap) || 0;
+      container.scrollTo({
+        left: index * (cardWidth + gap),
+        behavior: 'smooth'
+      });
+      setCurrentIndex(index);
     }
+  };
+
+  const handlePrev = () => {
+    const newIndex = currentIndex > 0 ? currentIndex - 1 : testimonials.length - 1;
+    scrollToTestimonial(newIndex);
+  };
+
+  const handleNext = () => {
+    const newIndex = currentIndex < testimonials.length - 1 ? currentIndex + 1 : 0;
+    scrollToTestimonial(newIndex);
   };
 
   return (
@@ -46,6 +66,7 @@ const Testimonials = () => {
       py="50px"
       bg="#F8F8F6"
       overflow="hidden"
+      position="relative"
     >
       {/* Header Section */}
       <VStack w="100%" maxW="1823px" spacing="20px" align={{ base: "center", lg: "flex-start" }} textAlign={{ base: "center", lg: "left" }}>
@@ -72,12 +93,31 @@ const Testimonials = () => {
       </VStack>
 
       {/* Slider Section */}
-      <Box w="100%" maxW="1721px" mt={10} overflow="hidden">
+      <IconButton
+          aria-label="Next slide"
+          position="absolute"
+          left={{ base: "20px", md: "20px" }}
+          top="57%"
+          transform="translateY(-57%)"
+          zIndex="10"
+          bg="white"
+          borderRadius="full"
+          boxShadow="md"
+          color="gray.700"
+          _hover={{ bg: "gray.100" }}
+          size={{ base: "sm", md: "md" }}
+          onClick={handleNext}
+        >
+          <FontAwesomeIcon icon={faChevronLeft} />
+        </IconButton>
+
+      <Box w="100%" maxW="1721px" mt={10} overflow="hidden" position="relative">
+        
+        
         <Flex
           ref={sliderRef}
-          overflowX="auto"
+          overflowX="hidden"
           scrollBehavior="smooth"
-          onWheel={handleWheelScroll}
           sx={{
             '&::-webkit-scrollbar': {
               display: 'none',
@@ -97,6 +137,7 @@ const Testimonials = () => {
               p="40px"
               boxShadow="0px 5.42px 18.98px 0px #2427291A"
               mx="10px"
+              flex="0 0 auto"
             >
               {/* Quote */}
               <Text
@@ -158,7 +199,28 @@ const Testimonials = () => {
             </Box>
           ))}
         </Flex>
+
+        
       </Box>
+
+
+      <IconButton
+          aria-label="Next slide"
+          position="absolute"
+          right={{ base: "20px", md: "20px" }}
+          top="57%"
+          transform="translateY(-57%)"
+          zIndex="10"
+          bg="white"
+          borderRadius="full"
+          boxShadow="md"
+          color="gray.700"
+          _hover={{ bg: "gray.100" }}
+          size={{ base: "sm", md: "md" }}
+          onClick={handleNext}
+        >
+          <FontAwesomeIcon icon={faChevronRight} />
+        </IconButton>
     </Box>
   );
 };

@@ -21,14 +21,14 @@ const Footer = () => {
         {/* Left Section */}
         <VStack align="start" spacing={4} w={{ base: "100%", md: "50%" }}>
           <Image src="/logo.png" alt="Webring Logo" w="105px" h="69px" />
-          <Text fontSize="18px" fontWeight="400" color="#F8F8F6">
+          <Text fontSize="18px" fontWeight="400" color="#F8F8F6" pt="25px">
             We offer unparalleled expertise and dedicated<br/> support to drive your business toward<br/> sustained growth and success.
           </Text>
         </VStack>
 
         {/* Right Section */}
         <VStack align="start" spacing={4} maxW="538px" mt={{ base: 10, md: 0 }}>
-          <Text fontWeight="bold" fontSize="lg" color="#F8F8F6">
+          <Text fontWeight="bold" fontSize="lg" color="#F8F8F6" pt="50px">
             Let's Embark On Something Exceptional Together.
           </Text>
           <Text fontSize="sm">
@@ -37,7 +37,7 @@ const Footer = () => {
           <Button bg="yellow.400" color="black" _hover={{ bg: "yellow.500" }} onClick={() => navigate("/contact-form")}>
             Get an appointment now
           </Button>
-          <HStack spacing={6} mt={4} align="center">
+          {/* <HStack spacing={6} mt={4} align="center">
             <VStack color="#F8F8F6">
               <Text fontWeight="bold">2 Mins</Text>
               <Text fontSize="xs">Response Time</Text>
@@ -50,7 +50,7 @@ const Footer = () => {
               <Text fontWeight="bold">22+ Years</Text>
               <Text fontSize="xs">Field Experience</Text>
             </VStack>
-          </HStack>
+          </HStack> */}
         </VStack>
       </Flex>
 
@@ -156,9 +156,9 @@ const Footer = () => {
         {/* Contact Info Section */}
         <VStack align="start" color="#F8F8F6" w={{ base: "100%", md: "auto" }} font="DM Sans">
           <Text fontWeight="500">Phone</Text>
-          <Text pt="20px">+92 319 6780744</Text>
+          <Text pt="3px">+92 319 6780744</Text>
           <Text fontWeight="500" mt={5}>Mail</Text>
-          <Text pt="20px">info@webring.ltd</Text>
+          <Text pt="3px">info@webring.ltd</Text>
         </VStack>
       </Flex>
 
