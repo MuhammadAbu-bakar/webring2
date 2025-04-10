@@ -1,29 +1,38 @@
-import { Box, Flex, Heading, Text, Button, Image, VStack,Accordion,Span,Stack,For,useDisclosure } from '@chakra-ui/react';
-import { useState } from 'react';
+import { Box, Flex, Heading, Text, Button, Image, VStack,Accordion,Span,Stack,For,useDisclosure,IconButton,Grid,GridItem } from '@chakra-ui/react';
+import { useState,useRef } from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
+
 
 const Header = () => {
     const [expandedItems, setExpandedItems] = useState([1]);
     const { isOpen, onToggle } = useDisclosure();
-    const cards = [
-        {
-          icon: "/begincoding.png", // Replace with actual icon URL
-          title: 'Begin Coding',
-          description:
-            'Embark on digital transformation with our\n Begin Coding phase in App Development for\n both Android and iOS. Our skilled top rated App\n Developers turn your apps vision into code,\n creating a seamless user experience. Our\n creative staffing optimizes every feature for a\n robust and captivating App Development for\n both Android and iOS that shines in the digital\n landscape.'
-        },
-        {
-          icon: '/Plan-app-security.png', // Replace with actual icon URL
-          title: 'Plan App Security',
-          description:
-            'Ensuring robust app security is at the forefront of our App Development for both Android and iOS services. Our top rated Mobile App Development company, Creative Staffing, meticulously plans and implements advanced security measures, safeguarding your app and user data with the highest level of protection. Your apps integrity and user privacy are our top priorities throughout the App Development for both Android and iOS processes.',
-        },
-        {
-          icon: '/Perform-multiple-tests.png', // Replace with actual icon URL
-          title: 'Perform Multiple Tests',
-          description:
-            'Our top rated Mobile App Development company services encompass comprehensive testing phases, ensuring your apps seamless performance across various scenarios and devices. Our digital solution agency, Creative Staffing, scrutinizes every element to guarantee a glitch-free user experience, assuring your app stands strong in the digital arena.',
-        },
-      ];
+    const services = [
+      {
+        icon: "/user-research.png", // Replace with actual icon path
+        title: "User Research Services",
+        description: "Uncover the heartbeat of your audience with our comprehensive User Research services. By driving deep into user behavior, preferences and needs, our Graphic Design agency services pose the way for informed decisions and harmonious digital experiences. Our creative Graphic Design agency data-driven insights are proven you to create a holistic digital design that searches, ensuring meaningful interaction and shape users at the forefront of your innovating journey."
+      },
+      {
+        icon: "/usability-testing.png", // Replace with actual icon path
+        title: "Usability Testing in UX Design",
+        description: "Unlock the potential of your creative digital design for usability testing with privacy-pres. Our creative Graphic Design agency meticulously analyses user interactions, ensuring seamless and intuitive experience. Our process is to design user interfaces based on real user insights, resulting in Web & App Design teams in one entry-friendly setting in the size effortlessly functional. Because user satisfaction and engagement through our expert usability testing in UX Design services."
+      },
+      {
+        icon: "/ui-ux-design.png", // Replace with actual icon path
+        title: "UX/UI Design",
+        description: "We specialise in UX/UI Design, where user-centric creativity meets seamless functionality. Our creative Graphic Design agency with personal UI UX designers meticulously shapes digital experiences that effectively connect user visibility and brand, ensuring query click, ratings, and interaction issues in positive publicity impressions. In our Graphic Design agency services, with the best UI UI designers transform your ideas into intuitive design that captures, engages, and inspire meaningful connections."
+      },
+      {
+        icon: "/web-app-dev.png", // Replace with actual icon path
+        title: "Web & App Development Services",
+        description: "From design to development, our professional Web Design and Development company seamlessly bridges integration with innovation. We provide affordable Web Design and Development services, and our top media developer account creates complete internal technical updates, enabling a transparent team of seamless and cutting-edge technology. With invaluable attention to detail, our digital solution agency brings your innovative skills, delivering digital solutions that engage, optimize, and inspire."
+      }
+    ];
 
       const items = [
         {
@@ -59,6 +68,8 @@ const Header = () => {
           setExpandedItems([...expandedItems, index]);
         }
       };
+  const prevRef = useRef(null);
+  const nextRef = useRef(null);
 
   return (
     <>
@@ -66,93 +77,202 @@ const Header = () => {
 
 {/* Hero Section */}
 <Flex
-  direction={{ base: 'column', md: 'row' }}
-  alignItems="center"
-  justifyContent="center"
-  px={10}
-  py={16}
-  bg="black"
-  minHeight="100vh"
->
-  {/* Left Side: Text Content */}
-  <Box maxW={{ base: '100%', md: '50%' }} mb={{ base: 8, md: 0 }}>
-    <Heading fontSize="18px" fontWeight="700" color="#FED904" fontFamily="Montserrat, Sans-serif">
-      Graphic Designing & UI/UX Design
-    </Heading>
-    <Heading as="h1" size="2xl" mb={4} color="white" fontSize="26px" lineHeight="40px">
-      Empowering Your Ideas Through App<br/> Development For Both Android And<br/> iOS
-    </Heading>
-    <Text fontSize="md" color="gray.300" mb={6}>
-    Experience transformative App development for both Android and iOS as your visionary concepts come to life. Our creative staffing with top rated app developers creates innovative and the best user friendly apps, seamlessly blending innovation and functionality. From concept to coding, our digital solution agency empowers your ideas in the ever-evolving mobile landscape.
-    </Text>
-    <Text fontSize="md" color="gray.300" mb={6}>
-    Elevate your brand’s digital presence with our top rated mobile app development company for captivating and the best user friendly app development for both Android and iOS that inspires and engages your audience.
-    </Text>
-    <Text fontSize="xl" fontWeight="bold" color="#FED904" mb={4}>
-      Graphic Designing Charges:
-    </Text>
-    <Text fontSize="xl" fontWeight="bold" color="white" mb={4}>
-      $30-$60/ Hour
-    </Text>
-    <Button
+      direction={{ base: 'column', md: 'row' }}
+      alignItems="center"
+      justifyContent="center"
+      px={10}
+      py={16}
       bg="black"
-      color="white"
-      w="126px"
-      h="34px"
-      _hover={{ bg: 'yellow.500' }}
-      borderColor="#FED904"
+      minHeight="100vh"
     >
-      Let's Talk 
-    </Button>
-  </Box>
+      {/* Left Side: Text Content */}
+      <Box maxW={{ base: '100%', md: '50%' }} mb={{ base: 8, md: 0 }}>
+        <Heading
+          fontSize="18px"
+          fontWeight="700"
+          color="#FED904"
+          fontFamily="Montserrat, Sans-serif"
+        >
+          Graphic Designing & UI/UX Design
+        </Heading>
+        <Heading
+          as="h1"
+          size="2xl"
+          mb={4}
+          color="white"
+          fontSize="26px"
+          lineHeight="40px"
+        >
+          Empowering Your Ideas Through App
+          <br /> Development For Both Android And
+          <br /> iOS
+        </Heading>
+        <Text fontSize="md" color="gray.300" mb={6}>
+          Experience transformative App development for both Android and iOS as
+          your visionary concepts come to life. Our creative staffing with top
+          rated app developers creates innovative and the best user friendly
+          apps, seamlessly blending innovation and functionality. From concept
+          to coding, our digital solution agency empowers your ideas in the
+          ever-evolving mobile landscape.
+        </Text>
+        <Text fontSize="md" color="gray.300" mb={6}>
+          Elevate your brand’s digital presence with our top rated mobile app
+          development company for captivating and the best user friendly app
+          development for both Android and iOS that inspires and engages your
+          audience.
+        </Text>
+        <Text fontSize="xl" fontWeight="bold" color="#FED904" mb={4}>
+          Graphic Designing Charges:
+        </Text>
+        <Text fontSize="xl" fontWeight="bold" color="white" mb={4}>
+          $30-$60/ Hour
+        </Text>
+        <Button
+          bg="black"
+          color="white"
+          w="126px"
+          h="34px"
+          _hover={{ bg: 'yellow.500' }}
+          borderColor="#FED904"
+          borderWidth="1px"
+        >
+          Let's Talk
+        </Button>
+      </Box>
 
-  {/* Right Side: Image */}
-  <Box maxW={{ base: '100%', md: '40%' }}>
-    <Image
-      src="/app.png" // Replace with actual image URL
-      alt="Mobile phones displaying app"
-      borderRadius="md"
-    />
-  </Box>
-</Flex>
+      {/* Right Side: Swiper Slider */}
+      <Box maxW={{ base: '100%', md: '40%' }} position="relative">
+        {/* Custom Nav Buttons */}
+        <IconButton
+          ref={prevRef}
+          position="absolute"
+          top="50%"
+          left="-6"
+          transform="translateY(-50%)"
+          zIndex="2"
+          bg="whiteAlpha.200"
+          _hover={{ bg: 'whiteAlpha.300' }}
+          aria-label="Previous"
+        >
+          <FontAwesomeIcon icon={faChevronLeft}/>
+        </IconButton>
+          
+  
+        <IconButton
+          ref={nextRef}
+          position="absolute"
+          top="50%"
+          right="-6"
+          transform="translateY(-50%)"
+          zIndex="2"
+          bg="whiteAlpha.200"
+          _hover={{ bg: 'whiteAlpha.300' }}
+          aria-label="Next"
+
+        >
+          <FontAwesomeIcon icon={faChevronRight}/>
+        </IconButton>
+          
+      
+
+        <Swiper
+          modules={[Navigation]}
+          navigation={{
+            prevEl: prevRef.current,
+            nextEl: nextRef.current,
+          }}
+          onBeforeInit={(swiper) => {
+            swiper.params.navigation.prevEl = prevRef.current;
+            swiper.params.navigation.nextEl = nextRef.current;
+          }}
+          slidesPerView={1}
+          centeredSlides
+          spaceBetween={20}
+        >
+          <SwiperSlide>
+            <Image
+              src="/Group-84.png"
+              alt="Slide 1"
+              borderRadius="md"
+              mx="auto"
+              maxH="500px"
+            />
+          </SwiperSlide>
+          <SwiperSlide>
+            <Image
+              src="/Group-85.png"
+              alt="Slide 2"
+              borderRadius="md"
+              mx="auto"
+              maxH="500px"
+            />
+          </SwiperSlide>
+
+          <SwiperSlide>
+            <Image
+              src="/Group-86.png"
+              alt="Slide 3"
+              borderRadius="md"
+              mx="auto"
+              maxH="500px"
+            />
+          </SwiperSlide>
+
+          <SwiperSlide>
+            <Image
+              src="/Group-87.png"
+              alt="Slide 4"
+              borderRadius="md"
+              mx="auto"
+              maxH="500px"
+            />
+          </SwiperSlide>
+
+          <SwiperSlide>
+            <Image
+              src="/Group-88.png"
+              alt="Slide 5"
+              borderRadius="md"
+              mx="auto"
+              maxH="500px"
+            />
+          </SwiperSlide>
+          {/* Add more slides as needed */}
+        </Swiper>
+      </Box>
+    </Flex>
 
 
 {/* How We Do it */}
-<Box px={10} py={16} bg="black">
-      <Heading as="h2" fontSize="2rem" textAlign="center" mb={2} color="white">
-        HOW WE DO IT
-      </Heading>
-      <Text fontSize="md" color="#FFFFFF" textAlign="center" mb={10}  fontFamily="Montserrat, Sans-serif" mt={5}>
-        
-      Our top rated Mobile App Development company turns your app dreams into pixel-perfect reality with App Development for both Android and iOS and<br/> weaving cutting-edge technology.								
-      </Text>
-      <Flex
-        direction={{ base: 'column', md: 'row' }}
-        justifyContent="center"
-        
-        alignItems="center"
+<Box bg="black" color="white" py={16} px={{ base: 4, md: 16 }}>
+      <VStack spacing={3} textAlign="center" mb={10}>
+        <Heading fontSize="2xl" color="#FED904">
+          Creative Design Solutions
+        </Heading>
+        <Text color="gray.300" fontSize="md" maxW="700px">
+          We Design User Interfaces For Delightful Experiences, Understanding User Needs
+        </Text>
+      </VStack>
+
+      <Grid
+        templateColumns={{ base: '1fr', md: '1fr 1fr' }}
+        gap={12}
+        maxW="1200px"
+        mx="auto"
       >
-        {cards.map((card, index) => (
-          <VStack
-            key={index}
-            
-            p={6}
-            borderRadius="md"
-            align="center"
-            flex="1"
-          >
-            <Image src={card.icon} alt={card.title}  mb={4} w="40%" />
-            <Heading as="h3" fontSize="18px" mb={2} color="white" fontFamily="Montserrat, Sans-serif">
-              {card.title}
+        {services.map((service, index) => (
+          <VStack key={index} spacing={4} align="start" textAlign="left">
+            <Image src={service.image} alt={service.title} boxSize="100px" />
+            <Heading fontSize="lg" color="#FED904">
+              {service.title}
             </Heading>
-            <Text fontSize="md" color="#9A9A9A" textAlign="center" whiteSpace="pre-line">
-              {card.description}
+            <Text fontSize="sm" color="gray.300">
+              {service.description}
             </Text>
           </VStack>
         ))}
-      </Flex>
+      </Grid>
     </Box>
-
     {/* FAQ's Section */}
     <Box px={10} py={16} bg="white" text="#FFFFFF" mb={10}>
       {/* Heading and Description */}

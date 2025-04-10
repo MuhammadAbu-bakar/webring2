@@ -1,23 +1,86 @@
-import React, { useState } from "react";
-import { Box, Flex, HStack, Button, Text, Image, VStack, SimpleGrid, Heading, createIcon } from "@chakra-ui/react";
+import { useState, useEffect } from "react";
+import {
+  Box,
+  Flex,
+  HStack,
+  Image,
+  VStack,
+  Text,
+  SimpleGrid,
+  Heading,
+  Button,
+  createIcon,
+} from "@chakra-ui/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMagnifyingGlass, faCaretDown, faChevronRight } from "@fortawesome/free-solid-svg-icons";
-import { useNavigate } from "react-router-dom";
-
-const Header = () => {
+import CustomButton from "./CustomButton";
+import {
+  faCaretDown,
+  faChevronRight,
+} from "@fortawesome/free-solid-svg-icons";
+import { useNavigate,useLocation } from "react-router-dom";
+ 
+const HomeHeader = () => {
   const navigate = useNavigate();
+  const location = useLocation();
+
+  const [activeLink, setActiveLink] = useState("Home");
+  const [isVisible, setIsVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
   const [isAboutDropdownOpen, setIsAboutDropdownOpen] = useState(false);
   const [isServicesDropdownOpen, setIsServicesDropdownOpen] = useState(false);
   const [isAiDropdownOpen, setIsAiDropdownOpen] = useState(false);
-  const [isIndustriesDropdownOpen, setIsIndustriesDropdownOpen] = useState(false);
+  const [isIndustriesDropdownOpen, setIsIndustriesDropdownOpen] = useState(false); // State for Industries dropdown
   const [isTechnologiesDropdownOpen, setIsTechnologiesDropdownOpen] = useState(false);
   const [isInsightsDropdownOpen, setIsInsightsDropdownOpen] = useState(false);
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
+ 
+    const toggleMobileMenu = () => {
+      setMobileMenuOpen(!isMobileMenuOpen);
+    };
+    const handleNavigation = (item) => {
+      // Don't navigate if already on the target page
+      const targetPath = item === "Home" ? "/" : `/${item.toLowerCase()}`;
+      
+      if (location.pathname !== targetPath) {
+        navigate(targetPath);
+      }
+      
+      // Close mobile menu if open
+      setIsMobileMenuOpen(false);
+      // Update active link
+      setActiveLink(item);
+    };
+ 
+  const navItems = [
+    "Home",
+    "About",
+    "Services",
+    // "Industries", // Added Industries
+    // "Technologies",
+    // "Insights",
+    "Portfolio",
+    "Blog",
+    // "AI Services",
+  ];
+ 
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      setIsVisible(currentScrollY < lastScrollY || currentScrollY < 50);
+      setLastScrollY(currentScrollY);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [lastScrollY]);
 
-  const toggleMobileMenu = () => {
-    setMobileMenuOpen(!isMobileMenuOpen);
-  };
-
+  useEffect(() => {
+    const path = location.pathname === "/" ? "Home" : location.pathname.slice(1);
+    const capitalizedPath = path.charAt(0).toUpperCase() + path.slice(1);
+    if (navItems.includes(capitalizedPath)) {
+      setActiveLink(capitalizedPath);
+    }
+  }, [location.pathname]);
+ 
   const servicesCategories = [
     {
       title: "App Development",
@@ -67,13 +130,13 @@ const Header = () => {
       ],
     },
   ];
-
+ 
   const aiServices = [
     { name: "AI Chatbots", icon: faChevronRight, link: "/ai/chatbots" },
     { name: "Machine Learning", icon: faChevronRight, link: "/ai/machine-learning" },
     { name: "Data Analytics", icon: faChevronRight, link: "/ai/data-analytics" },
   ];
-
+ 
   const industries = [
     { title: "Automotive", desc: "Transforming automotive industry with bespoke tech." },
     { title: "Healthcare", desc: "Better, accessible healthcare through tailored tech solutions." },
@@ -87,7 +150,7 @@ const Header = () => {
     { title: "ECommerce", desc: "Driving e-commerce growth with smart tech." },
     { title: "Fintech", desc: "Empowering fintech with specialized tech services." },
   ];
-
+ 
   const technologiesCategories = [
     {
       title: "Languages",
@@ -110,7 +173,6 @@ const Header = () => {
       ],
     },
   ];
-
   const insights = [
     { title: "About Webring", desc: "Empowering startups and enterprises with custom digital solutions for transformation." },
     { title: "Life At Webring", desc: "Join our inclusive, dynamic tech team. Grow, innovate, and thrive with us." },
@@ -120,500 +182,489 @@ const Header = () => {
     { title: "Events", desc: "Attend our events and webinars to learn and network." },
     { title: "Referral Program", desc: "Refer talent to Webring and earn rewards." },
   ];
-
   const noBorderItems2 = ["Podcast", "Events", "Referral Program"];
+ 
+  // List of items that should NOT have a bottom border
   const noBorderItems = ["ECommerce", "Fintech", "On-Demand"];
-
-  const handleNavigation = (item) => {
-    const path = item === "Home" ? "/" : `/${item.toLowerCase()}`;
-    navigate(path);
-    setMobileMenuOpen(false); // Close the mobile menu after navigation
-  };
-
-  const handleDropdownOpen = (item) => {
-    if (item === "About") setIsAboutDropdownOpen(true);
-    if (item === "Services") setIsServicesDropdownOpen(true);
-    if (item === "AI Services") setIsAiDropdownOpen(true);
-    if (item === "Industries") setIsIndustriesDropdownOpen(true);
-    if (item === "Technologies") setIsTechnologiesDropdownOpen(true);
-    if (item === "Insights") setIsInsightsDropdownOpen(true);
-  };
-
-  const handleDropdownClose = (item) => {
-    if (item === "About") setIsAboutDropdownOpen(false);
-    if (item === "Services") setIsServicesDropdownOpen(false);
-    if (item === "AI Services") setIsAiDropdownOpen(false);
-    if (item === "Industries") setIsIndustriesDropdownOpen(false);
-    if (item === "Technologies") setIsTechnologiesDropdownOpen(false);
-    if (item === "Insights") setIsInsightsDropdownOpen(false);
-  };
-
-  const renderDropdownMenu = (item) => {
-    if (item === "About" && isAboutDropdownOpen) {
-      return (
-        <Box
-          position="absolute"
-          top="100%"
-          left="0"
-          bg="white"
-          boxShadow="md"
-          borderRadius="8px"
-          p="10px"
-          zIndex="1000"
-          minWidth="200px"
-          mt="30px"
-        >
-          <VStack align="start" spacing="10px">
-            <Text fontFamily="DM Sans" fontWeight="500" fontSize="18px" color="#26241C" cursor="pointer" _hover={{ color: "#FFD700" }} onClick={() => navigate("/who-we-are")}>
-              Who We Are
-            </Text>
-            <Text fontFamily="DM Sans" fontWeight="500" fontSize="18px" color="#26241C" cursor="pointer" _hover={{ color: "#FFD700" }} onClick={() => navigate("/our-partner")}>
-              Our Partner
-            </Text>
-            <Text fontFamily="DM Sans" fontWeight="500" fontSize="18px" color="#26241C" cursor="pointer" _hover={{ color: "#FFD700" }} onClick={() => navigate("/our-mission")}>
-              Our Mission
-            </Text>
-          </VStack>
-        </Box>
-      );
-    }
-
-    if (item === "Services" && isServicesDropdownOpen) {
-      return (
-        <Box
-          position="absolute"
-          top="50px"
-          left="65%"
-          transform="translateX(-65%)"
-          bg="#FFFFFF"
-          w={{ base: "90%", md: "1540px" }}
-          boxShadow="md"
-          p="20px"
-          zIndex="1000"
-          display="flex"
-          gap="20px"
-        >
-          <Box flex="1">
-            <Text fontSize="24px" fontWeight="700" mb="10px" font="DM Sans" ml={{ base: "20px", md: "150px" }}>
-              Built to Win
-            </Text>
-            <Text fontSize="16px" fontWeight="400" font="Yantramanav" mb="20px" ml={{ base: "20px", md: "150px" }}>
-              Transforming business with our future-ready tech solutions. Get custom products for accelerated digital transformation across industries globally.
-            </Text>
-            <Image src="/Lphone.png" alt="Design Image" width="100%" borderRadius="8px" />
-          </Box>
-
-          <Box flex="2" display="grid" gridTemplateColumns={{ base: "1fr", md: "1fr 1fr 1fr" }} gap="20px">
-            {servicesCategories.map((category) => (
-              <Box key={category.title}>
-                <Text fontSize="16px" fontWeight="700" mb="15px" font="DM Sans">
-                  {category.title}
-                </Text>
-                <VStack align="start">
-                  {category.services.map((service) => (
-                    <Flex
-                      key={service.name}
-                      align="center"
-                      cursor="pointer"
-                      borderRadius="8px"
-                      _hover={{ bg: "#FFD700" }}
-                      onClick={() => navigate(service.link)}
-                    >
-                      <FontAwesomeIcon icon={service.icon} style={{ marginRight: "10px" }} />
-                      <Text fontSize="14px" fontWeight="400" font="Yantramanav">
-                        {service.name}
-                      </Text>
-                    </Flex>
-                  ))}
-                </VStack>
-              </Box>
-            ))}
-          </Box>
-        </Box>
-      );
-    }
-
-    if (item === "AI Services" && isAiDropdownOpen) {
-      return (
-        <Box
-          position="absolute"
-          top="50px"
-          left="50%"
-          transform="translateX(-50%)"
-          bg="rgb(245, 239, 233)"
-          w="200px"
-          borderRadius="8px"
-          boxShadow="md"
-          p="20px"
-          zIndex="1000"
-        >
-          {aiServices.map((service) => (
-            <Flex
-              key={service.name}
-              align="center"
-              cursor="pointer"
-              p="8px"
-              borderRadius="8px"
-              _hover={{ bg: "#FFD700" }}
-              onClick={() => navigate(service.link)}
-            >
-              <FontAwesomeIcon icon={service.icon} style={{ marginRight: "10px" }} />
-              <Text fontSize="14px" fontWeight="500">
-                {service.name}
-              </Text>
-            </Flex>
-          ))}
-        </Box>
-      );
-    }
-
-    if (item === "Industries" && isIndustriesDropdownOpen) {
-      return (
-        <Box
-          position="absolute"
-          top="50px"
-          left="50%"
-          transform="translateX(-50%)"
-          bg="#FFFFFF"
-          w={{ base: "90%", md: "1510px" }}
-          boxShadow="md"
-          p="20px"
-          zIndex="1000"
-        >
-          <Flex direction={{ base: "column", md: "row" }} alignItems="center" justifyContent="space-between">
-            <Box flex="1">
-              <Text fontSize="24px" fontWeight="700" mb="10px" font="DM Sans" ml={{ base: "20px", md: "150px" }}>
-                Built to Win
-              </Text>
-              <Text fontSize="16px" fontWeight="400" font="Yantramanav" mb="20px" ml={{ base: "20px", md: "150px" }}>
-                Transforming business with our future-ready tech solutions. Get custom products for accelerated digital transformation across industries globally.
-              </Text>
-              <Image ml={{ base: "20px", md: "50px" }} src="/Lphone.png" alt="Design Image" width="100%" borderRadius="8px" />
-            </Box>
-
-            <SimpleGrid columns={{ base: 1, md: 3 }} spacingX={20} spacingY={5} w="full" maxW="1100px" ml={{ md: 16 }}>
-              {industries.map((item, index) => (
-                <Box key={index} marginRight={"20px"}>
-                  <Box
-                    pb={5}
-                    pt={5}
-                    borderBottom={noBorderItems.includes(item.title) ? "none" : "2px solid #ccc"}
-                    w="full"
-                    pr={10}
-                  >
-                    <Heading fontSize="20px" fontWeight="semibold" mb={1} font="DM Sans">
-                      {item.title}
-                    </Heading>
-                    <Text fontSize="16px" color="gray.600" mt={2} font="Yantramanav">
-                      {item.desc}
-                    </Text>
-                  </Box>
-                </Box>
-              ))}
-            </SimpleGrid>
-          </Flex>
-        </Box>
-      );
-    }
-
-    if (item === "Technologies" && isTechnologiesDropdownOpen) {
-      return (
-        <Box
-          position="absolute"
-          top="50px"
-          left="50%"
-          transform="translateX(-50%)"
-          bg="#FFFFFF"
-          w={{ base: "90%", md: "1524px" }}
-          boxShadow="md"
-          p="20px"
-          zIndex="1000"
-          display="flex"
-          gap="20px"
-        >
-          <Box flex="1">
-            <Text fontSize="24px" fontWeight="700" mb="10px" font="DM Sans" ml={{ base: "20px", md: "150px" }}>
-              Built to Win
-            </Text>
-            <Text fontSize="16px" fontWeight="400" font="Yantramanav" mb="20px" ml={{ base: "20px", md: "150px" }}>
-              Transforming business with our future-ready tech solutions. Get custom products for accelerated digital transformation across industries globally.
-            </Text>
-            <Image src="/Lphone.png" alt="Design Image" width="100%" borderRadius="8px" />
-          </Box>
-
-          <Box flex="2" display="grid" gridTemplateColumns={{ base: "1fr", md: "1fr 1fr 1fr" }} gap="20px">
-            {technologiesCategories.map((category) => (
-              <Box key={category.title}>
-                <Text fontSize="16px" fontWeight="700" mb="10px" font="DM Sans">
-                  {category.title}
-                </Text>
-                <VStack align="start">
-                  {category.items.map((item) => (
-                    <Flex
-                      key={item.name}
-                      align="center"
-                      cursor="pointer"
-                      borderRadius="8px"
-                      _hover={{ bg: "#FFD700" }}
-                      onClick={() => navigate(item.link)}
-                    >
-                      <FontAwesomeIcon icon={faChevronRight} style={{ marginRight: "10px" }} />
-                      <Text fontSize="14px" fontWeight="400" font="Yantramanav">
-                        {item.name}
-                      </Text>
-                    </Flex>
-                  ))}
-                </VStack>
-              </Box>
-            ))}
-          </Box>
-        </Box>
-      );
-    }
-
-    if (item === "Insights" && isInsightsDropdownOpen) {
-      return (
-        <Box
-          position="absolute"
-          top="50px"
-          left="50%"
-          transform="translateX(-50%)"
-          bg="#FFFFFF"
-          w={{ base: "90%", md: "95rem" }}
-          boxShadow="md"
-          p="20px"
-          zIndex="1000"
-        >
-          <Flex alignItems="center" justifyContent="space-between">
-            <Box flex="1">
-              <Text fontSize="24px" fontWeight="700" mb="10px" font="DM Sans" ml={{ base: "20px", md: "150px" }}>
-                Built to Win
-              </Text>
-              <Text fontSize="16px" fontWeight="400" font="Yantramanav" mb="20px" ml={{ base: "20px", md: "150px" }}>
-                Transforming business with our future-ready tech solutions. Get custom products for accelerated digital transformation across industries globally.
-              </Text>
-              <Image ml={{ base: "20px", md: "50px" }} src="/Lphone.png" alt="Design Image" width="100%" borderRadius="8px" />
-            </Box>
-
-            <SimpleGrid columns={{ base: 1, md: 3 }} spacingX={20} spacingY={5} w="full" maxW="1100px" ml={{ md: 16 }}>
-              {insights.map((item, index) => (
-                <Box key={index} marginRight={"20px"}>
-                  <Box
-                    pb={5}
-                    pt={5}
-                    borderBottom={noBorderItems2.includes(item.title) ? "none" : "2px solid #ccc"}
-                    w="full"
-                    pr={10}
-                  >
-                    <Heading fontSize="20px" fontWeight="semibold" mb={1} font="DM Sans">
-                      {item.title}
-                    </Heading>
-                    <Text fontSize="16px" color="gray.600" mt={2} font="Yantramanav">
-                      {item.desc}
-                    </Text>
-                  </Box>
-                </Box>
-              ))}
-            </SimpleGrid>
-          </Flex>
-        </Box>
-      );
-    }
-
-    return null;
-  };
-
+ 
   const HamburgerIcon = createIcon({
-    displayName: "HamburgerIcon",
-    viewBox: "0 0 19 19",
-    path: (
-      <>
-        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-        <path
-          stroke="black"
-          fill="none"
-          d="M4 6h16M4 12h16M4 18h16"
-          strokeWidth="2"
-          strokeLinecap="round"
-        />
-      </>
-    ),
-  });
+      displayName: "HamburgerIcon",
+      viewBox: "0 0 19 19",
+      path: (
+        <>
+          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+          <path
+            stroke="white" // Ensure the lines are black
+            fill="none" // Prevent unwanted fill
+            d="M4 6h16M4 12h16M4 18h16"
+            strokeWidth="2"
+            strokeLinecap="round"
+          />
+        </>
+      ),
+    });
+ 
+    const CloseIcon = createIcon({
+      displayName: "CloseIcon",
+      viewBox: "0 0 19 19",
+      path: (
+        <>
+          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+          <path
+            stroke="white"
+            fill="none"
+            d="M6 6l12 12M18 6l-12 12"
+            strokeWidth="2"
+            strokeLinecap="round"
+          />
+        </>
+      ),
+    });
 
-  const CloseIcon = createIcon({
-    displayName: "CloseIcon",
-    viewBox: "0 0 19 19",
-    path: (
-      <>
-        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-        <path
-          stroke="black"
-          fill="none"
-          d="M6 6l12 12M18 6l-12 12"
-          strokeWidth="2"
-          strokeLinecap="round"
-        />
-      </>
-    ),
-  });
-
-
-  //navbar
+    
+ 
+ //navbar
   return (
     <Box
-      as="header"
-      bg="white"
+      w="100%"
+      h="80px"
       px={{ base: "20px", md: "50px", lg: "100px" }}
-      width="100%"
-      height="80px"
-      mb="13px"
+      py="10px"
+      maxWidth={"100%"}
+      position="relative"
+      top={isVisible ? "0" : "-100px"}
+      left="0"
+      zIndex="1000"
+      bg="white"
+      transition="top 0.3s ease-in-out, background 0.3s ease-in-out"
+      
     >
-      <Flex
-        direction={{ base: "row", md: "row" }}
-        justify="space-between" // Keep logo on left, everything else on right
-        align="center"
-        height="100%"
-        
-      >
-        {/* Logo (Left Side) */}
-        <Image
-          src="/webring.png"
-          alt="Webring Logo"
-          width={{ base: "90px", md: "100px" }}
-          height="auto"
-        />
-
-        {/* Right Section (Nav Links + Contact Us Button) */}
-        <HStack
-          spacing={{ base: "20px", md: "30px" }}
-          align="center"
-          justify="flex-end" // Aligns content to the right
-          
-        >
-          {/* Navigation Links */}
-          <HStack
-            display={{ base: "none", md: "none", lg: "flex" }}
-            spacing={{ base: "20px", md: "30px" }}
-            gap={{ base: "20px", md: "20px", lg: "27px" }}
-            
-          >
-            {[
-              "Home",
-              "About",
-              "Services",
-              // "Industries",
-              // "Technologies",
-              // "Insights",
-              "Portfolio",
-              "Blog",
-              // "AI Services",
-            ].map((item) => (
+      <Flex align="center" justify="space-between" w="100%" h="100%">
+        {/* Logo Section */}
+        <HStack spacing={2}>
+          <Image src="/webring.png" alt="Webring Logo" width={{ base: "90px", md: "100px" }}
+          height="auto" />
+        </HStack>
+ 
+        {/* Desktop Navigation */}
+        <Flex display={{ base: "none", md: "flex" }} w="auto" h="100%" gap="30px" align="center">
+          <HStack spacing="30px" display={{ base: "none", md: "none", lg: "flex" }} font="DM Sans">
+            {navItems.map((item) => (
               <Box
                 key={item}
                 position="relative"
-                onMouseEnter={() => handleDropdownOpen(item)}
-                onMouseLeave={() => handleDropdownClose(item)}
+                onMouseEnter={() => {
+                  if (item === "Services") setIsServicesDropdownOpen(true);
+                  if (item === "AI Services") setIsAiDropdownOpen(true);
+                  if (item === "Industries") setIsIndustriesDropdownOpen(true);
+                  if (item === "Technologies") setIsTechnologiesDropdownOpen(true); // Handle Industries dropdown
+                  if (item === "Insights") setIsInsightsDropdownOpen(true);
+                  if (item === "About") setIsAboutDropdownOpen(true);
+                }}
+                onMouseLeave={() => {
+                  if (item === "Services") setIsServicesDropdownOpen(false);
+                  if (item === "AI Services") setIsAiDropdownOpen(false);
+                  if (item === "Industries") setIsIndustriesDropdownOpen(false);
+                  if (item === "Technologies") setIsTechnologiesDropdownOpen(false); // Handle Industries dropdown
+                  if (item === "Insights") setIsInsightsDropdownOpen(false);
+                  if (item === "About") setIsAboutDropdownOpen(false);
+                }}
+                onClick={() => {
+                  if (item === "Home") {
+                    handleNavigation("Home");
+                  } else if (item === "Portfolio") {
+                    handleNavigation("Portfolio");
+                  } else if (item === "Services") {
+                    handleNavigation("Services");
+                  } else {
+                    handleNavigation(item);
+                  }
+                }}
                 cursor="pointer"
               >
-                <HStack spacing="4px">
+                <Box
+                  px={3}
+                  height="100%"
+                  display="flex"
+                  alignItems="center"
+                  justifyContent="center"
+                  // borderTop={activeLink === item ? "3px solid #FED904" : "none"}
+                  py={6}
+                >
                   <Text
-                    fontWeight={600}
-                    fontFamily="'Inter', -apple-system, BlinkMacSystemFont, sans-serif"
-                    fontSize={{ base: "18px", lg: "18px" }}
-                    lineHeight="100%"
-                    color="#26241C"
+                    fontSize="18px"
+                    fontWeight="600"
+                    color={"black"}
+                    // activeLink === item ? "#FED904" : 
+                    _hover={{ color: "#FED904" }}
+                  >
+                    {item}
+                  </Text>
+                </Box>
+ 
+                {/* Services Dropdown Menu */}
+                {item === "Services" && isServicesDropdownOpen && (
+                  <Box
+                    position="absolute"
+                    top="100%"
+                    left="65%"
+                    transform={{ md:"translateX(-30%)", lg:"translateX(-66%)", xl:"translateX(-66%)" }}
+                    bg="#FFFFFF"
+                    w={{ md: "900px", lg:"1140px", xl: "1500px" }}
+                    boxShadow="md"
+                    p="20px"
+                    zIndex="1000"
+                    display="flex"
+                    gap="20px"
+                  >
+                    {/* Left Section with Design from Image */}
+                    <Box flex="1">
+                      <Text fontSize="22px" fontWeight="700" mb="10px" font="DM Sans" ml="155px">
+                        Built to Win
+                      </Text>
+                      <Text fontSize="16px" fontWeight="400" font="Yantramanav" mb="20px" ml="155px" whiteSpace="pre-line">
+                        Transforming business with our<br/> future-ready tech solutions. Get<br/> custom products for accelerated<br/> digital transformation across<br/> industries globally.
+                      </Text>
+                      <Image src="/Lphone.png" alt="Design Image" width="85%" borderRadius="8px" ml="25px" />
+                    </Box>
+ 
+                    {/* Right Section with Services Categories */}
+                    <Box flex="2" display="grid" gridTemplateColumns="1fr 1fr 1fr" gap={{ md: "10px", lg: "20px" }}>
+  {servicesCategories.map((category, index) => (
+    <Box key={category.title} position="relative">
+      {/* Single line below first row categories only */}
+      {index < 3 && (
+        <Box 
+          position="absolute" 
+          bottom="-15px"  // Adjust this value to control distance from content
+          left="0" 
+          right="0" 
+          height="2px" 
+          bg="gray.200"
+        />
+      )}
+      
+      <Text fontSize="16px" fontWeight="700" mb="15px" font="DM Sans">
+        {category.title}
+      </Text>
+      <VStack align="start">
+        {category.services.map((service) => (
+          <Flex
+            key={service.name}
+            align="center"
+            cursor="pointer"
+            borderRadius="8px"
+            _hover={{ bg: "#FFD700" }}
+            onClick={() => {
+              if (category.title === "Web Development") {
+                navigate("/web-development");
+              } else if (category.title === "Mobile App Development") {
+                navigate("/app-development");
+              } else {
+                navigate(service.link);
+              }
+            }}
+          >
+            <FontAwesomeIcon  style={{ marginRight: "10px" }} />
+            <Text fontSize="14px" fontWeight="400" font="Yantramanav">
+              {/* {service.name} */}
+            </Text>
+          </Flex>
+        ))}
+      </VStack>
+    </Box>
+  ))}
+</Box>
+                  </Box>
+                )}
+
+                {item === "About" && isAboutDropdownOpen &&(
+                      
+                        <Box
+                          position="absolute"
+                          top="100%"
+                          left="0"
+                          bg="white"
+                          boxShadow="md"
+                          borderRadius="8px"
+                          p="10px"
+                          zIndex="1000"
+                          minWidth="200px"
+                        >
+                          <VStack align="start" spacing="10px">
+                            <Text fontFamily="DM Sans" fontWeight="500" fontSize="18px" color="#26241C" cursor="pointer" _hover={{ color: "#FFD700" }} onClick={() => navigate("/who-we-are")}>
+                              Who We Are
+                            </Text>
+                            <Text fontFamily="DM Sans" fontWeight="500" fontSize="18px" color="#26241C" cursor="pointer" _hover={{ color: "#FFD700" }} onClick={() => navigate("/our-partner")}>
+                              Our Partner
+                            </Text>
+                            <Text fontFamily="DM Sans" fontWeight="500" fontSize="18px" color="#26241C" cursor="pointer" _hover={{ color: "#FFD700" }} onClick={() => navigate("/our-mission")}>
+                              Our Mission
+                            </Text>
+                          </VStack>
+                        </Box>
+                )}
+                    
+ 
+               
+                {/* AI Services Dropdown Menu */}
+{item === "AI Services" && isAiDropdownOpen && (
+  <Box
+    position="absolute"
+    top="100%"
+    left="78%"
+    transform="translateX(-78%)"
+    bg="#FFFFFF"
+    w={{ md: "900px", lg: "1140px", xl: "1500px" }}
+    boxShadow="md"
+    p="20px"
+    zIndex="1000"
+    display="flex"
+    gap="20px"
+  >
+    {/* Left Section with Design from Image */}
+    <Box flex="1">
+      <Text fontSize="22px" fontWeight="700" mb="10px" font="DM Sans" ml="155px">
+        Built to Win with AI
+      </Text>
+      <Text fontSize="16px" fontWeight="400" font="Yantramanav" mb="20px" ml="155px">
+        Harness the power of AI to transform<br/> your business. Our AI services are<br/> designed to drive innovation, efficiency,<br/> and growth across industries.
+      </Text>
+      <Image src="/aiHeader.jpg" alt="AI Design Image" width="55%" borderRadius="8px" ml="155px" />
+    </Box>
+
+    {/* Right Section with AI Services Categories */}
+    <Box flex="2" display="grid" gridTemplateColumns="1fr 1fr 1fr" gap={{ md: "10px", lg: "20px" }}>
+      {aiServices.map((service) => (
+        <Box key={service.name}>
+          <Flex
+            align="center"
+            cursor="pointer"
+            borderRadius="8px"
+            _hover={{ bg: "#FFD700" }}
+            onClick={() => navigate(service.link)}
+          >
+            
+            <Text fontSize="16px" fontWeight="700" font="Yantramanav">
+              {service.name}
+            </Text>
+          </Flex>
+        </Box>
+      ))}
+    </Box>
+  </Box>
+)}
+ 
+                {/* Industries Dropdown Menu */}
+                {item === "Industries" && isIndustriesDropdownOpen && (
+                  <Box
+                    position="absolute"
+                    top="100%"
+                    left="42%"
+                    transform={{ lg:"translateX(-42%)", xl:"translateX(-42%)" }}
+                    bg="#FFFFFF"
+                    w={{ md: "900px", lg:"1140px", xl: "1500px" }}
+                    boxShadow="md"
+                    p="20px"
+                    zIndex="1000"
+                  >
+                    <Flex direction={{ base: "column", md: "row" }} alignItems="start" justifyContent="space-between">
+                      {/* Left Section */}
+                      <Box flex="1" width={"30%"}>
+                      <Text fontSize="24px" fontWeight="700" mb="10px" font="DM Sans" ml="70px" mt="25px">
+                        Built to Win
+                      </Text>
+                      <Text fontSize="16px" fontWeight="400" font="Yantramanav" mb="20px"  whiteSpace="pre-line" ml="70px">
+                        Transforming business with our future-<br/>ready tech solutions. Get custom<br/> products for accelerated digital<br/> transformation across industries globally.
+                      </Text>
+                      <Image ml="70px" pt="25px"src="/industriesHeader.jpg" alt="Design Image" width="65%" borderRadius="8px" />
+                        </Box>
+ 
+                      {/* Right Section - Industry List */}
+                      <SimpleGrid columns={3} spacingX={20} spacingY={5} w="full" maxW={{ md: "850px", lg:"65%", xl: "70%" }} ml={{ md: 18 }}>
+                        {industries.map((item, index) => (
+                          <Box key={index} marginRight={"20px"}>
+                            <Box
+                              pb={5}
+                              pt={5}
+                              borderBottom={noBorderItems.includes(item.title) ? "none" : "2px solid #ccc"} // Apply border conditionally
+                              w="full"
+                              pr={10}
+                            >
+                              <Heading fontSize="20px" fontWeight="semibold" mb={1} font="DM Sans">
+                                {item.title}
+                              </Heading>
+                              <Text fontSize="16px" color="gray.600" mt={2} font="Yantramanav">
+                                {item.desc}
+                              </Text>
+                            </Box>
+                          </Box>
+                        ))}
+                      </SimpleGrid>
+                    </Flex>
+                  </Box>
+                )}
+ 
+                {/* Technologies Dropdown */}
+                {item === "Technologies" && isTechnologiesDropdownOpen && (
+                  <Box
+                    position="absolute"
+                    top="100%"
+                    left="54%"
+                    transform="translateX(-54%)"
+                    bg="#FFFFFF"
+                    w={{ md: "900px", lg:"1000px", xl: "1300px" }}
+                    boxShadow="md"
+                    p="20px"
+                    zIndex="1000"
+                    display="flex"
+                    gap="20px"
+                  >
+                    {/* Left Section with Design from Image */}
+                    <Box flex="1">
+                      <Text fontSize="24px" fontWeight="700" mb="10px" font="DM Sans" ml="100px">
+                        Built to Win
+                      </Text>
+                      <Text fontSize="16px" fontWeight="400" font="Yantramanav" mb="20px" ml="100px" whiteSpace="pre-line" >
+                        Transforming business with our future-<br/>ready tech solutions. Get custom<br/> products for accelerated digital<br/> transformation across industries<br/> globally.
+                      </Text>
+                      <Image src="/technologiesHeader.png" alt="Design Image" width="45%" borderRadius="8px" ml={"90px"}/>
+                    </Box>
+ 
+                    {/* Right Section with Services Categories */}
+                        <Box flex="1" display="grid" gridTemplateColumns="1fr 1fr 1fr" gap="10px" ml="30px">
+                          {technologiesCategories.map((category) => (
+                            <Box key={category.title}>
+                              <Text fontSize="16px" fontWeight="700" mb="10px" font="DM Sans">
+                                {category.title}
+                              </Text>
+                              <VStack align="start">
+                                {category.items.map((item) => (
+                                  <Flex
+                                    key={item.name}
+                                    align="center"
+                                    cursor="pointer"
+                                    borderRadius="8px"
+                                    _hover={{ bg: "#FFD700" }}
+                                    onClick={() => navigate(item.link)}
+                                  >
+                                    <FontAwesomeIcon icon={faChevronRight} style={{ marginRight: "10px" }} />
+                                    <Text fontSize="14px" fontWeight="400" font="Yantramanav">
+                                      {item.name}
+                                    </Text>
+                                  </Flex>
+                                ))}
+                              </VStack>
+                            </Box>
+                          ))}
+                        </Box>
+                  </Box>
+                )}
+ 
+ 
+                {/* Insights */}
+                {item === "Insights" && isInsightsDropdownOpen && (
+                  <Box
+                    position="absolute"
+                    top="100%"
+                    left="62%"
+                    transform={{ lg:"translateX(-60%)", xl:"translateX(-60%)" }}
+                    bg="#FFFFFF"
+                    w={{ md: "900px", lg:"1140px", xl: "1400px" }}
+                    boxShadow="md"
+                    p="20px"
+                    zIndex="1000"
+                  >
+                    <Flex   alignItems="center" justifyContent="space-between">
+                      {/* Left Section */}
+                      <Box flex="1" width={"30%"}>
+                      <Text fontSize="24px" fontWeight="700" mb="10px" font="DM Sans" ml="100px">
+                        Built to Win
+                      </Text>
+                      <Text fontSize="16px" fontWeight="400" font="Yantramanav" mb="20px" ml="100px">
+                        Transforming business with our future-ready tech solutions. Get custom products for accelerated digital transformation across industries globally.
+                      </Text>
+                      <Image ml="50px" src="/Lphone.png" alt="Design Image" width="300px" borderRadius="8px" />
+                    </Box>
+ 
+                      {/* Right Section  */}
+                      <SimpleGrid columns={3} spacingX={20} spacingY={5} w="full" maxW={{ md: "850px", lg:"65%", xl: "70%" }} ml={{ md: 16 }}>
+                        {insights.map((item, index) => (
+                            <Box key={index} marginRight={"20px"}>
+                            <Box
+                                pb={5}
+                                pt={5}
+                                borderBottom={noBorderItems2.includes(item.title) ? "none" : "2px solid #ccc"} // Apply border conditionally
+                                w="full"
+                                pr={10}
+                            >
+                                <Heading fontSize="20px" fontWeight="semibold" mb={1} font="DM Sans">
+                                {item.title}
+                                </Heading>
+                                <Text fontSize="16px" color="gray.600" mt={2} font="Yantramanav">
+                                {item.desc}
+                                </Text>
+                            </Box>
+                            </Box>
+                        ))}
+                        </SimpleGrid>
+                    </Flex>
+                  </Box>
+                )}
+ 
+               
+              </Box>
+            ))}
+          </HStack>
+ 
+          {/* Contact Us Button */}
+          <CustomButton text="Contact Us"  onClick={() => navigate("/contact-form")}  />
+         
+         
+        </Flex>
+            {/* Hamburger Menu (Visible on Mobile) */}
+            <Button display={{ base: "block", md: "block", lg: "none" }} bgColor={"transparent"} onClick={toggleMobileMenu}>
+                {isMobileMenuOpen ? <CloseIcon boxSize={6} /> : <HamburgerIcon boxSize={7} />}
+            </Button>
+      </Flex>
+      {isMobileMenuOpen && (
+              <VStack
+                position="absolute"
+                top="85px"
+                right={{ base: "0", md: "40px" }}
+                width={{ base: "100%", md: "50%" }}
+                bg="black"
+                boxShadow="lg"
+                spacing="15px"
+                p="25px"
+                zIndex="100"
+                borderRadius="10px" // Adds rounded corners
+                transform={isMobileMenuOpen ? "translateY(0)" : "translateY(-10px)"} // Smooth slide effect
+                transition="transform 0.3s ease-in-out, opacity 0.3s ease-in-out" // Smooth animation
+                opacity={isMobileMenuOpen ? 1 : 0} // Fade-in effect
+              >
+                {["Home", "About", "Services", "Industries", "Technologies", "Insights", "Portfolio", "Blog"].map((item) => (
+                  <Text
+                    key={item}
+                    fontFamily="DM Sans"
+                    fontWeight="600"
+                    fontSize="20px"
+                    color="white"
                     cursor="pointer"
+                    w="100%"
+                    py="5px"
+                    borderRadius="8px"
+                    _hover={{ bg: "#f4f4f4", transform: "scale(1.05)" }} // Subtle hover effect
+                    transition="all 0.2s ease-in-out"
                     onClick={() => handleNavigation(item)}
                   >
                     {item}
                   </Text>
-                  
-                </HStack>
-
-                {/* Dropdown Menus */}
-                {renderDropdownMenu(item)}
-              </Box>
-            ))}
-          </HStack>
-
-          {/* Contact Us Button */}
-          <Button
-            bg="#FED904"
-            display={{ base: "none", md: "none", lg: "none", xl: "flex" }}
-            color="#26241C"
-            fontFamily="'Inter', -apple-system, BlinkMacSystemFont, sans-serif"
-            fontWeight="600"
-            fontSize="20px"
-            lineHeight="24px"
-            borderRadius="4px"
-            w="175px"
-            h="56px"
-            _hover={{ bg: "yellow.500" }}
-            ml="40px"
-            onClick={() => navigate("/contact")}
-          >
-            Contact Us
-          </Button>
-
-          {/* Hamburger Menu (Visible on Mobile) */}
-          <Button
-            display={{ base: "block", md: "block", lg: "none" }}
-            bgColor="white"
-            onClick={toggleMobileMenu}
-          >
-            {isMobileMenuOpen ? <CloseIcon boxSize={6} /> : <HamburgerIcon boxSize={7} />}
-          </Button>
-        </HStack>
-      </Flex>
-
-      {/* Mobile Menu */}
-      {isMobileMenuOpen && (
-        <VStack
-          bg="black"
-          position="absolute"
-          top="85px"
-          right={{ base: "0", md: "40px" }}
-          width={{ base: "100%", md: "50%" }}
-          boxShadow="md"
-          spacing="10px"
-          p="20px"
-          zIndex="100"
-          borderRadius="10px"
-          transform={isMobileMenuOpen ? "translateY(0)" : "translateY(-10px)"}
-          transition="transform 0.3s ease-in-out, opacity 0.3s ease-in-out"
-          opacity={isMobileMenuOpen ? 1 : 0}
-        >
-          {[
-            "Home",
-            "About",
-            "Services",
-            "Industries",
-            "Technologies",
-            "Insights",
-            "Portfolio",
-            "Blog",
-          ].map((item) => (
-            <Text
-              key={item}
-              fontFamily="DM Sans"
-              fontWeight="500"
-              fontSize="22px"
-              color="white"
-              cursor="pointer"
-              onClick={() => handleNavigation(item)}
-              _hover={{ bg: "#f4f4f4", transform: "scale(1.05)" }}
-              transition="all 0.2s ease-in-out"
-              w="100%"
-              py="5px"
-              borderRadius="8px"
-            >
-              {item}
-            </Text>
-          ))}
-        </VStack>
-      )}
+                ))}
+              </VStack>
+            )}
     </Box>
   );
 };
-
-export default Header;
+ 
+export default HomeHeader;

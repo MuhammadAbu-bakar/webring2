@@ -154,11 +154,11 @@ const Footer = () => {
         </Box>
 
         {/* Contact Info Section */}
-        <VStack align="start" color="#F8F8F6" w={{ base: "100%", md: "auto" }} font="DM Sans">
+        <VStack align="start" color="#F8F8F6" w={{ base: "100%", md: "auto" }} font="DM Sans" mr="140px">
           <Text fontWeight="500">Phone</Text>
           <Text pt="3px">+92 319 6780744</Text>
-          <Text fontWeight="500" mt={5}>Mail</Text>
-          <Text pt="3px">info@webring.ltd</Text>
+          <Text fontWeight="500" mt={3}>Mail</Text>
+          <Text pt="1px">info@webring.ltd</Text>
         </VStack>
       </Flex>
 

@@ -1,11 +1,9 @@
 import { Box, Image, Text, IconButton } from "@chakra-ui/react";
-import { useRef, useEffect, useState } from "react";
+import { useRef, useState } from "react";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
-
-// Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/navigation';
 
@@ -54,8 +52,6 @@ const TechLogosSection = () => {
       >
         <FontAwesomeIcon icon={faChevronLeft} />
       </IconButton>
-        
-      
       
       <IconButton
         ref={navigationNextRef}
@@ -75,8 +71,6 @@ const TechLogosSection = () => {
       >
         <FontAwesomeIcon icon={faChevronRight} />
       </IconButton>
-        
-    
 
       <Box position="relative" w="100%" px={{ base: "30px", md: "50px" }}>
         <Swiper
@@ -91,7 +85,6 @@ const TechLogosSection = () => {
             nextEl: navigationNextRef.current,
           }}
           onInit={(swiper) => {
-            // Delay the navigation setup slightly to ensure refs are available
             setTimeout(() => {
               swiper.params.navigation.prevEl = navigationPrevRef.current;
               swiper.params.navigation.nextEl = navigationNextRef.current;
@@ -132,14 +125,37 @@ const TechLogosSection = () => {
                 w={{ base: "250px", sm: "280px", md: "330px" }}
                 h={{ base: "150px", md: "200px" }}
                 borderRadius="10px"
-                boxShadow="md"
+                border="1px solid"
+                borderColor="gray.200"
+                boxShadow="0 0 0 1px rgba(0, 0, 0, 0.05), 0 2px 4px 0 rgba(0, 0, 0, 0.1)"
                 bg="white"
                 display="flex"
                 flexDirection="column"
                 alignItems="center"
                 justifyContent="center"
-                transition="0.3s"
-                _hover={{ boxShadow: "lg" }}
+                transition="all 0.3s ease"
+                position="relative"
+                _before={{
+                  content: '""',
+                  position: 'absolute',
+                  top: 0,
+                  left: 0,
+                  right: 0,
+                  height: '1px',
+                  bg: 'gray.200',
+                  zIndex: 1
+                }}
+                _after={{
+                  content: '""',
+                  position: 'absolute',
+                  bottom: 0,
+                  left: 0,
+                  right: 0,
+                  height: '1px',
+                  bg: 'gray.200',
+                  zIndex: 1
+                }}
+                
               >
                 <Image
                   src={logo.src}
@@ -156,6 +172,7 @@ const TechLogosSection = () => {
                       ? { base: "60px", md: "70px" } 
                       : { base: "80px", md: "95px" }
                   }
+                  objectFit="contain"
                 />
                 <Text fontSize={{ base: "14px", md: "18px" }} fontWeight="500" pt={{ base: 4, md: 8 }}>
                   {logo.name}

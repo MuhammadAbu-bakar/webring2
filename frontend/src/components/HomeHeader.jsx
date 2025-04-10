@@ -301,95 +301,184 @@ const HomeHeader = () => {
  
                 {/* Services Dropdown Menu */}
                 {item === "Services" && isServicesDropdownOpen && (
-                  <Box
-                    position="absolute"
-                    top="100%"
-                    left="65%"
-                    transform={{ md:"translateX(-30%)", lg:"translateX(-66%)", xl:"translateX(-66%)" }}
-                    bg="#FFFFFF"
-                    w={{ md: "900px", lg:"1140px", xl: "1500px" }}
-                    boxShadow="md"
-                    p="20px"
-                    zIndex="1000"
-                    display="flex"
-                    gap="20px"
-                  >
-                    {/* Left Section with Design from Image */}
-                    <Box flex="1">
-                      <Text fontSize="22px" fontWeight="700" mb="10px" font="DM Sans" ml="155px">
-                        Built to Win
-                      </Text>
-                      <Text fontSize="16px" fontWeight="400" font="Yantramanav" mb="20px" ml="155px" whiteSpace="pre-line">
-                        Transforming business with our<br/> future-ready tech solutions. Get<br/> custom products for accelerated<br/> digital transformation across<br/> industries globally.
-                      </Text>
-                      <Image src="/Lphone.png" alt="Design Image" width="85%" borderRadius="8px" ml="25px" />
-                    </Box>
- 
-                    {/* Right Section with Services Categories */}
-                    <Box flex="2" display="grid" gridTemplateColumns="1fr 1fr 1fr" gap={{ md: "10px", lg: "20px" }}>
-                      {servicesCategories.map((category) => (
-                        <Box key={category.title}>
-                          <Text fontSize="16px" fontWeight="700" mb="15px" font="DM Sans">
-                            {category.title}
-                          </Text>
-                          <VStack align="start">
-                            {category.services.map((service) => (
-                              <Flex
-                                key={service.name}
-                                align="center"
-                                cursor="pointer"
-                               
-                                borderRadius="8px"
-                                _hover={{ bg: "#FFD700" }}
-                                onClick={() => {
-                                  if (category.title === "Web Development") {
-                                    navigate("/web-development"); // Changed to direct path
-                                  } else if (category.title === "Mobile App Development") {
-                                    navigate("/app-development"); // Direct to app dev page
-                                  } else {
-                                    navigate(service.link);
-                                  }
-                                }}
-                              >
-                                <FontAwesomeIcon icon={service.icon} style={{ marginRight: "10px" }} />
-                                <Text fontSize="14px" fontWeight="400" font="Yantramanav">
-                                  {service.name}
-                                </Text>
-                              </Flex>
-                            ))}
-                          </VStack>
-                        </Box>
-                      ))}
-                    </Box>
-                  </Box>
-                )}
+  <Box
+    position="absolute"
+    top="100%"
+    left="65%"
+    transform={{
+      md: "translateX(-30%)",
+      lg: "translateX(-66%)",
+      xl: "translateX(-66%)",
+    }}
+    bg="#FFFFFF"
+    w={{ md: "900px", lg: "1140px", xl: "1500px" }}
+    boxShadow="md"
+    p="20px"
+    zIndex="1000"
+    display="flex"
+    gap="20px"
+  >
+    {/* Left Section with Image and Description */}
+    <Box flex="1">
+      {/* <Text fontSize="22px" fontWeight="700" mb="10px" fontFamily="DM Sans" ml="155px">
+        Built to Win
+      </Text>
+      <Text
+        fontSize="16px"
+        fontWeight="400"
+        fontFamily="Yantramanav"
+        mb="20px"
+        ml="155px"
+        whiteSpace="pre-line"
+      >
+        Transforming business with our{"\n"}
+        future-ready tech solutions. Get{"\n"}
+        custom products for accelerated{"\n"}
+        digital transformation across{"\n"}
+        industries globally.
+      </Text> */}
+      <Image
+        src="/Lphone.png"
+        alt="Design Image"
+        width="85%"
+        borderRadius="8px"
+        ml="25px"
+      />
+    </Box>
 
-                {item === "About" && isAboutDropdownOpen &&(
-                      
-                        <Box
-                          position="absolute"
-                          top="100%"
-                          left="0"
-                          bg="white"
-                          boxShadow="md"
-                          borderRadius="8px"
-                          p="10px"
-                          zIndex="1000"
-                          minWidth="200px"
-                        >
-                          <VStack align="start" spacing="10px">
-                            <Text fontFamily="DM Sans" fontWeight="500" fontSize="18px" color="#26241C" cursor="pointer" _hover={{ color: "#FFD700" }} onClick={() => navigate("/who-we-are")}>
-                              Who We Are
-                            </Text>
-                            <Text fontFamily="DM Sans" fontWeight="500" fontSize="18px" color="#26241C" cursor="pointer" _hover={{ color: "#FFD700" }} onClick={() => navigate("/our-partner")}>
-                              Our Partner
-                            </Text>
-                            <Text fontFamily="DM Sans" fontWeight="500" fontSize="18px" color="#26241C" cursor="pointer" _hover={{ color: "#FFD700" }} onClick={() => navigate("/our-mission")}>
-                              Our Mission
-                            </Text>
-                          </VStack>
-                        </Box>
-                )}
+    {/* Right Section with Service Categories */}
+    <Box
+  flex="2"
+  display="grid"
+  gridTemplateColumns="1fr 1fr 1fr"
+  rowGap="10px" // Smaller row gap
+  columnGap={{ md: "10px", lg: "20px" }}
+>
+  {servicesCategories.map((category, index) => (
+    <Box
+      key={category.title}
+      position="relative"
+      pb={index < 3 ? "10px" : "0"} // Give bottom padding only to the first row for spacing
+    >
+      {index < 3 && (
+        <Box 
+          position="absolute"
+          bottom="0"
+          left="0"
+          right="0"
+          height="1px"
+          bg="gray.300"
+        />
+      )}
+
+      <Text fontSize="16px" fontWeight="700" mb="10px" fontFamily="DM Sans">
+        {category.title}
+      </Text>
+
+      <VStack align="start" spacing="6px">
+        {category.services.map((service) => (
+          <Flex
+            key={service.name}
+            align="center"
+            cursor="pointer"
+            borderRadius="8px"
+            _hover={{ bg: "#FFD700" }}
+            onClick={() => navigate(service.link)}
+          >
+            {/* <FontAwesomeIcon style={{ marginRight: "10px" }} />
+            <Text fontSize="14px" fontWeight="400" fontFamily="Yantramanav">
+              {service.name}
+            </Text> */}
+          </Flex>
+        ))}
+      </VStack>
+    </Box>
+  ))}
+</Box>
+
+  </Box>
+)}
+
+
+{item === "About" && isAboutDropdownOpen && (
+  <Box
+  position="absolute"
+  top="100%"
+  left="60%"
+  transform={{
+    md: "translateX(-30%)",
+    lg: "translateX(-60%)",
+    xl: "translateX(-60%)",
+  }}
+  bg="#FFFFFF"
+  w={{ md: "900px", lg: "1140px", xl: "1500px" }}
+  boxShadow="md"
+  p="20px"
+  zIndex="1000"
+  display="flex"
+  gap="20px"
+  >
+    {/* Left Section - Larger Image */}
+<Box flex="1" minWidth="200px">
+  <Image 
+    src="/Lphone.png" 
+    alt="About Us" 
+    width="100%" 
+    maxWidth="400px"  // Increased from 250px to 320px
+    borderRadius="8px" 
+  />
+</Box>
+
+    {/* Right Section - Navigation Links */}
+    <Box 
+  flex="2" 
+  display="flex" 
+  flexDirection="row"  // Changed from "column" to "row"
+  minWidth="200px"
+>
+  <HStack align="start" spacing="15px" >  
+    <Text 
+      fontFamily="DM Sans" 
+      fontWeight="500" 
+      fontSize="18px" 
+      color="#26241C" 
+      cursor="pointer" 
+      whiteSpace="nowrap"
+      _hover={{ color: "#FFD700" }} 
+      onClick={() => navigate("/who-we-are")}
+    >
+      Who We Are
+    </Text>
+    <Text 
+      fontFamily="DM Sans" 
+      fontWeight="500" 
+      fontSize="18px" 
+      color="#26241C" 
+      cursor="pointer" 
+      whiteSpace="nowrap"
+      _hover={{ color: "#FFD700" }} 
+      onClick={() => navigate("/our-partner")}
+      pl="200px"
+    >
+      Our Partner
+    </Text>
+    <Text 
+      fontFamily="DM Sans" 
+      fontWeight="500" 
+      fontSize="18px" 
+      color="#26241C" 
+      cursor="pointer" 
+      whiteSpace="nowrap"
+      _hover={{ color: "#FFD700" }} 
+      onClick={() => navigate("/our-mission")}
+      pl="200px"
+    >
+      Our Mission
+    </Text>
+  </HStack>
+</Box>
+  </Box>
+)}
                     
  
                
