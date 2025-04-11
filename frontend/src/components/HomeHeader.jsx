@@ -353,15 +353,58 @@ const HomeHeader = () => {
   gridTemplateColumns="1fr 1fr 1fr"
   rowGap="10px"
   columnGap={{ md: "10px", lg: "20px" }}
-  position="relative" // Required to absolutely position the separator inside
+  position="relative"
+  pt="10px"
 >
-  {/* Separator Line Between First and Second Row */}
+  {/* Horizontal Line Between First and Second Row */}
   <Box
     position="absolute"
-    top="calc(79px)" // Adjust this value to get perfect center spacing between rows
+    top="calc(85px)" // Adjust based on actual row height
     left="0"
     right="0"
     height="2px"
+    bg="gray.300"
+  />
+
+  {/* Horizontal Line Below Second Row */}
+  <Box
+    position="absolute"
+    top="calc(100px * 2 + 10px)" // Approximate: (row height * 2) + row gap
+    left="0"
+    right="0"
+    height="2px"
+    bg="gray.300"
+  />
+
+  {/* Vertical Line Between Column 1 and 2 */}
+  <Box
+    position="absolute"
+    top="0"
+    bottom="calc(79px + 30px)"
+    left="calc(23.33%)"
+    width="2px"
+    height="210px"
+    bg="gray.300"
+  />
+
+  {/* Vertical Line Between Column 2 and 3 */}
+  <Box
+    position="absolute"
+    top="0"
+    bottom="calc(79px + 30px)"
+    left="calc(60.66%)"
+    width="2px"
+    height="210px"
+    bg="gray.300"
+  />
+
+<Box
+    position="absolute"
+    top="0"
+    bottom="calc(79px + 30px)"
+    left="calc(100%)"
+    width="2px"
+    height="210px"
     bg="gray.300"
   />
 
@@ -388,6 +431,7 @@ const HomeHeader = () => {
     </Box>
   ))}
 </Box>
+
 
 
   </Box>
