@@ -24,6 +24,7 @@ import ContentWritingPage from "./pages/ContentWritingPage";
 import SocialMediaPage from "./pages/SocialMediaPage";
 
 
+
 import "./App.css";
 
 function App() {
@@ -50,9 +51,9 @@ function App() {
         <Route path="/web-consultancy" element={<WebConsultancyPage />} />
         <Route path="/perform-market" element={<PerformMarketPage />} />
         <Route path="/web-developmentt" element={<WebDevPage />} />
-        <Route path="/game-development" element={<GameDevPage />} />
+        <Route path="/social-media" element={<SocialMediaPage />} />
         <Route path="/graphic-designing" element={<GraphicDesignPage />} />
-        <Route path="/content-writing" element={<GraphicDesignPage />} />
+        <Route path="/content-writing" element={<ContentWritingPage />} />
         <Route path="/social-media" element={<SocialMediaPage />} />
       </Routes>
 

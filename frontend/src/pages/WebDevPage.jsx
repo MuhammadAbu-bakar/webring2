@@ -13,6 +13,8 @@ import {
   IconButton,
   useBreakpointValue,
 } from '@chakra-ui/react';
+import { faChevronRight,faChevronLeft } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState, useEffect } from 'react';
 
 
@@ -20,21 +22,21 @@ const cards = [
   {
     title: "Requirements Gathering",
     desc: "In our top Web Development services company, we embark on a meticulous journey of understanding your unique needs. Through comprehensive consultation, we delve deep into your vision, goals, and preferences, ensuring a tailored website development using WordPress process that transforms your ideas into a stunning digital reality.",
-    image: "/Requirements-Gathering-1536x1024.png",
+    image: "/req-gathering.png",
     height: "350px",
     width: "350px",
   },
   {
     title: "UX/UI Design",
     desc: "Enhance user satisfaction with our UX/UI Design services. Our top web designers in the world design user interfaces that prioritize seamless navigation and meaningful interactions, transforming your digital platform into a user-friendly haven.",
-    image: "/UXUI-Design.png",
+    image: "/ui-design.png",
     height: "350px",
     width: "350px",
   },
   {
     title: "Usability Testing",
     desc: "Our top notch Web Development services include rigorous Usability Testing in UX design functionality, ensuring your website's functionality and design align harmoniously to create intuitive, user-centric journeys. Our creative staffing meticulously analyzes every interaction, guaranteeing a flawlessly navigable and engaging digital environment for your visitors.",
-    image: "/Usability-Testing-1536x1064.png",
+    image: "/usability-testing.png",
     height: "350px",
     width: "350px",
   },
@@ -66,43 +68,39 @@ const items = [
 // Carousel images data
 const carouselImages = [
   {
-      src: "assets/images/Game-Development-1.png",
+      src: "/1.png",
       alt: "Game Development 1"
   },
   {
-      src: "assets/images/2f32540a-656f-4c16-a950-6874fecf8d04.webp", // Add your second image path
-      alt: "Game Development 2"
+      src: "/6.png", // Add your second image path
+      alt: "Game Development 5"
   },
   {
-      src: "assets/images/original-56cd2994f1d4d7880bc334c2ecb1a767.webp", // Add your third image path
+      src: "/3.png", // Add your third image path
       alt: "Game Development 3"
   },
   {
-      src: "assets/images/Game-Development-1.png",
+      src: "/4.png",
       alt: "Game Development 1"
   },
   {
-      src: "assets/images/2f32540a-656f-4c16-a950-6874fecf8d04.webp", // Add your second image path
+      src: "/9.png", // Add your second image path
       alt: "Game Development 2"
   },
   {
-      src: "assets/images/original-56cd2994f1d4d7880bc334c2ecb1a767.webp", // Add your third image path
+      src: "/6.png", // Add your third image path
       alt: "Game Development 3"
   },
   {
-      src: "assets/images/Game-Development-1.png",
+      src: "/7.png",
       alt: "Game Development 1"
   },
   {
-      src: "assets/images/2f32540a-656f-4c16-a950-6874fecf8d04.webp", // Add your second image path
+      src: "/8.png", // Add your second image path
       alt: "Game Development 2"
   },
   {
-      src: "assets/images/original-56cd2994f1d4d7880bc334c2ecb1a767.webp", // Add your third image path
-      alt: "Game Development 3"
-  },
-  {
-      src: "assets/images/original-56cd2994f1d4d7880bc334c2ecb1a767.webp", // Add your third image path
+      src: "/9.png", // Add your third image path
       alt: "Game Development 3"
   },
 ];
@@ -188,11 +186,7 @@ const WebDevelopment = () => {
                 justifyContent="center"
               >
                 Let's Talk
-                <Image
-                  src="assets/images/ddd1c2476bcb099d675bf282f0a40192-removebg-preview.png"
-                  width="30px"
-                  ml={2}
-                />
+                
               </Button>
             </Box>
           </Box>
@@ -271,11 +265,7 @@ const WebDevelopment = () => {
               color="white"
               zIndex={1}
             >
-              <Image
-                width={6}
-                src='/assets/images/right-arrow-dark-mode-glyph-ui-icon-navigation-direction-angle-bracket-user-interface-design-white-silhouette-symbol-on-black-space-solid-pictogram-for-web-mobile-isolated-illustration-vector-removebg.png'
-                transform="rotate(180deg)"
-              />
+              <FontAwesomeIcon icon={faChevronLeft}/>
             </IconButton>
             <IconButton
               aria-label="Next slide"
@@ -290,10 +280,7 @@ const WebDevelopment = () => {
               color="white"
               zIndex={1}
             >
-              <Image
-                width={6}
-                src='/assets/images/right-arrow-dark-mode-glyph-ui-icon-navigation-direction-angle-bracket-user-interface-design-white-silhouette-symbol-on-black-space-solid-pictogram-for-web-mobile-isolated-illustration-vector-removebg.png'
-              />
+              <FontAwesomeIcon icon={faChevronRight}/>
             </IconButton>
           </Box>
         </Box>
@@ -384,7 +371,7 @@ const WebDevelopment = () => {
                   <Text spacing={{ base: 1, md: 2, xl: 4 }} fontSize={{ base: "15px", md: "16px", xl: "18px", "2xl": "20px" }} mt={5}>After thorough usability testing in user interface design and its functionality, we integrate SEO oriented content, launch your site, and provide ongoing support. Our creative staffing also tracks performance and makes optimizations to keep your online presence strong.</Text>
                   <Text spacing={{ base: 1, md: 2, xl: 4 }} fontSize={{ base: "15px", md: "16px", xl: "18px", "2xl": "20px" }} mt={5}>We’re committed to delivering a website that not only meets but exceeds your expectations, ensuring it represents your brand and connects with your audience effectively. Contact our digital solution agency today to get started on this transformative digital journey.</Text>
               </Box>
-              <Image src='/assets/images/Mobile-Application-Development-Mobile-1-1.png' width={{base: "35%", md: "25%"}} height={"60%"} mt={10} mb={10} />
+              <Image src='/mobile-app-dev.png' width={{base: "35%", md: "25%"}} height={"60%"} mt={10} mb={10} />
           </Flex>
         </Box>
 

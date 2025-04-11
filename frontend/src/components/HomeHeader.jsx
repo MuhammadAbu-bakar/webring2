@@ -351,26 +351,22 @@ const HomeHeader = () => {
   flex="2"
   display="grid"
   gridTemplateColumns="1fr 1fr 1fr"
-  rowGap="10px" // Smaller row gap
+  rowGap="10px"
   columnGap={{ md: "10px", lg: "20px" }}
+  position="relative" // Required to absolutely position the separator inside
 >
-  {servicesCategories.map((category, index) => (
-    <Box
-      key={category.title}
-      position="relative"
-      pb={index < 3 ? "10px" : "0"} // Give bottom padding only to the first row for spacing
-    >
-      {index < 3 && (
-        <Box 
-          position="absolute"
-          bottom="0"
-          left="0"
-          right="0"
-          height="1px"
-          bg="gray.300"
-        />
-      )}
+  {/* Separator Line Between First and Second Row */}
+  <Box
+    position="absolute"
+    top="calc(79px)" // Adjust this value to get perfect center spacing between rows
+    left="0"
+    right="0"
+    height="2px"
+    bg="gray.300"
+  />
 
+  {servicesCategories.map((category) => (
+    <Box key={category.title}>
       <Text fontSize="16px" fontWeight="700" mb="10px" fontFamily="DM Sans">
         {category.title}
       </Text>
@@ -385,16 +381,14 @@ const HomeHeader = () => {
             _hover={{ bg: "#FFD700" }}
             onClick={() => navigate(service.link)}
           >
-            {/* <FontAwesomeIcon style={{ marginRight: "10px" }} />
-            <Text fontSize="14px" fontWeight="400" fontFamily="Yantramanav">
-              {service.name}
-            </Text> */}
+            {/* Your service content here */}
           </Flex>
         ))}
       </VStack>
     </Box>
   ))}
 </Box>
+
 
   </Box>
 )}

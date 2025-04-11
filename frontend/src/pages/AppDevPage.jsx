@@ -59,6 +59,10 @@ const Header = () => {
           setExpandedItems([...expandedItems, index]);
         }
       };
+      const [openIndex, setOpenIndex] = useState(null);
+      const handleToggle = (index) => {
+        setOpenIndex(openIndex === index ? null : index);
+      };
 
   return (
     <>
@@ -154,85 +158,45 @@ const Header = () => {
     </Box>
 
     {/* FAQ's Section */}
-    <Box px={10} py={16} bg="white" text="#FFFFFF" mb={10}>
-      {/* Heading and Description */}
-      <Heading 
-  as="h2" 
-  fontSize="36px" 
-  fontWeight="bold" 
-  textAlign="center" 
-  color="black"
-  mt="40px"
->
-  Frequently Asked Questions
-</Heading>
-<Text 
-  fontSize="15px" 
-  textAlign="center" 
-  mb={10}
-  color="black"
-  mt={8}
->
-  Discover vital insights into crafting innovative and best user-friendly apps through our FAQs. Our top rated Mobile App Development company<br/>
-  addresses common queries, shedding light on the process from concept to launch, ensuring a clear understanding of how our top notch IT services can<br/>
-  seamlessly bring your App Development vision for Android and iOS clear to life.
-</Text>
-
-      {/* Accordion */}
-      
-      <Stack gap="4" align="center">
-  <Accordion.Root collapsible defaultValue={["b"]} width="100%" maxWidth="800px">
-    {items.map((item, index) => (
-      <Accordion.Item key={index} value={item.value} mb={3} border="1px solid black" borderRadius="8px">
-        <Accordion.ItemTrigger>
-          <Box 
-            display="flex" 
-            justifyContent="space-between" 
-            alignItems="center" 
-            width="100%" 
-            p={4}
-            cursor="pointer"
-          >
-            <Span 
-              flex="1" 
-              textAlign="center" 
-              fontSize="16px" 
-              fontWeight="500"
-              color="black"
+    <Box
+              width="100%"
+              color="white"
+              py={{ base: 8, md: 10, xl: 14 }}
+              px={{ base: 4, md: 6, xl: 8 }}
+              mx="auto"
+              alignItems="center"
+              bg="black"
             >
-              {item.title}
-            </Span>
-            <Accordion.ItemIndicator>
-              <Box as="span" fontSize="20px" color="black">
-                {isOpen ? '−' : '+'}
+              <Heading fontSize={{ base: "30px", md: "36px", xl: "42px", "2xl": "48px" }} fontWeight="600" textAlign={"center"} mt={10}>Frequently Asked Questions</Heading>
+              <Text fontSize={{ base: "18px", md: "22px", xl: "24px" }} textAlign={"center"} mt={10} >Frequently Asked Questions (FAQs) about Game Design and Game Development offer valuable insights into the world of creating captivating and immersive digital games. These answers address common queries, shedding light on the process, the latest development technologies, and the unique strategies involved, ensuring a comprehensive understanding of how our Game Design and Game Development services can transform your gaming ideas into engaging realities.</Text>
+              <Box width={{ base: "100%", md: "80%", xl: "70%", "2xl": "60%" }} margin={"auto"} mt={20} mb={10}>
+                <Accordion.Root>
+                  {items.map((item, index) => (
+                    <Accordion.Item key={index} value={item.value} mt={5}>
+                      <Accordion.ItemTrigger
+                        onClick={() => handleToggle(index)}
+                        bg={"#2C2B2B"}
+                        height={"60px"}
+                        borderRadius={"10px"}
+                        padding={"10px"}
+                        cursor="pointer"
+                      >
+                        <Span fontSize={{base: "10px", sm: "15px"}} flex="1" ml={10}>{item.title}</Span>
+                        <Box fontSize={{base: "20px", sm: "22px", md: "24px"}} fontWeight="bold" mr={10}>
+                          {openIndex === index ? '−' : '+'}
+                        </Box>
+                      </Accordion.ItemTrigger>
+    
+                      {openIndex === index && (
+                        <Accordion.ItemContent>
+                          <Accordion.ItemBody fontSize={{base: "10px", sm: "15px"}} ml={12} mr={10}>{item.text}</Accordion.ItemBody>
+                        </Accordion.ItemContent>
+                      )}
+                    </Accordion.Item>
+                  ))}
+                </Accordion.Root>
               </Box>
-            </Accordion.ItemIndicator>
-          </Box>
-        </Accordion.ItemTrigger>
-        <Accordion.ItemContent>
-          <Box 
-            p={4} 
-            pt={0}
-            borderTop="1px solid white"
-            borderBottomRadius="8px"
-            
-          >
-            <Text 
-              textAlign="center" 
-              color="black" 
-              lineHeight="1.6"
-              fontSize="16px"
-              mt="10px"
-            >
-              {item.text}
-            </Text>
-          </Box>
-        </Accordion.ItemContent>
-      </Accordion.Item>
-    ))}
-  </Accordion.Root>
-</Stack>
-    </Box>
+            </Box>
     </>
     
   );
