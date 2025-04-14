@@ -272,7 +272,7 @@ export default function ContactForm() {
       <Checkbox.Control />
       <Checkbox.Label>Accept terms and conditions</Checkbox.Label>
     </Checkbox.Root>
-          <Text fontSize="sm">Accept terms and conditions</Text>
+          
         </Flex>
         {errors.terms && <Text color="red.500" fontSize="sm">{errors.terms}</Text>}
 

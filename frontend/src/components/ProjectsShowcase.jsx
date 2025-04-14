@@ -10,7 +10,7 @@ const projects = [
   { title: "Social Media Marketing", image: "/social.png" },
   { title: "Graphic Designing", image: "/graphic-designing.png" },
   { title: "Game Development", image: "/game-development.png" },
-  { title: "Content Writing", image: "/ecommerce.png" },
+  { title: "Content Writing", image: "/Content-Writing-1.png"},
 ];
 
 const ProjectShowcase = () => {
@@ -47,13 +47,18 @@ const ProjectShowcase = () => {
   useEffect(() => {
     const slider = sliderRef.current;
     if (!slider) return;
-
+  
     const handleWheel = (e) => {
-      e.preventDefault();
+      // Only prevent default if we're scrolling horizontally
+      if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) {
+        e.preventDefault();
+        slider.scrollLeft += e.deltaX;
+      }
+      // Allow vertical scrolling to pass through
     };
-
+  
     slider.addEventListener("wheel", handleWheel, { passive: false });
-
+  
     return () => {
       slider.removeEventListener("wheel", handleWheel);
     };

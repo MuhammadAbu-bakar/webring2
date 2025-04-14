@@ -194,7 +194,7 @@ const HomeHeader = () => {
         <>
           <path stroke="none" d="M0 0h24v24H0z" fill="none" />
           <path
-            stroke="white" // Ensure the lines are black
+            stroke="black" // Ensure the lines are black
             fill="none" // Prevent unwanted fill
             d="M4 6h16M4 12h16M4 18h16"
             strokeWidth="2"
@@ -211,7 +211,7 @@ const HomeHeader = () => {
         <>
           <path stroke="none" d="M0 0h24v24H0z" fill="none" />
           <path
-            stroke="white"
+            stroke="black"
             fill="none"
             d="M6 6l12 12M18 6l-12 12"
             strokeWidth="2"
@@ -270,6 +270,8 @@ const HomeHeader = () => {
                   if (item === "About") setIsAboutDropdownOpen(false);
                 }}
                 onClick={() => {
+                  if (item === "About") return; // Do nothing if About is clicked
+                
                   if (item === "Home") {
                     handleNavigation("Home");
                   } else if (item === "Portfolio") {
@@ -304,50 +306,120 @@ const HomeHeader = () => {
  
                 {/* Services Dropdown Menu */}
                 {item === "Services" && isServicesDropdownOpen && (
-                  <Box
-                    position="absolute"
-                    top="100%"
-                    left="65%"
-                    transform={{ md:"translateX(-30%)", lg:"translateX(-66%)", xl:"translateX(-66%)" }}
-                    bg="#FFFFFF"
-                    w={{ md: "900px", lg:"1140px", xl: "1500px" }}
-                    boxShadow="md"
-                    p="20px"
-                    zIndex="1000"
-                    display="flex"
-                    gap="20px"
-                  >
-                    {/* Left Section with Design from Image */}
-                    <Box flex="1">
-                      <Text fontSize="22px" fontWeight="700" mb="10px" font="DM Sans" ml="155px">
-                        Built to Win
-                      </Text>
-                      <Text fontSize="16px" fontWeight="400" font="Yantramanav" mb="20px" ml="155px" whiteSpace="pre-line">
-                        Transforming business with our<br/> future-ready tech solutions. Get<br/> custom products for accelerated<br/> digital transformation across<br/> industries globally.
-                      </Text>
-                      <Image src="/Lphone.png" alt="Design Image" width="85%" borderRadius="8px" ml="25px" />
-                    </Box>
- 
-                    {/* Right Section with Services Categories */}
-                    <Box flex="2" display="grid" gridTemplateColumns="1fr 1fr 1fr" gap={{ md: "10px", lg: "20px" }}>
-  {servicesCategories.map((category, index) => (
-    <Box key={category.title} position="relative">
-      {/* Single line below first row categories only */}
-      {index < 3 && (
-        <Box 
-          position="absolute" 
-          bottom="-15px"  // Adjust this value to control distance from content
-          left="0" 
-          right="0" 
-          height="2px" 
-          bg="gray.200"
-        />
-      )}
-      
-      <Text fontSize="16px" fontWeight="700" mb="15px" font="DM Sans">
+  <Box
+    position="absolute"
+    top="100%"
+    left="65%"
+    transform={{
+      md: "translateX(-30%)",
+      lg: "translateX(-66%)",
+      xl: "translateX(-66%)",
+    }}
+    bg="#FFFFFF"
+    w={{ md: "900px", lg: "1140px", xl: "1500px" }}
+    boxShadow="md"
+    p="20px"
+    zIndex="1000"
+    display="flex"
+    gap="20px"
+  >
+    {/* Left Section with Image and Description */}
+    <Box flex="1">
+      {/* <Text fontSize="22px" fontWeight="700" mb="10px" fontFamily="DM Sans" ml="155px">
+        Built to Win
+      </Text>
+      <Text
+        fontSize="16px"
+        fontWeight="400"
+        fontFamily="Yantramanav"
+        mb="20px"
+        ml="155px"
+        whiteSpace="pre-line"
+      >
+        Transforming business with our{"\n"}
+        future-ready tech solutions. Get{"\n"}
+        custom products for accelerated{"\n"}
+        digital transformation across{"\n"}
+        industries globally.
+      </Text> */}
+      <Image
+        src="/Lphone.png"
+        alt="Design Image"
+        width="85%"
+        borderRadius="8px"
+        ml="25px"
+      />
+    </Box>
+
+    {/* Right Section with Service Categories */}
+    <Box
+  flex="2"
+  display="grid"
+  gridTemplateColumns="1fr 1fr 1fr"
+  rowGap="10px"
+  columnGap={{ md: "10px", lg: "20px" }}
+  position="relative"
+  pt="10px"
+>
+  {/* Horizontal Line Between First and Second Row */}
+  <Box
+    position="absolute"
+    top="calc(85px)" // Adjust based on actual row height
+    left="0"
+    right="0"
+    height="2px"
+    bg="gray.300"
+  />
+
+  {/* Horizontal Line Below Second Row */}
+  <Box
+    position="absolute"
+    top="calc(100px * 2 + 10px)" // Approximate: (row height * 2) + row gap
+    left="0"
+    right="0"
+    height="2px"
+    bg="gray.300"
+  />
+
+  {/* Vertical Line Between Column 1 and 2 */}
+  <Box
+    position="absolute"
+    top="0"
+    bottom="calc(79px + 30px)"
+    left="calc(23.33%)"
+    width="2px"
+    height="210px"
+    bg="gray.300"
+  />
+
+  {/* Vertical Line Between Column 2 and 3 */}
+  <Box
+    position="absolute"
+    top="0"
+    bottom="calc(79px + 30px)"
+    left="calc(60.66%)"
+    width="2px"
+    height="210px"
+    bg="gray.300"
+  />
+
+<Box
+    position="absolute"
+    top="0"
+    bottom="calc(79px + 30px)"
+    left="calc(100%)"
+    width="2px"
+    height="210px"
+    bg="gray.300"
+  />
+
+  {servicesCategories.map((category) => (
+    <Box key={category.title}>
+      <Text fontSize="16px" fontWeight="700" mb="10px" fontFamily="DM Sans">
         {category.title}
       </Text>
-      <VStack align="start">
+
+      <VStack align="start" spacing="6px">
         {category.services.map((service) => (
           <Flex
             key={service.name}
@@ -355,55 +427,100 @@ const HomeHeader = () => {
             cursor="pointer"
             borderRadius="8px"
             _hover={{ bg: "#FFD700" }}
-            onClick={() => {
-              if (category.title === "Web Development") {
-                navigate("/web-development");
-              } else if (category.title === "Mobile App Development") {
-                navigate("/app-development");
-              } else {
-                navigate(service.link);
-              }
-            }}
+            onClick={() => navigate(service.link)}
           >
-            <FontAwesomeIcon  style={{ marginRight: "10px" }} />
-            <Text fontSize="14px" fontWeight="400" font="Yantramanav">
-              {/* {service.name} */}
-            </Text>
+            {/* Your service content here */}
           </Flex>
         ))}
       </VStack>
     </Box>
   ))}
 </Box>
-                  </Box>
-                )}
 
-                {item === "About" && isAboutDropdownOpen &&(
-                      
-                        <Box
-                          position="absolute"
-                          top="100%"
-                          left="0"
-                          bg="white"
-                          boxShadow="md"
-                          borderRadius="8px"
-                          p="10px"
-                          zIndex="1000"
-                          minWidth="200px"
-                        >
-                          <VStack align="start" spacing="10px">
-                            <Text fontFamily="DM Sans" fontWeight="500" fontSize="18px" color="#26241C" cursor="pointer" _hover={{ color: "#FFD700" }} onClick={() => navigate("/who-we-are")}>
-                              Who We Are
-                            </Text>
-                            <Text fontFamily="DM Sans" fontWeight="500" fontSize="18px" color="#26241C" cursor="pointer" _hover={{ color: "#FFD700" }} onClick={() => navigate("/our-partner")}>
-                              Our Partner
-                            </Text>
-                            <Text fontFamily="DM Sans" fontWeight="500" fontSize="18px" color="#26241C" cursor="pointer" _hover={{ color: "#FFD700" }} onClick={() => navigate("/our-mission")}>
-                              Our Mission
-                            </Text>
-                          </VStack>
-                        </Box>
-                )}
+
+
+  </Box>
+)}
+
+{item === "About" && isAboutDropdownOpen && (
+  <Box
+  position="absolute"
+  top="100%"
+  left="60%"
+  transform={{
+    md: "translateX(-30%)",
+    lg: "translateX(-60%)",
+    xl: "translateX(-60%)",
+  }}
+  bg="#FFFFFF"
+  w={{ md: "900px", lg: "1140px", xl: "1500px" }}
+  boxShadow="md"
+  p="20px"
+  zIndex="1000"
+  display="flex"
+  gap="20px"
+  >
+    {/* Left Section - Larger Image */}
+<Box flex="1" minWidth="200px">
+  <Image 
+    src="/Lphone.png" 
+    alt="About Us" 
+    width="100%" 
+    maxWidth="400px"  // Increased from 250px to 320px
+    borderRadius="8px" 
+  />
+</Box>
+
+    {/* Right Section - Navigation Links */}
+    <Box 
+  flex="2" 
+  display="flex" 
+  flexDirection="row"  // Changed from "column" to "row"
+  minWidth="200px"
+>
+  <HStack align="start" spacing="15px" >  
+    <Text 
+      fontFamily="DM Sans" 
+      fontWeight="500" 
+      fontSize="18px" 
+      color="#26241C" 
+      cursor="pointer" 
+      whiteSpace="nowrap"
+      _hover={{ color: "#FFD700" }} 
+      onClick={() => navigate("/who-we-are")}
+    >
+      Who We Are
+    </Text>
+    <Text 
+      fontFamily="DM Sans" 
+      fontWeight="500" 
+      fontSize="18px" 
+      color="#26241C" 
+      cursor="pointer" 
+      whiteSpace="nowrap"
+      _hover={{ color: "#FFD700" }} 
+      onClick={() => navigate("/our-partner")}
+      pl="200px"
+    >
+      Our Partner
+    </Text>
+    <Text 
+      fontFamily="DM Sans" 
+      fontWeight="500" 
+      fontSize="18px" 
+      color="#26241C" 
+      cursor="pointer" 
+      whiteSpace="nowrap"
+      _hover={{ color: "#FFD700" }} 
+      onClick={() => navigate("/our-mission")}
+      pl="200px"
+    >
+      Our Mission
+    </Text>
+  </HStack>
+</Box>
+  </Box>
+)}
                     
  
                
