@@ -1,41 +1,41 @@
 import React from "react";
 import { Box, Image, Heading, Container, Text } from "@chakra-ui/react";
- 
+
 const portfolioCards = [
   {
     id: 1,
     title: "Infinity Initiative",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    image: "/works-img-4.png",
+    image: "/almassa.png",
   },
   {
     id: 2,
     title: "Terra Nova",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    image: "/works-img-3.png",
+    image: "/medexpress.png",
   },
   {
     id: 3,
     title: "Terra Nova",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    image: "/works-img-3.png",
+    image: "/jazzpay.png",
   },
   {
     id: 4,
     title: "Infinity Initiative",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    image: "/works-img-4.png",
+    image: "/myretro.png",
   },
   {
     id: 5,
     title: "Infinity Initiative",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    image: "/works-img-4.png",
+    image: "/jplogistics.png",
   },
   {
     id: 6,
@@ -45,7 +45,7 @@ const portfolioCards = [
     image: "/works-img-3.png",
   },
 ];
- 
+
 function Portfolio() {
   return (
     <div>
@@ -71,7 +71,7 @@ function Portfolio() {
             Portfolio
           </Heading>
         </Box>
- 
+
         {/* Cards Section */}
         <Box width="100%" padding={{ base: "40px", md: "80px", lg: "100px" }}>
           <Container maxW="1920px">
@@ -92,14 +92,22 @@ function Portfolio() {
                 >
                   <Image
                     src={card.image}
-                    width="100%"
+                    width="700px"
+                    objectFit="contain"
                     height={{ base: "auto", md: "485px" }}
                     borderRadius="10px"
                   />
-                  <Heading fontSize={{ base: "24px", md: "32px", lg: "40px" }} mt={"30px"}>
+                  <Heading
+                    fontSize={{ base: "24px", md: "32px", lg: "40px" }}
+                    mt={"30px"}
+                  >
                     {card.title}
                   </Heading>
-                  <Text fontSize={{ base: "16px", md: "20px", lg: "24px" }} fontWeight="normal" mt={"20px"}>
+                  <Text
+                    fontSize={{ base: "16px", md: "20px", lg: "24px" }}
+                    fontWeight="normal"
+                    mt={"20px"}
+                  >
                     {card.description}
                   </Text>
                 </Box>
@@ -111,5 +119,5 @@ function Portfolio() {
     </div>
   );
 }
- 
+
 export default Portfolio;

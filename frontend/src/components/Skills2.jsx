@@ -14,7 +14,7 @@ const skills = [
 ];
 
 const SkillCard = ({ image, title, description, navigateTo }) => {
-  const navigate = useNavigate();
+  const navigate = useNavigate(); 
   
   return (
     <Box 
