@@ -22,22 +22,22 @@ import React, { useState, useEffect } from "react";
 
 const cards = [
   {
-    title: "Requirements Gathering",
-    desc: "In our top Web Development services company, we embark on a meticulous journey of understanding your unique needs. Through comprehensive consultation, we delve deep into your vision, goals, and preferences, ensuring a tailored website development using WordPress process that transforms your ideas into a stunning digital reality.",
+    title: "User Research Services",
+    desc: "Uncover the heartbeat of your audience with our comprehensive User Research services. By delving deep into user behavior, preferences, and needs, our Graphic Design agency services pave the way for informed decisions and remarkable digital experiences. Our creative Graphic Design agency data-driven insights empower you to create creative digital design that resonate, ensuring meaningful interactions that keep users at the forefront of your innovation journey.",
     image: "/req-gathering.png",
     height: "350px",
     width: "350px",
   },
   {
-    title: "UX/UI Design",
-    desc: "Enhance user satisfaction with our UX/UI Design services. Our top web designers in the world design user interfaces that prioritize seamless navigation and meaningful interactions, transforming your digital platform into a user-friendly haven.",
+    title: "Usability Testing in UX Design",
+    desc: "Unlock the potential of your creative digital design in Usability Testing with prototypes. Our creative Graphic Design agency meticulously analyzes user interactions, ensuring seamless and intuitive experiences. Our process is to design user interfaces based on real user insights, resulting in Web & App Design that are not only visually appealing but also effortlessly functional. Elevate user satisfaction and engagement through our expert Usability Testing in UX Design services.",
     image: "/ui-design.png",
     height: "350px",
     width: "350px",
   },
   {
-    title: "Usability Testing",
-    desc: "Our top notch Web Development services include rigorous Usability Testing in UX design functionality, ensuring your website's functionality and design align harmoniously to create intuitive, user-centric journeys. Our creative staffing meticulously analyzes every interaction, guaranteeing a flawlessly navigable and engaging digital environment for your visitors.",
+    title: "UX/UI Design",
+    desc: "We specialize in UX/UI Design, where user-centric creativity meets seamless functionality. Our creative Graphic Design agency with creative UI UX designers meticulously shapes digital experiences that effortlessly connect users with your brand, ensuring every click, swipe, and interaction leaves a positive and lasting impression. Let our Graphic Design agency services with the best UI UX designers transform your vision into intuitive designs that captivate, engage, and inspire meaningful connections.",
     image: "/usability-testing.png",
     height: "350px",
     width: "350px",
@@ -46,27 +46,24 @@ const cards = [
 
 const items = [
   {
-    title:
-      "What is Game Design and Game Development, and why should I consider it for my project?",
-    text: "Game design and game development involve creating interactive digital games. Choose us for your project because we provide captivating games that engage, entertain, educate, reach a broad audience, improve customer engagement, provide valuable analytics, enhance competitiveness, and can be used for various business objectives",
+    title: "What is graphic design, and how can it benefit my brand?",
+    text: "Graphic design is the art of visual communication. It involves creating images, logos, layouts, and other design elements that represent your brand and message. Effective graphic design helps establish brand recognition, create a lasting impression, and enhance customer engagement by making your content more visually appealing and memorable. A strong visual identity builds credibility and trust, which ultimately strengthens your brand.",
   },
   {
-    title: "How long does it take to design and develop a game?",
-    text: "The timeline varies based on the complexity, platform, and features of the game. Simple games might take a few months, while more intricate projects could span a year or more. Our top-notch game designer and developer work closely with you to establish a realistic development timeline.",
+    title: "Do you create custom logos for businesses?",
+    text: "Yes, we specialize in creating unique and professional logos that are custom-designed to reflect your brand’s identity. A well-designed logo is crucial in differentiating your business from competitors and creating a strong visual representation of your brand’s values, making it easier for customers to recognize and remember you.",
   },
   {
-    title: "What platforms can you develop games for?",
-    text: "Our digital solution agency specializes in creating video games with code for various platforms, including PCs, consoles, mobile devices, and the web. Our creative staffing analyzes your target audience and project goals to recommend the most suitable platform(s) for your game.",
+    title: "How important is visual consistency across my brand’s materials?",
+    text: "Visual consistency is extremely important for your brand’s recognition and credibility. Having a unified design across all your marketing materials—whether it’s your website, social media profiles, brochures, or business cards—helps your audience instantly recognize your brand. Consistency in design elements such as colors, fonts, and imagery creates a cohesive brand experience, which builds trust with your audience.",
   },
   {
-    title:
-      "How do you ensure the game's mechanics and design engage players effectively?",
-    text: "Player engagement is a top priority. We conduct thorough gameplay testing, ensuring mechanics are intuitive and enjoyable. Our game designers pay attention and collaborate closely to create visually appealing environments, characters, and interfaces that enhance the player experience.",
+    title: "Do you offer print design services as well?",
+    text: "Yes, we provide comprehensive print design services. Whether you need business cards, brochures, flyers, banners, or any other printed materials, we ensure that your print designs align with your brand’s identity and look professional. We focus on high-quality designs that make an impact and resonate with your target audience.",
   },
   {
-    title:
-      "What ongoing support does your digital solution agency offer after the game is launched?",
-    text: "Player engagement is a top priority. We conduct thorough gameplay testing, ensuring mechanics are intuitive and enjoyable. Our game designers pay attention and collaborate closely to create visually appealing environments, characters, and interfaces that enhance the player experience.",
+    title: "Can you help me update my existing branding materials?",
+    text: "Absolutely! We can update or refresh your existing branding materials to better align with your current business goals, market trends, and audience preferences. Whether it's redesigning your logo, tweaking your color scheme, or creating new marketing collateral, we ensure that your updated branding is modern, relevant, and effective.",
   },
 ];
 
@@ -163,7 +160,7 @@ const WebDevelopment = () => {
               fontWeight="bold"
               mb={2}
             >
-              Top Web Development Services Company
+              Graphic Designing Services
             </Text>
             <Heading
               fontSize={{ base: "28px", md: "36px", xl: "40px", "2xl": "48px" }}
@@ -171,7 +168,8 @@ const WebDevelopment = () => {
               fontWeight={"600"}
               mb={8}
             >
-              Seamless Web Solutions Services From Pixels To Performance
+              We Provide Creative Design Solutions And Launch Digital Products
+              That Deliver Great User Experiences
             </Heading>
             <Stack
               spacing={{ base: 3, md: 4, xl: 5 }}
@@ -179,19 +177,19 @@ const WebDevelopment = () => {
               color="gray.300"
             >
               <Text>
-                Empower your digital presence with our leading Web Development
-                company services. Our top rated web developers with creative
-                staffing craft tailored business leads websites, e commerce
-                websites for business, or any website that combines stunning
-                design with seamless functionality, creating immersive user
-                experiences.
+                Elevate your brand’s visual identity with our best Graphic
+                Design services. Our team of creative UI UX designers minds
+                transforms ideas into stunning visuals that leave a lasting
+                impact on your audience. From captivating Logo Design and
+                company branding to compelling marketing materials, our Graphic
+                Designing UI UX services blend artistry with unique strategies
+                to craft modern Web Page Designs and App Design in Figma that
+                resonate across digital and print platforms.
               </Text>
-              <Text>
-                From e commerce websites for business platforms to interactive
-                business portfolio websites, our top notch developers bring your
-                vision to life. Elevate your online brand and engage your
-                audience with websites that captivate, inform, and inspire
-                action.
+              <Text pt="20px">
+                Let our best Graphic Design services and UX/UI Design services
+                enhance your brand’s visual storytelling and design an interface
+                to create a memorable presence in today’s dynamic market.
               </Text>
             </Stack>
 
@@ -334,16 +332,15 @@ const WebDevelopment = () => {
             fontWeight="600"
             textAlign={"center"}
           >
-            How We Do It
+            Creative Design Solutions
           </Heading>
           <Text
             fontSize={{ base: "18px", md: "22px", xl: "24px" }}
             textAlign={"center"}
             mt={10}
           >
-            Our best Game Development company in the world fuses innovation with
-            pixels, transforming concepts into interactive realities that ignite
-            player passions and push gaming boundaries.
+            We Design User Interfaces For Delightful Experiences, Understanding
+            User Needs
           </Text>
           <Flex
             width="100%"
@@ -435,83 +432,6 @@ const WebDevelopment = () => {
             textAlign={"center"}
             mt={10}
           >
-            Our Professional Website Development Services Process
-          </Heading>
-          <Flex>
-            <Box width={"70%"} mt={20} mb={10}>
-              <Text
-                spacing={{ base: 1, md: 2, xl: 4 }}
-                fontSize={{
-                  base: "15px",
-                  md: "16px",
-                  xl: "18px",
-                  "2xl": "20px",
-                }}
-              >
-                At WeBring, our professional Website Development services
-                process is a well-orchestrated journey from concept to reality.
-                We begin by understanding your business, design an interface
-                that is captivating, and developing a responsive site free from
-                bugs with the latest development technologies.
-              </Text>
-              <Text
-                spacing={{ base: 1, md: 2, xl: 4 }}
-                fontSize={{
-                  base: "15px",
-                  md: "16px",
-                  xl: "18px",
-                  "2xl": "20px",
-                }}
-                mt={5}
-              >
-                After thorough usability testing in user interface design and
-                its functionality, we integrate SEO oriented content, launch
-                your site, and provide ongoing support. Our creative staffing
-                also tracks performance and makes optimizations to keep your
-                online presence strong.
-              </Text>
-              <Text
-                spacing={{ base: 1, md: 2, xl: 4 }}
-                fontSize={{
-                  base: "15px",
-                  md: "16px",
-                  xl: "18px",
-                  "2xl": "20px",
-                }}
-                mt={5}
-              >
-                We’re committed to delivering a website that not only meets but
-                exceeds your expectations, ensuring it represents your brand and
-                connects with your audience effectively. Contact our digital
-                solution agency today to get started on this transformative
-                digital journey.
-              </Text>
-            </Box>
-            <Image
-              src="/mobile-app-dev.png"
-              width={{ base: "35%", md: "25%" }}
-              height={"60%"}
-              mt={10}
-              mb={10}
-            />
-          </Flex>
-        </Box>
-
-        <Box
-          width="100%"
-          maxW={{ base: "100%", xl: "1400px", "2xl": "1720px" }}
-          color="white"
-          py={{ base: 8, md: 10, xl: 14 }}
-          px={{ base: 4, md: 6, xl: 8 }}
-          mx="auto"
-          alignItems="center"
-        >
-          <Heading
-            fontSize={{ base: "30px", md: "36px", xl: "42px", "2xl": "48px" }}
-            fontWeight="600"
-            textAlign={"center"}
-            mt={10}
-          >
             Frequently Asked Questions
           </Heading>
           <Text
@@ -519,14 +439,11 @@ const WebDevelopment = () => {
             textAlign={"center"}
             mt={10}
           >
-            Frequently Asked Questions (FAQs) about Game Design and Game
-            Development offer valuable insights into the world of creating
-            captivating and immersive digital games. These answers address
-            common queries, shedding light on the process, the latest
-            development technologies, and the unique strategies involved,
-            ensuring a comprehensive understanding of how our Game Design and
-            Game Development services can transform your gaming ideas into
-            engaging realities.
+            Frequently Asked Questions (FAQs) about our Graphic Design agency
+            services offer valuable insights into the world of visual
+            creativity, addressing common queries and demystifying the process
+            of crafting compelling Web & App Design that captivate audiences and
+            amplify brand identities.
           </Text>
           <Box
             width={{ base: "100%", md: "80%", xl: "70%", "2xl": "60%" }}

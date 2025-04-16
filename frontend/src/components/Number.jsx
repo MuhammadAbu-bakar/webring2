@@ -1,4 +1,6 @@
 import { Box, Flex, Text } from "@chakra-ui/react";
+import { useInView } from "react-intersection-observer";
+import CountUp from "react-countup";
 
 const StatsSection = () => {
   return (
@@ -16,24 +18,27 @@ const StatsSection = () => {
         gap={{ base: "40px", md: "80px", lg: "134px" }}
       >
         {/* Active Users */}
-        <StatBox number="5M+" title="Active Users Worldwide">
+        <StatBox number="5M+" title="Active Users Worldwide" animate>
           <Box mt={1}>
-          Delivering seamless digital experiences through cutting-edge web and mobile apps.
+            Delivering seamless digital experiences through cutting-edge web and
+            mobile apps.
           </Box>
         </StatBox>
 
         {/* Rated for Excellence */}
-        <StatBox number="4.8" title="Rated for Excellence">
+        <StatBox number="4.8/5" title="Rated for Excellence">
           <Box mt={1}>
-          Trusted by users and clients for delivering high-quality, reliable solutions.
+            Trusted by users and clients for delivering high-quality, reliable
+            solutions.
           </Box>
         </StatBox>
 
         {/* Industries Transformed */}
-        <StatBox number="100+" title="Industries Transformed">
-           <Box mt={1}>
-           We’ve left a mark across 100+ sectors with scalable websites, innovative mobile applications and Shopify stores.
-           </Box>
+        <StatBox number="100+" title="Industries Transformed" animate>
+          <Box mt={1}>
+            We’ve left a mark across 100+ sectors with scalable websites,
+            innovative mobile applications and Shopify stores.
+          </Box>
         </StatBox>
       </Flex>
     </Box>
@@ -41,7 +46,26 @@ const StatsSection = () => {
 };
 
 // Reusable StatBox Component
-const StatBox = ({ number, title, children }) => {
+const StatBox = ({ number, title, children, animate }) => {
+  const { ref, inView } = useInView({
+    triggerOnce: true, // Only trigger once when the component enters the viewport
+    threshold: 0.5, // Trigger when 50% of the component is visible
+  });
+
+  // Parse the number for animation if animate is true
+  const getNumberValue = () => {
+    if (number === "5M+") return 5000000;
+    if (number === "100+") return 100;
+    return 0;
+  };
+
+  // Determine the suffix for display
+  const getSuffix = () => {
+    if (number === "5M+") return "M+";
+    if (number === "100+") return "+";
+    return "";
+  };
+
   return (
     <Flex
       direction="column"
@@ -49,6 +73,7 @@ const StatBox = ({ number, title, children }) => {
       w={{ base: "100%", md: "320px" }}
       h="auto"
       textAlign="center"
+      ref={ref}
     >
       <Text
         fontFamily="Yantramanav"
@@ -57,7 +82,19 @@ const StatBox = ({ number, title, children }) => {
         lineHeight={{ base: "50px", md: "60px", lg: "72px" }}
         color="#FED904"
       >
-        {number}
+        {animate && inView ? (
+          <CountUp
+            end={getNumberValue()}
+            duration={2.5}
+            formattingFn={(value) =>
+              number === "5M+"
+                ? `${Math.floor(value / 1000000)}M+`
+                : `${value}${getSuffix()}`
+            }
+          />
+        ) : (
+          number
+        )}
       </Text>
 
       <Text

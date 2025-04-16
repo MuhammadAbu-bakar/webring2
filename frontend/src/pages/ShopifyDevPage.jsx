@@ -46,28 +46,24 @@ const cards = [
 
 const items = [
   {
-    title:
-      "What are Digital Content Writing services, and how can they benefit my business?",
-    text: "Digital Content Writing services involve creating written material for various platforms, such as websites, blogs, social media, and more. It benefits your business by enhancing brand visibility, engaging your target audience, and establishing your authority in your industry.						",
+    title: "What is Shopify, and why should I use it for my online store?",
+    text: "Shopify is an eCommerce platform that allows you to create and manage your online store with ease. It provides a variety of tools to customize your store, manage inventory, process payments, and market your products. Shopify is known for its user-friendly interface, secure payment options, and reliable customer support, making it a great choice for both new and experienced business owners.",
   },
   {
-    title:
-      "How do you ensure the SEO oriented content aligns with my brand's voice and values?							",
-    text: "Our SEO content writing strategies start by understanding your brand’s personality, values, and goals. Our best SEO content writers meticulously research and tailor the SEO oriented content to resonate with your unique brand identity, ensuring a consistent and authentic voice.						",
+    title: "How can I improve the speed and performance of my Shopify store?",
+    text: "Optimizing the speed of your Shopify store is crucial for providing a better user experience and improving conversion rates. You can enhance store performance by optimizing images, using lightweight themes, and limiting the use of heavy apps. We also suggest conducting regular speed tests and addressing any issues that could slow down your site.",
   },
   {
-    title:
-      "What types of Digital Content Writing services can your agency provide?							",
-    text: "Our creative content agency specializes in a diverse range of content, including website copy services, best blog articles, social media posts, product descriptions, email campaigns, and more. We adapt our writing style to suit the specific platform and audience.						",
+    title: "How can I manage inventory effectively with Shopify?",
+    text: "Shopify has a built-in inventory management system that allows you to track stock levels, set up alerts for low inventory, and manage orders seamlessly. You can also integrate third-party apps for more advanced inventory features, such as bulk import/export and multi-location tracking, to keep your business running smoothly.",
   },
   {
-    title:
-      "How do you ensure the SEO oriented content is engaging and relevant to my target audience?							",
-    text: "Our creative content agency conducts thorough research on your target audience’s preferences, interests, and pain points. This insight guides our SEO oriented content creation process, ensuring that the material is engaging, relevant, and resonates with your readers.						",
+    title: "Can I sell internationally with Shopify?",
+    text: "Yes, Shopify supports international sales, making it easy to sell in multiple countries. You can set up multiple currencies, offer localized payment methods, and adjust shipping rates for international orders. Shopify also provides the tools you need to manage taxes, customs, and other international regulations for a smooth global operation.",
   },
   {
-    title: "How do you create SEO oriented content during the writing process?							",
-    text: "We incorporate SEO (Search Engine Optimization) techniques seamlessly into the content, including business relevant keywords, meta tags, and formatting. This helps improve your content’s visibility on search engines, driving organic traffic to your website.						",
+    title: "How do I track and analyze my Shopify store’s performance?",
+    text: "Shopify offers built-in analytics tools that track your store’s performance, including traffic, sales, and customer behavior. You can also integrate third-party apps like Google Analytics for more detailed insights. Regularly reviewing these analytics helps you understand your customers better and optimize your marketing efforts to improve sales.",
   },
 ];
 

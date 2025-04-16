@@ -47,27 +47,27 @@ const cards = [
 const items = [
   {
     title:
-      "What are Digital Content Writing services, and how can they benefit my business?",
-    text: "Digital Content Writing services involve creating written material for various platforms, such as websites, blogs, social media, and more. It benefits your business by enhancing brand visibility, engaging your target audience, and establishing your authority in your industry.						",
+      "What is the difference between performance marketing and traditional advertising?",
+    text: "Unlike traditional advertising, where you pay for impressions or exposure regardless of the outcome, performance marketing only requires payment when a specific, measurable action is taken such as a click, lead, or sale. This makes it a more efficient and cost-effective approach, as you only pay for results.",
   },
   {
     title:
-      "How do you ensure the SEO oriented content aligns with my brand's voice and values?							",
-    text: "Our SEO content writing strategies start by understanding your brand’s personality, values, and goals. Our best SEO content writers meticulously research and tailor the SEO oriented content to resonate with your unique brand identity, ensuring a consistent and authentic voice.						",
+      "How do you determine the best performance marketing channels for my business?",
+    text: "We assess your business goals, target audience, and budget to identify the most suitable channels. Whether it’s Google Ads, social media advertising, or affiliate marketing, we choose the platforms that best align with your objectives. We continuously monitor campaign performance and adjust strategies to optimize results.",
   },
   {
     title:
-      "What types of Digital Content Writing services can your agency provide?							",
-    text: "Our creative content agency specializes in a diverse range of content, including website copy services, best blog articles, social media posts, product descriptions, email campaigns, and more. We adapt our writing style to suit the specific platform and audience.						",
+      "How do you ensure that performance marketing campaigns deliver a positive ROI?",
+    text: "We focus on tracking and optimizing key metrics like cost per click (CPC), cost per acquisition (CPA), and return on ad spend (ROAS). By analyzing data and making data-driven decisions, we continuously refine campaigns to maximize results while minimizing costs. Our goal is to ensure that every dollar spent delivers measurable value.",
+  },
+  {
+    title: "Can performance marketing work for both B2B and B2C businesses?",
+    text: "Yes, performance marketing works for both B2B (business-to-business) and B2C (business-to-consumer) businesses. We tailor the approach based on your business model, targeting strategies, and the customer journey. For B2B, we focus on lead generation and conversions, while for B2C, we optimize for direct sales and brand awareness.",
   },
   {
     title:
-      "How do you ensure the SEO oriented content is engaging and relevant to my target audience?							",
-    text: "Our creative content agency conducts thorough research on your target audience’s preferences, interests, and pain points. This insight guides our SEO oriented content creation process, ensuring that the material is engaging, relevant, and resonates with your readers.						",
-  },
-  {
-    title: "How do you create SEO oriented content during the writing process?							",
-    text: "We incorporate SEO (Search Engine Optimization) techniques seamlessly into the content, including business relevant keywords, meta tags, and formatting. This helps improve your content’s visibility on search engines, driving organic traffic to your website.						",
+      "How do you handle budget management in performance marketing campaigns?",
+    text: "We work with you to define a budget that aligns with your goals and resources. Through careful budget allocation, we focus on the most effective channels and campaigns to maximize your ROI. We also adjust spending based on performance to ensure the budget is being spent efficiently, achieving the best results within the allocated amount.",
   },
 ];
 

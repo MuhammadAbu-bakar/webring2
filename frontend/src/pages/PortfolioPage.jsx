@@ -1,52 +1,76 @@
 import React from "react";
 import { Box, Image, Heading, Container, Text } from "@chakra-ui/react";
+import { useNavigate } from "react-router-dom";
 
 const portfolioCards = [
   {
     id: 1,
-    title: "Infinity Initiative",
+    title: "Almassa",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     image: "/almassa.png",
+    navigateTo: "https://almassait.com/",
   },
   {
     id: 2,
-    title: "Terra Nova",
+    title: "MedExpress",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     image: "/medexpress.png",
+    navigateTo: "https://medexpressbilling.com/",
   },
   {
     id: 3,
-    title: "Terra Nova",
+    title: "JazPayments",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     image: "/jazzpay.png",
+    navigateTo: "https://jazpayments.com/",
   },
   {
     id: 4,
-    title: "Infinity Initiative",
+    title: "My Retro Jersey",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     image: "/myretro.png",
+    navigateTo: "https://www.myretrojersey.com/",
   },
   {
     id: 5,
-    title: "Infinity Initiative",
+    title: "JP Logistics",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     image: "/jplogistics.png",
+    navigateTo: "https://jplogistics.ltd/",
   },
   {
     id: 6,
-    title: "Terra Nova",
+    title: "Sora Schools",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    image: "/works-img-3.png",
+    image: "/soraschools.png",
+    navigateTo: "https://soraschools.com/",
+  },
+  {
+    id: 7,
+    title: "Gemma Foods",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    image: "/gemmafoods.png",
+    navigateTo: "https://gemmafoods.com/",
+  },
+  {
+    id: 8,
+    title: "Motion Grey",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    image: "/motiongrey.png",
+    navigateTo: "https://motiongrey.com/",
   },
 ];
 
 function Portfolio() {
+  const navigate = useNavigate();
   return (
     <div>
       <Box width="100%" height="100%">
@@ -85,22 +109,28 @@ function Portfolio() {
                   key={card.id}
                   width="100%"
                   height={{ base: "auto", md: "680px" }}
-                  bgColor="#F8F8F6"
                   borderRadius="xl"
                   position="relative"
                   p={4}
+                  _hover={{
+                    transform: "scale(1.02)",
+                    transition:
+                      "transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out",
+                    boxShadow: "0px 10px 20px rgba(0, 0, 0, 0.1)",
+                  }}
+                  cursor="pointer"
+                  onClick={() =>
+                    card.navigateTo && window.open(card.navigateTo, "_blank")
+                  }
                 >
                   <Image
                     src={card.image}
                     width="700px"
                     objectFit="contain"
                     height={{ base: "auto", md: "485px" }}
-                    borderRadius="10px"
+                    borderRadius="xl"
                   />
-                  <Heading
-                    fontSize={{ base: "24px", md: "32px", lg: "40px" }}
-                    mt={"30px"}
-                  >
+                  <Heading fontSize={{ base: "24px", md: "32px", lg: "40px" }}>
                     {card.title}
                   </Heading>
                   <Text

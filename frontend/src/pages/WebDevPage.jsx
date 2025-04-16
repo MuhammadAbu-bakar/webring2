@@ -11,10 +11,13 @@ import {
   Accordion,
   IconButton,
   useBreakpointValue,
-} from '@chakra-ui/react';
-import { faChevronRight, faChevronLeft } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React, { useState, useEffect } from 'react';
+} from "@chakra-ui/react";
+import {
+  faChevronRight,
+  faChevronLeft,
+} from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import React, { useState, useEffect } from "react";
 
 const cards = [
   {
@@ -42,63 +45,63 @@ const cards = [
 
 const items = [
   {
-    title: "What is Game Design and Game Development, and why should I consider it for my project?",
-    text: "Game design and game development involve creating interactive digital games. Choose us for your project because we provide captivating games that engage, entertain, educate, reach a broad audience, improve customer engagement, provide valuable analytics, enhance competitiveness, and can be used for various business objectives"
+    title: "What is web development, and how can it benefit my business?",
+    text: "Web development is the creation of websites and web applications, focusing on functionality, design, and user experience. It benefits businesses by establishing a professional online presence, improving customer engagement, and enhancing operational efficiency. A well-developed website builds credibility, attracts potential customers, and can directly impact sales and conversions.",
   },
   {
-    title: "How long does it take to design and develop a game?",
-    text: "The timeline varies based on the complexity, platform, and features of the game. Simple games might take a few months, while more intricate projects could span a year or more. Our top-notch game designer and developer work closely with you to establish a realistic development timeline."
+    title: "How long does it take to build a website?",
+    text: "The time it takes to build a website depends on the complexity of the project. For a simple website, you can expect a timeline of about 2–4 weeks. However, more intricate websites, such as eCommerce platforms or custom-built applications, may take 6–10 weeks or more. Before we begin the project, we’ll provide a clear roadmap with an estimated timeline so you can plan accordingly.",
   },
   {
-    title: "What platforms can you develop games for?",
-    text: "Our digital solution agency specializes in creating video games with code for various platforms, including PCs, consoles, mobile devices, and the web. Our creative staffing analyzes your target audience and project goals to recommend the most suitable platform(s) for your game."
+    title: "Will my website be mobile-friendly and SEO-optimized?",
+    text: "Yes, every website we develop is fully responsive, ensuring that it provides a seamless experience on mobile devices, tablets, and desktops. Furthermore, we build websites with SEO (Search Engine Optimization) best practices in mind, which means your site is optimized for search engines from the start. This can help improve your visibility and ranking in search results, giving your business an edge in a competitive digital landscape.",
   },
   {
-    title: "How do you ensure the game's mechanics and design engage players effectively?",
-    text: "Player engagement is a top priority. We conduct thorough gameplay testing, ensuring mechanics are intuitive and enjoyable. Our game designers pay attention and collaborate closely to create visually appealing environments, characters, and interfaces that enhance the player experience."
+    title: "Do you use templates or custom designs?",
+    text: "We offer both custom designs and template-based options. If you prefer a fully unique look and feel for your website, our team will create a custom design tailored to your brand. For businesses on a tighter budget or with simpler requirements, we can implement pre-designed templates that still deliver a professional look and functionality but at a more affordable price.",
   },
   {
-    title: "What ongoing support does your digital solution agency offer after the game is launched?",
-    text: "Player engagement is a top priority. We conduct thorough gameplay testing, ensuring mechanics are intuitive and enjoyable. Our game designers pay attention and collaborate closely to create visually appealing environments, characters, and interfaces that enhance the player experience."
+    title: "What happens after my website goes live?",
+    text: "Once your website is live, our commitment doesn’t end. We provide ongoing support and maintenance services to ensure your site remains secure, functional, and up-to-date. This includes regular performance monitoring, backups, software updates, and security checks. If you need any changes or updates, we’re here to help with further optimizations to keep your site running smoothly.",
   },
 ];
 
 const carouselImages = [
   {
     src: "/1.png",
-    alt: "Game Development 1"
+    alt: "Game Development 1",
   },
   {
     src: "/6.png",
-    alt: "Game Development 5"
+    alt: "Game Development 5",
   },
   {
     src: "/3.png",
-    alt: "Game Development 3"
+    alt: "Game Development 3",
   },
   {
     src: "/4.png",
-    alt: "Game Development 1"
+    alt: "Game Development 1",
   },
   {
     src: "/9.png",
-    alt: "Game Development 2"
+    alt: "Game Development 2",
   },
   {
     src: "/6.png",
-    alt: "Game Development 3"
+    alt: "Game Development 3",
   },
   {
     src: "/7.png",
-    alt: "Game Development 1"
+    alt: "Game Development 1",
   },
   {
     src: "/8.png",
-    alt: "Game Development 2"
+    alt: "Game Development 2",
   },
   {
     src: "/9.png",
-    alt: "Game Development 3"
+    alt: "Game Development 3",
   },
 ];
 
@@ -127,7 +130,7 @@ const WebDevelopment = () => {
     setCurrentSlide((prev) => (prev === slidesCount - 1 ? 0 : prev + 1));
   };
 
-  const arrowSize = useBreakpointValue({ base: 'sm', md: 'md' });
+  const arrowSize = useBreakpointValue({ base: "sm", md: "md" });
 
   return (
     <>
@@ -141,26 +144,49 @@ const WebDevelopment = () => {
           px={{ base: 4, md: 6, xl: 8 }}
           mx="auto"
           display="flex"
-          flexDirection={{ base: 'column', md: 'row' }}
+          flexDirection={{ base: "column", md: "row" }}
         >
           {/* Left Content */}
           <Box
-            width={{ base: '100%', md: '50%' }}
+            width={{ base: "100%", md: "50%" }}
             pr={{ md: 10 }}
             mb={{ base: 10, md: 0 }}
           >
-            <Text fontSize={{ base: "18px", md: "24px", xl: "26px" }} color="yellow.400" fontWeight="bold" mb={2}>
+            <Text
+              fontSize={{ base: "18px", md: "24px", xl: "26px" }}
+              color="yellow.400"
+              fontWeight="bold"
+              mb={2}
+            >
               Top Web Development Services Company
             </Text>
-            <Heading fontSize={{ base: "24px", md: "36px", xl: "40px", "2xl": "48px" }} lineHeight={{ base: "32px", md: "45px" }} fontWeight="600" mb={6}>
+            <Heading
+              fontSize={{ base: "24px", md: "36px", xl: "40px", "2xl": "48px" }}
+              lineHeight={{ base: "32px", md: "45px" }}
+              fontWeight="600"
+              mb={6}
+            >
               Seamless Web Solutions Services From Pixels To Performance
             </Heading>
-            <Stack spacing={{ base: 3, md: 4, xl: 5 }} fontSize={{ base: "14px", md: "18px", xl: "20px" }} color="gray.300">
+            <Stack
+              spacing={{ base: 3, md: 4, xl: 5 }}
+              fontSize={{ base: "14px", md: "18px", xl: "20px" }}
+              color="gray.300"
+            >
               <Text>
-                Empower your digital presence with our leading Web Development company services. Our top rated web developers with creative staffing craft tailored business leads websites, e commerce websites for business, or any website that combines stunning design with seamless functionality, creating immersive user experiences.
+                Empower your digital presence with our leading Web Development
+                company services. Our top rated web developers with creative
+                staffing craft tailored business leads websites, e commerce
+                websites for business, or any website that combines stunning
+                design with seamless functionality, creating immersive user
+                experiences.
               </Text>
               <Text>
-                From e commerce websites for business platforms to interactive business portfolio websites, our top notch developers bring your vision to life. Elevate your online brand and engage your audience with websites that captivate, inform, and inspire action.
+                From e commerce websites for business platforms to interactive
+                business portfolio websites, our top notch developers bring your
+                vision to life. Elevate your online brand and engage your
+                audience with websites that captivate, inform, and inspire
+                action.
               </Text>
             </Stack>
 
@@ -173,9 +199,9 @@ const WebDevelopment = () => {
                   borderRadius="md"
                   overflow="hidden"
                   _hover={{
-                    '& .view-button': {
-                      opacity: 1
-                    }
+                    "& .view-button": {
+                      opacity: 1,
+                    },
                   }}
                 >
                   {carouselImages.map((image, index) => (
@@ -212,7 +238,7 @@ const WebDevelopment = () => {
                         opacity={0}
                         transition="opacity 0.3s ease"
                         _hover={{
-                          bg: "gray.100"
+                          bg: "gray.100",
                         }}
                       >
                         View Website
@@ -255,14 +281,22 @@ const WebDevelopment = () => {
 
             {/* Pricing and CTA */}
             <Box mt={8}>
-              <Text color="yellow.400" fontWeight="bold" fontSize={{ base: "18px", md: "24px" }}>
+              <Text
+                color="yellow.400"
+                fontWeight="bold"
+                fontSize={{ base: "18px", md: "24px" }}
+              >
                 Web Development Charges :
               </Text>
-              <Text fontSize={{ base: "20px", md: "24px" }} fontWeight="bold" mt={6}>
+              <Text
+                fontSize={{ base: "20px", md: "24px" }}
+                fontWeight="bold"
+                mt={6}
+              >
                 $30 - $60/ Hour
               </Text>
               <Button
-                width={{ base: '100%', md: '150px' }}
+                width={{ base: "100%", md: "150px" }}
                 mt={6}
                 border="2px solid yellow"
                 borderRadius="md"
@@ -280,7 +314,7 @@ const WebDevelopment = () => {
           {/* Carousel for Desktop View */}
           {!isMobile && (
             <Box
-              width={{ base: '100%', md: '45%' }}
+              width={{ base: "100%", md: "45%" }}
               position="relative"
               mt={{ base: 0, md: 10 }}
             >
@@ -290,9 +324,9 @@ const WebDevelopment = () => {
                 borderRadius="md"
                 overflow="hidden"
                 _hover={{
-                  '& .view-button': {
-                    opacity: 1
-                  }
+                  "& .view-button": {
+                    opacity: 1,
+                  },
                 }}
               >
                 {carouselImages.map((image, index) => (
@@ -329,7 +363,7 @@ const WebDevelopment = () => {
                       opacity={0}
                       transition="opacity 0.3s ease"
                       _hover={{
-                        bg: "gray.100"
+                        bg: "gray.100",
                       }}
                     >
                       View Website
@@ -381,14 +415,28 @@ const WebDevelopment = () => {
           mt={10}
           mx="auto"
         >
-          <Heading fontSize={{ base: "24px", md: "36px", xl: "42px", "2xl": "48px" }} fontWeight="600" textAlign="center">
+          <Heading
+            fontSize={{ base: "24px", md: "36px", xl: "42px", "2xl": "48px" }}
+            fontWeight="600"
+            textAlign="center"
+          >
             How We Do It
           </Heading>
-          <Text fontSize={{ base: "16px", md: "22px", xl: "24px" }} textAlign="center" mt={6}>
-            Our best Game Development company in the world fuses innovation with pixels, transforming concepts into interactive realities that ignite player passions and push gaming boundaries.
+          <Text
+            fontSize={{ base: "16px", md: "22px", xl: "24px" }}
+            textAlign="center"
+            mt={6}
+          >
+            Our best Game Development company in the world fuses innovation with
+            pixels, transforming concepts into interactive realities that ignite
+            player passions and push gaming boundaries.
           </Text>
           <Grid
-            templateColumns={{ base: "1fr", md: "repeat(2, 1fr)", xl: "repeat(3, 1fr)" }}
+            templateColumns={{
+              base: "1fr",
+              md: "repeat(2, 1fr)",
+              xl: "repeat(3, 1fr)",
+            }}
             gap={{ base: 4, md: 6, xl: 8 }}
             mt={10}
           >
@@ -410,13 +458,28 @@ const WebDevelopment = () => {
                   alt={service.title}
                   mb={4}
                   objectFit="contain"
-                  width={{ base: "200px", md: "250px", xl: "300px", "2xl": service.width }}
-                  height={{ base: "200px", md: "250px", xl: "300px", "2xl": service.height }}
+                  width={{
+                    base: "200px",
+                    md: "250px",
+                    xl: "300px",
+                    "2xl": service.width,
+                  }}
+                  height={{
+                    base: "200px",
+                    md: "250px",
+                    xl: "300px",
+                    "2xl": service.height,
+                  }}
                   display="block"
                   mx="auto"
                 />
                 <Heading
-                  fontSize={{ base: "18px", md: "22px", xl: "24px", "2xl": "28px" }}
+                  fontSize={{
+                    base: "18px",
+                    md: "22px",
+                    xl: "24px",
+                    "2xl": "28px",
+                  }}
                   fontWeight="semibold"
                   mb={2}
                 >
@@ -444,19 +507,65 @@ const WebDevelopment = () => {
           mx="auto"
           alignItems="center"
         >
-          <Heading fontSize={{ base: "24px", md: "36px", xl: "42px", "2xl": "48px" }} fontWeight="600" textAlign="center" mt={10}>
+          <Heading
+            fontSize={{ base: "24px", md: "36px", xl: "42px", "2xl": "48px" }}
+            fontWeight="600"
+            textAlign="center"
+            mt={10}
+          >
             Our Professional Website Development Services Process
           </Heading>
-          <Flex flexDirection={{ base: "column", md: "row" }} alignItems={{ base: "center", md: "flex-start" }}>
+          <Flex
+            flexDirection={{ base: "column", md: "row" }}
+            alignItems={{ base: "center", md: "flex-start" }}
+          >
             <Box width={{ base: "100%", md: "70%" }} mt={10} mb={10}>
-              <Text spacing={{ base: 1, md: 2, xl: 4 }} fontSize={{ base: "14px", md: "16px", xl: "18px", "2xl": "20px" }}>
-                At WeBring, our professional Website Development services process is a well-orchestrated journey from concept to reality. We begin by understanding your business, design an interface that is captivating, and developing a responsive site free from bugs with the latest development technologies.
+              <Text
+                spacing={{ base: 1, md: 2, xl: 4 }}
+                fontSize={{
+                  base: "14px",
+                  md: "16px",
+                  xl: "18px",
+                  "2xl": "20px",
+                }}
+              >
+                At WeBring, our professional Website Development services
+                process is a well-orchestrated journey from concept to reality.
+                We begin by understanding your business, design an interface
+                that is captivating, and developing a responsive site free from
+                bugs with the latest development technologies.
               </Text>
-              <Text spacing={{ base: 1, md: 2, xl: 4 }} fontSize={{ base: "14px", md: "16px", xl: "18px", "2xl": "20px" }} mt={5}>
-                After thorough usability testing in user interface design and its functionality, we integrate SEO oriented content, launch your site, and provide ongoing support. Our creative staffing also tracks performance and makes optimizations to keep your online presence strong.
+              <Text
+                spacing={{ base: 1, md: 2, xl: 4 }}
+                fontSize={{
+                  base: "14px",
+                  md: "16px",
+                  xl: "18px",
+                  "2xl": "20px",
+                }}
+                mt={5}
+              >
+                After thorough usability testing in user interface design and
+                its functionality, we integrate SEO oriented content, launch
+                your site, and provide ongoing support. Our creative staffing
+                also tracks performance and makes optimizations to keep your
+                online presence strong.
               </Text>
-              <Text spacing={{ base: 1, md: 2, xl: 4 }} fontSize={{ base: "14px", md: "16px", xl: "18px", "2xl": "20px" }} mt={5}>
-                We’re committed to delivering a website that not only meets but exceeds your expectations, ensuring it represents your brand and connects with your audience effectively. Contact our digital solution agency today to get started on this transformative digital journey.
+              <Text
+                spacing={{ base: 1, md: 2, xl: 4 }}
+                fontSize={{
+                  base: "14px",
+                  md: "16px",
+                  xl: "18px",
+                  "2xl": "20px",
+                }}
+                mt={5}
+              >
+                We’re committed to delivering a website that not only meets but
+                exceeds your expectations, ensuring it represents your brand and
+                connects with your audience effectively. Contact our digital
+                solution agency today to get started on this transformative
+                digital journey.
               </Text>
             </Box>
             <Image
@@ -479,13 +588,34 @@ const WebDevelopment = () => {
           mx="auto"
           alignItems="center"
         >
-          <Heading fontSize={{ base: "24px", md: "36px", xl: "42px", "2xl": "48px" }} fontWeight="600" textAlign="center" mt={10}>
+          <Heading
+            fontSize={{ base: "24px", md: "36px", xl: "42px", "2xl": "48px" }}
+            fontWeight="600"
+            textAlign="center"
+            mt={10}
+          >
             Frequently Asked Questions
           </Heading>
-          <Text fontSize={{ base: "16px", md: "22px", xl: "24px" }} textAlign="center" mt={6}>
-            Frequently Asked Questions (FAQs) about Game Design and Game Development offer valuable insights into the world of creating captivating and immersive digital games. These answers address common queries, shedding light on the process, the latest development technologies, and the unique strategies involved, ensuring a comprehensive understanding of how our Game Design and Game Development services can transform your gaming ideas into engaging realities.
+          <Text
+            fontSize={{ base: "16px", md: "22px", xl: "24px" }}
+            textAlign="center"
+            mt={6}
+          >
+            Frequently Asked Questions (FAQs) about Game Design and Game
+            Development offer valuable insights into the world of creating
+            captivating and immersive digital games. These answers address
+            common queries, shedding light on the process, the latest
+            development technologies, and the unique strategies involved,
+            ensuring a comprehensive understanding of how our Game Design and
+            Game Development services can transform your gaming ideas into
+            engaging realities.
           </Text>
-          <Box width={{ base: "100%", md: "80%", xl: "70%", "2xl": "60%" }} margin="auto" mt={10} mb={10}>
+          <Box
+            width={{ base: "100%", md: "80%", xl: "70%", "2xl": "60%" }}
+            margin="auto"
+            mt={10}
+            mb={10}
+          >
             <Accordion.Root>
               {items.map((item, index) => (
                 <Accordion.Item key={index} value={item.value} mt={5}>
@@ -499,16 +629,30 @@ const WebDevelopment = () => {
                     display="flex"
                     alignItems="center"
                   >
-                    <Text fontSize={{ base: "14px", sm: "15px", md: "16px" }} flex="1" ml={{ base: 4, md: 10 }} textAlign="left">
+                    <Text
+                      fontSize={{ base: "14px", sm: "15px", md: "16px" }}
+                      flex="1"
+                      ml={{ base: 4, md: 10 }}
+                      textAlign="left"
+                    >
                       {item.title}
                     </Text>
-                    <Box fontSize={{ base: "18px", sm: "20px", md: "24px" }} mr={{ base: 4, md: 10 }}>
-                      {openIndex === index ? '−' : '+'}
+                    <Box
+                      fontSize={{ base: "18px", sm: "20px", md: "24px" }}
+                      mr={{ base: 4, md: 10 }}
+                    >
+                      {openIndex === index ? "−" : "+"}
                     </Box>
                   </Accordion.ItemTrigger>
                   {openIndex === index && (
                     <Accordion.ItemContent>
-                      <Accordion.ItemBody fontSize={{ base: "14px", sm: "15px", md: "16px" }} ml={{ base: 4, md: 12 }} mr={{ base: 4, md: 10 }} mt={2} mb={2}>
+                      <Accordion.ItemBody
+                        fontSize={{ base: "14px", sm: "15px", md: "16px" }}
+                        ml={{ base: 4, md: 12 }}
+                        mr={{ base: 4, md: 10 }}
+                        mt={2}
+                        mb={2}
+                      >
                         {item.text}
                       </Accordion.ItemBody>
                     </Accordion.ItemContent>
