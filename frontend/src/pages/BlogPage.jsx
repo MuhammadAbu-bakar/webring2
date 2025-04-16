@@ -5,68 +5,65 @@ import { useNavigate } from "react-router-dom";
 const blogCards = [
   {
     id: 1,
-    title:
-      "Unveiling the Secrets of High-Performance Websites with Our Web Development Service",
+    title: "How AI is Helping Businesses Work Smarter",
     description:
-      "In the fast-paced digital era, where attention spans are shrinking and users demand instant gratification, the performance of your website plays a …",
+      "AI isn’t just a buzzword, it’s changing how businesses operate daily. From automating tasks to offering real-time insights, we explore how AI can give your business a serious edge.",
     image: "/i1.png",
   },
   {
     id: 2,
-    title: "Enhancing User Experience: The Key to Our Web Development Approach",
+    title: "Future-Proof Your Business with the Right IT Setup",
     description:
-      "In the ever-evolving digital landscape, where websites are the storefronts of the virtual world, user experience (UX) has become a paramount factor …",
+      "Behind every successful business is a solid IT foundation. We explore how the right systems can keep things running smoothly and securely and ready to grow when you are.",
     image: "/i2.png",
   },
   {
     id: 3,
-    title: "Building Dreams Online: The Power of Our Web Development Services",
+    title: "Why a Custom Website Can Take Your Business Further",
     description:
-      "In the dynamic and interconnected world of today, having a strong online presence is not just an option; it’s a necessity. Whether …",
+      "Your website is more than just a digital presence, it’s your first impression. We share how a custom-built site can truly reflect your brand and connect better with your audience.",
     image: "/i3.png",
   },
   {
     id: 4,
-    title:
-      "Innovative Solutions: Empowering Businesses Through Web Development",
+    title: "Turning Your App Idea into a Real-World Solution",
     description:
-      "In the fast-paced and dynamic world of business, staying ahead of the curve is crucial for success. One of the most impactful …",
+      "Got a great app idea? We’ll show you how we bring concepts to life with smart design, smooth functionality, and a clear focus on what your users need.",
     image: "/i4.png",
   },
   {
     id: 5,
-    title: "From Concept to Code: Exploring Our Web Development Process",
+    title: "Making Dental Websites That Truly Connect with Patients",
     description:
-      "In the ever-evolving landscape of the digital era, a robust online presence is crucial for businesses and individuals alike. The gateway to …",
+      "Patients start their journey online. That’s why we build dental websites that are easy to navigate, mobile-friendly, and built to build trust from the very first visit.",
     image: "/i5.png",
   },
   {
     id: 6,
-    title: "Revolutionize Your Online Presence: Our Web Development Expertise",
+    title: "Why a Great Dental Website is Worth the Investment",
     description:
-      "In the fast-paced digital era, having a strong online presence is not just an option; it’s a necessity. Your website is often …",
+      "A clean, informative, and user-friendly site can make all the difference for dental practices. Learn what goes into creating a site that drives appointments and builds credibility.",
     image: "/i6.png",
   },
   {
     id: 7,
-    title: "Behind the Scenes: Crafting Exceptional Websites with Our Services",
+    title: "Getting Your Product the Attention It Deserves",
     description:
-      "In the fast-paced digital era, a website serves as the virtual face of a business or individual, making a compelling online presence …",
+      "You’ve got a great product, now let’s get it noticed. We explore how targeted marketing strategies help your product stand out and reach the right people.",
     image: "/i7.png",
   },
   {
     id: 8,
-    title: "The Ultimate Guide to Seamless Web Development Solutions",
+    title: "The Secret to Strong Product Marketing in a Busy Market",
     description:
-      "In the fast-paced world of technology, a seamless web presence is essential for businesses and individuals alike. Whether you’re launching a new …",
+      "Great marketing is more than ads, it’s about telling your product’s story. Learn how smart positioning and clear messaging can cut through the noise.",
     image: "/i8.png",
   },
   {
     id: 9,
-    title:
-      "Unlocking Success: How Our Web Development Service Elevates Businesses",
+    title: "Blending Great Design with Powerful Web Functionality",
     description:
-      "In the rapidly evolving digital landscape, a robust online presence is a prerequisite for business success. As consumers increasingly turn to the …",
+      "Design matters. We explore how a well-thought-out website can be both beautiful and effective, keeping visitors engaged and encouraging them to take action.",
     image: "/i9.png",
   },
 ];

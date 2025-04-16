@@ -30,7 +30,7 @@ const cards = [
   },
   {
     title: "Secure Every Click",
-    desc: "At WeBring, customer trust and data safety are non-negotiable. Our team implements robust security features—from SSL certification and secure payment gateways to data encryption—ensuring every transaction is safe and your store complies with the latest industry standards.",
+    desc: "At WeBring, customer trust and data safety are non-negotiable. Our team implements robust security features from SSL certification and secure payment gateways to data encryption ensuring every transaction is safe and your store complies with the latest industry standards.",
     image: "/Research-scaled.png",
     height: "350px",
     width: "350px",
@@ -138,7 +138,7 @@ const WebDevelopment = () => {
 
               <Text>
                 Boost your online presence with WeBring’s custom Shopify
-                solutions—where aesthetic appeal meets powerful functionality
+                solutions where aesthetic appeal meets powerful functionality
                 for maximum impact and growth.
               </Text>
             </Stack>
@@ -205,9 +205,9 @@ const WebDevelopment = () => {
             textAlign={"center"}
             mt={10}
           >
-            At WeBring, we turn your vision into a high-performing Shopify
-            store—designed for scalability, seamless user experience, and
-            measurable results.{" "}
+            At WeBring, we turn your vision into a high-performing Shopify store
+            designed for scalability, seamless user experience, and measurable
+            results.{" "}
           </Text>
           <Flex
             width="100%"
@@ -306,11 +306,16 @@ const WebDevelopment = () => {
             textAlign={"center"}
             mt={10}
           >
-            Frequently Asked Questions (FAQs) about our Digital Content Writing
-            services provide comprehensive insights into the realm of strategic
-            and creative writing, addressing common queries and shedding light
-            on the process of crafting compelling, engaging, and SEO oriented
-            content tailored to diverse platforms and audiences.{" "}
+            Frequently Asked Questions (FAQs) about our Shopify Store
+            Development services offer valuable insights into the process of
+            creating dynamic, user-friendly, and high-converting eCommerce
+            platforms. These answers address common queries, highlighting the
+            strategic, creative, and technical approaches involved in building
+            tailored Shopify stores. They provide a clear understanding of how
+            our Shopify Store Development services leverage customizable themes,
+            seamless integrations, and SEO-optimized designs to transform your
+            business vision into a robust online store that engages diverse
+            audiences and drives sales across multiple platforms.
           </Text>
           <Box
             width={{ base: "100%", md: "80%", xl: "70%", "2xl": "60%" }}

@@ -411,14 +411,14 @@ const WebDevelopment = () => {
             textAlign={"center"}
             mt={10}
           >
-            Frequently Asked Questions (FAQs) about Game Design and Game
-            Development offer valuable insights into the world of creating
-            captivating and immersive digital games. These answers address
-            common queries, shedding light on the process, the latest
-            development technologies, and the unique strategies involved,
-            ensuring a comprehensive understanding of how our Game Design and
-            Game Development services can transform your gaming ideas into
-            engaging realities.
+            Frequently Asked Questions (FAQs) about Social Media Marketing
+            provide essential insights into crafting effective and engaging
+            digital campaigns. These answers tackle common queries, highlighting
+            the strategies, latest tools, and innovative approaches involved in
+            building a strong online presence. They offer a clear understanding
+            of how our Social Media Marketing services can transform your
+            brand’s vision into impactful, audience-driven realities, ensuring
+            maximum reach and engagement across platforms.
           </Text>
           <Box
             width={{ base: "100%", md: "80%", xl: "70%", "2xl": "60%" }}

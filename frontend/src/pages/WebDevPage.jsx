@@ -22,21 +22,21 @@ import React, { useState, useEffect } from "react";
 const cards = [
   {
     title: "Requirements Gathering",
-    desc: "In our top Web Development services company, we embark on a meticulous journey of understanding your unique needs. Through comprehensive consultation, we delve deep into your vision, goals, and preferences, ensuring a tailored website development using WordPress process that transforms your ideas into a stunning digital reality.",
+    desc: "It all starts with a conversation. We take the time to get to know your brand, your goals, and what makes your business unique. From there, we map out exactly what your website needs—whether it’s a simple portfolio or a complex online store.",
     image: "/req-gathering.png",
     height: "350px",
     width: "350px",
   },
   {
     title: "UX/UI Design",
-    desc: "Enhance user satisfaction with our UX/UI Design services. Our top web designers in the world design user interfaces that prioritize seamless navigation and meaningful interactions, transforming your digital platform into a user-friendly haven.",
+    desc: "Once we understand your vision, our design team gets to work creating a look and feel that matches it perfectly. Every click, scroll, and interaction is designed to be smooth, intuitive, and easy on the eyes.",
     image: "/ui-design.png",
     height: "350px",
     width: "350px",
   },
   {
     title: "Usability Testing",
-    desc: "Our top notch Web Development services include rigorous Usability Testing in UX design functionality, ensuring your website's functionality and design align harmoniously to create intuitive, user-centric journeys. Our creative staffing meticulously analyzes every interaction, guaranteeing a flawlessly navigable and engaging digital environment for your visitors.",
+    desc: "Before we go live, we test everything—on phones, tablets, desktops—you name it. We want to make sure every part of your site works exactly as it should, delivering a seamless experience to every visitor.",
     image: "/usability-testing.png",
     height: "350px",
     width: "350px",
@@ -166,7 +166,7 @@ const WebDevelopment = () => {
               fontWeight="600"
               mb={6}
             >
-              Seamless Web Solutions Services From Pixels To Performance
+              From Design to Function, We Build Websites That Work
             </Heading>
             <Stack
               spacing={{ base: 3, md: 4, xl: 5 }}
@@ -174,19 +174,17 @@ const WebDevelopment = () => {
               color="gray.300"
             >
               <Text>
-                Empower your digital presence with our leading Web Development
-                company services. Our top rated web developers with creative
-                staffing craft tailored business leads websites, e commerce
-                websites for business, or any website that combines stunning
-                design with seamless functionality, creating immersive user
-                experiences.
+                Looking to stand out online? Our Web Development services are
+                all about helping you make a powerful impression. Whether you're
+                just starting or want to upgrade your current website, we’re
+                here to build something that’s beautiful but also smart,
+                responsive, and built for your business goals.
               </Text>
               <Text>
-                From e commerce websites for business platforms to interactive
-                business portfolio websites, our top notch developers bring your
-                vision to life. Elevate your online brand and engage your
-                audience with websites that captivate, inform, and inspire
-                action.
+                From elegant business websites to fully-loaded e-commerce
+                stores, we bring your ideas to life with creativity and
+                technical expertise. Our job? To help you attract, engage, and
+                convert your visitors—effortlessly.
               </Text>
             </Stack>
 
@@ -427,9 +425,9 @@ const WebDevelopment = () => {
             textAlign="center"
             mt={6}
           >
-            Our best Game Development company in the world fuses innovation with
-            pixels, transforming concepts into interactive realities that ignite
-            player passions and push gaming boundaries.
+            Our approach to web development is a blend of smart coding and
+            creative design. We don’t just build websites—we craft digital
+            experiences that people love using.
           </Text>
           <Grid
             templateColumns={{
@@ -513,7 +511,7 @@ const WebDevelopment = () => {
             textAlign="center"
             mt={10}
           >
-            Our Professional Website Development Services Process
+            Our Step-by-Step Web Development Process
           </Heading>
           <Flex
             flexDirection={{ base: "column", md: "row" }}
@@ -529,11 +527,10 @@ const WebDevelopment = () => {
                   "2xl": "20px",
                 }}
               >
-                At WeBring, our professional Website Development services
-                process is a well-orchestrated journey from concept to reality.
-                We begin by understanding your business, design an interface
-                that is captivating, and developing a responsive site free from
-                bugs with the latest development technologies.
+                At WeBring, we follow a clear and collaborative process from
+                start to finish. First, we understand your needs. Then, we
+                design and develop a custom website that looks great and works
+                perfectly across all devices.
               </Text>
               <Text
                 spacing={{ base: 1, md: 2, xl: 4 }}
@@ -545,11 +542,10 @@ const WebDevelopment = () => {
                 }}
                 mt={5}
               >
-                After thorough usability testing in user interface design and
-                its functionality, we integrate SEO oriented content, launch
-                your site, and provide ongoing support. Our creative staffing
-                also tracks performance and makes optimizations to keep your
-                online presence strong.
+                We test it thoroughly, make it search engine–friendly, and help
+                you launch it smoothly. Even after the launch, we stick around
+                for support and updates. We also track how your site is
+                performing and make improvements when needed.
               </Text>
               <Text
                 spacing={{ base: 1, md: 2, xl: 4 }}
@@ -561,11 +557,9 @@ const WebDevelopment = () => {
                 }}
                 mt={5}
               >
-                We’re committed to delivering a website that not only meets but
-                exceeds your expectations, ensuring it represents your brand and
-                connects with your audience effectively. Contact our digital
-                solution agency today to get started on this transformative
-                digital journey.
+                Your website should grow with your business—and we’re here to
+                make sure it does. Ready to bring your digital vision to life?
+                Let’s build something incredible together.
               </Text>
             </Box>
             <Image
@@ -601,14 +595,14 @@ const WebDevelopment = () => {
             textAlign="center"
             mt={6}
           >
-            Frequently Asked Questions (FAQs) about Game Design and Game
-            Development offer valuable insights into the world of creating
-            captivating and immersive digital games. These answers address
-            common queries, shedding light on the process, the latest
-            development technologies, and the unique strategies involved,
-            ensuring a comprehensive understanding of how our Game Design and
-            Game Development services can transform your gaming ideas into
-            engaging realities.
+            Web development is the process of building and maintaining websites.
+            It involves everything from designing a user-friendly interface to
+            coding the site’s functionality. Whether you're a startup looking to
+            establish an online presence or an established business seeking to
+            upgrade your website, our web development services are designed to
+            meet your needs. Below are some of the most frequently asked
+            questions that can help you understand the importance and process of
+            web development.
           </Text>
           <Box
             width={{ base: "100%", md: "80%", xl: "70%", "2xl": "60%" }}

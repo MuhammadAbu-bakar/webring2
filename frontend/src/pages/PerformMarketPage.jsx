@@ -30,14 +30,14 @@ const cards = [
   },
   {
     title: "Track & Optimize",
-    desc: "WeBring’s data-first approach keeps your campaigns agile. Our team continuously monitors KPIs—click-through rates, cost per acquisition, return on ad spend—and fine-tunes every element to keep performance sharp and outcomes consistent.",
+    desc: "WeBring’s data-first approach keeps your campaigns agile. Our team continuously monitors KPIs, click-through rates, cost per acquisition, return on ad spend and fine-tunes every element to keep performance sharp and outcomes consistent.",
     image: "/Research-scaled.png",
     height: "350px",
     width: "350px",
   },
   {
     title: "Deliver Measurable Growth",
-    desc: "From brand awareness to conversion tracking, our Performance Marketing service is engineered to deliver results. We go beyond vanity metrics—ensuring you see measurable growth, real leads, and improved sales, backed by transparent reporting and actionable insights.",
+    desc: "From brand awareness to conversion tracking, our Performance Marketing service is engineered to deliver results. We go beyond vanity metrics, ensuring you see measurable growth, real leads, and improved sales, backed by transparent reporting and actionable insights.",
     image: "/Video-scripts.png",
     height: "350px",
     width: "350px",
@@ -139,7 +139,7 @@ const WebDevelopment = () => {
               </Text>
 
               <Text>
-                At WeBring, we don’t just market—we measure. Experience
+                At WeBring, we don’t just market, we measure. Experience
                 marketing that’s as intelligent as it is impactful, delivering
                 scalable outcomes tailored to your business goals.
               </Text>
@@ -308,11 +308,15 @@ const WebDevelopment = () => {
             textAlign={"center"}
             mt={10}
           >
-            Frequently Asked Questions (FAQs) about our Digital Content Writing
-            services provide comprehensive insights into the realm of strategic
-            and creative writing, addressing common queries and shedding light
-            on the process of crafting compelling, engaging, and SEO oriented
-            content tailored to diverse platforms and audiences.{" "}
+            Frequently Asked Questions (FAQs) about our Performance Marketing
+            services offer in-depth insights into the dynamic world of
+            data-driven digital advertising. These answers address common
+            queries, illuminating the strategies, cutting-edge tools, and
+            precise analytics involved in creating targeted, results-oriented
+            campaigns. They provide a clear understanding of how our Performance
+            Marketing services can transform your brand’s goals into measurable,
+            high-impact outcomes, optimizing engagement and conversions across
+            diverse platforms.
           </Text>
           <Box
             width={{ base: "100%", md: "80%", xl: "70%", "2xl": "60%" }}
