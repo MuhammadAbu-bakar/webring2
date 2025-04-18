@@ -29,7 +29,7 @@ const testimonials = [
     image: "/mike.png",
     quote: "Professional, reliable, and incredibly skilled",
     feedback:
-      "Their process is smooth, efficient, and completely transparent. We trusted them with a high-stakes project and they delivered on time with extraordinary results. From backend architecture planning to API integrations, their team handled every layer of the stack with deep technical knowledge. Their use of best practices, clean code, and thorough documentation made handover incredibly easy. Asture’s dedication to quality assurance, automated testing, and performance optimization saved us countless hours down the line. I’ve worked with many teams, but their level of commitment and skill truly stands out.",
+      "Their process is smooth, efficient, and completely transparent. We trusted them with a high-stakes project and they delivered on time with extraordinary results. From backend architecture planning to API integrations, their team handled every layer of the stack with deep technical knowledge. Their use of best practices, clean code, and thorough documentation made handover incredibly easy. Asture's dedication to quality assurance, automated testing, and performance optimization saved us countless hours down the line. I've worked with many teams, but their level of commitment and skill truly stands out.",
   },
 ];
 
@@ -86,19 +86,21 @@ const Testimonials = () => {
         </Text>
       </VStack>
 
-      {/* Arrows (hide on mobile) */}
+      {/* Navigation Arrows - Now visible on all screen sizes */}
       <IconButton
         aria-label="Previous slide"
         position="absolute"
-        left="10px"
-        top="60%"
+        left={{ base: "5px", md: "10px" }}
+        top="55%"
         transform="translateY(-50%)"
         zIndex="10"
         bg="#FED904"
         color="black"
         borderRadius="full"
         onClick={handlePrev}
-        display={{ base: "none", md: "flex" }}
+        display="flex"
+        size={{ base: "sm", md: "md" }}
+        _hover={{ bg: "#e6c400" }}
       >
         <FontAwesomeIcon icon={faChevronLeft} />
       </IconButton>
@@ -106,15 +108,17 @@ const Testimonials = () => {
       <IconButton
         aria-label="Next slide"
         position="absolute"
-        right="10px"
-        top="60%"
+        right={{ base: "5px", md: "10px" }}
+        top="55%"
         transform="translateY(-50%)"
         zIndex="10"
         bg="#FED904"
         color="black"
         borderRadius="full"
         onClick={handleNext}
-        display={{ base: "none", md: "flex" }}
+        display="flex"
+        size={{ base: "sm", md: "md" }}
+        _hover={{ bg: "#e6c400" }}
       >
         <FontAwesomeIcon icon={faChevronRight} />
       </IconButton>
