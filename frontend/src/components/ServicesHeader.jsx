@@ -1040,9 +1040,9 @@ const HomeHeader = () => {
             "Home",
             "About",
             "Services",
-            "Industries",
-            "Technologies",
-            "Insights",
+            // "Industries",
+            // "Technologies",
+            // "Insights",
             "Portfolio",
             "Blog",
           ].map((item) => (

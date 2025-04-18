@@ -48,26 +48,26 @@ const items = [
   {
     title:
       "What are Digital Content Writing services, and how can they benefit my business?",
-    text: "Digital Content Writing services involve creating written material for various platforms, such as websites, blogs, social media, and more. It benefits your business by enhancing brand visibility, engaging your target audience, and establishing your authority in your industry.						",
+    text: "Digital Content Writing services involve creating written material for various platforms, such as websites, blogs, social media, and more. It benefits your business by enhancing brand visibility, engaging your target audience, and establishing your authority in your industry.",
   },
   {
     title:
-      "How do you ensure the SEO oriented content aligns with my brand's voice and values?							",
-    text: "Our SEO content writing strategies start by understanding your brand’s personality, values, and goals. Our best SEO content writers meticulously research and tailor the SEO oriented content to resonate with your unique brand identity, ensuring a consistent and authentic voice.						",
+      "How do you ensure the SEO oriented content aligns with my brand's voice and values?",
+    text: "Our SEO content writing strategies start by understanding your brand’s personality, values, and goals. Our best SEO content writers meticulously research and tailor the SEO oriented content to resonate with your unique brand identity, ensuring a consistent and authentic voice.",
   },
   {
     title:
-      "What types of Digital Content Writing services can your agency provide?							",
-    text: "Our creative content agency specializes in a diverse range of content, including website copy services, best blog articles, social media posts, product descriptions, email campaigns, and more. We adapt our writing style to suit the specific platform and audience.						",
+      "What types of Digital Content Writing services can your agency provide?",
+    text: "Our creative content agency specializes in a diverse range of content, including website copy services, best blog articles, social media posts, product descriptions, email campaigns, and more. We adapt our writing style to suit the specific platform and audience.",
   },
   {
     title:
-      "How do you ensure the SEO oriented content is engaging and relevant to my target audience?							",
-    text: "Our creative content agency conducts thorough research on your target audience’s preferences, interests, and pain points. This insight guides our SEO oriented content creation process, ensuring that the material is engaging, relevant, and resonates with your readers.						",
+      "How do you ensure the SEO oriented content is engaging and relevant to my target audience?",
+    text: "Our creative content agency conducts thorough research on your target audience’s preferences, interests, and pain points. This insight guides our SEO oriented content creation process, ensuring that the material is engaging, relevant, and resonates with your readers.",
   },
   {
-    title: "How do you create SEO oriented content during the writing process?							",
-    text: "We incorporate SEO (Search Engine Optimization) techniques seamlessly into the content, including business relevant keywords, meta tags, and formatting. This helps improve your content’s visibility on search engines, driving organic traffic to your website.						",
+    title: "How do you create SEO oriented content during the writing process?",
+    text: "We incorporate SEO (Search Engine Optimization) techniques seamlessly into the content, including business relevant keywords, meta tags, and formatting. This helps improve your content’s visibility on search engines, driving organic traffic to your website.",
   },
 ];
 
@@ -140,6 +140,17 @@ const WebDevelopment = () => {
               </Text>
             </Stack>
 
+            {/* Image - Added for Mobile View */}
+            <Image
+              display={{ base: "block", md: "none" }}
+              src="/Content-Writing-1.png"
+              alt="content image"
+              width="100%"
+              height="50%"
+              objectFit="cover"
+              mt={{ base: 10 }}
+            />
+
             {/* Pricing and CTA */}
             <Box mt={10}>
               <Text
@@ -170,14 +181,17 @@ const WebDevelopment = () => {
             </Box>
           </Box>
 
-          {/* Right Image - Carousel */}
-          <Image
-            src="/Content-Writing-1.png"
-            alt="content image"
-            width="50%"
-            height="50%"
-            objectFit={{ base: "cover", md: "contain" }} // Adjust object fit for mobile
-          />
+          {/* Right Image - For Non-Mobile */}
+          <Box width={{ base: "100%", md: "50%" }} mt={{ base: 0, md: 10 }}>
+            <Image
+              display={{ base: "none", md: "block" }}
+              src="/Content-Writing-1.png"
+              alt="content image"
+              width="100%"
+              height="100%"
+              objectFit={{ base: "cover", md: "contain" }}
+            />
+          </Box>
         </Box>
 
         {/* Services Section */}
@@ -203,7 +217,7 @@ const WebDevelopment = () => {
             mt={10}
           >
             Our Content Writing Expert Transforms Ideas into Irresistible Words
-            that Spark Connections.{" "}
+            that Spark Connections.
           </Text>
           <Flex
             width="100%"
@@ -306,7 +320,7 @@ const WebDevelopment = () => {
             services provide comprehensive insights into the realm of strategic
             and creative writing, addressing common queries and shedding light
             on the process of crafting compelling, engaging, and SEO oriented
-            content tailored to diverse platforms and audiences.{" "}
+            content tailored to diverse platforms and audiences.
           </Text>
           <Box
             width={{ base: "100%", md: "80%", xl: "70%", "2xl": "60%" }}

@@ -16,14 +16,58 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 const projects = [
-  { title: "Almassa", image: "/p1.png" },
-  { title: "MedExpress", image: "/p2.png" },
-  { title: "Social Media Marketing", image: "/p3.png" },
-  { title: "Graphic Designing", image: "/p4.png" },
-  { title: "Game Development", image: "/p5.png" },
-  { title: "Content Writing", image: "/p6.png" },
-  { title: "Content Writing", image: "/p7.png" },
-  { title: "Content Writing", image: "/p8.png" },
+  { title: "Almassa", image: "/p1.png", link: "https://almassait.com/" },
+  {
+    title: "MedExpress",
+    image: "/p2.png",
+    link: "https://medexpressbilling.com/",
+  },
+  {
+    title: "Social Media Marketing",
+    image: "/p3.png",
+    link: "https://jazpayments.com/",
+  },
+  {
+    title: "Graphic Designing",
+    image: "/p4.png",
+    link: "https://www.myretrojersey.com/",
+  },
+  { title: "Game Development", image: "/p5.png", link: "https://game.dev" },
+  {
+    title: "Content Writing",
+    image: "/p6.png",
+    link: "https://jplogistics.ltd/",
+  },
+  {
+    title: "Content Writing",
+    image: "/p7.png",
+    link: "https://soraschools.com/",
+  },
+  {
+    title: "Content Writing",
+    image: "/p8.png",
+    link: "https://gemmafoods.com/",
+  },
+  {
+    title: "Content Writing",
+    image: "/motionGreyy.png",
+    link: "https://motiongrey.com/",
+  },
+  {
+    title: "Content Writing",
+    image: "/us.png",
+    link: "https://ustechnologies100.com/",
+  },
+  {
+    title: "Content Writing",
+    image: "/chauffer.png",
+    link: "https://13chauffeurs.com.au/",
+  },
+  {
+    title: "Content Writing",
+    image: "/targomo.png",
+    link: "https://www.targomo.com/",
+  },
 ];
 
 const ProjectShowcase = () => {
@@ -86,8 +130,8 @@ const ProjectShowcase = () => {
       >
         {/* Left Text Section */}
         <VStack
-          align={{ base: "center", lg: "flex-start" }}
-          textAlign={{ base: "center", lg: "left" }}
+          align={{ base: "flex-start", lg: "flex-start" }}
+          textAlign={{ base: "left", lg: "left" }}
           spacing="20px"
           w={{ base: "100%", lg: "429px" }}
           flexShrink={0}
@@ -149,12 +193,12 @@ const ProjectShowcase = () => {
           {/* Navigation Arrows - Positioned outside the container */}
           <Flex
             position="absolute"
-            left="-60px"
+            left={{ base: "-10px", md: "-60px" }}
             top="0"
             h="100%"
             align="center"
             zIndex="10"
-            display={{ base: "none", md: "flex" }}
+            display="flex"
           >
             <IconButton
               aria-label="Previous slide"
@@ -163,7 +207,7 @@ const ProjectShowcase = () => {
               boxShadow="md"
               color="gray.700"
               _hover={{ bg: "gray.100" }}
-              size="md"
+              size={{ base: "sm", md: "md" }}
               onClick={handlePrev}
             >
               <FontAwesomeIcon icon={faChevronLeft} />
@@ -193,7 +237,7 @@ const ProjectShowcase = () => {
                   borderRadius="10px"
                   position="relative"
                   flexShrink="0"
-                  className="flip-card" // Added class name
+                  className="flip-card"
                   css={{
                     perspective: "1000px",
                     "&:hover .flip-card-inner": {
@@ -229,7 +273,7 @@ const ProjectShowcase = () => {
                         style={{
                           width: "100%",
                           height: "100%",
-                          objectFit: "cover", // Changed from 'contain' to 'cover'
+                          objectFit: "cover",
                           borderRadius: "10px",
                         }}
                       />
@@ -251,19 +295,27 @@ const ProjectShowcase = () => {
                         overflow: "hidden",
                       }}
                     >
-                      <Button
-                        colorScheme="yellow"
-                        size="lg"
-                        opacity={0}
-                        css={{
-                          transition: "opacity 0.3s ease 0.3s", // Added delay
-                          ".flip-card:hover &": {
-                            opacity: 1,
-                          },
-                        }}
+                      <a
+                        href={project.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        style={{ textDecoration: "none" }}
                       >
-                        View More
-                      </Button>
+                        <Button
+                          bg="#FED904"
+                          color="black"
+                          size="lg"
+                          opacity={0}
+                          css={{
+                            transition: "opacity 0.3s ease 0.3s",
+                            ".flip-card:hover &": {
+                              opacity: 1,
+                            },
+                          }}
+                        >
+                          View Website
+                        </Button>
+                      </a>
                     </Box>
                   </Box>
                 </Box>
@@ -273,12 +325,12 @@ const ProjectShowcase = () => {
 
           <Flex
             position="absolute"
-            right="-60px"
+            right={{ base: "-10px", md: "-60px" }}
             top="0"
             h="100%"
             align="center"
             zIndex="10"
-            display={{ base: "none", md: "flex" }}
+            display="flex"
           >
             <IconButton
               aria-label="Next slide"
@@ -287,7 +339,7 @@ const ProjectShowcase = () => {
               boxShadow="md"
               color="gray.700"
               _hover={{ bg: "gray.100" }}
-              size="md"
+              size={{ base: "sm", md: "md" }}
               onClick={handleNext}
             >
               <FontAwesomeIcon icon={faChevronRight} />

@@ -11,22 +11,21 @@ import ProjectShowcase from "../components/ProjectsShowcase";
 import TeamShowcase from "../components/TeamShowcase";
 import TestimonialSection from "../components/TestimonialSection";
 
-const HomePage=()=>{
-    return(
-        <>
-            <HeroBanner />
-            <Number />
-            <LinkSection />
-            {/* <Services /> */}
-            <CustomIT />
-            <Model />
-            <Skills />
-            <PeopleSlider />
-            <ProjectShowcase />
-            <TeamShowcase />
-            <TestimonialSection />
-        </>
-        
-    )
-}
+const HomePage = () => {
+  return (
+    <>
+      <HeroBanner />
+      <Number />
+      <LinkSection />
+      {/* <Services /> */}
+      <CustomIT />
+      <Model />
+      <Skills />
+      <PeopleSlider />
+      <ProjectShowcase />
+      {/* <TeamShowcase /> */}
+      <TestimonialSection />
+    </>
+  );
+};
 export default HomePage;

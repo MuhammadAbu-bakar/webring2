@@ -135,6 +135,15 @@ const HomeHeader = () => {
         { name: "Search Engine Optimization", icon: faChevronRight },
       ],
     },
+    {
+      title: "Performance Marketing",
+      link: "/perform-market",
+      services: [
+        { name: "Social Media Marketing", icon: faChevronRight },
+        { name: "Search Engine Marketing", icon: faChevronRight },
+        { name: "Search Engine Optimization", icon: faChevronRight },
+      ],
+    },
   ];
 
   const aiServices = [
@@ -431,7 +440,7 @@ const HomeHeader = () => {
                         position="absolute"
                         top="calc(85px)" // Adjust based on actual row height
                         left="0"
-                        right="20"
+                        right="20px"
                         height="2px"
                         bg="gray.300"
                       />
@@ -441,7 +450,7 @@ const HomeHeader = () => {
                         position="absolute"
                         top="0"
                         bottom="calc(79px + 30px)"
-                        left="calc(23.33%)"
+                        left="calc(33.33%)"
                         width="2px"
                         height="210px"
                         bg="gray.300"
@@ -452,7 +461,7 @@ const HomeHeader = () => {
                         position="absolute"
                         top="0"
                         bottom="calc(79px + 30px)"
-                        left="calc(60.66%)"
+                        left="calc(66.66%)"
                         width="2px"
                         height="210px"
                         bg="gray.300"
@@ -466,6 +475,7 @@ const HomeHeader = () => {
                             mb="10px"
                             fontFamily="DM Sans"
                             onClick={() => navigate(category.link)}
+                            cursor="pointer"
                           >
                             {category.title}
                           </Text>
@@ -967,9 +977,9 @@ const HomeHeader = () => {
             "Home",
             "About",
             "Services",
-            "Industries",
-            "Technologies",
-            "Insights",
+            // "Industries",
+            // "Technologies",
+            // "Insights",
             "Portfolio",
             "Blogs",
           ].map((item) => (

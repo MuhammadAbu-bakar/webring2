@@ -137,13 +137,23 @@ const WebDevelopment = () => {
                 across platforms like Google, Meta, TikTok, and more, focusing
                 on ROI, not just reach.
               </Text>
-
               <Text>
                 At WeBring, we don’t just market, we measure. Experience
                 marketing that’s as intelligent as it is impactful, delivering
                 scalable outcomes tailored to your business goals.
               </Text>
             </Stack>
+
+            {/* Image - Added for Mobile View */}
+            <Image
+              display={{ base: "block", md: "none" }}
+              src="/Content-Writing-1.png"
+              alt="content image"
+              width="100%"
+              height="50%"
+              objectFit="cover"
+              mt={{ base: 10 }}
+            />
 
             {/* Pricing and CTA */}
             <Box mt={10}>
@@ -175,14 +185,17 @@ const WebDevelopment = () => {
             </Box>
           </Box>
 
-          {/* Right Image - Carousel */}
-          <Image
-            src="/Content-Writing-1.png"
-            alt="content image"
-            width="50%"
-            height="50%"
-            objectFit={{ base: "cover", md: "contain" }} // Adjust object fit for mobile
-          />
+          {/* Right Image - For Non-Mobile */}
+          <Box width={{ base: "100%", md: "50%" }} mt={{ base: 0, md: 10 }}>
+            <Image
+              display={{ base: "none", md: "block" }}
+              src="/Content-Writing-1.png"
+              alt="content image"
+              width="100%"
+              height="100%"
+              objectFit={{ base: "cover", md: "contain" }}
+            />
+          </Box>
         </Box>
 
         {/* Services Section */}
@@ -209,7 +222,7 @@ const WebDevelopment = () => {
           >
             Our top-rated Performance Marketing company transforms your brand’s
             visibility into tangible results with analytics-led strategies and
-            real-time campaign optimization.{" "}
+            real-time campaign optimization.
           </Text>
           <Flex
             width="100%"

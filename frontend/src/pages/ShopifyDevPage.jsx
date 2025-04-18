@@ -135,13 +135,23 @@ const WebDevelopment = () => {
                 user-friendly features, we build eCommerce platforms that drive
                 results and elevate customer experiences.
               </Text>
-
               <Text>
                 Boost your online presence with WeBring’s custom Shopify
                 solutions where aesthetic appeal meets powerful functionality
                 for maximum impact and growth.
               </Text>
             </Stack>
+
+            {/* Image - Added for Mobile View */}
+            <Image
+              display={{ base: "block", md: "none" }}
+              src="/Content-Writing-1.png"
+              alt="content image"
+              width="100%"
+              height="50%"
+              objectFit="cover"
+              mt={{ base: 10 }}
+            />
 
             {/* Pricing and CTA */}
             <Box mt={10}>
@@ -173,14 +183,17 @@ const WebDevelopment = () => {
             </Box>
           </Box>
 
-          {/* Right Image - Carousel */}
-          <Image
-            src="/Content-Writing-1.png"
-            alt="content image"
-            width="50%"
-            height="50%"
-            objectFit={{ base: "cover", md: "contain" }} // Adjust object fit for mobile
-          />
+          {/* Right Image - For Non-Mobile */}
+          <Box width={{ base: "100%", md: "50%" }} mt={{ base: 0, md: 10 }}>
+            <Image
+              display={{ base: "none", md: "block" }}
+              src="/Content-Writing-1.png"
+              alt="content image"
+              width="100%"
+              height="100%"
+              objectFit={{ base: "cover", md: "contain" }}
+            />
+          </Box>
         </Box>
 
         {/* Services Section */}
@@ -207,7 +220,7 @@ const WebDevelopment = () => {
           >
             At WeBring, we turn your vision into a high-performing Shopify store
             designed for scalability, seamless user experience, and measurable
-            results.{" "}
+            results.
           </Text>
           <Flex
             width="100%"

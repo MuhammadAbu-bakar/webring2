@@ -74,11 +74,11 @@ const carouselImages = [
     alt: "Game Development 1",
   },
   {
-    src: "/6.png", // Add your second image path
+    src: "/6.png",
     alt: "Game Development 5",
   },
   {
-    src: "/3.png", // Add your third image path
+    src: "/3.png",
     alt: "Game Development 3",
   },
   {
@@ -86,11 +86,11 @@ const carouselImages = [
     alt: "Game Development 1",
   },
   {
-    src: "/9.png", // Add your second image path
+    src: "/9.png",
     alt: "Game Development 2",
   },
   {
-    src: "/6.png", // Add your third image path
+    src: "/6.png",
     alt: "Game Development 3",
   },
   {
@@ -98,11 +98,11 @@ const carouselImages = [
     alt: "Game Development 1",
   },
   {
-    src: "/8.png", // Add your second image path
+    src: "/8.png",
     alt: "Game Development 2",
   },
   {
-    src: "/9.png", // Add your third image path
+    src: "/9.png",
     alt: "Game Development 3",
   },
 ];
@@ -120,7 +120,7 @@ const WebDevelopment = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev === slidesCount - 1 ? 0 : prev + 1));
-    }, 3500); // Change slide every 5 seconds
+    }, 3500);
     return () => clearInterval(interval);
   }, [slidesCount]);
 
@@ -193,6 +193,97 @@ const WebDevelopment = () => {
               </Text>
             </Stack>
 
+            {/* Carousel - Added for Mobile View */}
+            <Box
+              display={{ base: "block", md: "none" }}
+              position="relative"
+              mt={{ base: 10 }}
+              width="100%"
+            >
+              <Box
+                position="relative"
+                height={{ base: "300px" }}
+                borderRadius="md"
+                _hover={{
+                  "& .view-button": {
+                    opacity: 1,
+                  },
+                }}
+              >
+                {carouselImages.map((image, index) => (
+                  <Box
+                    key={index}
+                    position="absolute"
+                    top="0"
+                    left="0"
+                    width="100%"
+                    height="100%"
+                    opacity={index === currentSlide ? 1 : 0}
+                    transition="opacity 0.5s ease-in-out"
+                  >
+                    <Image
+                      src={image.src}
+                      alt={image.alt}
+                      width="100%"
+                      height="100%"
+                      objectFit="cover"
+                    />
+                    <Button
+                      className="view-button"
+                      position="absolute"
+                      bottom="20px"
+                      left="50%"
+                      transform="translateX(-50%)"
+                      bg="yellow.400"
+                      color="black"
+                      borderRadius="40px"
+                      border={"3px solid black"}
+                      width={40}
+                      height={10}
+                      opacity={0}
+                      transition="opacity 0.3s ease"
+                      _hover={{
+                        bg: "gray.100",
+                      }}
+                    >
+                      View Website
+                    </Button>
+                  </Box>
+                ))}
+              </Box>
+
+              <IconButton
+                aria-label="Previous slide"
+                position="absolute"
+                left="2"
+                top="50%"
+                transform="translateY(-50%)"
+                onClick={prevSlide}
+                size={arrowSize}
+                borderRadius="full"
+                bg="blackAlpha.800"
+                color="white"
+                zIndex={1}
+              >
+                <FontAwesomeIcon icon={faChevronLeft} />
+              </IconButton>
+              <IconButton
+                aria-label="Next slide"
+                position="absolute"
+                right="2"
+                top="50%"
+                transform="translateY(-50%)"
+                onClick={nextSlide}
+                size={arrowSize}
+                borderRadius="full"
+                bg="blackAlpha.800"
+                color="white"
+                zIndex={1}
+              >
+                <FontAwesomeIcon icon={faChevronRight} />
+              </IconButton>
+            </Box>
+
             {/* Pricing and CTA */}
             <Box mt={10}>
               <Text
@@ -223,16 +314,16 @@ const WebDevelopment = () => {
             </Box>
           </Box>
 
-          {/* Right Image - Carousel */}
+          {/* Right Image - Carousel for Non-Mobile */}
           <Box
             width={{ base: "100%", md: "45%" }}
             position="relative"
-            mt={{ base: 0, md: 10 }} // Adjust top margin for mobile
+            mt={{ base: 0, md: 10 }}
           >
-            {/* Carousel Images - adjust height for mobile */}
             <Box
+              display={{ base: "none", md: "block" }}
               position="relative"
-              height={{ base: "300px", md: "80%" }} // Adjust height for mobile
+              height={{ base: "300px", md: "80%" }}
               borderRadius="md"
               _hover={{
                 "& .view-button": {
@@ -256,9 +347,8 @@ const WebDevelopment = () => {
                     alt={image.alt}
                     width="100%"
                     height="100%"
-                    objectFit={{ base: "cover", md: "contain" }} // Adjust object fit for mobile
+                    objectFit={{ base: "cover", md: "contain" }}
                   />
-                  {/* View Website Button */}
                   <Button
                     className="view-button"
                     position="absolute"
@@ -283,37 +373,38 @@ const WebDevelopment = () => {
               ))}
             </Box>
 
-            {/* Navigation Arrows */}
-            <IconButton
-              aria-label="Previous slide"
-              position="absolute"
-              left="2"
-              top="50%"
-              transform="translateY(-50%)"
-              onClick={prevSlide}
-              size={arrowSize}
-              borderRadius="full"
-              bg="blackAlpha.800"
-              color="white"
-              zIndex={1}
-            >
-              <FontAwesomeIcon icon={faChevronLeft} />
-            </IconButton>
-            <IconButton
-              aria-label="Next slide"
-              position="absolute"
-              right="2"
-              top="50%"
-              transform="translateY(-50%)"
-              onClick={nextSlide}
-              size={arrowSize}
-              borderRadius="full"
-              bg="blackAlpha.800"
-              color="white"
-              zIndex={1}
-            >
-              <FontAwesomeIcon icon={faChevronRight} />
-            </IconButton>
+            <Box display={{ base: "none", md: "block" }}>
+              <IconButton
+                aria-label="Previous slide"
+                position="absolute"
+                left="2"
+                top="50%"
+                transform="translateY(-50%)"
+                onClick={prevSlide}
+                size={arrowSize}
+                borderRadius="full"
+                bg="blackAlpha.800"
+                color="white"
+                zIndex={1}
+              >
+                <FontAwesomeIcon icon={faChevronLeft} />
+              </IconButton>
+              <IconButton
+                aria-label="Next slide"
+                position="absolute"
+                right="2"
+                top="50%"
+                transform="translateY(-50%)"
+                onClick={nextSlide}
+                size={arrowSize}
+                borderRadius="full"
+                bg="blackAlpha.800"
+                color="white"
+                zIndex={1}
+              >
+                <FontAwesomeIcon icon={faChevronRight} />
+              </IconButton>
+            </Box>
           </Box>
         </Box>
 

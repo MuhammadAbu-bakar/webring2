@@ -22,8 +22,14 @@ import GameDevPage from "./pages/GameDevPage";
 import GraphicDesignPage from "./pages/GraphicDesignPage";
 import ContentWritingPage from "./pages/ContentWritingPage";
 import SocialMediaPage from "./pages/SocialMediaPage";
-
-
+import AlmassaPage from "./pages/AlmassaPage";
+import MedExpressPage from "./pages/MedExpressPage";
+import JazPaymentPage from "./pages/JazPaymentPage";
+import MyRetroJerseyPage from "./pages/MyRetroJerseyPage";
+import JPLogisticsPage from "./pages/JPLogisticsPage";
+import SoraSchoolsPage from "./pages/SoraSchoolsPage";
+import GemmaFoodsPage from "./pages/GemmaFoodsPage";
+import MotionGreyPage from "./pages/MotionGreyPage";
 
 import "./App.css";
 
@@ -41,7 +47,8 @@ function App() {
         <Route path="/portfolio" element={<PortfolioPage />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/blog" element={<BlogPage />} />
-        <Route path="/blog/:blogId" element={<BlogDetailPage />} /> {/* New Route */}
+        <Route path="/blog/:blogId" element={<BlogDetailPage />} />{" "}
+        {/* New Route */}
         <Route path="/who-we-are" element={<WhoWeArePage />} />
         <Route path="/our-partner" element={<OurPartnerPage />} />
         <Route path="/our-mission" element={<OurMissionPage />} />
@@ -55,6 +62,14 @@ function App() {
         <Route path="/graphic-designing" element={<GraphicDesignPage />} />
         <Route path="/content-writing" element={<ContentWritingPage />} />
         <Route path="/social-media" element={<SocialMediaPage />} />
+        <Route path="/almassa" element={<AlmassaPage />} />
+        <Route path="/medexpress" element={<MedExpressPage />} />
+        <Route path="/jazpayment" element={<JazPaymentPage />} />
+        <Route path="/myretrojersey" element={<MyRetroJerseyPage />} />
+        <Route path="/jplogistics" element={<JPLogisticsPage />} />
+        <Route path="/soraschools" element={<SoraSchoolsPage />} />
+        <Route path="/gemmafoods" element={<GemmaFoodsPage />} />
+        <Route path="/motiongrey" element={<MotionGreyPage />} />
       </Routes>
 
       <Footer />

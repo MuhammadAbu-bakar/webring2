@@ -7,65 +7,65 @@ const portfolioCards = [
     id: 1,
     title: "Almassa",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "A dynamic corporate website built for Almassa to establish a strong online presence. We focused on sleek visuals and interactive sections to enhance user engagement and highlight their innovation-driven services.",
     image: "/almassa.png",
-    navigateTo: "https://almassait.com/",
+    navigateTo: "/almassa",
   },
   {
     id: 2,
     title: "MedExpress",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "For MedExpress, we designed a clean, professional platform tailored to the healthcare industry. The website emphasizes clarity, functionality, and easy navigation to support patients onboarding and medical service outreach.",
     image: "/medexpress.png",
-    navigateTo: "https://medexpressbilling.com/",
+    navigateTo: "/medexpress",
   },
   {
     id: 3,
     title: "JazPayments",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "We partnered with JazPayments to develop a user-centric platform that simplifies payment solutions. The site features intuitive design and secure integrations, ensuring clients can access services with confidence and ease.",
     image: "/jazzpay.png",
-    navigateTo: "https://jazpayments.com/",
+    navigateTo: "/jazpayment",
   },
   {
     id: 4,
     title: "My Retro Jersey",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "My Retro Jersey needed a visually engaging eCommerce site to showcase their unique vintage football jerseys. We delivered a bold design with a seamless shopping experience to boost conversions and brand appeal.",
     image: "/myretro.png",
-    navigateTo: "https://www.myretrojersey.com/",
+    navigateTo: "/myretrojersey",
   },
   {
     id: 5,
     title: "JP Logistics",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "JP Logistics needed a bold, trustworthy digital presence to reflect their global shipping services. We delivered a responsive, information-rich website that builds credibility and makes it easy for users to request quotes and track shipments.",
     image: "/jplogistics.png",
-    navigateTo: "https://jplogistics.ltd/",
+    navigateTo: "/jplogistics",
   },
   {
     id: 6,
     title: "Sora Schools",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "We crafted an innovative and student-friendly digital platform for Sora School, focusing on accessibility and interactivity. The design promotes personalized learning journeys while maintaining a clean, modern aesthetic for both students and educators.",
     image: "/soraschools.png",
-    navigateTo: "https://soraschools.com/",
+    navigateTo: "/soraschools",
   },
   {
     id: 7,
     title: "Gemma Foods",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "For Gemma Foods, we created a visually rich and appetite-driven design that brings their fresh, chef-crafted meals to life. From product storytelling to seamless order flow, the website delivers both beauty and functionality.",
     image: "/gemmafoods.png",
-    navigateTo: "https://gemmafoods.com/",
+    navigateTo: "/gemmafoods",
   },
   {
     id: 8,
     title: "Motion Grey",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "Motion Grey’s website was designed to blend technology and lifestyle. With a sleek, minimal look and a performance-optimized structure, we ensured a smooth shopping experience for their ergonomic furniture and wellness products.",
     image: "/motiongrey.png",
-    navigateTo: "https://motiongrey.com/",
+    navigateTo: "/motiongrey",
   },
 ];
 
@@ -119,9 +119,7 @@ function Portfolio() {
                     boxShadow: "0px 10px 20px rgba(0, 0, 0, 0.1)",
                   }}
                   cursor="pointer"
-                  onClick={() =>
-                    card.navigateTo && window.open(card.navigateTo, "_blank")
-                  }
+                  onClick={() => card.navigateTo && navigate(card.navigateTo)}
                 >
                   <Image
                     src={card.image}
