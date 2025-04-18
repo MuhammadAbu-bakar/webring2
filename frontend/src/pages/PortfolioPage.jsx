@@ -63,88 +63,138 @@ const portfolioCards = [
     id: 8,
     title: "Motion Grey",
     description:
-      "Motion Grey’s website was designed to blend technology and lifestyle. With a sleek, minimal look and a performance-optimized structure, we ensured a smooth shopping experience for their ergonomic furniture and wellness products.",
+      "Motion Grey's website was designed to blend technology and lifestyle. With a sleek, minimal look and a performance-optimized structure, we ensured a smooth shopping experience for their ergonomic furniture and wellness products.",
     image: "/motiongrey.png",
     navigateTo: "/motiongrey",
+  },
+  {
+    id: 9,
+    title: "US Technologies 100",
+    description:
+      "US Technologies 100's platform showcases cutting-edge tech solutions with a focus on user experience. The responsive design highlights their innovative approach while maintaining professional credibility.",
+    image: "/ustechnologies.png",
+    navigateTo: "/ustechnologies",
+  },
+  {
+    id: 10,
+    title: "13 Chauffers",
+    description:
+      "For 13 Chauffers, we developed an elegant transportation service platform that emphasizes luxury and reliability. The intuitive booking system and clean interface reflect their premium service standards.",
+    image: "/13chauffer.png",
+    navigateTo: "/chauffers",
+  },
+  {
+    id: 11,
+    title: "Targomo",
+    description:
+      "Targomo's location intelligence platform required a sophisticated yet accessible interface. We delivered a solution that effectively communicates complex spatial data through intuitive visualizations and clear navigation.",
+    image: "/targomoo.png",
+    navigateTo: "/targomo",
   },
 ];
 
 function Portfolio() {
   const navigate = useNavigate();
   return (
-    <div>
-      <Box width="100%" height="100%">
-        {/* Header Section */}
-        <Box position="relative">
-          <Image
-            src="/portfolioBanner.png"
-            width="100%"
-            height={{ base: "300px", md: "450px", lg: "543px" }}
-            objectFit="cover"
-          />
-          <Heading
-            textAlign="center"
-            zIndex="1"
-            position="absolute"
-            top="50%"
-            left="50%"
-            transform="translate(-50%, -50%)"
-            fontSize={{ base: "32px", md: "48px", lg: "64px" }}
-            color="white"
-          >
-            Portfolio
-          </Heading>
-        </Box>
+    <Box width="100%" minHeight="100vh" bg="white">
+      {/* Header Section */}
+      <Box position="relative" width="100%">
+        <Image
+          src="/portfolioBanner.png"
+          width="100%"
+          height={{ base: "300px", md: "450px", lg: "543px" }}
+          objectFit="cover"
+          alt="Portfolio Banner"
+        />
+        <Heading
+          textAlign="center"
+          zIndex="1"
+          position="absolute"
+          top="50%"
+          left="50%"
+          transform="translate(-50%, -50%)"
+          fontSize={{ base: "32px", md: "48px", lg: "64px" }}
+          color="white"
+          textShadow="0 2px 4px rgba(0,0,0,0.5)"
+        >
+          Portfolio
+        </Heading>
+      </Box>
 
-        {/* Cards Section */}
-        <Box width="100%" padding={{ base: "40px", md: "80px", lg: "100px" }}>
-          <Container maxW="1920px">
-            <Box
-              display="grid"
-              gridTemplateColumns={{ base: "1fr", md: "repeat(2, 1fr)" }}
-              gap="24px"
-            >
-              {portfolioCards.map((card) => (
+      {/* Cards Section */}
+      <Box
+        width="100%"
+        padding={{ base: "40px 20px", md: "80px", lg: "100px" }}
+      >
+        <Container maxW="container.xxl" px={{ base: 4, md: 6, lg: 8 }}>
+          <Box
+            display="grid"
+            gridTemplateColumns={{
+              base: "1fr",
+              md: "repeat(2, 1fr)",
+              lg: "repeat(2, 1fr)",
+            }}
+            gap={{ base: "24px", md: "32px", lg: "40px" }}
+          >
+            {portfolioCards.map((card) => (
+              <Box
+                key={card.id}
+                width="100%"
+                height="100%"
+                minHeight={{ base: "auto", md: "680px" }}
+                borderRadius="xl"
+                position="relative"
+                p={{ base: 4, md: 6 }}
+                bg="#F8F8F8"
+                border="1px solid"
+                borderColor="gray.100"
+                overflow="hidden"
+                _hover={{
+                  transform: "scale(1.02)",
+                  transition: "all 0.3s ease-in-out",
+                  boxShadow: "xl",
+                }}
+                cursor="pointer"
+                onClick={() => card.navigateTo && navigate(card.navigateTo)}
+              >
                 <Box
-                  key={card.id}
                   width="100%"
-                  height={{ base: "auto", md: "680px" }}
-                  borderRadius="xl"
-                  position="relative"
-                  p={4}
-                  _hover={{
-                    transform: "scale(1.02)",
-                    transition:
-                      "transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out",
-                    boxShadow: "0px 10px 20px rgba(0, 0, 0, 0.1)",
-                  }}
-                  cursor="pointer"
-                  onClick={() => card.navigateTo && navigate(card.navigateTo)}
+                  height={{ base: "250px", md: "350px", lg: "400px" }}
+                  mb={{ base: 4, md: 6 }}
+                  borderRadius="lg"
+                  overflow="hidden"
                 >
                   <Image
                     src={card.image}
-                    width="700px"
+                    width="100%"
+                    height="100%"
                     objectFit="contain"
-                    height={{ base: "auto", md: "485px" }}
-                    borderRadius="xl"
+                    alt={card.title}
+                    transition="transform 0.3s ease"
+                    _hover={{ transform: "scale(1.05)" }}
                   />
-                  <Heading fontSize={{ base: "24px", md: "32px", lg: "40px" }}>
-                    {card.title}
-                  </Heading>
-                  <Text
-                    fontSize={{ base: "16px", md: "20px", lg: "24px" }}
-                    fontWeight="normal"
-                    mt={"20px"}
-                  >
-                    {card.description}
-                  </Text>
                 </Box>
-              ))}
-            </Box>
-          </Container>
-        </Box>
+                <Heading
+                  fontSize={{ base: "xl", md: "2xl", lg: "3xl" }}
+                  mb={{ base: 2, md: 3 }}
+                  lineHeight="tight"
+                >
+                  {card.title}
+                </Heading>
+                <Text
+                  fontSize={{ base: "md", md: "lg", lg: "xl" }}
+                  fontWeight="normal"
+                  color="gray.600"
+                  noOfLines={4}
+                >
+                  {card.description}
+                </Text>
+              </Box>
+            ))}
+          </Box>
+        </Container>
       </Box>
-    </div>
+    </Box>
   );
 }
 

@@ -1,11 +1,14 @@
 import { Box, Image, Text, IconButton } from "@chakra-ui/react";
 import { useRef, useState } from "react";
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation } from 'swiper/modules';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
-import 'swiper/css';
-import 'swiper/css/navigation';
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation } from "swiper/modules";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faChevronLeft,
+  faChevronRight,
+} from "@fortawesome/free-solid-svg-icons";
+import "swiper/css";
+import "swiper/css/navigation";
 
 const techLogos = [
   { name: "Javascript", src: "/javascript.png" },
@@ -16,7 +19,7 @@ const techLogos = [
   { name: "Amazon", src: "/amazon.png" },
   { name: "React", src: "/react.png" },
   { name: "Mongo DB", src: "/mongodb.png" },
-  { name: "Laravel", src: "/laravel.png" }
+  { name: "Laravel", src: "/laravel.png" },
 ];
 
 const TechLogosSection = () => {
@@ -25,16 +28,16 @@ const TechLogosSection = () => {
   const navigationNextRef = useRef(null);
 
   return (
-    <Box 
-      w="100%" 
-      maxW="1923px" 
-      h="auto" 
-      mx="auto" 
+    <Box
+      w="100%"
+      maxW="1923px"
+      h="auto"
+      mx="auto"
       px={{ base: "10px", sm: "20px", md: "50px" }}
       position="relative"
     >
       {/* Navigation Arrows */}
-      <IconButton 
+      <IconButton
         ref={navigationPrevRef}
         aria-label="Previous slide"
         position="absolute"
@@ -42,7 +45,7 @@ const TechLogosSection = () => {
         top="50%"
         transform="translateY(-50%)"
         zIndex="10"
-        bg="white"
+        bg="#FED904"
         borderRadius="full"
         boxShadow="md"
         color="gray.700"
@@ -52,7 +55,7 @@ const TechLogosSection = () => {
       >
         <FontAwesomeIcon icon={faChevronLeft} />
       </IconButton>
-      
+
       <IconButton
         ref={navigationNextRef}
         aria-label="Next slide"
@@ -61,7 +64,7 @@ const TechLogosSection = () => {
         top="50%"
         transform="translateY(-50%)"
         zIndex="10"
-        bg="white"
+        bg="#FED904"
         borderRadius="full"
         boxShadow="md"
         color="gray.700"
@@ -76,7 +79,7 @@ const TechLogosSection = () => {
         <Swiper
           modules={[Navigation]}
           spaceBetween={20}
-          slidesPerView={'auto'}
+          slidesPerView={"auto"}
           centeredSlides={true}
           loop={true}
           onSwiper={(swiper) => setSwiperInstance(swiper)}
@@ -95,32 +98,32 @@ const TechLogosSection = () => {
           breakpoints={{
             320: {
               slidesPerView: 1.2,
-              spaceBetween: 10
+              spaceBetween: 10,
             },
             480: {
               slidesPerView: 1.5,
-              spaceBetween: 15
+              spaceBetween: 15,
             },
             640: {
               slidesPerView: 2,
-              spaceBetween: 15
+              spaceBetween: 15,
             },
             768: {
               slidesPerView: 2.5,
-              spaceBetween: 20
+              spaceBetween: 20,
             },
             1024: {
               slidesPerView: 3,
-              spaceBetween: 25
+              spaceBetween: 25,
             },
             1280: {
               slidesPerView: 4,
-              spaceBetween: 30
-            }
+              spaceBetween: 30,
+            },
           }}
         >
           {techLogos.map((logo, index) => (
-            <SwiperSlide key={index} style={{ width: 'auto' }}>
+            <SwiperSlide key={index} style={{ width: "auto" }}>
               <Box
                 w={{ base: "250px", sm: "280px", md: "330px" }}
                 h={{ base: "150px", md: "200px" }}
@@ -137,44 +140,47 @@ const TechLogosSection = () => {
                 position="relative"
                 _before={{
                   content: '""',
-                  position: 'absolute',
+                  position: "absolute",
                   top: 0,
                   left: 0,
                   right: 0,
-                  height: '1px',
-                  bg: 'gray.200',
-                  zIndex: 1
+                  height: "1px",
+                  bg: "gray.200",
+                  zIndex: 1,
                 }}
                 _after={{
                   content: '""',
-                  position: 'absolute',
+                  position: "absolute",
                   bottom: 0,
                   left: 0,
                   right: 0,
-                  height: '1px',
-                  bg: 'gray.200',
-                  zIndex: 1
+                  height: "1px",
+                  bg: "gray.200",
+                  zIndex: 1,
                 }}
-                
               >
                 <Image
                   src={logo.src}
                   alt={logo.name}
                   w={
-                    logo.name === "Amazon" 
-                      ? { base: "155px", md: "225px" } 
+                    logo.name === "Amazon"
+                      ? { base: "155px", md: "225px" }
                       : { base: "105px", md: "140px" }
                   }
                   h={
-                    logo.name === "React" 
+                    logo.name === "React"
                       ? { base: "100px", md: "120px" }
-                      : logo.name === "Amazon" 
-                      ? { base: "60px", md: "70px" } 
+                      : logo.name === "Amazon"
+                      ? { base: "60px", md: "70px" }
                       : { base: "80px", md: "95px" }
                   }
                   objectFit="contain"
                 />
-                <Text fontSize={{ base: "14px", md: "18px" }} fontWeight="500" pt={{ base: 4, md: 8 }}>
+                <Text
+                  fontSize={{ base: "14px", md: "18px" }}
+                  fontWeight="500"
+                  pt={{ base: 4, md: 8 }}
+                >
                   {logo.name}
                 </Text>
               </Box>

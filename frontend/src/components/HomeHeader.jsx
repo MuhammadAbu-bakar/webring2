@@ -383,90 +383,101 @@ const HomeHeader = () => {
                   <Box
                     position="absolute"
                     top="100%"
-                    left="65%"
+                    left={{ base: "0", md: "58%" }}
                     transform={{
+                      base: "none",
                       md: "translateX(-30%)",
                       lg: "translateX(-66%)",
                       xl: "translateX(-66%)",
                     }}
                     bg="#FFFFFF"
-                    w={{ md: "900px", lg: "1140px", xl: "1500px" }}
+                    w={{
+                      base: "100vw",
+                      md: "900px",
+                      lg: "1140px",
+                      xl: "1500px",
+                    }}
                     boxShadow="md"
                     p="20px"
                     zIndex="1000"
                     display="flex"
+                    flexDirection={{ base: "column", md: "row" }}
                     gap="20px"
+                    borderRadius="8px"
+                    border="1px solid #f0f0f0"
                   >
-                    {/* Left Section with Image and Description */}
-                    <Box flex="1">
-                      {/* <Text fontSize="22px" fontWeight="700" mb="10px" fontFamily="DM Sans" ml="155px">
-        Built to Win
-      </Text>
-      <Text
-        fontSize="16px"
-        fontWeight="400"
-        fontFamily="Yantramanav"
-        mb="20px"
-        ml="155px"
-        whiteSpace="pre-line"
-      >
-        Transforming business with our{"\n"}
-        future-ready tech solutions. Get{"\n"}
-        custom products for accelerated{"\n"}
-        digital transformation across{"\n"}
-        industries globally.
-      </Text> */}
+                    {/* Left Section with Image */}
+                    <Box
+                      flex="1"
+                      mb={{ base: "20px", md: "0" }}
+                      textAlign="center"
+                    >
                       <Image
                         src="/Lphone.png"
                         alt="Design Image"
-                        width="85%"
+                        width={{ base: "80%", md: "85%" }}
                         borderRadius="8px"
-                        ml="25px"
+                        mx={{ base: "auto", md: "25px" }}
                       />
                     </Box>
 
-                    {/* Right Section with Service Categories */}
+                    {/* Right Section with Grid */}
                     <Box
                       flex="2"
                       display="grid"
-                      gridTemplateColumns="1fr 1fr 1fr"
-                      rowGap="10px"
-                      columnGap={{ md: "10px", lg: "20px" }}
+                      gridTemplateColumns={{
+                        base: "1fr",
+                        sm: "1fr 1fr",
+                        md: "1fr 1fr 1fr",
+                      }}
+                      rowGap="20px"
+                      columnGap={{ base: "10px", md: "20px" }}
                       position="relative"
                       pt="10px"
                     >
                       {/* Horizontal Line Between First and Second Row */}
                       <Box
+                        display={{ base: "none", md: "block" }}
                         position="absolute"
-                        top="calc(85px)" // Adjust based on actual row height
+                        top="80px"
                         left="0"
                         right="20px"
                         height="2px"
                         bg="gray.300"
                       />
 
-                      {/* Vertical Line Between Column 1 and 2 */}
+                      {/* Horizontal Line Before Last Row */}
                       <Box
+                        display={{ base: "none", md: "block" }}
                         position="absolute"
-                        top="0"
-                        bottom="calc(79px + 30px)"
-                        left="calc(33.33%)"
-                        width="2px"
-                        height="210px"
+                        top="170px"
+                        left="0"
+                        right="20px"
+                        height="2px"
                         bg="gray.300"
                       />
 
-                      {/* Vertical Line Between Column 2 and 3 */}
+                      {/* Vertical Lines */}
                       <Box
+                        display={{ base: "none", md: "block" }}
                         position="absolute"
                         top="0"
-                        bottom="calc(79px + 30px)"
-                        left="calc(66.66%)"
+                        bottom="0"
+                        left="33.33%"
                         width="2px"
-                        height="210px"
+                        bg="gray.300"
+                      />
+                      <Box
+                        display={{ base: "none", md: "block" }}
+                        position="absolute"
+                        top="0"
+                        bottom="0"
+                        left="66.66%"
+                        width="2px"
                         bg="gray.300"
                       />
 
+                      {/* Services Categories */}
                       {servicesCategories.map((category) => (
                         <Box key={category.title}>
                           <Text
@@ -476,6 +487,7 @@ const HomeHeader = () => {
                             fontFamily="DM Sans"
                             onClick={() => navigate(category.link)}
                             cursor="pointer"
+                            _hover={{ color: "#FFD700" }}
                           >
                             {category.title}
                           </Text>
@@ -489,39 +501,53 @@ const HomeHeader = () => {
                   <Box
                     position="absolute"
                     top="100%"
-                    left="60%"
+                    left={{ base: "0", md: "60%" }}
                     transform={{
+                      base: "none",
                       md: "translateX(-30%)",
                       lg: "translateX(-60%)",
                       xl: "translateX(-60%)",
                     }}
                     bg="#FFFFFF"
-                    w={{ md: "900px", lg: "1140px", xl: "1500px" }}
+                    w={{
+                      base: "100vw",
+                      md: "900px",
+                      lg: "1140px",
+                      xl: "1500px",
+                    }}
                     boxShadow="md"
                     p="20px"
                     zIndex="1000"
                     display="flex"
+                    flexDirection={{ base: "column", md: "row" }}
                     gap="20px"
+                    borderRadius="8px"
+                    border="1px solid #f0f0f0"
                   >
                     {/* Left Section - Larger Image */}
-                    <Box flex="1" minWidth="200px">
+                    <Box flex="1" minWidth="200px" ml="100px">
                       <Image
-                        src="/Lphone.png"
+                        src="/about.jpg"
                         alt="About Us"
                         width="100%"
                         maxWidth="400px"
                         borderRadius="8px"
+                        objectFit="contain"
+                        mt="50px"
                       />
                     </Box>
 
-                    {/* Right Section - Navigation Links */}
+                    {/* Middle Section - Navigation Links */}
                     <Box
                       flex="2"
                       display="flex"
                       flexDirection="column"
                       minWidth="200px"
+                      borderRight="1px dashed #E2E8F0"
+                      pr="40px"
+                      position="relative"
                     >
-                      <VStack align="start" spacing="15px">
+                      <VStack align="start" spacing="15px" ml="30px">
                         <Text
                           fontFamily="DM Sans"
                           fontWeight="500"
@@ -529,8 +555,13 @@ const HomeHeader = () => {
                           color="#26241C"
                           cursor="pointer"
                           whiteSpace="nowrap"
-                          _hover={{ color: "#FFD700" }}
+                          _hover={{
+                            color: "#FFD700",
+                            transform: "translateX(5px)",
+                          }}
+                          transition="all 0.2s"
                           onClick={() => navigate("/who-we-are")}
+                          mt="70px"
                         >
                           Who We Are
                         </Text>
@@ -541,7 +572,11 @@ const HomeHeader = () => {
                           color="#26241C"
                           cursor="pointer"
                           whiteSpace="nowrap"
-                          _hover={{ color: "#FFD700" }}
+                          _hover={{
+                            color: "#FFD700",
+                            transform: "translateX(5px)",
+                          }}
+                          transition="all 0.2s"
                           onClick={() => navigate("/our-partner")}
                         >
                           Our Partner
@@ -553,12 +588,47 @@ const HomeHeader = () => {
                           color="#26241C"
                           cursor="pointer"
                           whiteSpace="nowrap"
-                          _hover={{ color: "#FFD700" }}
+                          _hover={{
+                            color: "#FFD700",
+                            transform: "translateX(5px)",
+                          }}
+                          transition="all 0.2s"
                           onClick={() => navigate("/our-mission")}
                         >
                           Our Mission
                         </Text>
                       </VStack>
+                    </Box>
+
+                    {/* Right Section - Decorative Elements */}
+                    <Box position="relative" zIndex="1">
+                      {/* Vector 1 - Adjusted width */}
+                      <Box position="relative" zIndex="1">
+                        {/* New Vector - Slightly Reduced Length */}
+                        <svg
+                          width="100%"
+                          height="250"
+                          viewBox="0 0 1300 250"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M0 150 C 200 50, 400 50, 600 150 C 800 250, 1000 250, 1200 150 C 1400 50, 1600 50, 1600 150"
+                            stroke="#FFD700"
+                            strokeWidth="3"
+                            strokeLinecap="round"
+                          />
+                          <circle cx="0" cy="150" r="8" fill="#FFD700" />
+                          <circle cx="200" cy="50" r="8" fill="#FFD700" />
+                          <circle cx="400" cy="50" r="8" fill="#FFD700" />
+                          <circle cx="600" cy="150" r="8" fill="#FFD700" />
+                          <circle cx="800" cy="250" r="8" fill="#FFD700" />
+                          <circle cx="1000" cy="250" r="8" fill="#FFD700" />
+                          <circle cx="1200" cy="150" r="8" fill="#FFD700" />
+                          <circle cx="1400" cy="50" r="8" fill="#FFD700" />
+                          <circle cx="1600" cy="50" r="8" fill="#FFD700" />
+                        </svg>
+                      </Box>
                     </Box>
                   </Box>
                 )}

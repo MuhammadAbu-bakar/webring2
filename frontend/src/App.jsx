@@ -30,6 +30,9 @@ import JPLogisticsPage from "./pages/JPLogisticsPage";
 import SoraSchoolsPage from "./pages/SoraSchoolsPage";
 import GemmaFoodsPage from "./pages/GemmaFoodsPage";
 import MotionGreyPage from "./pages/MotionGreyPage";
+import USTechnologiesPage from "./pages/USTechnologiesPage";
+import ChauffersPage from "./pages/ChauffersPage";
+import TargomoPage from "./pages/TargomoPage";
 
 import "./App.css";
 
@@ -70,6 +73,9 @@ function App() {
         <Route path="/soraschools" element={<SoraSchoolsPage />} />
         <Route path="/gemmafoods" element={<GemmaFoodsPage />} />
         <Route path="/motiongrey" element={<MotionGreyPage />} />
+        <Route path="/ustechnologies" element={<USTechnologiesPage />} />
+        <Route path="/chauffers" element={<ChauffersPage />} />
+        <Route path="/targomo" element={<TargomoPage />} />
       </Routes>
 
       <Footer />

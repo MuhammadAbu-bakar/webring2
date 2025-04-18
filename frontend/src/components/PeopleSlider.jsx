@@ -13,27 +13,27 @@ import { useState } from "react";
 
 const testimonials = [
   {
-    text: "Webring provides the best services for web development. Would love to work with you on additional projects.",
+    text: "Transforming Ideas into Impactful Web Solutions with Visionary Leadership",
     subtext:
-      "Webring’s Premier Web Development Services are Here to Help You Unlock Web Excellence. Together, let's work on more projects!",
+      "At Webring, our commitment to innovation and excellence drives everything we do. As CEO, I aim to lead teams that turn bold ideas into successful digital products. Let’s continue to shape the future together.",
     name: "Daniyal Sultan",
     position: "Founder & CEO",
     image: "/CEOdp.png",
     linkedin: "https://www.linkedin.com/in/daniyal-sultan/",
   },
   {
-    text: "Advancing Digital Innovation: The Strategic Vision of Your Web Development Firm with Our CTO",
+    text: "Driving Scalable Architecture and Technical Innovation Across Projects",
     subtext:
-      "Advancing Your Digital Path: Investigate Cutting-Edge Web Solutions with Our CTO's Strategic Perspective at Your Web Development Company",
+      "My mission is to architect robust, scalable systems while embracing the latest technologies. At Webring, we craft future-ready solutions that empower clients to stay ahead in the digital landscape.",
     name: "Adil Waqar",
     position: "CTO",
     image: "/adilll.png",
     linkedin: "https://www.linkedin.com/in/muhammad-adil-waqar/",
   },
   {
-    text: "Managing Projects for Success as Your Web Development Project Manager: Navigating Digital Excellence",
+    text: "Strategic Project Execution to Deliver Digital Success with Precision",
     subtext:
-      "Guiding Web Development Success: Taking Charge of Projects and Getting Them Done Right as Your Committed Project Manager",
+      "I focus on aligning project execution with client goals to ensure timely delivery and exceptional outcomes. At Webring, we manage each project with agility, transparency, and a clear vision for success.",
     name: "Muhammad Ibrahim",
     position: "Director",
     image: "/ibrahim.jpg",
@@ -93,25 +93,38 @@ const TestimonialSlider = () => {
             color="#F8F8F6"
             textAlign={{ base: "center", lg: "left" }}
           >
+            {/* Profile Section */}
             <Flex
               align="center"
               justify="space-between"
               direction={{ base: "column", lg: "row" }}
             >
-              <Button
-                as="a"
-                href={testimonials[index].linkedin}
-                target="_blank"
-                rel="noopener noreferrer"
-                bg="#FED904"
-                color="#F8F8F6"
-                borderRadius="10px"
-                px={6}
-                py={2}
-                _hover={{ bg: "#E6C400" }}
+              <HStack
+                spacing={4}
+                justify={{ base: "center", lg: "flex-start" }}
+                mt={{ base: 4, lg: 0 }}
               >
-                LinkedIn
-              </Button>
+                <Box w="80px" h="80px" borderRadius="full" overflow="hidden">
+                  <Image
+                    src={testimonials[index].image}
+                    alt="Profile"
+                    objectFit="cover"
+                    w="full"
+                    h="full"
+                  />
+                </Box>
+                <VStack
+                  align={{ base: "center", lg: "flex-start" }}
+                  spacing={1}
+                >
+                  <Text fontSize="18px" fontWeight="500">
+                    {testimonials[index].name}
+                  </Text>
+                  <Text fontSize="16px" fontWeight="400">
+                    {testimonials[index].position}
+                  </Text>
+                </VStack>
+              </HStack>
             </Flex>
 
             {/* Heading */}
@@ -134,30 +147,23 @@ const TestimonialSlider = () => {
               {testimonials[index].subtext}
             </Text>
 
-            {/* Profile Section */}
-            <HStack
-              mt={6}
-              spacing={4}
-              justify={{ base: "center", lg: "flex-start" }}
-            >
-              <Box w="80px" h="80px" borderRadius="full" overflow="hidden">
-                <Image
-                  src={testimonials[index].image}
-                  alt="Profile"
-                  objectFit="cover"
-                  w="full"
-                  h="full"
-                />
-              </Box>
-              <VStack align={{ base: "center", lg: "flex-start" }} spacing={1}>
-                <Text fontSize="18px" fontWeight="500">
-                  {testimonials[index].name}
-                </Text>
-                <Text fontSize="16px" fontWeight="400">
-                  {testimonials[index].position}
-                </Text>
-              </VStack>
-            </HStack>
+            {/* LinkedIn Button on the Left */}
+            <Flex justify={{ base: "center", lg: "flex-start" }} mt={6}>
+              <Button
+                as="a"
+                href={testimonials[index].linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                bg="#FED904"
+                color="#F8F8F6"
+                borderRadius="10px"
+                px={6}
+                py={2}
+                _hover={{ bg: "#E6C400" }}
+              >
+                LinkedIn
+              </Button>
+            </Flex>
           </Box>
         </Box>
 

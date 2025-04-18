@@ -202,7 +202,7 @@ const ProjectShowcase = () => {
           >
             <IconButton
               aria-label="Previous slide"
-              bg="white"
+              bg="#FED904"
               borderRadius="full"
               boxShadow="md"
               color="gray.700"
@@ -334,7 +334,7 @@ const ProjectShowcase = () => {
           >
             <IconButton
               aria-label="Next slide"
-              bg="white"
+              bg="#FED904"
               borderRadius="full"
               boxShadow="md"
               color="gray.700"

@@ -1,61 +1,54 @@
-import { Box, Text, VStack, HStack, Image, Flex, IconButton } from "@chakra-ui/react";
-import { useRef, useState } from "react";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
+import { Box, Text, VStack, Flex, Image, IconButton } from "@chakra-ui/react";
+import { useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faChevronLeft,
+  faChevronRight,
+} from "@fortawesome/free-solid-svg-icons";
 
 const testimonials = [
   {
     name: "Sophia Moore",
     role: "CEO at Webflow Agency",
     image: "/sophia.png",
-    quote: "The best Webflow Templates",
+    quote: "Flawless execution from start to finish",
     feedback:
-      "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat aute irure sint amet occaecat cupidatat non proident",
+      "We are grateful to Asture for their support in our digital transformation process. Their full-scale implementation of Microsoft 365 has been very valuable. They helped us structure our MS Teams environment in a way that significantly boosted our collaboration and productivity. Their adoption activities and ongoing training have been key in enabling our team to fully leverage the capabilities of Microsoft 365. Asture has also been playing a key role in supporting our business development, workflow and process optimization, and tailoring different automation solutions based on our needs. With their ongoing support in Microsoft 365 and Dynamics 365, our operations remain smooth and efficient.",
   },
   {
     name: "Adam Smith",
     role: "Webflow Developer",
     image: "/adam.png",
-    quote: "BRIX Templates is the #1",
+    quote: "A dream team for any serious project",
     feedback:
-      "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat aute irure sint amet occaecat cupidatat non proident",
+      "From concept to launch, the communication was seamless and the results were even better. They really understand how to turn vision into a high performing, responsive website with pixel-perfect precision. Beyond development, the team offered insights into UI/UX improvements, implemented complex animations, and ensured accessibility compliance throughout the build. Every revision was handled with care and professionalism. Even post-launch, they provided extensive support, fixed minor bugs proactively, and trained our team to manage content. The entire process was efficient and stress-free thanks to their experience and clear project management.",
   },
   {
     name: "Mike Warren",
     role: "Developer at BRIX",
     image: "/mike.png",
-    quote: "Webflow is the best",
+    quote: "Professional, reliable, and incredibly skilled",
     feedback:
-      "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat aute irure sint amet occaecat cupidatat non proident",
+      "Their process is smooth, efficient, and completely transparent. We trusted them with a high-stakes project and they delivered on time with extraordinary results. From backend architecture planning to API integrations, their team handled every layer of the stack with deep technical knowledge. Their use of best practices, clean code, and thorough documentation made handover incredibly easy. Asture’s dedication to quality assurance, automated testing, and performance optimization saved us countless hours down the line. I’ve worked with many teams, but their level of commitment and skill truly stands out.",
   },
 ];
 
 const Testimonials = () => {
-  const sliderRef = useRef(null);
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  const scrollToTestimonial = (index) => {
-    if (sliderRef.current) {
-      const container = sliderRef.current;
-      const cardWidth = container.firstChild?.offsetWidth || 0;
-      const gap = parseInt(window.getComputedStyle(container).gap) || 0;
-      container.scrollTo({
-        left: index * (cardWidth + gap),
-        behavior: 'smooth'
-      });
-      setCurrentIndex(index);
-    }
-  };
-
   const handlePrev = () => {
-    const newIndex = currentIndex > 0 ? currentIndex - 1 : testimonials.length - 1;
-    scrollToTestimonial(newIndex);
+    setCurrentIndex((prevIndex) =>
+      prevIndex === 0 ? testimonials.length - 1 : prevIndex - 1
+    );
   };
 
   const handleNext = () => {
-    const newIndex = currentIndex < testimonials.length - 1 ? currentIndex + 1 : 0;
-    scrollToTestimonial(newIndex);
+    setCurrentIndex((prevIndex) =>
+      prevIndex === testimonials.length - 1 ? 0 : prevIndex + 1
+    );
   };
+
+  const testimonial = testimonials[currentIndex];
 
   return (
     <Box
@@ -65,11 +58,14 @@ const Testimonials = () => {
       px={{ base: "20px", lg: "100px" }}
       py="50px"
       bg="#F8F8F6"
-      overflow="hidden"
       position="relative"
     >
-      {/* Header Section */}
-      <VStack w="100%" maxW="1823px" spacing="20px" align={{ base: "center", lg: "flex-start" }} textAlign={{ base: "center", lg: "left" }}>
+      {/* Header */}
+      <VStack
+        spacing="20px"
+        align={{ base: "flex-start", lg: "flex-start" }}
+        textAlign={{ base: "left", lg: "left" }}
+      >
         <Text
           fontSize="16px"
           fontWeight="700"
@@ -85,142 +81,120 @@ const Testimonials = () => {
           lineHeight={{ base: "40px", md: "60px", lg: "72px" }}
           color="#FED904"
           fontFamily="Yantramanav"
-          w="100%"
-          maxW="1823px"
         >
           Don't take our word for it
         </Text>
       </VStack>
 
-      {/* Slider Section */}
+      {/* Arrows (hide on mobile) */}
       <IconButton
-          aria-label="Next slide"
-          position="absolute"
-          left={{ base: "20px", md: "20px" }}
-          top="57%"
-          transform="translateY(-57%)"
-          zIndex="10"
-          bg="white"
-          borderRadius="full"
-          boxShadow="md"
-          color="gray.700"
-          _hover={{ bg: "gray.100" }}
-          size={{ base: "sm", md: "md" }}
-          onClick={handleNext}
-        >
-          <FontAwesomeIcon icon={faChevronLeft} />
-        </IconButton>
+        aria-label="Previous slide"
+        position="absolute"
+        left="10px"
+        top="60%"
+        transform="translateY(-50%)"
+        zIndex="10"
+        bg="#FED904"
+        color="black"
+        borderRadius="full"
+        onClick={handlePrev}
+        display={{ base: "none", md: "flex" }}
+      >
+        <FontAwesomeIcon icon={faChevronLeft} />
+      </IconButton>
 
-      <Box w="100%" maxW="1721px" mt={10} overflow="hidden" position="relative">
-        
-        
-        <Flex
-          ref={sliderRef}
-          overflowX="hidden"
-          scrollBehavior="smooth"
-          sx={{
-            '&::-webkit-scrollbar': {
-              display: 'none',
-            },
-          }}
-          gap={{ base: "10px", md: "20px" }}
-          px={{ base: "10px", lg: "0" }}
+      <IconButton
+        aria-label="Next slide"
+        position="absolute"
+        right="10px"
+        top="60%"
+        transform="translateY(-50%)"
+        zIndex="10"
+        bg="#FED904"
+        color="black"
+        borderRadius="full"
+        onClick={handleNext}
+        display={{ base: "none", md: "flex" }}
+      >
+        <FontAwesomeIcon icon={faChevronRight} />
+      </IconButton>
+
+      {/* Testimonial Card */}
+      <Box mt="40px">
+        <Box
+          bg="#131313"
+          w="100%"
+          borderRadius="20px"
+          p={{ base: "20px", md: "30px" }}
+          boxShadow="0px 5.42px 18.98px 0px #2427291A"
         >
-          {testimonials.map((testimonial, index) => (
-            <Box
-              key={index}
-              bg="#131313"
-              minW={{ base: "90%", md: "678px" }}
-              maxW={{ base: "90%", md: "678px" }}
-              h={{ base: "auto", md: "481px" }}
-              borderRadius="20px"
-              p="40px"
-              boxShadow="0px 5.42px 18.98px 0px #2427291A"
-              mx="10px"
-              flex="0 0 auto"
+          <Flex
+            direction={{ base: "column", md: "row" }}
+            align="center"
+            gap={{ base: "20px", md: "30px" }}
+          >
+            {/* Image + Name + Role */}
+            <VStack spacing="10px" align="center">
+              <Box
+                w={{ base: "100px", md: "160px" }}
+                h={{ base: "100px", md: "160px" }}
+                bg="white"
+                display="flex"
+                alignItems="center"
+                justifyContent="center"
+                borderRadius="10px"
+              >
+                <Image
+                  src={testimonial.image}
+                  objectFit="contain"
+                  maxH="80%"
+                  maxW="80%"
+                  alt={testimonial.name}
+                />
+              </Box>
+
+              <Box textAlign="center">
+                <Text
+                  fontSize="18px"
+                  fontWeight="700"
+                  color="white"
+                  fontFamily="DM Sans"
+                >
+                  {testimonial.name}
+                </Text>
+                <Text fontSize="16px" color="#B7B39F" fontFamily="DM Sans">
+                  {testimonial.role}
+                </Text>
+              </Box>
+            </VStack>
+
+            {/* Quote + Feedback */}
+            <VStack
+              align={{ base: "flex-start", md: "flex-start" }}
+              textAlign={{ base: "left", md: "left" }}
+              spacing="15px"
+              flex="1"
             >
-              {/* Quote */}
               <Text
-                fontSize={{ base: "22px", md: "30px" }}
+                fontSize={{ base: "16px", md: "20px" }}
                 fontWeight="700"
-                lineHeight="38px"
-                color="#F8F8F6"
+                color="white"
                 fontFamily="DM Sans"
-                mb="20px"
-                ml={{ base: "0", md: "10px" }}
-                textAlign={{ base: "center", md: "left" }}
               >
                 "{testimonial.quote}"
               </Text>
-
-              {/* Feedback */}
               <Text
-                fontSize={{ base: "18px", md: "27px" }}
-                fontWeight="400"
-                lineHeight={{ base: "30px", md: "40px" }}
+                fontSize={{ base: "14px", md: "16px" }}
                 color="#B7B39F"
+                lineHeight="1.6"
                 fontFamily="DM Sans"
-                mb="40px"
-                ml={{ base: "0", md: "10px" }}
-                textAlign={{ base: "center", md: "left" }}
               >
                 {testimonial.feedback}
               </Text>
-
-              {/* User Info */}
-              <Flex align="center" justify={{ base: "center", md: "flex-start" }}>
-                <Image
-                  src={testimonial.image}
-                  w="81px"
-                  h="81px"
-                  borderRadius="full"
-                  boxShadow="0px 5.42px 18.98px 0px #2427291A"
-                  mr="20px"
-                />
-                <VStack align={{ base: "center", md: "flex-start" }} spacing="2px">
-                  <Text
-                    fontSize="24px"
-                    fontWeight="700"
-                    color="#F8F8F6"
-                    fontFamily="DM Sans"
-                  >
-                    {testimonial.name}
-                  </Text>
-                  <Text
-                    fontSize="20px"
-                    fontWeight="400"
-                    color="#B7B39F"
-                    fontFamily="DM Sans"
-                  >
-                    {testimonial.role}
-                  </Text>
-                </VStack>
-              </Flex>
-            </Box>
-          ))}
-        </Flex>
-
-        
+            </VStack>
+          </Flex>
+        </Box>
       </Box>
-
-
-      <IconButton
-          aria-label="Next slide"
-          position="absolute"
-          right={{ base: "20px", md: "20px" }}
-          top="57%"
-          transform="translateY(-57%)"
-          zIndex="10"
-          bg="white"
-          borderRadius="full"
-          boxShadow="md"
-          color="gray.700"
-          _hover={{ bg: "gray.100" }}
-          size={{ base: "sm", md: "md" }}
-          onClick={handleNext}
-        >
-          <FontAwesomeIcon icon={faChevronRight} />
-        </IconButton>
     </Box>
   );
 };
