@@ -463,7 +463,7 @@ const HomeHeader = () => {
                         position="absolute"
                         top="0"
                         bottom="0"
-                        left="33.33%"
+                        left="25%"
                         width="2px"
                         bg="gray.300"
                       />
@@ -472,27 +472,108 @@ const HomeHeader = () => {
                         position="absolute"
                         top="0"
                         bottom="0"
-                        left="66.66%"
+                        left="60%"
                         width="2px"
                         bg="gray.300"
                       />
 
-                      {/* Services Categories */}
-                      {servicesCategories.map((category) => (
-                        <Box key={category.title}>
-                          <Text
-                            fontSize="16px"
-                            fontWeight="700"
-                            mb="10px"
-                            fontFamily="DM Sans"
-                            onClick={() => navigate(category.link)}
-                            cursor="pointer"
-                            _hover={{ color: "#FFD700" }}
-                          >
-                            {category.title}
-                          </Text>
-                        </Box>
-                      ))}
+                      {/* Services Categories - Reordered to put Performance Marketing under Shopify */}
+                      <Box>
+                        <Text
+                          fontSize="16px"
+                          fontWeight="700"
+                          mb="10px"
+                          fontFamily="DM Sans"
+                          onClick={() => navigate("/web-development")}
+                          cursor="pointer"
+                          _hover={{ color: "#FFD700" }}
+                        >
+                          Web Development
+                        </Text>
+                      </Box>
+
+                      <Box>
+                        <Text
+                          fontSize="16px"
+                          fontWeight="700"
+                          mb="10px"
+                          fontFamily="DM Sans"
+                          onClick={() => navigate("/mobile-app-development")}
+                          cursor="pointer"
+                          _hover={{ color: "#FFD700" }}
+                        >
+                          Mobile App Development
+                        </Text>
+                      </Box>
+
+                      <Box>
+                        <Text
+                          fontSize="16px"
+                          fontWeight="700"
+                          mb="10px"
+                          fontFamily="DM Sans"
+                          onClick={() => navigate("/ui-ux-design")}
+                          cursor="pointer"
+                          _hover={{ color: "#FFD700" }}
+                        >
+                          UI/UX Design
+                        </Text>
+                      </Box>
+
+                      <Box>
+                        <Text
+                          fontSize="16px"
+                          fontWeight="700"
+                          mb="10px"
+                          fontFamily="DM Sans"
+                          onClick={() => navigate("/ecommerce-development")}
+                          cursor="pointer"
+                          _hover={{ color: "#FFD700" }}
+                        >
+                          E-commerce Development
+                        </Text>
+                      </Box>
+
+                      <Box>
+                        <Text
+                          fontSize="16px"
+                          fontWeight="700"
+                          mb="10px"
+                          fontFamily="DM Sans"
+                          onClick={() => navigate("/shopify-development")}
+                          cursor="pointer"
+                          _hover={{ color: "#FFD700" }}
+                        >
+                          Shopify Development
+                        </Text>
+                        <Text
+                          mt="70px"
+                          fontSize="16px"
+                          fontWeight="700"
+                          mb="10px"
+                          fontFamily="DM Sans"
+                          onClick={() => navigate("/performance-marketing")}
+                          cursor="pointer"
+                          _hover={{ color: "#FFD700" }}
+                          pl="1px"
+                        >
+                          Performance Marketing
+                        </Text>
+                      </Box>
+
+                      <Box>
+                        <Text
+                          fontSize="16px"
+                          fontWeight="700"
+                          mb="10px"
+                          fontFamily="DM Sans"
+                          onClick={() => navigate("/digital-marketing")}
+                          cursor="pointer"
+                          _hover={{ color: "#FFD700" }}
+                        >
+                          Digital Marketing
+                        </Text>
+                      </Box>
                     </Box>
                   </Box>
                 )}
@@ -550,7 +631,7 @@ const HomeHeader = () => {
                       <VStack align="start" spacing="15px" ml="30px">
                         <Text
                           fontFamily="DM Sans"
-                          fontWeight="500"
+                          fontWeight="600"
                           fontSize="18px"
                           color="#26241C"
                           cursor="pointer"
@@ -567,7 +648,7 @@ const HomeHeader = () => {
                         </Text>
                         <Text
                           fontFamily="DM Sans"
-                          fontWeight="500"
+                          fontWeight="600"
                           fontSize="18px"
                           color="#26241C"
                           cursor="pointer"
@@ -583,7 +664,7 @@ const HomeHeader = () => {
                         </Text>
                         <Text
                           fontFamily="DM Sans"
-                          fontWeight="500"
+                          fontWeight="600"
                           fontSize="18px"
                           color="#26241C"
                           cursor="pointer"

@@ -13,16 +13,16 @@ import { useState } from "react";
 
 const testimonials = [
   {
-    text: "Transforming Ideas into Impactful Web Solutions with Visionary Leadership",
+    text: "Message From the CEO",
     subtext:
-      "At Webring, our commitment to innovation and excellence drives everything we do. As CEO, I aim to lead teams that turn bold ideas into successful digital products. Let’s continue to shape the future together.",
+      "At Webring, our commitment to innovation and excellence drives everything we do. As CEO, I aim to lead teams that turn bold ideas into successful digital products. Let's continue to shape the future together.",
     name: "Daniyal Sultan",
     position: "Founder & CEO",
     image: "/CEOdp.png",
     linkedin: "https://www.linkedin.com/in/daniyal-sultan/",
   },
   {
-    text: "Driving Scalable Architecture and Technical Innovation Across Projects",
+    text: "Insights of CTO",
     subtext:
       "My mission is to architect robust, scalable systems while embracing the latest technologies. At Webring, we craft future-ready solutions that empower clients to stay ahead in the digital landscape.",
     name: "Adil Waqar",
@@ -31,7 +31,7 @@ const testimonials = [
     linkedin: "https://www.linkedin.com/in/muhammad-adil-waqar/",
   },
   {
-    text: "Strategic Project Execution to Deliver Digital Success with Precision",
+    text: "Thoughts of Director",
     subtext:
       "I focus on aligning project execution with client goals to ensure timely delivery and exceptional outcomes. At Webring, we manage each project with agility, transparency, and a clear vision for success.",
     name: "Muhammad Ibrahim",
@@ -104,7 +104,14 @@ const TestimonialSlider = () => {
                 justify={{ base: "center", lg: "flex-start" }}
                 mt={{ base: 4, lg: 0 }}
               >
-                <Box w="80px" h="80px" borderRadius="full" overflow="hidden">
+                {/* Fixed circular image container */}
+                <Box
+                  w={{ base: "80px", md: "80px" }} // Consistent width
+                  h={{ base: "80px", md: "80px" }} // Consistent height
+                  borderRadius="full" // Always circular
+                  overflow="hidden"
+                  flexShrink={0} // Prevent squishing
+                >
                   <Image
                     src={testimonials[index].image}
                     alt="Profile"
