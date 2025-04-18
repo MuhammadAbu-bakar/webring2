@@ -10,10 +10,7 @@ import {
 import { useRef, useState, useEffect } from "react";
 import { FaCheckCircle } from "react-icons/fa";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faChevronLeft,
-  faChevronRight,
-} from "@fortawesome/free-solid-svg-icons";
+import { faArrowLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons";
 
 const projects = [
   { title: "Almassa", image: "/p1.png", link: "https://almassait.com/" },
@@ -210,7 +207,7 @@ const ProjectShowcase = () => {
               size={{ base: "sm", md: "md" }}
               onClick={handlePrev}
             >
-              <FontAwesomeIcon icon={faChevronLeft} />
+              <FontAwesomeIcon icon={faArrowLeft} />
             </IconButton>
           </Flex>
 
@@ -342,7 +339,7 @@ const ProjectShowcase = () => {
               size={{ base: "sm", md: "md" }}
               onClick={handleNext}
             >
-              <FontAwesomeIcon icon={faChevronRight} />
+              <FontAwesomeIcon icon={faArrowRight} />
             </IconButton>
           </Flex>
         </Box>

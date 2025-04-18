@@ -1,10 +1,10 @@
 import { Box, Text, VStack, Flex, Image, IconButton } from "@chakra-ui/react";
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faChevronLeft,
-  faChevronRight,
-} from "@fortawesome/free-solid-svg-icons";
+import { faArrowLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import { AnimatePresence, motion } from "framer-motion";
+
+const MotionBox = motion.create(Box);
 
 const testimonials = [
   {
@@ -13,7 +13,7 @@ const testimonials = [
     image: "/sophia.png",
     quote: "Flawless execution from start to finish",
     feedback:
-      "We are grateful to Asture for their support in our digital transformation process. Their full-scale implementation of Microsoft 365 has been very valuable. They helped us structure our MS Teams environment in a way that significantly boosted our collaboration and productivity. Their adoption activities and ongoing training have been key in enabling our team to fully leverage the capabilities of Microsoft 365. Asture has also been playing a key role in supporting our business development, workflow and process optimization, and tailoring different automation solutions based on our needs. With their ongoing support in Microsoft 365 and Dynamics 365, our operations remain smooth and efficient.",
+      "We are grateful to Webring for their support in our digital transformation process. Their full-scale implementation of Microsoft 365 has been very valuable. They helped us structure our MS Teams environment in a way that significantly boosted our collaboration and productivity. Their adoption activities and ongoing training have been key in enabling our team to fully leverage the capabilities of Microsoft 365. Webring has also been playing a key role in supporting our business development, workflow and process optimization, and tailoring different automation solutions based on our needs. With their ongoing support in Microsoft 365 and Dynamics 365, our operations remain smooth and efficient.",
   },
   {
     name: "Adam Smith",
@@ -29,7 +29,7 @@ const testimonials = [
     image: "/mike.png",
     quote: "Professional, reliable, and incredibly skilled",
     feedback:
-      "Their process is smooth, efficient, and completely transparent. We trusted them with a high-stakes project and they delivered on time with extraordinary results. From backend architecture planning to API integrations, their team handled every layer of the stack with deep technical knowledge. Their use of best practices, clean code, and thorough documentation made handover incredibly easy. Asture's dedication to quality assurance, automated testing, and performance optimization saved us countless hours down the line. I've worked with many teams, but their level of commitment and skill truly stands out.",
+      "Their process is smooth, efficient, and completely transparent. We trusted them with a high-stakes project and they delivered on time with extraordinary results. From backend architecture planning to API integrations, their team handled every layer of the stack with deep technical knowledge. Their use of best practices, clean code, and thorough documentation made handover incredibly easy. Webring's dedication to quality assurance, automated testing, and performance optimization saved us countless hours down the line. I've worked with many teams, but their level of commitment and skill truly stands out.",
   },
 ];
 
@@ -51,152 +51,168 @@ const Testimonials = () => {
   const testimonial = testimonials[currentIndex];
 
   return (
-    <Box
-      w="100%"
-      maxW="1920px"
-      mx="auto"
-      px={{ base: "20px", lg: "100px" }}
-      py="50px"
-      bg="#F8F8F6"
-      position="relative"
-    >
-      {/* Header */}
-      <VStack
-        spacing="20px"
-        align={{ base: "flex-start", lg: "flex-start" }}
-        textAlign={{ base: "left", lg: "left" }}
-      >
-        <Text
-          fontSize="16px"
-          fontWeight="700"
-          letterSpacing="8px"
-          color="#26241C"
-          fontFamily="Yantramanav"
-        >
-          TESTIMONIALS
-        </Text>
-        <Text
-          fontSize={{ base: "32px", md: "50px", lg: "60px" }}
-          fontWeight="900"
-          lineHeight={{ base: "40px", md: "60px", lg: "72px" }}
-          color="#FED904"
-          fontFamily="Yantramanav"
-        >
-          Don't take our word for it
-        </Text>
-      </VStack>
-
-      {/* Navigation Arrows - Now visible on all screen sizes */}
-      <IconButton
-        aria-label="Previous slide"
-        position="absolute"
-        left={{ base: "5px", md: "10px" }}
-        top="55%"
-        transform="translateY(-50%)"
-        zIndex="10"
-        bg="#FED904"
-        color="black"
-        borderRadius="full"
-        onClick={handlePrev}
-        display="flex"
-        size={{ base: "sm", md: "md" }}
-        _hover={{ bg: "#e6c400" }}
-      >
-        <FontAwesomeIcon icon={faChevronLeft} />
-      </IconButton>
-
-      <IconButton
-        aria-label="Next slide"
-        position="absolute"
-        right={{ base: "5px", md: "10px" }}
-        top="55%"
-        transform="translateY(-50%)"
-        zIndex="10"
-        bg="#FED904"
-        color="black"
-        borderRadius="full"
-        onClick={handleNext}
-        display="flex"
-        size={{ base: "sm", md: "md" }}
-        _hover={{ bg: "#e6c400" }}
-      >
-        <FontAwesomeIcon icon={faChevronRight} />
-      </IconButton>
-
-      {/* Testimonial Card */}
-      <Box mt="40px">
-        <Box
-          bg="#131313"
-          w="100%"
-          borderRadius="20px"
-          p={{ base: "20px", md: "30px" }}
-          boxShadow="0px 5.42px 18.98px 0px #2427291A"
-        >
-          <Flex
-            direction={{ base: "column", md: "row" }}
-            align="center"
-            gap={{ base: "20px", md: "30px" }}
+    <Box w="100%" bg="#F8F8F6" py="50px" px={{ base: "20px", lg: "0" }}>
+      <Box maxW="1100px" mx="auto">
+        <VStack spacing="20px" align="flex-start" textAlign="left">
+          <Text
+            fontSize="16px"
+            fontWeight="700"
+            letterSpacing="8px"
+            color="#26241C"
+            fontFamily="Yantramanav"
           >
-            {/* Image + Name + Role */}
-            <VStack spacing="10px" align="center">
-              <Box
-                w={{ base: "100px", md: "160px" }}
-                h={{ base: "100px", md: "160px" }}
-                bg="white"
-                display="flex"
-                alignItems="center"
-                justifyContent="center"
-                borderRadius="10px"
-              >
-                <Image
-                  src={testimonial.image}
-                  objectFit="contain"
-                  maxH="80%"
-                  maxW="80%"
-                  alt={testimonial.name}
-                />
-              </Box>
+            TESTIMONIALS
+          </Text>
+          <Text
+            fontSize={{ base: "32px", md: "50px", lg: "60px" }}
+            fontWeight="900"
+            lineHeight={{ base: "40px", md: "60px", lg: "72px" }}
+            color="#FED904"
+            fontFamily="Yantramanav"
+          >
+            Don't take our word for it
+          </Text>
+        </VStack>
 
-              <Box textAlign="center">
-                <Text
-                  fontSize="18px"
-                  fontWeight="700"
-                  color="white"
-                  fontFamily="DM Sans"
-                >
-                  {testimonial.name}
-                </Text>
-                <Text fontSize="16px" color="#B7B39F" fontFamily="DM Sans">
-                  {testimonial.role}
-                </Text>
-              </Box>
-            </VStack>
+        {/* Testimonial Slider Section */}
+        <Box
+          mt="40px"
+          position="relative"
+          minHeight={{ base: "550px", md: "360px" }} // <-- Keep height stable
+        >
+          {/* Arrows */}
+          <IconButton
+            aria-label="Previous slide"
+            position="absolute"
+            left={{ base: "-20px", md: "-75px" }}
+            top="50%"
+            transform="translateY(-50%)"
+            zIndex="10"
+            bg="#FED904"
+            color="black"
+            borderRadius="full"
+            onClick={handlePrev}
+            size={{ base: "sm", md: "md" }}
+            _hover={{ bg: "#e6c400" }}
+            _focus={{ boxShadow: "none", outline: "none" }}
+            _active={{ transform: "translateY(-50%)", boxShadow: "none" }}
+            sx={{
+              WebkitTapHighlightColor: "transparent",
+              "&:focus": { boxShadow: "none", outline: "none" },
+              "&:active": { transform: "translateY(-50%)", boxShadow: "none" },
+            }}
+            width={{ base: "32px", md: "40px" }}
+            height={{ base: "32px", md: "40px" }}
+            minWidth="unset"
+          >
+            <FontAwesomeIcon icon={faArrowLeft} />
+          </IconButton>
 
-            {/* Quote + Feedback */}
-            <VStack
-              align={{ base: "flex-start", md: "flex-start" }}
-              textAlign={{ base: "left", md: "left" }}
-              spacing="15px"
-              flex="1"
+          <IconButton
+            aria-label="Next slide"
+            position="absolute"
+            right={{ base: "-20px", md: "-75px" }}
+            top="50%"
+            transform="translateY(-50%)"
+            zIndex="10"
+            bg="#FED904"
+            color="black"
+            borderRadius="full"
+            onClick={handleNext}
+            size={{ base: "sm", md: "md" }}
+            _hover={{ bg: "#e6c400" }}
+            _focus={{ boxShadow: "none", outline: "none" }}
+            _active={{ transform: "translateY(-50%)", boxShadow: "none" }}
+            sx={{
+              WebkitTapHighlightColor: "transparent",
+              "&:focus": { boxShadow: "none", outline: "none" },
+              "&:active": { transform: "translateY(-50%)", boxShadow: "none" },
+            }}
+            width={{ base: "32px", md: "40px" }}
+            height={{ base: "32px", md: "40px" }}
+            minWidth="unset"
+          >
+            <FontAwesomeIcon icon={faArrowRight} />
+          </IconButton>
+
+          {/* Testimonial Slide */}
+          <AnimatePresence mode="wait">
+            <MotionBox
+              key={currentIndex}
+              bg="#131313"
+              borderRadius="20px"
+              p={{ base: "20px", md: "30px" }}
+              boxShadow="0px 5.42px 18.98px 0px #2427291A"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.4 }}
+              w="100%"
             >
-              <Text
-                fontSize={{ base: "16px", md: "20px" }}
-                fontWeight="700"
-                color="white"
-                fontFamily="DM Sans"
+              <Flex
+                direction={{ base: "column", md: "row" }}
+                align="center"
+                gap={{ base: "20px", md: "30px" }}
               >
-                "{testimonial.quote}"
-              </Text>
-              <Text
-                fontSize={{ base: "14px", md: "16px" }}
-                color="#B7B39F"
-                lineHeight="1.6"
-                fontFamily="DM Sans"
-              >
-                {testimonial.feedback}
-              </Text>
-            </VStack>
-          </Flex>
+                <VStack spacing="10px" align="center">
+                  <Box
+                    w={{ base: "100px", md: "160px" }}
+                    h={{ base: "100px", md: "160px" }}
+                    bg="white"
+                    display="flex"
+                    alignItems="center"
+                    justifyContent="center"
+                    borderRadius="10px"
+                  >
+                    <Image
+                      src={testimonial.image}
+                      objectFit="contain"
+                      maxH="80%"
+                      maxW="80%"
+                      alt={testimonial.name}
+                    />
+                  </Box>
+                  <Box textAlign="center">
+                    <Text
+                      fontSize="18px"
+                      fontWeight="700"
+                      color="white"
+                      fontFamily="DM Sans"
+                    >
+                      {testimonial.name}
+                    </Text>
+                    <Text fontSize="16px" color="#B7B39F" fontFamily="DM Sans">
+                      {testimonial.role}
+                    </Text>
+                  </Box>
+                </VStack>
+
+                <VStack
+                  align="flex-start"
+                  spacing="15px"
+                  flex="1"
+                  textAlign="left"
+                >
+                  <Text
+                    fontSize={{ base: "16px", md: "20px" }}
+                    fontWeight="700"
+                    color="white"
+                    fontFamily="DM Sans"
+                  >
+                    "{testimonial.quote}"
+                  </Text>
+                  <Text
+                    fontSize={{ base: "14px", md: "16px" }}
+                    color="#B7B39F"
+                    lineHeight="1.6"
+                    fontFamily="DM Sans"
+                  >
+                    {testimonial.feedback}
+                  </Text>
+                </VStack>
+              </Flex>
+            </MotionBox>
+          </AnimatePresence>
         </Box>
       </Box>
     </Box>

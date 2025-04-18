@@ -3,10 +3,7 @@ import { useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faChevronLeft,
-  faChevronRight,
-} from "@fortawesome/free-solid-svg-icons";
+import { faArrowLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import "swiper/css";
 import "swiper/css/navigation";
 
@@ -53,7 +50,7 @@ const TechLogosSection = () => {
         size={{ base: "sm", md: "md" }}
         onClick={() => swiperInstance?.slidePrev()}
       >
-        <FontAwesomeIcon icon={faChevronLeft} />
+        <FontAwesomeIcon icon={faArrowLeft} />
       </IconButton>
 
       <IconButton
@@ -72,7 +69,7 @@ const TechLogosSection = () => {
         size={{ base: "sm", md: "md" }}
         onClick={() => swiperInstance?.slideNext()}
       >
-        <FontAwesomeIcon icon={faChevronRight} />
+        <FontAwesomeIcon icon={faArrowRight} />
       </IconButton>
 
       <Box position="relative" w="100%" px={{ base: "30px", md: "50px" }}>

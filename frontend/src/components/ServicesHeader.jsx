@@ -27,40 +27,47 @@ const HomeHeader = () => {
   const [isServicesDropdownOpen, setIsServicesDropdownOpen] = useState(false);
   const [isAiDropdownOpen, setIsAiDropdownOpen] = useState(false);
   const [isIndustriesDropdownOpen, setIsIndustriesDropdownOpen] =
-    useState(false); // State for Industries dropdown
+    useState(false);
   const [isTechnologiesDropdownOpen, setIsTechnologiesDropdownOpen] =
     useState(false);
   const [isInsightsDropdownOpen, setIsInsightsDropdownOpen] = useState(false);
-  const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isMobileAboutDropdownOpen, setIsMobileAboutDropdownOpen] =
+    useState(false);
 
   const toggleMobileMenu = () => {
-    setMobileMenuOpen(!isMobileMenuOpen);
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+    if (isMobileMenuOpen) {
+      setIsMobileAboutDropdownOpen(false);
+    }
   };
-  const handleNavigation = (item) => {
-    // Don't navigate if already on the target page
-    const targetPath = item === "Home" ? "/" : `/${item.toLowerCase()}`;
 
+  const toggleMobileAboutDropdown = () => {
+    setIsMobileAboutDropdownOpen(!isMobileAboutDropdownOpen);
+  };
+
+  const closeAllDropdowns = () => {
+    setIsAboutDropdownOpen(false);
+    setIsServicesDropdownOpen(false);
+    setIsAiDropdownOpen(false);
+    setIsIndustriesDropdownOpen(false);
+    setIsTechnologiesDropdownOpen(false);
+    setIsInsightsDropdownOpen(false);
+    setIsMobileMenuOpen(false);
+    setIsMobileAboutDropdownOpen(false);
+  };
+
+  const handleNavigation = (item, path) => {
+    const targetPath =
+      path || (item === "Home" ? "/" : `/${item.toLowerCase()}`);
     if (location.pathname !== targetPath) {
       navigate(targetPath);
     }
-
-    // Close mobile menu if open
-    setIsMobileMenuOpen(false);
-    // Update active link
+    closeAllDropdowns(); // Close all dropdowns and hamburger menu after navigation
     setActiveLink(item);
   };
 
-  const navItems = [
-    "Home",
-    "About",
-    "Services",
-    // "Industries", // Added Industries
-    // "Technologies",
-    // "Insights",
-    "Portfolio",
-    "Blog",
-    // "AI Services",
-  ];
+  const navItems = ["Home", "About", "Services", "Portfolio", "Blog"];
 
   useEffect(() => {
     const handleScroll = () => {
@@ -79,6 +86,7 @@ const HomeHeader = () => {
     if (navItems.includes(capitalizedPath)) {
       setActiveLink(capitalizedPath);
     }
+    closeAllDropdowns(); // Close dropdowns and hamburger menu on page change
   }, [location.pathname]);
 
   const servicesCategories = [
@@ -214,6 +222,7 @@ const HomeHeader = () => {
       ],
     },
   ];
+
   const insights = [
     {
       title: "About Webring",
@@ -244,9 +253,8 @@ const HomeHeader = () => {
       desc: "Refer talent to Webring and earn rewards.",
     },
   ];
-  const noBorderItems2 = ["Podcast", "Events", "Referral Program"];
 
-  // List of items that should NOT have a bottom border
+  const noBorderItems2 = ["Podcast", "Events", "Referral Program"];
   const noBorderItems = ["ECommerce", "Fintech", "On-Demand"];
 
   const HamburgerIcon = createIcon({
@@ -256,8 +264,8 @@ const HomeHeader = () => {
       <>
         <path stroke="none" d="M0 0h24v24H0z" fill="none" />
         <path
-          stroke="black" // Ensure the lines are black
-          fill="none" // Prevent unwanted fill
+          stroke="black"
+          fill="none"
           d="M4 6h16M4 12h16M4 18h16"
           strokeWidth="2"
           strokeLinecap="round"
@@ -283,7 +291,6 @@ const HomeHeader = () => {
     ),
   });
 
-  //navbar
   return (
     <Box
       w="100%"
@@ -299,7 +306,6 @@ const HomeHeader = () => {
       transition="top 0.3s ease-in-out, background 0.3s ease-in-out"
     >
       <Flex align="center" justify="space-between" w="100%" h="100%">
-        {/* Logo Section */}
         <HStack spacing={2}>
           <Image
             src="/webring.png"
@@ -308,8 +314,6 @@ const HomeHeader = () => {
             height="auto"
           />
         </HStack>
-
-        {/* Desktop Navigation */}
         <Flex
           display={{ base: "none", md: "flex" }}
           w="auto"
@@ -331,7 +335,7 @@ const HomeHeader = () => {
                   if (item === "AI Services") setIsAiDropdownOpen(true);
                   if (item === "Industries") setIsIndustriesDropdownOpen(true);
                   if (item === "Technologies")
-                    setIsTechnologiesDropdownOpen(true); // Handle Industries dropdown
+                    setIsTechnologiesDropdownOpen(true);
                   if (item === "Insights") setIsInsightsDropdownOpen(true);
                   if (item === "About") setIsAboutDropdownOpen(true);
                 }}
@@ -340,13 +344,12 @@ const HomeHeader = () => {
                   if (item === "AI Services") setIsAiDropdownOpen(false);
                   if (item === "Industries") setIsIndustriesDropdownOpen(false);
                   if (item === "Technologies")
-                    setIsTechnologiesDropdownOpen(false); // Handle Industries dropdown
+                    setIsTechnologiesDropdownOpen(false);
                   if (item === "Insights") setIsInsightsDropdownOpen(false);
                   if (item === "About") setIsAboutDropdownOpen(false);
                 }}
                 onClick={() => {
-                  if (item === "About") return; // Do nothing if About is clicked
-
+                  if (item === "About") return;
                   if (item === "Home") {
                     handleNavigation("Home");
                   } else if (item === "Portfolio") {
@@ -365,21 +368,17 @@ const HomeHeader = () => {
                   display="flex"
                   alignItems="center"
                   justifyContent="center"
-                  // borderTop={activeLink === item ? "3px solid #FED904" : "none"}
                   py={6}
                 >
                   <Text
                     fontSize="18px"
                     fontWeight="600"
                     color={"black"}
-                    // activeLink === item ? "#FED904" :
                     _hover={{ color: "#FED904" }}
                   >
                     {item}
                   </Text>
                 </Box>
-
-                {/* Services Dropdown Menu */}
                 {item === "Services" && isServicesDropdownOpen && (
                   <Box
                     position="absolute"
@@ -407,7 +406,6 @@ const HomeHeader = () => {
                     borderRadius="8px"
                     border="1px solid #f0f0f0"
                   >
-                    {/* Left Section with Image */}
                     <Box
                       flex="1"
                       mb={{ base: "20px", md: "0" }}
@@ -421,8 +419,6 @@ const HomeHeader = () => {
                         mx={{ base: "auto", md: "25px" }}
                       />
                     </Box>
-
-                    {/* Right Section with Grid */}
                     <Box
                       flex="2"
                       display="grid"
@@ -436,7 +432,6 @@ const HomeHeader = () => {
                       position="relative"
                       pt="10px"
                     >
-                      {/* Horizontal Line Between First and Second Row */}
                       <Box
                         display={{ base: "none", md: "block" }}
                         position="absolute"
@@ -446,8 +441,6 @@ const HomeHeader = () => {
                         height="2px"
                         bg="gray.300"
                       />
-
-                      {/* Horizontal Line Before Last Row */}
                       <Box
                         display={{ base: "none", md: "block" }}
                         position="absolute"
@@ -457,8 +450,6 @@ const HomeHeader = () => {
                         height="2px"
                         bg="gray.300"
                       />
-
-                      {/* Vertical Lines */}
                       <Box
                         display={{ base: "none", md: "block" }}
                         position="absolute"
@@ -477,71 +468,81 @@ const HomeHeader = () => {
                         width="2px"
                         bg="gray.300"
                       />
-
-                      {/* Services Categories - Reordered to put Performance Marketing under Shopify */}
                       <Box>
                         <Text
                           fontSize="16px"
                           fontWeight="700"
                           mb="10px"
                           fontFamily="DM Sans"
-                          onClick={() => navigate("/web-development")}
+                          onClick={() =>
+                            handleNavigation("Services", "/web-development")
+                          }
                           cursor="pointer"
                           _hover={{ color: "#FFD700" }}
                         >
                           Web Development
                         </Text>
                       </Box>
-
                       <Box>
                         <Text
                           fontSize="16px"
                           fontWeight="700"
                           mb="10px"
                           fontFamily="DM Sans"
-                          onClick={() => navigate("/mobile-app-development")}
+                          onClick={() =>
+                            handleNavigation(
+                              "Services",
+                              "/mobile-app-development"
+                            )
+                          }
                           cursor="pointer"
                           _hover={{ color: "#FFD700" }}
                         >
                           Mobile App Development
                         </Text>
                       </Box>
-
                       <Box>
                         <Text
                           fontSize="16px"
                           fontWeight="700"
                           mb="10px"
                           fontFamily="DM Sans"
-                          onClick={() => navigate("/ui-ux-design")}
+                          onClick={() =>
+                            handleNavigation("Services", "/ui-ux-design")
+                          }
                           cursor="pointer"
                           _hover={{ color: "#FFD700" }}
                         >
                           UI/UX Design
                         </Text>
                       </Box>
-
                       <Box>
                         <Text
                           fontSize="16px"
                           fontWeight="700"
                           mb="10px"
                           fontFamily="DM Sans"
-                          onClick={() => navigate("/ecommerce-development")}
+                          onClick={() =>
+                            handleNavigation(
+                              "Services",
+                              "/ecommerce-development"
+                            )
+                          }
                           cursor="pointer"
                           _hover={{ color: "#FFD700" }}
                         >
                           E-commerce Development
                         </Text>
                       </Box>
-
                       <Box>
                         <Text
                           fontSize="16px"
                           fontWeight="700"
                           mb="10px"
                           fontFamily="DM Sans"
-                          onClick={() => navigate("/shopify-development")}
+                          onClick={() =>
+                            handleNavigation("Services", "/shopify-development")
+                          }
                           cursor="pointer"
                           _hover={{ color: "#FFD700" }}
                         >
@@ -553,7 +554,12 @@ const HomeHeader = () => {
                           fontWeight="700"
                           mb="10px"
                           fontFamily="DM Sans"
-                          onClick={() => navigate("/performance-marketing")}
+                          onClick={() =>
+                            handleNavigation(
+                              "Services",
+                              "/performance-marketing"
+                            )
+                          }
                           cursor="pointer"
                           _hover={{ color: "#FFD700" }}
                           pl="1px"
@@ -561,14 +567,15 @@ const HomeHeader = () => {
                           Performance Marketing
                         </Text>
                       </Box>
-
                       <Box>
                         <Text
                           fontSize="16px"
                           fontWeight="700"
                           mb="10px"
                           fontFamily="DM Sans"
-                          onClick={() => navigate("/digital-marketing")}
+                          onClick={() =>
+                            handleNavigation("Services", "/digital-marketing")
+                          }
                           cursor="pointer"
                           _hover={{ color: "#FFD700" }}
                         >
@@ -605,7 +612,6 @@ const HomeHeader = () => {
                     borderRadius="8px"
                     border="1px solid #f0f0f0"
                   >
-                    {/* Left Section - Larger Image */}
                     <Box flex="1" minWidth="200px" ml="100px">
                       <Image
                         src="/about.jpg"
@@ -617,8 +623,6 @@ const HomeHeader = () => {
                         mt="50px"
                       />
                     </Box>
-
-                    {/* Middle Section - Navigation Links */}
                     <Box
                       flex="2"
                       display="flex"
@@ -641,7 +645,9 @@ const HomeHeader = () => {
                             transform: "translateX(5px)",
                           }}
                           transition="all 0.2s"
-                          onClick={() => navigate("/who-we-are")}
+                          onClick={() =>
+                            handleNavigation("About", "/who-we-are")
+                          }
                           mt="70px"
                         >
                           Who We Are
@@ -658,7 +664,9 @@ const HomeHeader = () => {
                             transform: "translateX(5px)",
                           }}
                           transition="all 0.2s"
-                          onClick={() => navigate("/our-partner")}
+                          onClick={() =>
+                            handleNavigation("About", "/our-partner")
+                          }
                         >
                           Our Partner
                         </Text>
@@ -674,18 +682,16 @@ const HomeHeader = () => {
                             transform: "translateX(5px)",
                           }}
                           transition="all 0.2s"
-                          onClick={() => navigate("/our-mission")}
+                          onClick={() =>
+                            handleNavigation("About", "/our-mission")
+                          }
                         >
                           Our Mission
                         </Text>
                       </VStack>
                     </Box>
-
-                    {/* Right Section - Decorative Elements */}
                     <Box position="relative" zIndex="1">
-                      {/* Vector 1 - Adjusted width */}
                       <Box position="relative" zIndex="1">
-                        {/* New Vector - Slightly Reduced Length */}
                         <svg
                           width="100%"
                           height="250"
@@ -713,8 +719,6 @@ const HomeHeader = () => {
                     </Box>
                   </Box>
                 )}
-
-                {/* AI Services Dropdown Menu */}
                 {item === "AI Services" && isAiDropdownOpen && (
                   <Box
                     position="absolute"
@@ -729,7 +733,6 @@ const HomeHeader = () => {
                     display="flex"
                     gap="20px"
                   >
-                    {/* Left Section with Design from Image */}
                     <Box flex="1">
                       <Text
                         fontSize="22px"
@@ -760,8 +763,6 @@ const HomeHeader = () => {
                         ml="155px"
                       />
                     </Box>
-
-                    {/* Right Section with AI Services Categories */}
                     <Box
                       flex="2"
                       display="grid"
@@ -775,7 +776,9 @@ const HomeHeader = () => {
                             cursor="pointer"
                             borderRadius="8px"
                             _hover={{ bg: "#FFD700" }}
-                            onClick={() => navigate(service.link)}
+                            onClick={() =>
+                              handleNavigation("AI Services", service.link)
+                            }
                           >
                             <Text
                               fontSize="16px"
@@ -790,8 +793,6 @@ const HomeHeader = () => {
                     </Box>
                   </Box>
                 )}
-
-                {/* Industries Dropdown Menu */}
                 {item === "Industries" && isIndustriesDropdownOpen && (
                   <Box
                     position="absolute"
@@ -812,7 +813,6 @@ const HomeHeader = () => {
                       alignItems="start"
                       justifyContent="space-between"
                     >
-                      {/* Left Section */}
                       <Box flex="1" width={"30%"}>
                         <Text
                           fontSize="24px"
@@ -847,8 +847,6 @@ const HomeHeader = () => {
                           borderRadius="8px"
                         />
                       </Box>
-
-                      {/* Right Section - Industry List */}
                       <SimpleGrid
                         columns={3}
                         spacingX={20}
@@ -866,7 +864,7 @@ const HomeHeader = () => {
                                 noBorderItems.includes(item.title)
                                   ? "none"
                                   : "2px solid #ccc"
-                              } // Apply border conditionally
+                              }
                               w="full"
                               pr={10}
                             >
@@ -893,8 +891,6 @@ const HomeHeader = () => {
                     </Flex>
                   </Box>
                 )}
-
-                {/* Technologies Dropdown */}
                 {item === "Technologies" && isTechnologiesDropdownOpen && (
                   <Box
                     position="absolute"
@@ -909,7 +905,6 @@ const HomeHeader = () => {
                     display="flex"
                     gap="20px"
                   >
-                    {/* Left Section with Design from Image */}
                     <Box flex="1">
                       <Text
                         fontSize="24px"
@@ -943,8 +938,6 @@ const HomeHeader = () => {
                         ml={"90px"}
                       />
                     </Box>
-
-                    {/* Right Section with Services Categories */}
                     <Box
                       flex="1"
                       display="grid"
@@ -970,7 +963,9 @@ const HomeHeader = () => {
                                 cursor="pointer"
                                 borderRadius="8px"
                                 _hover={{ bg: "#FFD700" }}
-                                onClick={() => navigate(item.link)}
+                                onClick={() =>
+                                  handleNavigation("Technologies", item.link)
+                                }
                               >
                                 <FontAwesomeIcon
                                   icon={faChevronRight}
@@ -991,8 +986,6 @@ const HomeHeader = () => {
                     </Box>
                   </Box>
                 )}
-
-                {/* Insights */}
                 {item === "Insights" && isInsightsDropdownOpen && (
                   <Box
                     position="absolute"
@@ -1009,7 +1002,6 @@ const HomeHeader = () => {
                     zIndex="1000"
                   >
                     <Flex alignItems="center" justifyContent="space-between">
-                      {/* Left Section */}
                       <Box flex="1" width={"30%"}>
                         <Text
                           fontSize="24px"
@@ -1039,8 +1031,6 @@ const HomeHeader = () => {
                           borderRadius="8px"
                         />
                       </Box>
-
-                      {/* Right Section  */}
                       <SimpleGrid
                         columns={3}
                         spacingX={20}
@@ -1058,7 +1048,7 @@ const HomeHeader = () => {
                                 noBorderItems2.includes(item.title)
                                   ? "none"
                                   : "2px solid #ccc"
-                              } // Apply border conditionally
+                              }
                               w="full"
                               pr={10}
                             >
@@ -1088,14 +1078,11 @@ const HomeHeader = () => {
               </Box>
             ))}
           </HStack>
-
-          {/* Contact Us Button */}
           <CustomButton
             text="Contact Us"
-            onClick={() => navigate("/contact-form")}
+            onClick={() => handleNavigation("Contact", "/contact-form")}
           />
         </Flex>
-        {/* Hamburger Menu (Visible on Mobile) */}
         <Button
           display={{ base: "block", md: "block", lg: "none" }}
           bgColor={"transparent"}
@@ -1119,37 +1106,124 @@ const HomeHeader = () => {
           spacing="15px"
           p="25px"
           zIndex="100"
-          borderRadius="10px" // Adds rounded corners
-          transform={isMobileMenuOpen ? "translateY(0)" : "translateY(-10px)"} // Smooth slide effect
-          transition="transform 0.3s ease-in-out, opacity 0.3s ease-in-out" // Smooth animation
-          opacity={isMobileMenuOpen ? 1 : 0} // Fade-in effect
+          borderRadius="10px"
+          transform={isMobileMenuOpen ? "translateY(0)" : "translateY(-10px)"}
+          transition="transform 0.3s ease-in-out, opacity 0.3s ease-in-out"
+          opacity={isMobileMenuOpen ? 1 : 0}
         >
-          {[
-            "Home",
-            "About",
-            "Services",
-            // "Industries",
-            // "Technologies",
-            // "Insights",
-            "Portfolio",
-            "Blog",
-          ].map((item) => (
-            <Text
-              key={item}
-              fontFamily="DM Sans"
-              fontWeight="600"
-              fontSize="20px"
-              color="white"
-              cursor="pointer"
-              w="100%"
-              py="5px"
-              borderRadius="8px"
-              _hover={{ bg: "#f4f4f4", transform: "scale(1.05)" }} // Subtle hover effect
-              transition="all 0.2s ease-in-out"
-              onClick={() => handleNavigation(item)}
-            >
-              {item}
-            </Text>
+          {["Home", "About", "Services", "Portfolio", "Blog"].map((item) => (
+            <Box key={item} w="100%">
+              {item === "About" ? (
+                <Box>
+                  <Flex
+                    align="center"
+                    justify="space-between"
+                    onClick={toggleMobileAboutDropdown}
+                    cursor="pointer"
+                    py="5px"
+                    borderRadius="8px"
+                    _hover={{ bg: "#f4f4f4", transform: "scale(1.05)" }}
+                    transition="all 0.2s ease-in-out"
+                  >
+                    <Text
+                      fontFamily="DM Sans"
+                      fontWeight="600"
+                      fontSize="20px"
+                      color="white"
+                    >
+                      {item}
+                    </Text>
+                    <FontAwesomeIcon
+                      icon={faCaretDown}
+                      color="white"
+                      style={{
+                        transform: isMobileAboutDropdownOpen
+                          ? "rotate(180deg)"
+                          : "rotate(0deg)",
+                        transition: "transform 0.3s ease-in-out",
+                      }}
+                    />
+                  </Flex>
+                  {isMobileAboutDropdownOpen && (
+                    <VStack
+                      align="start"
+                      spacing="10px"
+                      mt="10px"
+                      pl="20px"
+                      bg="#1a1a1a"
+                      borderRadius="8px"
+                      p="10px"
+                    >
+                      <Text
+                        fontFamily="DM Sans"
+                        fontWeight="500"
+                        fontSize="18px"
+                        color="white"
+                        cursor="pointer"
+                        _hover={{
+                          color: "#FFD700",
+                          transform: "translateX(5px)",
+                        }}
+                        transition="all 0.2s"
+                        onClick={() => handleNavigation("About", "/who-we-are")}
+                      >
+                        Who We Are
+                      </Text>
+                      <Text
+                        fontFamily="DM Sans"
+                        fontWeight="500"
+                        fontSize="18px"
+                        color="white"
+                        cursor="pointer"
+                        _hover={{
+                          color: "#FFD700",
+                          transform: "translateX(5px)",
+                        }}
+                        transition="all 0.2s"
+                        onClick={() =>
+                          handleNavigation("About", "/our-partner")
+                        }
+                      >
+                        Our Partner
+                      </Text>
+                      <Text
+                        fontFamily="DM Sans"
+                        fontWeight="500"
+                        fontSize="18px"
+                        color="white"
+                        cursor="pointer"
+                        _hover={{
+                          color: "#FFD700",
+                          transform: "translateX(5px)",
+                        }}
+                        transition="all 0.2s"
+                        onClick={() =>
+                          handleNavigation("About", "/our-mission")
+                        }
+                      >
+                        Our Mission
+                      </Text>
+                    </VStack>
+                  )}
+                </Box>
+              ) : (
+                <Text
+                  fontFamily="DM Sans"
+                  fontWeight="600"
+                  fontSize="20px"
+                  color="white"
+                  cursor="pointer"
+                  w="100%"
+                  py="5px"
+                  borderRadius="8px"
+                  _hover={{ bg: "#f4f4f4", transform: "scale(1.05)" }}
+                  transition="all 0.2s ease-in-out"
+                  onClick={() => handleNavigation(item)}
+                >
+                  {item}
+                </Text>
+              )}
+            </Box>
           ))}
         </VStack>
       )}
