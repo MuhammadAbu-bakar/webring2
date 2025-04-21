@@ -93,7 +93,7 @@ const TestimonialSlider = () => {
         <Box
           position="absolute"
           left={{ base: "-20px", md: "100px" }}
-          top="50%"
+          top="60%"
           transform="translateY(-50%)"
           zIndex={2}
           w={{ base: "30px", md: "40px" }}
@@ -207,7 +207,7 @@ const TestimonialSlider = () => {
         <Box
           position="absolute"
           right={{ base: "-21px", md: "100px" }}
-          top="50%"
+          top="60%"
           transform="translateY(-50%)"
           zIndex={2}
           w={{ base: "30px", md: "40px" }}
