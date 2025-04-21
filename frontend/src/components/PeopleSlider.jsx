@@ -59,35 +59,36 @@ const TestimonialSlider = () => {
 
   return (
     <Box maxW="1920px" mx="auto" py="50px" px={{ base: "20px", lg: "100px" }}>
-      <Box maxW="700px">
-        <Text
-          fontSize="20px"
-          fontWeight="700"
-          letterSpacing="0.5rem"
-          color="#26241C"
-          mb="10px"
-        >
-          Vision of
-        </Text>
-        <Text
-          fontSize={{ base: "40px", md: "48px" }}
-          fontWeight="900"
-          lineHeight={{ base: "40px", md: "68px" }}
-          color="#FED904"
-          fontFamily="inherit"
-          mb="50px"
-        >
-          Leaders
-        </Text>
-      </Box>
-
       <Flex
         justify="center"
         align="center"
         position="relative"
         maxW="1570px"
         mx="auto"
+        direction="column"
       >
+        {/* Title Section - Aligned with slider content */}
+        <Box w={{ base: "100%", md: "80%" }} maxW="900px" mb="50px">
+          <Text
+            fontSize="20px"
+            fontWeight="700"
+            letterSpacing="0.5rem"
+            color="#26241C"
+            mb="10px"
+          >
+            Vision of
+          </Text>
+          <Text
+            fontSize={{ base: "40px", md: "48px" }}
+            fontWeight="900"
+            lineHeight={{ base: "40px", md: "68px" }}
+            color="#FED904"
+            fontFamily="inherit"
+          >
+            Leaders
+          </Text>
+        </Box>
+
         {/* Left Arrow - Fixed Vertically Centered */}
         <Box
           position="absolute"
