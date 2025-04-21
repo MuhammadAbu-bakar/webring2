@@ -52,33 +52,36 @@ const Testimonials = () => {
 
   return (
     <Box w="100%" bg="#F8F8F6" py="50px" px={{ base: "20px", lg: "0" }}>
-      <Box maxW="1100px" mx="auto">
-        <VStack spacing="20px" align="flex-start" textAlign="left">
-          <Text
-            fontSize="16px"
-            fontWeight="700"
-            letterSpacing="8px"
-            color="#26241C"
-            fontFamily="Yantramanav"
-          >
-            TESTIMONIALS
-          </Text>
-          <Text
-            fontSize={{ base: "32px", md: "50px", lg: "60px" }}
-            fontWeight="900"
-            lineHeight={{ base: "40px", md: "60px", lg: "72px" }}
-            color="#FED904"
-            fontFamily="Yantramanav"
-          >
-            Don't take our word for it
-          </Text>
-        </VStack>
+      <VStack
+        spacing="20px"
+        align="flex-start"
+        textAlign="left"
+        px={{ base: "20px", md: "100px" }}
+      >
+        <Text
+          fontSize="16px"
+          fontWeight="700"
+          letterSpacing="0.5rem"
+          color="#26241C"
+        >
+          TESTIMONIALS
+        </Text>
+        <Text
+          fontSize={{ base: "40px", md: "48px" }}
+          fontWeight="900"
+          lineHeight={{ base: "40px", md: "68px" }}
+          color="#FED904"
+          fontFamily="inherit"
+        >
+          Don't take our word for it
+        </Text>
+      </VStack>
 
-        {/* Testimonial Slider Section */}
+      <Box maxW="1100px" mx="auto">
         <Box
           mt="40px"
           position="relative"
-          minHeight={{ base: "550px", md: "360px" }} // <-- Keep height stable
+          minHeight={{ base: "550px", md: "360px" }}
         >
           {/* Arrows */}
           <IconButton
@@ -151,30 +154,31 @@ const Testimonials = () => {
             >
               <Flex
                 direction={{ base: "column", md: "row" }}
-                align="center"
+                align={{ base: "flex-start", md: "center" }}
                 gap={{ base: "20px", md: "30px" }}
+                textAlign="left"
               >
-                <VStack spacing="10px" align="center">
+                <VStack spacing="10px" align="flex-start">
                   <Box
-                    w={{ base: "120px", md: "160px" }} // Fixed width
-                    h={{ base: "120px", md: "160px" }} // Fixed height
+                    w={{ base: "120px", md: "160px" }}
+                    h={{ base: "120px", md: "160px" }}
                     bg="white"
                     display="flex"
                     alignItems="center"
                     justifyContent="center"
                     borderRadius="10px"
-                    overflow="hidden" // Prevents image overflow
+                    overflow="hidden"
                     flexShrink={0}
                   >
                     <Image
                       src={testimonial.image}
-                      objectFit="cover" // Ensures image fills the container
-                      w="100%" // Takes full width of container
-                      h="100%" // Takes full height of container
+                      objectFit="cover"
+                      w="100%"
+                      h="100%"
                       alt={testimonial.name}
                     />
                   </Box>
-                  <Box textAlign="center">
+                  <Box textAlign="left">
                     <Text
                       fontSize="18px"
                       fontWeight="700"

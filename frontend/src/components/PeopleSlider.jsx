@@ -59,6 +59,29 @@ const TestimonialSlider = () => {
 
   return (
     <Box maxW="1920px" mx="auto" py="50px" px={{ base: "20px", lg: "100px" }}>
+      <VStack spacing="20px" align="flex-start" textAlign="left" mb="30px">
+        <Text
+          fontSize="16px"
+          fontWeight="700"
+          letterSpacing="0.5rem"
+          color="#26241C"
+          mb="3px"
+          ml="5px"
+        >
+          Vision of
+        </Text>
+        <Text
+          fontSize={{ base: "40px", md: "48px" }}
+          fontWeight="900"
+          lineHeight={{ base: "40px", md: "68px" }}
+          color="#FED904"
+          fontFamily="inherit"
+          ml="5px"
+          mb="10px"
+        >
+          Leaders
+        </Text>
+      </VStack>
       <Flex
         justify="center"
         align="center"
@@ -68,32 +91,12 @@ const TestimonialSlider = () => {
         direction="column"
       >
         {/* Title Section - Aligned with slider content */}
-        <Box w={{ base: "100%", md: "80%" }} maxW="900px" mb="50px">
-          <Text
-            fontSize="20px"
-            fontWeight="700"
-            letterSpacing="0.5rem"
-            color="#26241C"
-            mb="10px"
-          >
-            Vision of
-          </Text>
-          <Text
-            fontSize={{ base: "40px", md: "48px" }}
-            fontWeight="900"
-            lineHeight={{ base: "40px", md: "68px" }}
-            color="#FED904"
-            fontFamily="inherit"
-          >
-            Leaders
-          </Text>
-        </Box>
 
         {/* Left Arrow - Fixed Vertically Centered */}
         <Box
           position="absolute"
           left={{ base: "-20px", md: "100px" }}
-          top="60%"
+          top="50%"
           transform="translateY(-50%)"
           zIndex={2}
           w={{ base: "30px", md: "40px" }}
@@ -207,7 +210,7 @@ const TestimonialSlider = () => {
         <Box
           position="absolute"
           right={{ base: "-21px", md: "100px" }}
-          top="60%"
+          top="50%"
           transform="translateY(-50%)"
           zIndex={2}
           w={{ base: "30px", md: "40px" }}

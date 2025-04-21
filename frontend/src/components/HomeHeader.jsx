@@ -494,6 +494,7 @@ const HomeHeader = () => {
                         <Text
                           fontSize="18px"
                           fontWeight="700"
+                          ml="-10px"
                           mb="10px"
                           fontFamily="DM Sans"
                           onClick={() =>
@@ -563,6 +564,7 @@ const HomeHeader = () => {
                         </Text>
                         <Text
                           mt="70px"
+                          ml="-7px"
                           fontSize="18px"
                           fontWeight="700"
                           mb="10px"
