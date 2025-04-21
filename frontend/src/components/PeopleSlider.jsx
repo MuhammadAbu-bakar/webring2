@@ -16,8 +16,6 @@ const MotionBox = motion.create(Box);
 
 const testimonials = [
   {
-    heading1: "Vision of",
-
     text: "Message From the CEO",
     subtext:
       "At Webring, our commitment to innovation and excellence drives everything we do. As CEO, I aim to lead teams that turn bold ideas into successful digital products. Let's continue to shape the future together.",
@@ -27,8 +25,6 @@ const testimonials = [
     linkedin: "https://www.linkedin.com/in/daniyal-sultan/",
   },
   {
-    heading1: "Vision of",
-
     text: "Insights of CTO",
     subtext:
       "My mission is to architect robust, scalable systems while embracing the latest technologies. At Webring, we craft future-ready solutions that empower clients to stay ahead in the digital landscape.",
@@ -38,9 +34,6 @@ const testimonials = [
     linkedin: "https://www.linkedin.com/in/muhammad-adil-waqar/",
   },
   {
-    heading1: "Vision of",
-
-    heading: "Vision of",
     text: "Thoughts of Director",
     subtext:
       "I focus on aligning project execution with client goals to ensure timely delivery and exceptional outcomes. At Webring, we manage each project with agility, transparency, and a clear vision for success.",
@@ -66,6 +59,28 @@ const TestimonialSlider = () => {
 
   return (
     <Box maxW="1920px" mx="auto" py="50px" px={{ base: "20px", lg: "100px" }}>
+      <Box maxW="700px">
+        <Text
+          fontSize="20px"
+          fontWeight="700"
+          letterSpacing="0.5rem"
+          color="#26241C"
+          mb="10px"
+        >
+          Vision of
+        </Text>
+        <Text
+          fontSize={{ base: "40px", md: "48px" }}
+          fontWeight="900"
+          lineHeight={{ base: "40px", md: "68px" }}
+          color="#FED904"
+          fontFamily="inherit"
+          mb="50px"
+        >
+          Leaders
+        </Text>
+      </Box>
+
       <Flex
         justify="center"
         align="center"
@@ -146,27 +161,9 @@ const TestimonialSlider = () => {
                 </HStack>
               </Flex>
 
-              <Text
-                fontSize={{ base: "24px", lg: "44px" }}
-                fontWeight="500"
-                lineHeight={{ base: "32px", lg: "48px" }}
-                mt={{ base: "20px", lg: "40px" }}
-                display="inline-block"
-              >
-                {testimonials[index].heading1}
-                <Text
-                  as="span"
-                  fontSize={{ base: "24px", lg: "60px" }}
-                  color="#FED904"
-                  display="inline"
-                  ml="12px"
-                >
-                  Leaders
-                </Text>
-              </Text>
               {/* Heading */}
               <Text
-                fontSize={{ base: "18px", lg: "35px" }}
+                fontSize={{ base: "29px", lg: "44px" }}
                 fontWeight="500"
                 lineHeight={{ base: "32px", lg: "48px" }}
                 mt={{ base: "20px", lg: "30px" }}
