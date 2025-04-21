@@ -89,70 +89,70 @@ const HomeHeader = () => {
     closeAllDropdowns(); // Close dropdowns and hamburger menu on page change
   }, [location.pathname]);
 
-  const servicesCategories = [
-    {
-      title: "App Development",
-      link: "/app-development",
-      services: [
-        { name: "ISO App Development", icon: faChevronRight },
-        { name: "Android App Development", icon: faChevronRight },
-        { name: "Cross Platform App Development", icon: faChevronRight },
-      ],
-    },
-    {
-      title: "Graphic Designing",
-      link: "/graphic-designing",
-      services: [
-        { name: "Hire Android App Developer", icon: faChevronRight },
-        { name: "Hire ISO App Developer", icon: faChevronRight },
-        { name: "Hire Node.js Developer", icon: faChevronRight },
-      ],
-    },
-    {
-      title: "Content Writing",
-      link: "/content-writing",
-      services: [
-        { name: "ERP Solution", icon: faChevronRight },
-        { name: "CRM Solution", icon: faChevronRight },
-        { name: "CMS Solution", icon: faChevronRight },
-      ],
-    },
-    {
-      title: "Web Development",
-      link: "/web-developmentt",
-      services: [
-        { name: "Ecommerce Website Development", icon: faChevronRight },
-        { name: "Web Portals", icon: faChevronRight },
-      ],
-    },
-    {
-      title: "Shopify Store Development",
-      link: "/shopify-development",
-      services: [
-        { name: "Generative AI", icon: faChevronRight },
-        { name: "Natural Language Processing", icon: faChevronRight },
-        { name: "Speech Recognition", icon: faChevronRight },
-      ],
-    },
-    {
-      title: "Social Media Marketing",
-      link: "/social-media",
-      services: [
-        { name: "Social Media Marketing", icon: faChevronRight },
-        { name: "Search Engine Marketing", icon: faChevronRight },
-        { name: "Search Engine Optimization", icon: faChevronRight },
-      ],
-    },
-    {
-      title: "Performance Marketing",
-      link: "/perform-market",
-      services: [
-        { name: "Social Media Marketing", icon: faChevronRight },
-        { name: "Search Engine Marketing", icon: faChevronRight },
-        { name: "Search Engine Optimization", icon: faChevronRight },
-      ],
-    },
-  ];
+  // const servicesCategories = [
+  //   {
+  //     title: "App Development",
+
+  //     services: [
+  //       { name: "ISO App Development", icon: faChevronRight },
+  //       { name: "Android App Development", icon: faChevronRight },
+  //       { name: "Cross Platform App Development", icon: faChevronRight },
+  //     ],
+  //   },
+  //   {
+  //     title: "Graphic Designing",
+
+  //     services: [
+  //       { name: "Hire Android App Developer", icon: faChevronRight },
+  //       { name: "Hire ISO App Developer", icon: faChevronRight },
+  //       { name: "Hire Node.js Developer", icon: faChevronRight },
+  //     ],
+  //   },
+  //   {
+  //     title: "Content Writing",
+
+  //     services: [
+  //       { name: "ERP Solution", icon: faChevronRight },
+  //       { name: "CRM Solution", icon: faChevronRight },
+  //       { name: "CMS Solution", icon: faChevronRight },
+  //     ],
+  //   },
+  //   {
+  //     title: "Web Development",
+
+  //     services: [
+  //       { name: "Ecommerce Website Development", icon: faChevronRight },
+  //       { name: "Web Portals", icon: faChevronRight },
+  //     ],
+  //   },
+  //   {
+  //     title: "Shopify Store Development",
+  //     link: "/shopify-development",
+  //     services: [
+  //       { name: "Generative AI", icon: faChevronRight },
+  //       { name: "Natural Language Processing", icon: faChevronRight },
+  //       { name: "Speech Recognition", icon: faChevronRight },
+  //     ],
+  //   },
+  //   {
+  //     title: "Social Media Marketing",
+
+  //     services: [
+  //       { name: "Social Media Marketing", icon: faChevronRight },
+  //       { name: "Search Engine Marketing", icon: faChevronRight },
+  //       { name: "Search Engine Optimization", icon: faChevronRight },
+  //     ],
+  //   },
+  //   {
+  //     title: "Performance Marketing",
+
+  //     services: [
+  //       { name: "Social Media Marketing", icon: faChevronRight },
+  //       { name: "Search Engine Marketing", icon: faChevronRight },
+  //       { name: "Search Engine Optimization", icon: faChevronRight },
+  //     ],
+  //   },
+  // ];
 
   const aiServices = [
     { name: "AI Chatbots", icon: faChevronRight, link: "/ai/chatbots" },
@@ -349,15 +349,12 @@ const HomeHeader = () => {
                   if (item === "About") setIsAboutDropdownOpen(false);
                 }}
                 onClick={() => {
-                  if (item === "About") return;
                   if (item === "Home") {
                     handleNavigation("Home");
-                  } else if (item === "Portfolio") {
-                    handleNavigation("Portfolio");
-                  } else if (item === "Services") {
-                    handleNavigation("Services");
+                  } else if (item === "About") {
+                    return; // Do nothing when About is clicked
                   } else {
-                    handleNavigation(item);
+                    handleNavigation(item); // Other links work normally
                   }
                 }}
                 cursor="pointer"
@@ -384,6 +381,7 @@ const HomeHeader = () => {
                   <Box
                     position="absolute"
                     top="100%"
+                    onClick={(e) => e.stopPropagation()}
                     left={{ base: "0", md: "58%" }}
                     transform={{
                       base: "none",
@@ -436,10 +434,11 @@ const HomeHeader = () => {
                       <Box
                         display={{ base: "none", md: "block" }}
                         position="absolute"
-                        top="80px"
+                        top="70px"
                         left="0"
                         right="20px"
                         height="2px"
+                        width="83.5%"
                         bg="gray.300"
                       />
                       <Box
@@ -449,6 +448,7 @@ const HomeHeader = () => {
                         left="0"
                         right="20px"
                         height="2px"
+                        width="83.5%"
                         bg="gray.300"
                       />
                       <Box
@@ -457,6 +457,7 @@ const HomeHeader = () => {
                         top="0"
                         bottom="0"
                         left="25%"
+                        height="95%"
                         width="2px"
                         bg="gray.300"
                       />
@@ -467,33 +468,38 @@ const HomeHeader = () => {
                         bottom="0"
                         left="60%"
                         width="2px"
+                        height="95%"
                         bg="gray.300"
+                        fontSize="18px"
                       />
                       <Box>
                         <Text
-                          fontSize="16px"
+                          fontSize="18px"
                           fontWeight="700"
-                          mb="10px"
+                          mb="28px"
                           fontFamily="DM Sans"
-                          onClick={() =>
-                            handleNavigation("Services", "/web-development")
-                          }
                           cursor="pointer"
                           _hover={{ color: "#FFD700" }}
+                          onClick={() =>
+                            handleNavigation(
+                              "Web Development",
+                              "/web-developmentt"
+                            )
+                          }
                         >
                           Web Development
                         </Text>
                       </Box>
                       <Box>
                         <Text
-                          fontSize="16px"
+                          fontSize="18px"
                           fontWeight="700"
                           mb="10px"
                           fontFamily="DM Sans"
                           onClick={() =>
                             handleNavigation(
-                              "Services",
-                              "/mobile-app-development"
+                              "Mobile App Development",
+                              "/app-development"
                             )
                           }
                           cursor="pointer"
@@ -504,45 +510,51 @@ const HomeHeader = () => {
                       </Box>
                       <Box>
                         <Text
-                          fontSize="16px"
-                          fontWeight="700"
-                          mb="10px"
-                          fontFamily="DM Sans"
-                          onClick={() =>
-                            handleNavigation("Services", "/ui-ux-design")
-                          }
-                          cursor="pointer"
-                          _hover={{ color: "#FFD700" }}
-                        >
-                          UI/UX Design
-                        </Text>
-                      </Box>
-                      <Box>
-                        <Text
-                          fontSize="16px"
+                          fontSize="18px"
                           fontWeight="700"
                           mb="10px"
                           fontFamily="DM Sans"
                           onClick={() =>
                             handleNavigation(
-                              "Services",
-                              "/ecommerce-development"
+                              "Graphic Designing",
+                              "/graphic-designing"
                             )
                           }
                           cursor="pointer"
                           _hover={{ color: "#FFD700" }}
                         >
-                          E-commerce Development
+                          Graphic Designing
                         </Text>
                       </Box>
                       <Box>
                         <Text
-                          fontSize="16px"
+                          fontSize="18px"
                           fontWeight="700"
                           mb="10px"
                           fontFamily="DM Sans"
                           onClick={() =>
-                            handleNavigation("Services", "/shopify-development")
+                            handleNavigation(
+                              "Social Media Marketing",
+                              "/social-media"
+                            )
+                          }
+                          cursor="pointer"
+                          _hover={{ color: "#FFD700" }}
+                        >
+                          Social Media Marketing
+                        </Text>
+                      </Box>
+                      <Box>
+                        <Text
+                          fontSize="18px"
+                          fontWeight="700"
+                          mb="10px"
+                          fontFamily="DM Sans"
+                          onClick={() =>
+                            handleNavigation(
+                              "Shopify Development",
+                              "/shopify-development"
+                            )
                           }
                           cursor="pointer"
                           _hover={{ color: "#FFD700" }}
@@ -551,36 +563,35 @@ const HomeHeader = () => {
                         </Text>
                         <Text
                           mt="70px"
-                          fontSize="16px"
+                          fontSize="18px"
                           fontWeight="700"
                           mb="10px"
                           fontFamily="DM Sans"
                           onClick={() =>
-                            handleNavigation(
-                              "Services",
-                              "/performance-marketing"
-                            )
+                            handleNavigation("Services", "/perform-market")
                           }
                           cursor="pointer"
                           _hover={{ color: "#FFD700" }}
-                          pl="1px"
                         >
                           Performance Marketing
                         </Text>
                       </Box>
                       <Box>
                         <Text
-                          fontSize="16px"
+                          fontSize="18px"
                           fontWeight="700"
                           mb="10px"
                           fontFamily="DM Sans"
                           onClick={() =>
-                            handleNavigation("Services", "/digital-marketing")
+                            handleNavigation(
+                              " Content Writing",
+                              "/content-writing"
+                            )
                           }
                           cursor="pointer"
                           _hover={{ color: "#FFD700" }}
                         >
-                          Digital Marketing
+                          Content Writing
                         </Text>
                       </Box>
                     </Box>
@@ -589,6 +600,7 @@ const HomeHeader = () => {
                 {item === "About" && isAboutDropdownOpen && (
                   <Box
                     position="absolute"
+                    onClick={(e) => e.stopPropagation()}
                     top="100%"
                     left={{ base: "0", md: "60%" }}
                     transform={{
@@ -621,7 +633,7 @@ const HomeHeader = () => {
                         maxWidth="400px"
                         borderRadius="8px"
                         objectFit="contain"
-                        mt="50px"
+                        mt="20px"
                       />
                     </Box>
                     <Box
@@ -647,7 +659,7 @@ const HomeHeader = () => {
                           }}
                           transition="all 0.2s"
                           onClick={() =>
-                            handleNavigation("About", "/who-we-are")
+                            handleNavigation("Who We Are", "/who-we-are")
                           }
                           mt="70px"
                         >
@@ -666,7 +678,7 @@ const HomeHeader = () => {
                           }}
                           transition="all 0.2s"
                           onClick={() =>
-                            handleNavigation("About", "/our-partner")
+                            handleNavigation("Our Partner", "/our-partner")
                           }
                         >
                           Our Partner
@@ -684,7 +696,7 @@ const HomeHeader = () => {
                           }}
                           transition="all 0.2s"
                           onClick={() =>
-                            handleNavigation("About", "/our-mission")
+                            handleNavigation("Our Mission", "/our-mission")
                           }
                         >
                           Our Mission

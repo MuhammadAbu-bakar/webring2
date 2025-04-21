@@ -349,15 +349,12 @@ const HomeHeader = () => {
                   if (item === "About") setIsAboutDropdownOpen(false);
                 }}
                 onClick={() => {
-                  if (item === "About") return;
                   if (item === "Home") {
                     handleNavigation("Home");
-                  } else if (item === "Portfolio") {
-                    handleNavigation("Portfolio");
-                  } else if (item === "Services") {
-                    handleNavigation("Services");
+                  } else if (item === "About") {
+                    return; // Do nothing when About is clicked
                   } else {
-                    handleNavigation(item);
+                    handleNavigation(item); // Other links work normally
                   }
                 }}
                 cursor="pointer"
@@ -435,10 +432,11 @@ const HomeHeader = () => {
                       <Box
                         display={{ base: "none", md: "block" }}
                         position="absolute"
-                        top="80px"
+                        top="70px"
                         left="0"
                         right="20px"
                         height="2px"
+                        width="81%"
                         bg="gray.300"
                       />
                       <Box
@@ -448,6 +446,7 @@ const HomeHeader = () => {
                         left="0"
                         right="20px"
                         height="2px"
+                        width="81%"
                         bg="gray.300"
                       />
                       <Box
@@ -456,6 +455,7 @@ const HomeHeader = () => {
                         top="0"
                         bottom="0"
                         left="25%"
+                        height="95%"
                         width="2px"
                         bg="gray.300"
                       />
@@ -466,19 +466,23 @@ const HomeHeader = () => {
                         bottom="0"
                         left="60%"
                         width="2px"
+                        height="95%"
                         bg="gray.300"
                       />
                       <Box>
                         <Text
                           fontSize="16px"
                           fontWeight="700"
-                          mb="10px"
+                          mb="28px"
                           fontFamily="DM Sans"
-                          onClick={() =>
-                            handleNavigation("Services", "/web-development")
-                          }
                           cursor="pointer"
                           _hover={{ color: "#FFD700" }}
+                          onClick={() =>
+                            handleNavigation(
+                              "Web Development",
+                              "/web-developmentt"
+                            )
+                          }
                         >
                           Web Development
                         </Text>
@@ -491,8 +495,8 @@ const HomeHeader = () => {
                           fontFamily="DM Sans"
                           onClick={() =>
                             handleNavigation(
-                              "Services",
-                              "/mobile-app-development"
+                              "Mobile App Development",
+                              "/app-development"
                             )
                           }
                           cursor="pointer"
@@ -508,12 +512,15 @@ const HomeHeader = () => {
                           mb="10px"
                           fontFamily="DM Sans"
                           onClick={() =>
-                            handleNavigation("Services", "/ui-ux-design")
+                            handleNavigation(
+                              "Graphic Designing",
+                              "/graphic-designing"
+                            )
                           }
                           cursor="pointer"
                           _hover={{ color: "#FFD700" }}
                         >
-                          UI/UX Design
+                          Graphic Designing
                         </Text>
                       </Box>
                       <Box>
@@ -524,14 +531,14 @@ const HomeHeader = () => {
                           fontFamily="DM Sans"
                           onClick={() =>
                             handleNavigation(
-                              "Services",
-                              "/ecommerce-development"
+                              "Social Media Marketing",
+                              "/social-media"
                             )
                           }
                           cursor="pointer"
                           _hover={{ color: "#FFD700" }}
                         >
-                          E-commerce Development
+                          Social Media Marketing
                         </Text>
                       </Box>
                       <Box>
@@ -541,7 +548,10 @@ const HomeHeader = () => {
                           mb="10px"
                           fontFamily="DM Sans"
                           onClick={() =>
-                            handleNavigation("Services", "/shopify-development")
+                            handleNavigation(
+                              "Shopify Development",
+                              "/shopify-development"
+                            )
                           }
                           cursor="pointer"
                           _hover={{ color: "#FFD700" }}
@@ -555,10 +565,7 @@ const HomeHeader = () => {
                           mb="10px"
                           fontFamily="DM Sans"
                           onClick={() =>
-                            handleNavigation(
-                              "Services",
-                              "/performance-marketing"
-                            )
+                            handleNavigation("Services", "/perform-market")
                           }
                           cursor="pointer"
                           _hover={{ color: "#FFD700" }}
@@ -574,12 +581,15 @@ const HomeHeader = () => {
                           mb="10px"
                           fontFamily="DM Sans"
                           onClick={() =>
-                            handleNavigation("Services", "/digital-marketing")
+                            handleNavigation(
+                              " Content Writing",
+                              "/content-writing"
+                            )
                           }
                           cursor="pointer"
                           _hover={{ color: "#FFD700" }}
                         >
-                          Digital Marketing
+                          Content Writing
                         </Text>
                       </Box>
                     </Box>
@@ -588,6 +598,7 @@ const HomeHeader = () => {
                 {item === "About" && isAboutDropdownOpen && (
                   <Box
                     position="absolute"
+                    onClick={(e) => e.stopPropagation()}
                     top="100%"
                     left={{ base: "0", md: "60%" }}
                     transform={{
@@ -635,7 +646,7 @@ const HomeHeader = () => {
                       <VStack align="start" spacing="15px" ml="30px">
                         <Text
                           fontFamily="DM Sans"
-                          fontWeight="500"
+                          fontWeight="600"
                           fontSize="18px"
                           color="#26241C"
                           cursor="pointer"
@@ -646,7 +657,7 @@ const HomeHeader = () => {
                           }}
                           transition="all 0.2s"
                           onClick={() =>
-                            handleNavigation("About", "/who-we-are")
+                            handleNavigation("Who We Are", "/who-we-are")
                           }
                           mt="70px"
                         >
@@ -654,7 +665,7 @@ const HomeHeader = () => {
                         </Text>
                         <Text
                           fontFamily="DM Sans"
-                          fontWeight="500"
+                          fontWeight="600"
                           fontSize="18px"
                           color="#26241C"
                           cursor="pointer"
@@ -665,14 +676,14 @@ const HomeHeader = () => {
                           }}
                           transition="all 0.2s"
                           onClick={() =>
-                            handleNavigation("About", "/our-partner")
+                            handleNavigation("Our Partner", "/our-partner")
                           }
                         >
                           Our Partner
                         </Text>
                         <Text
                           fontFamily="DM Sans"
-                          fontWeight="500"
+                          fontWeight="600"
                           fontSize="18px"
                           color="#26241C"
                           cursor="pointer"
@@ -683,7 +694,7 @@ const HomeHeader = () => {
                           }}
                           transition="all 0.2s"
                           onClick={() =>
-                            handleNavigation("About", "/our-mission")
+                            handleNavigation("Our Mission", "/our-mission")
                           }
                         >
                           Our Mission

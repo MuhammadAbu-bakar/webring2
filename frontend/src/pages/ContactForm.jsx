@@ -18,8 +18,10 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import { useState } from "react";
 import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 
 export default function ContactForm() {
+  const navigate = useNavigate();
   const [checked, setChecked] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
@@ -158,33 +160,54 @@ export default function ContactForm() {
           <Text fontSize="md">Punjab 54810, PK</Text>
         </Box>
 
-        <Flex>
+        <Flex
+          as="a"
+          href="https://www.facebook.com/yourpage"
+          target="_blank"
+          rel="noopener noreferrer"
+          align="center"
+          _hover={{ textDecoration: "none", opacity: 0.8 }}
+        >
           <FontAwesomeIcon
             icon={faFacebook}
             style={{ color: "#FED904", h: "20px", w: "20px" }}
           />
-          <Text fontSize="md" fontWeight="bold" ml="10px" color="#5E5D5D">
+          <Text fontSize="16px" fontWeight="bold" ml="10px" color="#5E5D5D">
             Facebook
           </Text>
         </Flex>
 
-        <Flex>
+        <Flex
+          as="a"
+          href="https://www.instagram.com/webring_ltd/"
+          target="_blank"
+          rel="noopener noreferrer"
+          align="center"
+          _hover={{ textDecoration: "none", opacity: 0.8 }}
+        >
           <FontAwesomeIcon
             icon={faInstagram}
             style={{ color: "#FED904", h: "20px", w: "20px" }}
           />
-          <Text fontSize="md" fontWeight="bold" ml="10px" color="#5E5D5D">
+          <Text fontSize="16px" fontWeight="bold" ml="10px" color="#5E5D5D">
             Instagram
           </Text>
         </Flex>
 
-        <Flex>
+        <Flex
+          as="a"
+          href="https://www.linkedin.com/company/91013268/admin/dashboard/"
+          target="_blank"
+          rel="noopener noreferrer"
+          align="center"
+          _hover={{ textDecoration: "none", opacity: 0.8 }}
+        >
           <FontAwesomeIcon
             icon={faLinkedin}
             style={{ color: "#FED904", h: "20px", w: "20px" }}
           />
-          <Text fontSize="14px" fontWeight="bold" ml="10px" color="#5E5D5D">
-            linkedin
+          <Text fontSize="16px" fontWeight="bold" ml="10px" color="#5E5D5D">
+            Linkedin
           </Text>
         </Flex>
       </Box>

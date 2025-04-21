@@ -85,7 +85,7 @@ const Testimonials = () => {
             aria-label="Previous slide"
             position="absolute"
             left={{ base: "-20px", md: "-75px" }}
-            top="50%"
+            top={{ base: "50%", md: "40%" }}
             transform="translateY(-50%)"
             zIndex="10"
             bg="#FED904"
@@ -112,7 +112,7 @@ const Testimonials = () => {
             aria-label="Next slide"
             position="absolute"
             right={{ base: "-20px", md: "-75px" }}
-            top="50%"
+            top={{ base: "50%", md: "40%" }}
             transform="translateY(-50%)"
             zIndex="10"
             bg="#FED904"
@@ -156,19 +156,21 @@ const Testimonials = () => {
               >
                 <VStack spacing="10px" align="center">
                   <Box
-                    w={{ base: "100px", md: "160px" }}
-                    h={{ base: "100px", md: "160px" }}
+                    w={{ base: "120px", md: "160px" }} // Fixed width
+                    h={{ base: "120px", md: "160px" }} // Fixed height
                     bg="white"
                     display="flex"
                     alignItems="center"
                     justifyContent="center"
                     borderRadius="10px"
+                    overflow="hidden" // Prevents image overflow
+                    flexShrink={0}
                   >
                     <Image
                       src={testimonial.image}
-                      objectFit="contain"
-                      maxH="80%"
-                      maxW="80%"
+                      objectFit="cover" // Ensures image fills the container
+                      w="100%" // Takes full width of container
+                      h="100%" // Takes full height of container
                       alt={testimonial.name}
                     />
                   </Box>

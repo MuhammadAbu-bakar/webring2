@@ -11,7 +11,7 @@ import WhoWeArePage from "./pages/WhoWeArePage";
 import OurPartnerPage from "./pages/OurPartnerPage";
 import BlogDetailPage from "./pages/BlogDetailPage";
 import OurMissionPage from "./pages/OurMissionPage";
-import ServicesDetailPage from "./pages/ServicesDetailPage";
+
 import ContactForm from "./pages/ContactForm";
 import AppDevPage from "./pages/AppDevPage";
 import ShopifyDevPage from "./pages/ShopifyDevPage";
@@ -46,12 +46,10 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/services" element={<ServicesPage />} />
-        <Route path="/web-development" element={<ServicesDetailPage />} />
         <Route path="/portfolio" element={<PortfolioPage />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/blog" element={<BlogPage />} />
         <Route path="/blog/:blogId" element={<BlogDetailPage />} />{" "}
-        {/* New Route */}
         <Route path="/who-we-are" element={<WhoWeArePage />} />
         <Route path="/our-partner" element={<OurPartnerPage />} />
         <Route path="/our-mission" element={<OurMissionPage />} />

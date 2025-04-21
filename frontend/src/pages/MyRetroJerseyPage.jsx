@@ -85,29 +85,108 @@ function App() {
           <Heading fontSize="36px" mb={4} fontWeight="600">
             {" "}
             {/* Increased margin-bottom */}
-            Our Solution:
+            Development Process:
           </Heading>
-          <List.Root as="ol" spacing="3">
+          <Heading fontSize="36px" mb={4} fontWeight="600">
+            {" "}
+            {/* Increased margin-bottom */}
+            Discovery and Planning:
+          </Heading>
+          <List.Root as="ul" spacing="3" ml="50px">
             <List.Item>
-              Develop a user-friendly and visually appealing website to attract
-              potential clients.
+              Conducted thorough discussions with the client to understand their
+              business, target audience, and unique selling propositions.
             </List.Item>
             <List.Item>
-              Highlight the diverse range of chauffeur services offered by
-              13Chauffeurs.
-            </List.Item>
-            <List.Item>
-              Integrate an online booking system for easy reservation.
-            </List.Item>
-            <List.Item>
-              Ensure mobile responsiveness for accessibility on different
-              devices.
-            </List.Item>
-            <List.Item>
-              Optimize the website for search engine ranking to enhance online
-              visibility.
+              Defined the website’s structure, content hierarchy, and key
+              features.
             </List.Item>
           </List.Root>
+
+          <Heading fontSize="36px" mb={4} fontWeight="600">
+            {" "}
+            {/* Increased margin-bottom */}
+            Design and Development:
+          </Heading>
+
+          <ListRoot as="ul" spacing="3" ml="50px">
+            <List.Item>
+              Chose Elementor as the page builder for its flexibility and ease
+              of use.
+            </List.Item>
+            <List.Item>
+              Implemented a clean and modern design, incorporating JAZ Payments’
+              brand colors and imagery.
+            </List.Item>
+            <List.Item>
+              Developed custom modules to highlight different payment solutions,
+              their features, and advantages.
+            </List.Item>
+          </ListRoot>
+
+          <Heading fontSize="36px" mb={4} fontWeight="600">
+            {" "}
+            {/* Increased margin-bottom */}
+            Integration of Payment Solutions:
+          </Heading>
+
+          <ListRoot as="ul" spacing="3" ml="50px">
+            <List.Item>
+              Ensured seamless integration with various payment gateways to
+              demonstrate the functionality of JAZ Payments’ solutions.
+            </List.Item>
+            <List.Item>
+              Implemented secure and efficient payment processing features for a
+              smooth user experience.
+            </List.Item>
+          </ListRoot>
+
+          <Heading fontSize="36px" mb={4} fontWeight="600">
+            {" "}
+            {/* Increased margin-bottom */}
+            Responsive Design:
+          </Heading>
+
+          <ListRoot as="ul" spacing="3" ml="50px">
+            <List.Item>
+              Ensured the website was responsive across various devices,
+              providing a consistent and enjoyable experience for users on
+              desktops, tablets, and smartphones.
+            </List.Item>
+          </ListRoot>
+
+          <Heading fontSize="36px" mb={4} fontWeight="600">
+            {" "}
+            {/* Increased margin-bottom */}
+            Content Strategy:
+          </Heading>
+
+          <ListRoot as="ul" spacing="3" ml="50px">
+            <List.Item>
+              Created compelling and informative content that explained the
+              benefits of JAZ Payments’ solutions to businesses.
+            </List.Item>
+            <List.Item>
+              Utilized engaging visuals and interactive elements to enhance user
+              engagement.
+            </List.Item>
+          </ListRoot>
+
+          <Heading fontSize="36px" mb={4} fontWeight="600">
+            {" "}
+            {/* Increased margin-bottom */}
+            Testing and Optimization:
+          </Heading>
+
+          <ListRoot as="ul" spacing="3" ml="50px">
+            <List.Item>
+              Conducted extensive testing to identify and rectify any bugs or
+              issues.
+            </List.Item>
+            <List.Item>
+              Optimized the website’s performance for speed and responsiveness.
+            </List.Item>
+          </ListRoot>
         </Box>
 
         {/* Results */}
