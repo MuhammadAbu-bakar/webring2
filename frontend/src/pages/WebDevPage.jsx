@@ -474,6 +474,7 @@ const WebDevelopment = () => {
             fontWeight="600"
             textAlign="center"
             mt={10}
+            mb={5}
           >
             Our Step-by-Step Web Development Process
           </Heading>
@@ -504,7 +505,7 @@ const WebDevelopment = () => {
                   xl: "18px",
                   "2xl": "20px",
                 }}
-                mt={5}
+                mt={10}
               >
                 We test it thoroughly, make it search engine–friendly, and help
                 you launch it smoothly. Even after the launch, we stick around
@@ -519,7 +520,7 @@ const WebDevelopment = () => {
                   xl: "18px",
                   "2xl": "20px",
                 }}
-                mt={5}
+                mt={10}
               >
                 Your website should grow with your business—and we’re here to
                 make sure it does. Ready to bring your digital vision to life?
@@ -528,10 +529,11 @@ const WebDevelopment = () => {
             </Box>
             <Image
               src="/mobile-app-dev.png"
-              width={{ base: "80%", md: "25%" }}
+              width={{ base: "80%", md: "20%" }}
               height={{ base: "auto", md: "60%" }}
               mt={{ base: 6, md: 10 }}
               mb={10}
+              ml="50px"
               objectFit="contain"
             />
           </Flex>
@@ -550,14 +552,13 @@ const WebDevelopment = () => {
             fontSize={{ base: "24px", md: "36px", xl: "42px", "2xl": "48px" }}
             fontWeight="600"
             textAlign="center"
-            mt={10}
           >
             Frequently Asked Questions
           </Heading>
           <Text
             fontSize={{ base: "16px", md: "22px", xl: "24px" }}
             textAlign="center"
-            mt={6}
+            mt={10}
           >
             Web development is the process of building and maintaining websites.
             It involves everything from designing a user-friendly interface to

@@ -34,6 +34,7 @@ import USTechnologiesPage from "./pages/USTechnologiesPage";
 import ChauffersPage from "./pages/ChauffersPage";
 import TargomoPage from "./pages/TargomoPage";
 import ScrollToTop from "./components/ScrollToTop";
+import BlogSevenPage from "./pages/BlogSevenPage";
 
 import "./App.css";
 
@@ -50,7 +51,7 @@ function App() {
         <Route path="/portfolio" element={<PortfolioPage />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/blog" element={<BlogPage />} />
-        <Route path="/blog/:blogId" element={<BlogDetailPage />} />{" "}
+        <Route path="/blog/:blogId" element={<BlogSevenPage />} />
         <Route path="/who-we-are" element={<WhoWeArePage />} />
         <Route path="/our-partner" element={<OurPartnerPage />} />
         <Route path="/our-mission" element={<OurMissionPage />} />

@@ -513,7 +513,7 @@ const WebDevelopment = () => {
                   xl: "18px",
                   "2xl": "20px",
                 }}
-                mt={5}
+                mt={7}
               >
                 Once your app is tested and ready, we launch it to the world and
                 stay by your side with updates, performance tracking, and
@@ -528,7 +528,7 @@ const WebDevelopment = () => {
                   xl: "18px",
                   "2xl": "20px",
                 }}
-                mt={5}
+                mt={7}
               >
                 Let’s bring your vision to life. Connect with us and discover
                 how a great app can elevate your brand and transform how you do
@@ -537,10 +537,11 @@ const WebDevelopment = () => {
             </Box>
             <Image
               src="/mobile-app-dev.png"
-              width={{ base: "80%", md: "25%" }}
+              width={{ base: "80%", md: "20%" }}
               height={{ base: "auto", md: "60%" }}
               mt={{ base: 6, md: 10 }}
               mb={10}
+              ml="50px"
               objectFit="contain"
             />
           </Flex>

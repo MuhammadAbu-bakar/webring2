@@ -91,7 +91,7 @@ function Blog() {
           fontSize={{ base: "28px", md: "42px", lg: "64px" }}
           color="white"
         >
-          Blogs
+          Blog
         </Heading>
       </Box>
 
