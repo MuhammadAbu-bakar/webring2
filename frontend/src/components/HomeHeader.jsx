@@ -479,7 +479,11 @@ const HomeHeader = () => {
                           mb="28px"
                           fontFamily="DM Sans"
                           cursor="pointer"
-                          _hover={{ color: "#FFD700" }}
+                          _hover={{
+                            color: "#FFD700",
+                            transform: "translateX(5px)",
+                          }}
+                          transition="all 0.2s"
                           onClick={() =>
                             handleNavigation(
                               "Web Development",
@@ -504,7 +508,11 @@ const HomeHeader = () => {
                             )
                           }
                           cursor="pointer"
-                          _hover={{ color: "#FFD700" }}
+                          _hover={{
+                            color: "#FFD700",
+                            transform: "translateX(5px)",
+                          }}
+                          transition="all 0.2s"
                         >
                           Mobile App Development
                         </Text>
@@ -522,7 +530,11 @@ const HomeHeader = () => {
                             )
                           }
                           cursor="pointer"
-                          _hover={{ color: "#FFD700" }}
+                          _hover={{
+                            color: "#FFD700",
+                            transform: "translateX(5px)",
+                          }}
+                          transition="all 0.2s"
                         >
                           Graphic Designing
                         </Text>
@@ -540,7 +552,11 @@ const HomeHeader = () => {
                             )
                           }
                           cursor="pointer"
-                          _hover={{ color: "#FFD700" }}
+                          _hover={{
+                            color: "#FFD700",
+                            transform: "translateX(5px)",
+                          }}
+                          transition="all 0.2s"
                         >
                           Social Media Marketing
                         </Text>
@@ -558,7 +574,11 @@ const HomeHeader = () => {
                             )
                           }
                           cursor="pointer"
-                          _hover={{ color: "#FFD700" }}
+                          _hover={{
+                            color: "#FFD700",
+                            transform: "translateX(5px)",
+                          }}
+                          transition="all 0.2s"
                         >
                           Shopify Development
                         </Text>
@@ -573,7 +593,11 @@ const HomeHeader = () => {
                             handleNavigation("Services", "/perform-market")
                           }
                           cursor="pointer"
-                          _hover={{ color: "#FFD700" }}
+                          _hover={{
+                            color: "#FFD700",
+                            transform: "translateX(5px)",
+                          }}
+                          transition="all 0.2s"
                         >
                           Performance Marketing
                         </Text>
@@ -591,7 +615,11 @@ const HomeHeader = () => {
                             )
                           }
                           cursor="pointer"
-                          _hover={{ color: "#FFD700" }}
+                          _hover={{
+                            color: "#FFD700",
+                            transform: "translateX(5px)",
+                          }}
+                          transition="all 0.2s"
                         >
                           Content Writing
                         </Text>

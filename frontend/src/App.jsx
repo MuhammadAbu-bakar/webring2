@@ -33,6 +33,7 @@ import MotionGreyPage from "./pages/MotionGreyPage";
 import USTechnologiesPage from "./pages/USTechnologiesPage";
 import ChauffersPage from "./pages/ChauffersPage";
 import TargomoPage from "./pages/TargomoPage";
+import ScrollToTop from "./components/ScrollToTop";
 
 import "./App.css";
 
@@ -42,7 +43,7 @@ function App() {
   return (
     <>
       {location.pathname === "/" ? <HomeHeader /> : <ServicesHeader />}
-
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/services" element={<ServicesPage />} />

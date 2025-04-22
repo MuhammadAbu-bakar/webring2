@@ -10,7 +10,7 @@ const testimonials = [
   {
     name: "Sophia Moore",
     role: "CEO at Webflow Agency",
-    image: "/sophia.png",
+    image: "/pic10.png",
     quote: "Flawless execution from start to finish",
     feedback:
       "We are grateful to Webring for their support in our digital transformation process. Their full-scale implementation of Microsoft 365 has been very valuable. They helped us structure our MS Teams environment in a way that significantly boosted our collaboration and productivity. Their adoption activities and ongoing training have been key in enabling our team to fully leverage the capabilities of Microsoft 365. Webring has also been playing a key role in supporting our business development, workflow and process optimization, and tailoring different automation solutions based on our needs. With their ongoing support in Microsoft 365 and Dynamics 365, our operations remain smooth and efficient.",
@@ -18,7 +18,7 @@ const testimonials = [
   {
     name: "Adam Smith",
     role: "Webflow Developer",
-    image: "/adam.png",
+    image: "/pic11.png",
     quote: "A dream team for any serious project",
     feedback:
       "From concept to launch, the communication was seamless and the results were even better. They really understand how to turn vision into a high performing, responsive website with pixel-perfect precision. Beyond development, the team offered insights into UI/UX improvements, implemented complex animations, and ensured accessibility compliance throughout the build. Every revision was handled with care and professionalism. Even post-launch, they provided extensive support, fixed minor bugs proactively, and trained our team to manage content. The entire process was efficient and stress-free thanks to their experience and clear project management.",
@@ -26,7 +26,7 @@ const testimonials = [
   {
     name: "Mike Warren",
     role: "Developer at BRIX",
-    image: "/mike.png",
+    image: "/pic12.png",
     quote: "Professional, reliable, and incredibly skilled",
     feedback:
       "Their process is smooth, efficient, and completely transparent. We trusted them with a high-stakes project and they delivered on time with extraordinary results. From backend architecture planning to API integrations, their team handled every layer of the stack with deep technical knowledge. Their use of best practices, clean code, and thorough documentation made handover incredibly easy. Webring's dedication to quality assurance, automated testing, and performance optimization saved us countless hours down the line. I've worked with many teams, but their level of commitment and skill truly stands out.",

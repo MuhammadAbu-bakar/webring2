@@ -137,7 +137,7 @@ const ProjectShowcase = () => {
             fontSize="16px"
             fontWeight="700"
             letterSpacing="0.5rem"
-            color="#FED904"
+            color="black"
           >
             PROJECTS
           </Text>
@@ -145,7 +145,7 @@ const ProjectShowcase = () => {
             fontSize={{ base: "28px", md: "40px", lg: "55px" }}
             fontWeight="800"
             lineHeight={{ base: "40px", lg: "85px" }}
-            color="#26241C"
+            color="#FED904"
           >
             Showcase of our recognized work
           </Text>

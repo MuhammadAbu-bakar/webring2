@@ -380,6 +380,7 @@ const HomeHeader = () => {
                   <Box
                     position="absolute"
                     top="100%"
+                    onClick={(e) => e.stopPropagation()}
                     left={{ base: "0", md: "58%" }}
                     transform={{
                       base: "none",
@@ -436,7 +437,7 @@ const HomeHeader = () => {
                         left="0"
                         right="20px"
                         height="2px"
-                        width="81%"
+                        width="83.5%"
                         bg="gray.300"
                       />
                       <Box
@@ -446,7 +447,7 @@ const HomeHeader = () => {
                         left="0"
                         right="20px"
                         height="2px"
-                        width="81%"
+                        width="83.5%"
                         bg="gray.300"
                       />
                       <Box
@@ -468,15 +469,20 @@ const HomeHeader = () => {
                         width="2px"
                         height="95%"
                         bg="gray.300"
+                        fontSize="18px"
                       />
                       <Box>
                         <Text
-                          fontSize="16px"
+                          fontSize="18px"
                           fontWeight="700"
                           mb="28px"
                           fontFamily="DM Sans"
                           cursor="pointer"
-                          _hover={{ color: "#FFD700" }}
+                          _hover={{
+                            color: "#FFD700",
+                            transform: "translateX(5px)",
+                          }}
+                          transition="all 0.2s"
                           onClick={() =>
                             handleNavigation(
                               "Web Development",
@@ -489,8 +495,9 @@ const HomeHeader = () => {
                       </Box>
                       <Box>
                         <Text
-                          fontSize="16px"
+                          fontSize="18px"
                           fontWeight="700"
+                          ml="-10px"
                           mb="10px"
                           fontFamily="DM Sans"
                           onClick={() =>
@@ -500,14 +507,18 @@ const HomeHeader = () => {
                             )
                           }
                           cursor="pointer"
-                          _hover={{ color: "#FFD700" }}
+                          _hover={{
+                            color: "#FFD700",
+                            transform: "translateX(5px)",
+                          }}
+                          transition="all 0.2s"
                         >
                           Mobile App Development
                         </Text>
                       </Box>
                       <Box>
                         <Text
-                          fontSize="16px"
+                          fontSize="18px"
                           fontWeight="700"
                           mb="10px"
                           fontFamily="DM Sans"
@@ -518,14 +529,18 @@ const HomeHeader = () => {
                             )
                           }
                           cursor="pointer"
-                          _hover={{ color: "#FFD700" }}
+                          _hover={{
+                            color: "#FFD700",
+                            transform: "translateX(5px)",
+                          }}
+                          transition="all 0.2s"
                         >
                           Graphic Designing
                         </Text>
                       </Box>
                       <Box>
                         <Text
-                          fontSize="16px"
+                          fontSize="18px"
                           fontWeight="700"
                           mb="10px"
                           fontFamily="DM Sans"
@@ -536,14 +551,18 @@ const HomeHeader = () => {
                             )
                           }
                           cursor="pointer"
-                          _hover={{ color: "#FFD700" }}
+                          _hover={{
+                            color: "#FFD700",
+                            transform: "translateX(5px)",
+                          }}
+                          transition="all 0.2s"
                         >
                           Social Media Marketing
                         </Text>
                       </Box>
                       <Box>
                         <Text
-                          fontSize="16px"
+                          fontSize="18px"
                           fontWeight="700"
                           mb="10px"
                           fontFamily="DM Sans"
@@ -554,13 +573,18 @@ const HomeHeader = () => {
                             )
                           }
                           cursor="pointer"
-                          _hover={{ color: "#FFD700" }}
+                          _hover={{
+                            color: "#FFD700",
+                            transform: "translateX(5px)",
+                          }}
+                          transition="all 0.2s"
                         >
                           Shopify Development
                         </Text>
                         <Text
                           mt="70px"
-                          fontSize="16px"
+                          ml="-7px"
+                          fontSize="18px"
                           fontWeight="700"
                           mb="10px"
                           fontFamily="DM Sans"
@@ -568,15 +592,18 @@ const HomeHeader = () => {
                             handleNavigation("Services", "/perform-market")
                           }
                           cursor="pointer"
-                          _hover={{ color: "#FFD700" }}
-                          pl="1px"
+                          _hover={{
+                            color: "#FFD700",
+                            transform: "translateX(5px)",
+                          }}
+                          transition="all 0.2s"
                         >
                           Performance Marketing
                         </Text>
                       </Box>
                       <Box>
                         <Text
-                          fontSize="16px"
+                          fontSize="18px"
                           fontWeight="700"
                           mb="10px"
                           fontFamily="DM Sans"
@@ -587,7 +614,11 @@ const HomeHeader = () => {
                             )
                           }
                           cursor="pointer"
-                          _hover={{ color: "#FFD700" }}
+                          _hover={{
+                            color: "#FFD700",
+                            transform: "translateX(5px)",
+                          }}
+                          transition="all 0.2s"
                         >
                           Content Writing
                         </Text>

@@ -46,10 +46,10 @@ const Footer = () => {
 
         {/* Right Section */}
         <VStack align="start" spacing={4} maxW="538px" mt={{ base: 10, md: 0 }}>
-          <Text fontWeight="bold" fontSize="lg" color="#F8F8F6" pt="50px">
+          <Text fontWeight="bold" fontSize="xl" color="#F8F8F6" pt="50px">
             Let's Embark On Something Exceptional Together.
           </Text>
-          <Text fontSize="sm">
+          <Text fontSize="md" pb="20px">
             Our team of IT specialists is eager to collaborate with you,
             offering tailored insights and solutions designed to meet your
             unique business needs.

@@ -1,18 +1,25 @@
 import { Box, Text, VStack, Grid, Image } from "@chakra-ui/react";
- 
+
 const teamMembers = [
   { name: "Laim Owen", post: "Manager Director", image: "/member1.png" },
   { name: "Daniyel Karlos", post: "Digital Marketing", image: "/member2.png" },
   { name: "William Levi", post: "UI/UX Designer", image: "/member3.png" },
   { name: "Daniel Jack", post: "Web Developer", image: "/member4.png" },
 ];
- 
+
 const TeamShowcase = () => {
   return (
     <Box
       maxW="1920px"
       w="100%"
-      px={{ base: "20px", sm: "40px", md: "60px", lg: "80px", xl: "100px", "2xl": "120px" }}
+      px={{
+        base: "20px",
+        sm: "40px",
+        md: "60px",
+        lg: "80px",
+        xl: "100px",
+        "2xl": "120px",
+      }}
       py={{ base: "30px", md: "50px", lg: "60px" }}
       display="flex"
       flexDirection="column"
@@ -21,20 +28,38 @@ const TeamShowcase = () => {
     >
       {/* Section Heading */}
       <VStack w="100%" maxW="1723px" spacing="20px" align="flex-start">
-        <Text fontSize={{ base: "14px", md: "16px" }} fontWeight="700" letterSpacing="0.4rem" color="#26241C">
+        <Text
+          fontSize={{ base: "14px", md: "16px" }}
+          fontWeight="700"
+          letterSpacing="0.4rem"
+          color="#26241C"
+        >
           OUR TEAM
         </Text>
         <Text
-          fontSize={{ base: "28px", sm: "32px", md: "36px", lg: "48px", xl: "54px", "2xl": "64px" }}
+          fontSize={{
+            base: "28px",
+            sm: "32px",
+            md: "36px",
+            lg: "48px",
+            xl: "54px",
+            "2xl": "64px",
+          }}
           fontWeight="900"
-          lineHeight={{ base: "36px", sm: "40px", md: "44px", lg: "56px", xl: "72px" }}
+          lineHeight={{
+            base: "36px",
+            sm: "40px",
+            md: "44px",
+            lg: "56px",
+            xl: "72px",
+          }}
           color="#FED904"
           maxW={{ base: "100%", lg: "639px" }}
         >
           Our Team Behind the Studio
         </Text>
       </VStack>
- 
+
       {/* Image Grid */}
       <Grid
         w="100%"
@@ -54,11 +79,17 @@ const TeamShowcase = () => {
               src={member.image}
               alt={member.name}
               w="100%"
-              h={{ base: "250px", sm: "300px", md: "350px", lg: "400px", xl: "466px" }}
+              h={{
+                base: "250px",
+                sm: "300px",
+                md: "350px",
+                lg: "400px",
+                xl: "466px",
+              }}
               objectFit="cover"
               className="transition-all duration-300 filter grayscale group-hover:grayscale-0"
             />
- 
+
             {/* Overlay for Name & Position */}
             <Box
               className="absolute bottom-3 sm:bottom-5 left-3 sm:left-5 bg-opacity-50 p-2 sm:p-4 rounded-md opacity-0 transition-opacity duration-300 group-hover:opacity-100"
@@ -87,5 +118,5 @@ const TeamShowcase = () => {
     </Box>
   );
 };
- 
+
 export default TeamShowcase;

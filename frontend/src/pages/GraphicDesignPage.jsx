@@ -19,6 +19,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 const cards = [
   {
@@ -133,6 +134,7 @@ const WebDevelopment = () => {
   };
 
   const arrowSize = useBreakpointValue({ base: "sm", md: "md" });
+  const navigate = useNavigate();
 
   return (
     <>
@@ -228,26 +230,6 @@ const WebDevelopment = () => {
                       height="100%"
                       objectFit="cover"
                     />
-                    <Button
-                      className="view-button"
-                      position="absolute"
-                      bottom="20px"
-                      left="50%"
-                      transform="translateX(-50%)"
-                      bg="yellow.400"
-                      color="black"
-                      borderRadius="40px"
-                      border={"3px solid black"}
-                      width={40}
-                      height={10}
-                      opacity={0}
-                      transition="opacity 0.3s ease"
-                      _hover={{
-                        bg: "gray.100",
-                      }}
-                    >
-                      View Website
-                    </Button>
                   </Box>
                 ))}
               </Box>
@@ -308,6 +290,10 @@ const WebDevelopment = () => {
                 display="flex"
                 alignItems="center"
                 justifyContent="center"
+                bg="#FED904"
+                color="black"
+                fontWeight="700"
+                onClick={() => navigate("/contact-form")}
               >
                 Let's Talk
               </Button>
@@ -349,26 +335,6 @@ const WebDevelopment = () => {
                     height="100%"
                     objectFit={{ base: "cover", md: "contain" }}
                   />
-                  <Button
-                    className="view-button"
-                    position="absolute"
-                    bottom="20px"
-                    left="50%"
-                    transform="translateX(-50%)"
-                    bg="yellow.400"
-                    color="black"
-                    borderRadius="40px"
-                    border={"3px solid black"}
-                    width={40}
-                    height={10}
-                    opacity={0}
-                    transition="opacity 0.3s ease"
-                    _hover={{
-                      bg: "gray.100",
-                    }}
-                  >
-                    View Website
-                  </Button>
                 </Box>
               ))}
             </Box>

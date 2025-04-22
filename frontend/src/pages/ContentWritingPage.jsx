@@ -19,6 +19,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 const cards = [
   {
@@ -88,6 +89,7 @@ const WebDevelopment = () => {
   };
 
   const arrowSize = useBreakpointValue({ base: "sm", md: "md" });
+  const navigate = useNavigate();
 
   return (
     <>
@@ -175,6 +177,10 @@ const WebDevelopment = () => {
                 display="flex"
                 alignItems="center"
                 justifyContent="center"
+                bg="#FED904"
+                color="black"
+                fontWeight="700"
+                onClick={() => navigate("/contact-form")}
               >
                 Let's Talk
               </Button>
