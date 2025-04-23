@@ -106,13 +106,9 @@ const Footer = () => {
               spacing={8}
               display={{ base: "flex", md: "none" }}
             >
-              <Link
-                color="white"
-                href="/web-developmentt"
-                onClick={() => navigate("/web-developmentt")}
-              >
+              <Text onClick={() => navigate("/web-developmentt")}>
                 Web Development
-              </Link>
+              </Text>
               <Link color="white" as="a" href="/app-development">
                 App Development
               </Link>
@@ -125,7 +121,7 @@ const Footer = () => {
               <Link color="white" as="a" href="/social-media">
                 Social Media Marketing
               </Link>
-              <Link color="white" as="a" href="/content-writing">
+              <Link ncolor="white" as="a" href="/content-writing">
                 Content Writing
               </Link>
               <Link color="white" as="a" href="/perform-market">
@@ -140,7 +136,11 @@ const Footer = () => {
               display={{ base: "none", md: "flex" }}
               w="50%"
             >
-              <Text color="white" as="a" href="/web-developmentt">
+              <Text
+                color="white"
+                cursor="pointer"
+                onClick={() => navigate("/web-developmentt")}
+              >
                 Web Development
               </Text>
               <Link color="white" as="a" href="/app-development">
