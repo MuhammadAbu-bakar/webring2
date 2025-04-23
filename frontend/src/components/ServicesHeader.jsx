@@ -631,7 +631,7 @@ const HomeHeader = () => {
                     position="absolute"
                     onClick={(e) => e.stopPropagation()}
                     top="100%"
-                    left={{ base: "0", md: "60%" }}
+                    left={{ base: "0", md: "125%" }}
                     transform={{
                       base: "none",
                       md: "translateX(-30%)",
@@ -639,12 +639,7 @@ const HomeHeader = () => {
                       xl: "translateX(-60%)",
                     }}
                     bg="#FFFFFF"
-                    w={{
-                      base: "100vw",
-                      md: "900px",
-                      lg: "1140px",
-                      xl: "1500px",
-                    }}
+                    w="1850%"
                     boxShadow="md"
                     p="20px"
                     zIndex="1000"

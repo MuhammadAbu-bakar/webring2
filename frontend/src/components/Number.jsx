@@ -14,7 +14,7 @@ const StatsSection = () => {
       <Flex
         justify={{ base: "center", md: "space-evenly" }}
         align="center"
-        wrap="wrap"
+        wrap={{ base: "wrap", md: "nowrap" }} // Ensures one row on desktop
         gap={{ base: "40px", md: "80px", lg: "134px" }}
       >
         {/* Active Users */}
@@ -48,18 +48,16 @@ const StatsSection = () => {
 // Reusable StatBox Component
 const StatBox = ({ number, title, children, animate }) => {
   const { ref, inView } = useInView({
-    triggerOnce: true, // Only trigger once when the component enters the viewport
-    threshold: 0.5, // Trigger when 50% of the component is visible
+    triggerOnce: true,
+    threshold: 0.5,
   });
 
-  // Parse the number for animation if animate is true
   const getNumberValue = () => {
     if (number === "5M+") return 5000000;
     if (number === "100+") return 100;
     return 0;
   };
 
-  // Determine the suffix for display
   const getSuffix = () => {
     if (number === "5M+") return "M+";
     if (number === "100+") return "+";

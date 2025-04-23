@@ -61,7 +61,7 @@ const TestimonialSlider = () => {
     <Box maxW="1920px" mx="auto" py="50px" px={{ base: "20px", lg: "100px" }}>
       <VStack spacing="20px" align="flex-start" textAlign="left" mb="30px">
         <Text
-          fontSize="16px"
+          fontSize="19px"
           fontWeight="700"
           letterSpacing="0.5rem"
           color="#26241C"

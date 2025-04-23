@@ -8,28 +8,28 @@ const MotionBox = motion.create(Box);
 
 const testimonials = [
   {
-    name: "Sophia Moore",
-    role: "CEO at Webflow Agency",
+    name: "Amelia Carter",
+    role: "CMO at NovaTech\n Solutions",
     image: "/pic42.jpeg",
     quote: "Flawless execution from start to finish",
     feedback:
-      "We are grateful to Webring for their support in our digital transformation process. Their full-scale implementation of Microsoft 365 has been very valuable. They helped us structure our MS Teams environment in a way that significantly boosted our collaboration and productivity. Their adoption activities and ongoing training have been key in enabling our team to fully leverage the capabilities of Microsoft 365. Webring has also been playing a key role in supporting our business development, workflow and process optimization, and tailoring different automation solutions based on our needs. With their ongoing support in Microsoft 365 and Dynamics 365, our operations remain smooth and efficient.",
+      "We partnered with Webring for a complete overhaul of our digital presence, and the results were nothing short of remarkable. From intuitive UX/UI design to the seamless integration of advanced features like real-time data syncing, AI-based automation, and multi-device responsiveness, Webring delivered a website that truly represents the future of our brand. Their team anticipated our needs, offered strategic insights, and executed flawlessly. Not only did they meet our technical requirements, but they also elevated our entire digital strategy. We now have a scalable, secure, and high-performance platform that is already driving engagement and conversions.",
   },
   {
     name: "Adam Smith",
-    role: "Founder of BRIX",
+    role: "Head of Product at\n CoreMobile Solutions",
     image: "/pic41.jpeg",
     quote: "A dream team for any serious project",
     feedback:
-      "From concept to launch, the communication was seamless and the results were even better. They really understand how to turn vision into a high performing, responsive website with pixel-perfect precision. Beyond development, the team offered insights into UI/UX improvements, implemented complex animations, and ensured accessibility compliance throughout the build. Every revision was handled with care and professionalism. Even post-launch, they provided extensive support, fixed minor bugs proactively, and trained our team to manage content. The entire process was efficient and stress-free thanks to their experience and clear project management.",
+      "Collaborating with Webring was one of the best decisions we made for our digital product. Their team didn’t just develop an app, they crafted a high-performing, secure, and beautifully intuitive experience across both iOS and Android platforms. Features like biometric login, in-app analytics, real-time notifications, offline mode functionality, and seamless third-party integrations made all the difference. What truly impressed us was their proactive approach to UI/UX design and performance optimization. From wireframes to final launch, they were meticulous, agile, and always ahead of the curve. Our users love the app, and so do we.",
   },
   {
-    name: "Mike Warren",
-    role: "CEO at Tech Innovations",
+    name: "Rikie Lambert",
+    role: "Chief Marketing Officer\n at Lumino Labs",
     image: "/pic43.jpeg",
     quote: "Professional, reliable, and incredibly skilled",
     feedback:
-      "Their process is smooth, efficient, and completely transparent. We trusted them with a high-stakes project and they delivered on time with extraordinary results. From backend architecture planning to API integrations, their team handled every layer of the stack with deep technical knowledge. Their use of best practices, clean code, and thorough documentation made handover incredibly easy. Webring's dedication to quality assurance, automated testing, and performance optimization saved us countless hours down the line. I've worked with many teams, but their level of commitment and skill truly stands out.",
+      "Before working with Webring, our brand visibility was scattered and inconsistent. They came in with a crystal-clear strategy and executed across every major platformYouTube, Instagram, LinkedIn, and beyond. Their content marketing was on point, their creatives were scroll-stopping, and their data-driven approach made sure every move had impact. Within weeks, we saw increased engagement, subscriber growth on YouTube, and a noticeable uplift in inbound leads through social channels. From content planning to paid ads and analytics reporting, Webring handled everything with precision and creativity. They're not just marketers, they're growth partners.",
   },
 ];
 
@@ -187,7 +187,12 @@ const Testimonials = () => {
                     >
                       {testimonial.name}
                     </Text>
-                    <Text fontSize="16px" color="#B7B39F" fontFamily="DM Sans">
+                    <Text
+                      fontSize="16px"
+                      color="#B7B39F"
+                      fontFamily="DM Sans"
+                      whiteSpace="pre-line"
+                    >
                       {testimonial.role}
                     </Text>
                   </Box>
