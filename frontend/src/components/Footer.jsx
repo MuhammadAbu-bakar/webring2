@@ -106,7 +106,11 @@ const Footer = () => {
               spacing={8}
               display={{ base: "flex", md: "none" }}
             >
-              <Link color="white" as="a" href="/web-developmentt">
+              <Link
+                color="white"
+                href="/web-developmentt"
+                onClick={() => navigate("/web-developmentt")}
+              >
                 Web Development
               </Link>
               <Link color="white" as="a" href="/app-development">
