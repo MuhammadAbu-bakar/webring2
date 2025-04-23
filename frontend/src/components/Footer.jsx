@@ -106,12 +106,27 @@ const Footer = () => {
               spacing={8}
               display={{ base: "flex", md: "none" }}
             >
-              <Link color="white">Web Development</Link>
-              <Link color="white">App Development</Link>
-              <Link color="white">Game Development</Link>
-              <Link color="white">Graphic Designing</Link>
-              <Link color="white">Social Media Marketing</Link>
-              <Link color="white">Content Writing</Link>
+              <Link color="white" as="a" href="/web-developmentt">
+                Web Development
+              </Link>
+              <Link color="white" as="a" href="/app-development">
+                App Development
+              </Link>
+              <Link color="white" as="a" href="/shopify-development">
+                Shopify Development
+              </Link>
+              <Link color="white" as="a" href="/graphic-designing">
+                Graphic Designing
+              </Link>
+              <Link color="white" as="a" href="/social-media">
+                Social Media Marketing
+              </Link>
+              <Link color="white" as="a" href="/content-writing">
+                Content Writing
+              </Link>
+              <Link color="white" as="a" href="/perform-market">
+                Performance Marketing
+              </Link>
             </VStack>
             {/* Two columns for desktop */}
             <VStack
@@ -121,9 +136,18 @@ const Footer = () => {
               display={{ base: "none", md: "flex" }}
               w="50%"
             >
-              <Link color="white">Web Development</Link>
-              <Link color="white">App Development</Link>
-              <Link color="white">Game Development</Link>
+              <Link color="white" as="a" href="/web-developmentt">
+                Web Development
+              </Link>
+              <Link color="white" as="a" href="/app-development">
+                App Development
+              </Link>
+              <Link color="white" as="a" href="/shopify-development">
+                Shopify Development
+              </Link>
+              <Link color="white" as="a" href="/perform-market">
+                Performance Marketing
+              </Link>
             </VStack>
             <VStack
               align="start"
@@ -132,9 +156,15 @@ const Footer = () => {
               display={{ base: "none", md: "flex" }}
               w="50%"
             >
-              <Link color="white">Graphic Designing</Link>
-              <Link color="white">Social Media Marketing</Link>
-              <Link color="white">Content Writing</Link>
+              <Link color="white" as="a" href="/graphic-designing">
+                Graphic Designing
+              </Link>
+              <Link color="white" as="a" href="/social-media">
+                Social Media Marketing
+              </Link>
+              <Link color="white" as="a" href="/content-writing">
+                Content Writing
+              </Link>
             </VStack>
           </Flex>
         </Box>
@@ -156,9 +186,15 @@ const Footer = () => {
               display={{ base: "flex", md: "none" }}
             >
               <Link color="white">About Us</Link>
-              <Link color="white">Contact Us</Link>
-              <Link color="white">Services</Link>
-              <Link color="white">Blog</Link>
+              <Link color="white" as="a" href="/contact-form">
+                Contact Us
+              </Link>
+              <Link color="white" as="a" href="/services">
+                Services
+              </Link>
+              <Link color="white" as="a" href="/blog">
+                Blog
+              </Link>
               <Link color="white">Team</Link>
               <Link color="white">Partners</Link>
             </VStack>
@@ -170,9 +206,15 @@ const Footer = () => {
               display={{ base: "none", md: "flex" }}
               w="50%"
             >
-              <Link color="white">About Us</Link>
-              <Link color="white">Contact Us</Link>
-              <Link color="white">Services</Link>
+              <Link color="white" as="a" href="/who-we-are">
+                Who We Are
+              </Link>
+              <Link color="white" as="a" href="/our-mission">
+                Our Mission
+              </Link>
+              <Link color="white" as="a" href="/our-partner">
+                Our Partner
+              </Link>
             </VStack>
             <VStack
               align="start"
@@ -181,9 +223,15 @@ const Footer = () => {
               display={{ base: "none", md: "flex" }}
               w="50%"
             >
-              <Link color="white">Blog</Link>
-              <Link color="white">Team</Link>
-              <Link color="white">Partners</Link>
+              <Link color="white" as="a" href="/blog">
+                Blog
+              </Link>
+              <Link color="white" as="a" href="/contact-form">
+                Contact Us
+              </Link>
+              <Link color="white" as="a" href="/services">
+                Services
+              </Link>
             </VStack>
           </Flex>
         </Box>
