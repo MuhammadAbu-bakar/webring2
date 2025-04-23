@@ -106,25 +106,53 @@ const Footer = () => {
               spacing={8}
               display={{ base: "flex", md: "none" }}
             >
-              <Text onClick={() => navigate("/web-developmentt")}>
+              <Text
+                color="white"
+                cursor="pointer"
+                onClick={() => navigate("/web-developmentt")}
+              >
                 Web Development
               </Text>
-              <Link color="white" as="a" href="/app-development">
+              <Link
+                color="white"
+                cursor="pointer"
+                onClick={() => navigate("/app-development")}
+              >
                 App Development
               </Link>
-              <Link color="white" as="a" href="/shopify-development">
+              <Link
+                color="white"
+                cursor="pointer"
+                onClick={() => navigate("/shopify-development")}
+              >
                 Shopify Development
               </Link>
-              <Link color="white" as="a" href="/graphic-designing">
+              <Link
+                color="white"
+                cursor="pointer"
+                onClick={() => navigate("/graphic-designing")}
+              >
                 Graphic Designing
               </Link>
-              <Link color="white" as="a" href="/social-media">
+              <Link
+                color="white"
+                cursor="pointer"
+                onClick={() => navigate("/social-media")}
+              >
                 Social Media Marketing
               </Link>
-              <Link ncolor="white" as="a" href="/content-writing">
+              <Link
+                color="white"
+                cursor="pointer"
+                onClick={() => navigate("/content-writing")}
+              >
                 Content Writing
               </Link>
-              <Link color="white" as="a" href="/perform-market">
+              <Link
+                color="white"
+                cursor="pointer"
+                onClick={() => navigate("/perform-market")}
+              >
                 Performance Marketing
               </Link>
             </VStack>
@@ -143,15 +171,27 @@ const Footer = () => {
               >
                 Web Development
               </Text>
-              <Link color="white" as="a" href="/app-development">
+              <Text
+                color="white"
+                cursor="pointer"
+                onClick={() => navigate("/app-development")}
+              >
                 App Development
-              </Link>
-              <Link color="white" as="a" href="/shopify-development">
+              </Text>
+              <Text
+                color="white"
+                cursor="pointer"
+                onClick={() => navigate("/shopify-development")}
+              >
                 Shopify Development
-              </Link>
-              <Link color="white" as="a" href="/perform-market">
+              </Text>
+              <Text
+                color="white"
+                cursor="pointer"
+                onClick={() => navigate("/perform-market")}
+              >
                 Performance Marketing
-              </Link>
+              </Text>
             </VStack>
             <VStack
               align="start"
@@ -160,15 +200,27 @@ const Footer = () => {
               display={{ base: "none", md: "flex" }}
               w="50%"
             >
-              <Link color="white" as="a" href="/graphic-designing">
+              <Text
+                color="white"
+                cursor="pointer"
+                onClick={() => navigate("/graphic-designing")}
+              >
                 Graphic Designing
-              </Link>
-              <Link color="white" as="a" href="/social-media">
+              </Text>
+              <Text
+                color="white"
+                cursor="pointer"
+                onClick={() => navigate("/social-media")}
+              >
                 Social Media Marketing
-              </Link>
-              <Link color="white" as="a" href="/content-writing">
+              </Text>
+              <Text
+                color="white"
+                cursor="pointer"
+                onClick={() => navigate("/content-writing")}
+              >
                 Content Writing
-              </Link>
+              </Text>
             </VStack>
           </Flex>
         </Box>
@@ -189,18 +241,48 @@ const Footer = () => {
               spacing={8}
               display={{ base: "flex", md: "none" }}
             >
-              <Link color="white">About Us</Link>
-              <Link color="white" as="a" href="/contact-form">
-                Contact Us
-              </Link>
-              <Link color="white" as="a" href="/services">
-                Services
-              </Link>
-              <Link color="white" as="a" href="/blog">
+              <Text
+                color="white"
+                cursor="pointer"
+                onClick={() => navigate("/who-we-are")}
+              >
+                Who We Are
+              </Text>
+              <Text
+                color="white"
+                cursor="pointer"
+                onClick={() => navigate("/our-mission")}
+              >
+                Our Mission
+              </Text>
+              <Text
+                color="white"
+                cursor="pointer"
+                onClick={() => navigate("/our-partner")}
+              >
+                Our Partner
+              </Text>
+              <Text
+                color="white"
+                cursor="pointer"
+                onClick={() => navigate("/blog")}
+              >
                 Blog
-              </Link>
-              <Link color="white">Team</Link>
-              <Link color="white">Partners</Link>
+              </Text>
+              <Text
+                color="white"
+                cursor="pointer"
+                onClick={() => navigate("/contact-form")}
+              >
+                Contact Us
+              </Text>
+              <Text
+                color="white"
+                cursor="pointer"
+                onClick={() => navigate("/services")}
+              >
+                Services
+              </Text>
             </VStack>
             {/* Two columns for desktop */}
             <VStack
@@ -210,15 +292,27 @@ const Footer = () => {
               display={{ base: "none", md: "flex" }}
               w="50%"
             >
-              <Link color="white" as="a" href="/who-we-are">
+              <Text
+                color="white"
+                cursor="pointer"
+                onClick={() => navigate("/who-we-are")}
+              >
                 Who We Are
-              </Link>
-              <Link color="white" as="a" href="/our-mission">
+              </Text>
+              <Text
+                color="white"
+                cursor="pointer"
+                onClick={() => navigate("/our-mission")}
+              >
                 Our Mission
-              </Link>
-              <Link color="white" as="a" href="/our-partner">
+              </Text>
+              <Text
+                color="white"
+                cursor="pointer"
+                onClick={() => navigate("/our-partner")}
+              >
                 Our Partner
-              </Link>
+              </Text>
             </VStack>
             <VStack
               align="start"
@@ -227,15 +321,27 @@ const Footer = () => {
               display={{ base: "none", md: "flex" }}
               w="50%"
             >
-              <Link color="white" as="a" href="/blog">
+              <Text
+                color="white"
+                cursor="pointer"
+                onClick={() => navigate("/blog")}
+              >
                 Blog
-              </Link>
-              <Link color="white" as="a" href="/contact-form">
+              </Text>
+              <Text
+                color="white"
+                cursor="pointer"
+                onClick={() => navigate("/contact-form")}
+              >
                 Contact Us
-              </Link>
-              <Link color="white" as="a" href="/services">
+              </Text>
+              <Text
+                color="white"
+                cursor="pointer"
+                onClick={() => navigate("/services")}
+              >
                 Services
-              </Link>
+              </Text>
             </VStack>
           </Flex>
         </Box>
