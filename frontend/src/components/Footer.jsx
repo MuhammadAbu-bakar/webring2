@@ -92,7 +92,7 @@ const Footer = () => {
       >
         {/* Services Section */}
         <Box w={{ base: "100%", md: "404px" }} mb={6} font="DM Sans">
-          <Text fontWeight="500" color="#F8F8F6" mb={6}>
+          <Text fontWeight="500" color="#FED904" mb={6} fontSize="20px">
             Services
           </Text>
           <Flex
@@ -171,7 +171,7 @@ const Footer = () => {
 
         {/* Company Section */}
         <Box w={{ base: "100%", md: "227px" }} mb={6}>
-          <Text fontWeight="500" color="#F8F8F6" mb={6}>
+          <Text fontWeight="500" color="#FED904" mb={6} fontSize="20px">
             Company
           </Text>
           <Flex
@@ -244,9 +244,11 @@ const Footer = () => {
           font="DM Sans"
           mr="140px"
         >
-          <Text fontWeight="500">Phone</Text>
+          <Text fontSize="20px" fontWeight="500" color="#FED904">
+            Phone
+          </Text>
           <Text pt="3px">+92 319 6780744</Text>
-          <Text fontWeight="500" mt={3}>
+          <Text fontWeight="500" mt={3} color="#FED904" fontSize="20px">
             Mail
           </Text>
           <Text pt="1px">info@webring.ltd</Text>
