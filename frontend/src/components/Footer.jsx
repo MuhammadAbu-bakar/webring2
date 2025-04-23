@@ -136,9 +136,9 @@ const Footer = () => {
               display={{ base: "none", md: "flex" }}
               w="50%"
             >
-              <Link color="white" as="a" href="/web-developmentt">
+              <Text color="white" as="a" href="/web-developmentt">
                 Web Development
-              </Link>
+              </Text>
               <Link color="white" as="a" href="/app-development">
                 App Development
               </Link>

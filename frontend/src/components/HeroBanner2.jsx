@@ -1,7 +1,20 @@
-import React from "react";
+import React, { useRef, useEffect } from "react";
 import { Box, Text } from "@chakra-ui/react";
+import { motion, useAnimation, useInView } from "framer-motion";
+
+const MotionBox = motion(Box);
 
 const HeroBanner2 = () => {
+  const ref = useRef(null);
+  const inView = useInView(ref, { once: true });
+  const controls = useAnimation();
+
+  useEffect(() => {
+    if (inView) {
+      controls.start("visible");
+    }
+  }, [inView, controls]);
+
   return (
     <Box
       width="100%"
@@ -14,7 +27,20 @@ const HeroBanner2 = () => {
       justifyContent="center"
       alignItems="center"
     >
-      <Box position="relative" px={4}>
+      <MotionBox
+        ref={ref}
+        px={4}
+        initial="hidden"
+        animate={controls}
+        variants={{
+          hidden: { opacity: 0, y: 40 },
+          visible: {
+            opacity: 1,
+            y: 0,
+            transition: { duration: 1, ease: "easeOut" },
+          },
+        }}
+      >
         <Text
           fontFamily="Yantramanav"
           fontWeight="700"
@@ -25,7 +51,7 @@ const HeroBanner2 = () => {
         >
           Services
         </Text>
-      </Box>
+      </MotionBox>
     </Box>
   );
 };

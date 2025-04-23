@@ -1,8 +1,22 @@
 import { Box, Button, Text, VStack } from "@chakra-ui/react";
-import { useNavigate } from "react-router-dom"; // Add this import
+import { useNavigate } from "react-router-dom";
+import { motion, useAnimation } from "framer-motion";
+import { useEffect, useRef } from "react";
+import { useInView } from "framer-motion";
+
+const MotionVStack = motion(VStack);
 
 const HeroBanner = () => {
-  const navigate = useNavigate(); // Initialize the navigate function
+  const navigate = useNavigate();
+  const ref = useRef(null);
+  const inView = useInView(ref, { once: true });
+  const controls = useAnimation();
+
+  useEffect(() => {
+    if (inView) {
+      controls.start("visible");
+    }
+  }, [inView, controls]);
 
   return (
     <Box
@@ -21,25 +35,32 @@ const HeroBanner = () => {
       <Box
         w={{ base: "100%", md: "970px" }}
         maxW="1200px"
-        h={{ base: "auto", md: "439px" }}
         mx="auto"
         display="flex"
         flexDirection="column"
         alignItems={{ base: "center", md: "flex-start" }}
         textAlign={{ base: "center", md: "left" }}
+        ref={ref}
       >
-        {/* Text and Button Wrapper */}
-        <VStack
+        <MotionVStack
           align={{ base: "center", md: "start" }}
           spacing={{ base: "20px", md: "40px" }}
           display={{ base: "none", md: "flex" }}
+          initial="hidden"
+          animate={controls}
+          variants={{
+            hidden: { opacity: 0, y: 50 },
+            visible: {
+              opacity: 1,
+              y: 0,
+              transition: { duration: 1, ease: "easeOut" },
+            },
+          }}
         >
-          {/* Empowerment Text */}
           <Text
             fontFamily="Syne"
             fontWeight="600"
             fontSize={{ base: "16px", md: "22px" }}
-            lineHeight="22.94px"
             letterSpacing="6.83px"
             color="#FED904"
             textTransform="uppercase"
@@ -47,7 +68,6 @@ const HeroBanner = () => {
             Empowerment
           </Text>
 
-          {/* Main Heading */}
           <Text
             fontFamily="Yantramanav"
             fontWeight="500"
@@ -60,20 +80,18 @@ const HeroBanner = () => {
             One Stop Solution
           </Text>
 
-          {/* Description */}
           <Text
             fontFamily="DM Sans"
             fontWeight="400"
             fontSize={{ base: "16px", md: "28px" }}
             lineHeight={{ base: "24px", md: "40px" }}
-            letterSpacing="0%"
             color="white"
             maxW="900px"
           >
-            We are a full-service leading Web & App Development company offering a wide range of digital solutions.
+            We are a full-service leading Web & App Development company offering
+            a wide range of digital solutions.
           </Text>
 
-          {/* Call-to-Action Button */}
           <Button
             w={{ base: "160px", md: "200px" }}
             h={{ base: "50px", md: "60px" }}
@@ -85,11 +103,11 @@ const HeroBanner = () => {
             fontWeight="700"
             _hover={{ bg: "yellow.500" }}
             mt={{ base: "20px", md: "40px" }}
-            onClick={() => navigate("/contact-form")} // Updated to use navigate
+            onClick={() => navigate("/contact-form")}
           >
             GET A QUOTE
           </Button>
-        </VStack>
+        </MotionVStack>
       </Box>
     </Box>
   );
