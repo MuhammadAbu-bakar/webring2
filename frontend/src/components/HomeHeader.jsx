@@ -402,7 +402,6 @@ const HomeHeader = () => {
                     display="flex"
                     flexDirection={{ base: "column", md: "row" }}
                     gap="20px"
-                    borderRadius="8px"
                     border="1px solid #f0f0f0"
                   >
                     <Box
@@ -632,7 +631,7 @@ const HomeHeader = () => {
                     position="absolute"
                     onClick={(e) => e.stopPropagation()}
                     top="100%"
-                    left={{ base: "0", md: "125%" }}
+                    left={{ lg: "61%" }}
                     transform={{
                       base: "none",
                       md: "translateX(-30%)",
@@ -640,14 +639,13 @@ const HomeHeader = () => {
                       xl: "translateX(-60%)",
                     }}
                     bg="#FFFFFF"
-                    w="1850%"
+                    w={{ lg: "2025%" }}
                     boxShadow="md"
                     p="20px"
                     zIndex="1000"
                     display="flex"
                     flexDirection={{ base: "column", md: "row" }}
                     gap="20px"
-                    borderRadius="8px"
                     border="1px solid #f0f0f0"
                   >
                     <Box flex="1" minWidth="200px" ml="100px">

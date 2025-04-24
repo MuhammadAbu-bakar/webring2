@@ -94,7 +94,12 @@ export default function ContactForm() {
             phone: formData.phone,
             country: formData.country,
             message: formData.message,
-            bcc: ["adil@asture.co", "adil@webring.ltd", "info@webring.ltd"],
+            bcc: [
+              "adil@asture.co",
+              "adil@webring.ltd",
+              "info@webring.ltd",
+              "maarijali29@gmail.com",
+            ],
           }),
         });
 
