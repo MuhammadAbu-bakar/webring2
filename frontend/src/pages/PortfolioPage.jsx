@@ -101,7 +101,7 @@ const portfolioCards = [
     id: 12,
     title: "The Desntist of SummerLin",
     description:
-      "Targomo's location intelligence platform required a sophisticated yet accessible interface. We delivered a solution that effectively communicates complex spatial data through intuitive visualizations and clear navigation.",
+      "The Dentist of Summerlin provides professional dental care services in Summerlin, Las Vegas, specializing in general, cosmetic, and restorative treatments like teeth whitening, veneers, implants, and Invisalign.",
     image: "/portsummerlin.png",
     navigateTo: "/targomo",
   },
@@ -109,7 +109,7 @@ const portfolioCards = [
     id: 13,
     title: "The Dentist CEO",
     description:
-      "Targomo's location intelligence platform required a sophisticated yet accessible interface. We delivered a solution that effectively communicates complex spatial data through intuitive visualizations and clear navigation.",
+      "The Dentist CEO is a platform dedicated to helping dental professionals build thriving practices through business coaching, marketing strategies, and leadership development.",
     image: "/portdentistceo.png",
     navigateTo: "/targomo",
   },
@@ -117,7 +117,7 @@ const portfolioCards = [
     id: 14,
     title: "Dentist Art",
     description:
-      "Targomo's location intelligence platform required a sophisticated yet accessible interface. We delivered a solution that effectively communicates complex spatial data through intuitive visualizations and clear navigation.",
+      "Dentist Art is an innovative platform combining dentistry with artistic craftsmanship, specializing in high-end aesthetic dental solutions like custom veneers, smile design, and digital smile makeovers.",
     image: "/portart.png",
     navigateTo: "/targomo",
   },
@@ -125,7 +125,7 @@ const portfolioCards = [
     id: 15,
     title: "The Gentle Dentist",
     description:
-      "Targomo's location intelligence platform required a sophisticated yet accessible interface. We delivered a solution that effectively communicates complex spatial data through intuitive visualizations and clear navigation.",
+      "The Gentle Dentist provides compassionate, anxiety-free dental care with a focus on patient comfort and minimally invasive techniques. Specializing in family dentistry, cosmetic procedures, and sedation options, this practice emphasizes a stress-free environment.",
     image: "/portgentle.png",
     navigateTo: "/targomo",
   },
@@ -133,7 +133,7 @@ const portfolioCards = [
     id: 16,
     title: "Log Cabin Florist",
     description:
-      "Targomo's location intelligence platform required a sophisticated yet accessible interface. We delivered a solution that effectively communicates complex spatial data through intuitive visualizations and clear navigation.",
+      "Log Cabin Florist is a full-service floral design studio offering fresh, handcrafted arrangements for weddings, events, and everyday occasions.Known for their rustic charm and artistic elegance, they specialize in seasonal blooms and custom bouquets.",
     image: "/portlogan.png",
     navigateTo: "/targomo",
   },
@@ -141,8 +141,32 @@ const portfolioCards = [
     id: 17,
     title: "Flourishing Art",
     description:
-      "Targomo's location intelligence platform required a sophisticated yet accessible interface. We delivered a solution that effectively communicates complex spatial data through intuitive visualizations and clear navigation.",
+      "Flourishing Art is a creative studio specializing in bespoke botanical and nature-inspired artwork, offering original paintings, prints, and commissioned pieces that celebrate the beauty of flora and organic forms.",
     image: "/portflorishart.png",
+    navigateTo: "/targomo",
+  },
+  {
+    id: 18,
+    title: "Dentist Sonrisas",
+    description:
+      "Sonrisas Dental is a modern dental practice offering personalized, patient-centered care with a focus on comfort, advanced technology, and comprehensive services from preventive dentistry to cosmetic smile transformations.",
+    image: "/portsonrisas.png",
+    navigateTo: "/targomo",
+  },
+  {
+    id: 19,
+    title: "One of a Kind Designs",
+    description:
+      "One of a Kind Designs is a Bakersfield-based creative studio specializing in custom signage, vehicle wraps, and branded merchandise, offering businesses and individuals eye-catching solutions to stand out.",
+    image: "/portbaker.png",
+    navigateTo: "/targomo",
+  },
+  {
+    id: 20,
+    title: "Chase Flower Shop",
+    description:
+      "Chase Flower Shop is a boutique floral studio crafting fresh, hand-arranged blooms for weddings, events, and everyday occasions, blending timeless elegance with modern design.",
+    image: "/portchase.png",
     navigateTo: "/targomo",
   },
 ];

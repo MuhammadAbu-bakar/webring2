@@ -179,6 +179,9 @@ const Testimonials = () => {
                       w="100%"
                       h="100%"
                       alt={testimonial.name}
+                      sx={{
+                        imageRendering: "high-quality", // or 'crisp-edges' for pixel art
+                      }}
                     />
                   </Box>
                   <Box textAlign={{ base: "center", md: "left" }}>
