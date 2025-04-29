@@ -108,7 +108,7 @@ const ServicesSection = () => {
     base: "1fr",
     md: "repeat(2, 1fr)",
     xl: "repeat(3, 1fr)",
-    "2xl": "repeat(4, 1fr)", // ultra-wide screens
+    "2xl": "repeat(3, 1fr)", // ultra-wide screens
   });
 
   return (
