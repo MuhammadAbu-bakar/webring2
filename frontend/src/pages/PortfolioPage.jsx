@@ -207,7 +207,7 @@ function Portfolio() {
         <MotionHeading
           position="absolute"
           top="50%"
-          left="50%"
+          left="42%"
           transform="translate(-50%, -50%)"
           color="white"
           fontSize={{ base: "28px", md: "64px" }}
