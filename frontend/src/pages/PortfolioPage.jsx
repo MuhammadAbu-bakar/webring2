@@ -1,12 +1,30 @@
-import React, { useRef, useEffect } from "react";
+import React from "react";
 import { Box, Image, Heading, Container, Text } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
-import { motion, useAnimation, useInView } from "framer-motion";
+import { motion } from "framer-motion";
 
 const MotionBox = motion(Box);
-const MotionHeading = motion(Heading);
 const MotionImage = motion(Image);
+const MotionHeading = motion(Heading);
 const MotionText = motion(Text);
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 40 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+};
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.1, delayChildren: 0.3 },
+  },
+};
+
+const imageVariants = {
+  hidden: { opacity: 0, scale: 0.9 },
+  visible: { opacity: 1, scale: 1, transition: { duration: 0.5 } },
+};
 
 const portfolioCards = [
   {
@@ -173,198 +191,84 @@ const portfolioCards = [
 
 function Portfolio() {
   const navigate = useNavigate();
-  const headerRef = useRef(null);
-  const cardsRef = useRef(null);
-
-  const headerInView = useInView(headerRef, { once: true });
-  const cardsInView = useInView(cardsRef, { once: true, amount: 0.1 });
-
-  const headerControls = useAnimation();
-  const cardsControls = useAnimation();
-
-  useEffect(() => {
-    if (headerInView) {
-      headerControls.start("visible");
-    }
-  }, [headerInView, headerControls]);
-
-  useEffect(() => {
-    if (cardsInView) {
-      cardsControls.start("visible");
-    }
-  }, [cardsInView, cardsControls]);
-
-  const cardVariants = {
-    hidden: { opacity: 0, y: 40 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.6,
-        ease: "easeOut",
-        when: "beforeChildren",
-        staggerChildren: 0.1,
-      },
-    },
-  };
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.3,
-      },
-    },
-  };
-
-  const imageVariants = {
-    hidden: { opacity: 0, scale: 0.9 },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      transition: { duration: 0.5 },
-    },
-  };
 
   return (
     <Box width="100%" minHeight="100vh" bg="white">
-      {/* Animated Header Section */}
-      <Box position="relative" width="100%" ref={headerRef}>
+      {/* Header */}
+      <Box position="relative">
         <MotionImage
           src="/portfolioBanner.png"
           width="100%"
-          height={{ base: "300px", md: "450px", lg: "543px" }}
+          height={{ base: "300px", md: "543px" }}
           objectFit="cover"
-          alt="Portfolio Banner"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.5 }}
         />
         <MotionHeading
-          textAlign="center"
-          zIndex="1"
           position="absolute"
-          top="45%"
-          left="43%"
+          top="50%"
+          left="50%"
           transform="translate(-50%, -50%)"
-          fontSize={{ base: "28px", md: "42px", lg: "64px" }}
           color="white"
-          textShadow="0 2px 4px rgba(0,0,0,0.5)"
-          initial="hidden"
-          animate={headerControls}
-          variants={{
-            hidden: { opacity: 0, y: 20 },
-            visible: {
-              opacity: 1,
-              y: 0,
-              transition: {
-                duration: 0.8,
-                ease: [0.16, 1, 0.3, 1],
-                delay: 0.2,
-              },
-            },
-          }}
+          fontSize={{ base: "28px", md: "64px" }}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
         >
           Portfolio
         </MotionHeading>
       </Box>
 
-      {/* Animated Cards Section */}
-      <Box
-        width="100%"
-        padding={{ base: "40px 20px", md: "80px", lg: "100px" }}
-      >
-        <Container maxW="container.xxl" px={{ base: 4, md: 6, lg: 8 }}>
-          <MotionBox
-            display="grid"
-            gridTemplateColumns={{
-              base: "1fr",
-              md: "repeat(2, 1fr)",
-              lg: "repeat(2, 1fr)",
-            }}
-            gap={{ base: "24px", md: "32px", lg: "40px" }}
-            ref={cardsRef}
-            initial="hidden"
-            animate={cardsControls}
-            variants={containerVariants}
-          >
-            {portfolioCards.map((card) => (
+      {/* Cards */}
+      <Container maxW="container.xxl" py={{ base: "40px", md: "80px" }}>
+        <MotionBox
+          display="grid"
+          gridTemplateColumns={{ base: "1fr", md: "repeat(2, 1fr)" }}
+          gap={{ base: "24px", md: "32px" }}
+          initial="hidden"
+          animate="visible"
+          variants={containerVariants}
+        >
+          {portfolioCards.map((card) => (
+            <MotionBox
+              key={card.id}
+              bg="#F8F8F8"
+              borderRadius="xl"
+              p={4}
+              variants={cardVariants}
+              whileHover={{
+                scale: 1.02,
+                boxShadow: "0 10px 25px rgba(0,0,0,0.1)",
+              }}
+              onClick={() => navigate(card.navigateTo)}
+              cursor="pointer"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.1 }}
+            >
               <MotionBox
-                key={card.id}
-                width="100%"
-                height="100%"
-                minHeight={{ base: "auto", md: "680px" }}
-                borderRadius="xl"
-                position="relative"
-                p={{ base: 4, md: 6 }}
-                bg="#F8F8F8"
-                border="1px solid"
-                borderColor="gray.100"
+                height={{ base: "250px", md: "350px" }}
+                mb={4}
+                borderRadius="lg"
                 overflow="hidden"
-                variants={cardVariants}
-                whileHover={{
-                  scale: 1.02,
-                  boxShadow: "0px 10px 25px rgba(0, 0, 0, 0.1)",
-                  transition: {
-                    duration: 0.3,
-                    ease: [0.16, 1, 0.3, 1],
-                  },
-                }}
-                cursor="pointer"
-                onClick={() => card.navigateTo && navigate(card.navigateTo)}
+                variants={imageVariants}
               >
-                <MotionBox
+                <MotionImage
+                  src={card.image}
                   width="100%"
-                  height={{ base: "250px", md: "350px", lg: "400px" }}
-                  mb={{ base: 4, md: 6 }}
-                  borderRadius="lg"
-                  overflow="hidden"
-                  variants={imageVariants}
-                >
-                  <MotionImage
-                    src={card.image}
-                    width="100%"
-                    height="100%"
-                    objectFit="contain"
-                    alt={card.title}
-                    whileHover={{
-                      scale: 1.05,
-                      transition: {
-                        duration: 0.4,
-                        ease: [0.16, 1, 0.3, 1],
-                      },
-                    }}
-                    transition={{ duration: 0.3 }}
-                  />
-                </MotionBox>
-                <MotionHeading
-                  fontSize={{ base: "xl", md: "2xl", lg: "3xl" }}
-                  mb={{ base: 2, md: 3 }}
-                  lineHeight="tight"
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.2 }}
-                >
-                  {card.title}
-                </MotionHeading>
-                <MotionText
-                  fontSize={{ base: "md", md: "lg", lg: "xl" }}
-                  fontWeight="normal"
-                  color="gray.600"
-                  noOfLines={4}
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.3 }}
-                >
-                  {card.description}
-                </MotionText>
+                  height="100%"
+                  objectFit="contain"
+                />
               </MotionBox>
-            ))}
-          </MotionBox>
-        </Container>
-      </Box>
+              <MotionHeading fontSize={{ base: "xl", md: "2xl" }}>
+                {card.title}
+              </MotionHeading>
+              <MotionText noOfLines={4} mt={2} color="gray.600">
+                {card.description}
+              </MotionText>
+            </MotionBox>
+          ))}
+        </MotionBox>
+      </Container>
     </Box>
   );
 }

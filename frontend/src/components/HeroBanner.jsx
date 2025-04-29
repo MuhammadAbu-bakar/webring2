@@ -32,7 +32,21 @@ const HeroBanner = () => {
       display="flex"
       alignItems="center"
     >
+      {/* Dark Overlay */}
       <Box
+        position="absolute"
+        top="0"
+        left="0"
+        w="100%"
+        h="100%"
+        bg="rgba(0, 0, 0, 0.6)" // adjust opacity as needed
+        zIndex="1"
+      />
+
+      {/* Content */}
+      <Box
+        position="relative"
+        zIndex="2"
         w={{ base: "100%", md: "970px" }}
         maxW="1200px"
         mx="auto"
