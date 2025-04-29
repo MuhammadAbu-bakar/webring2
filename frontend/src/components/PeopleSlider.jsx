@@ -186,7 +186,7 @@ const TestimonialSlider = () => {
               </Text>
 
               {/* LinkedIn Button */}
-              <Flex justify="flex-start" mt={6}>
+              <Flex justify={{ base: "center", md: "flex-start" }} mt={6}>
                 <Button
                   as="a"
                   href={testimonials[index].linkedin}

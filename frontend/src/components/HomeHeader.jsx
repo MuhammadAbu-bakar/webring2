@@ -67,7 +67,7 @@ const HomeHeader = () => {
     setActiveLink(item);
   };
 
-  const navItems = ["Home", "About", "Services", "Portfolio", "Blog"];
+  const navItems = ["Home", "About", "Services", "Portfolio"];
 
   useEffect(() => {
     const handleScroll = () => {
@@ -631,7 +631,6 @@ const HomeHeader = () => {
                     position="absolute"
                     onClick={(e) => e.stopPropagation()}
                     top="100%"
-                    left={{ lg: "61%" }}
                     transform={{
                       base: "none",
                       md: "translateX(-30%)",
@@ -639,7 +638,20 @@ const HomeHeader = () => {
                       xl: "translateX(-60%)",
                     }}
                     bg="#FFFFFF"
-                    w={{ lg: "2025%" }}
+                    sx={{
+                      width: "100%", // Start with 100% width on smaller screens
+                      maxWidth: "100%",
+
+                      "@media screen and (min-width: 1536px)": {
+                        width: "110%",
+                      }, // For screens 1536px and up, width becomes 70%
+                      "@media screen and (min-width: 1760px)": {
+                        width: "120%",
+                      }, // For screens 1760px and up, width becomes 65%
+                      "@media screen and (min-width: 1920px)": {
+                        width: "130%",
+                      }, // For screens 1920px and up, width becomes 60%
+                    }}
                     boxShadow="md"
                     p="20px"
                     zIndex="1000"
@@ -791,7 +803,7 @@ const HomeHeader = () => {
           transition="transform 0.3s ease-in-out, opacity 0.3s ease-in-out"
           opacity={isMobileMenuOpen ? 1 : 0}
         >
-          {["Home", "About", "Services", "Portfolio", "Blog"].map((item) => (
+          {["Home", "About", "Services", "Portfolio"].map((item) => (
             <Box key={item} w="100%">
               {item === "About" ? (
                 <Box>

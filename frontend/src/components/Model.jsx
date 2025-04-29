@@ -1,12 +1,42 @@
 import { Box, Flex, Text, Image, useBreakpointValue } from "@chakra-ui/react";
 
 const steps = [
-  { title: "Brainstorming Ideas", icon: "/brainstorm.png", position: [0, 0], dotPosition: "none" },
-  { title: "Product Design", icon: "/design.png", position: [1, 0], dotPosition: "left" },
-  { title: "Front-End Development", icon: "/frontend.png", position: [2, 0], dotPosition: "left" },
-  { title: "SEO Optimization", icon: "/seo.png", position: [0.5, 1], dotPosition: "right" },
-  { title: "Back-End Development", icon: "/backend.png", position: [1.5, 1], dotPosition: "right" },
-  { title: "Digital Marketing", icon: "/marketing.png", position: [1, 2], dotPosition: "left" },
+  {
+    title: "Brainstorming",
+    icon: "/brainstorm.png",
+    position: [0, 0],
+    dotPosition: "none",
+  },
+  {
+    title: "Proof of Concept",
+    icon: "/design.png",
+    position: [1, 0],
+    dotPosition: "left",
+  },
+  {
+    title: "Front-End Development",
+    icon: "/frontend.png",
+    position: [2, 0],
+    dotPosition: "left",
+  },
+  {
+    title: "Back-End Development",
+    icon: "/backend.png",
+    position: [0.5, 1],
+    dotPosition: "right",
+  },
+  {
+    title: "Deployment",
+    icon: "/seo.png",
+    position: [1.5, 1],
+    dotPosition: "right",
+  },
+  {
+    title: "MVP",
+    icon: "/marketing.png",
+    position: [1, 2],
+    dotPosition: "left",
+  },
 ];
 
 const OurModelSection = () => {
@@ -31,10 +61,19 @@ const OurModelSection = () => {
         alignSelf="flex-start"
         width={{ base: "100%", md: "100%", lg: "20%", xl: "25%" }}
       >
-        <Text fontSize="16px" fontWeight="700" letterSpacing="5px" color="#FED904">
+        <Text
+          fontSize="16px"
+          fontWeight="700"
+          letterSpacing="5px"
+          color="#FED904"
+        >
           OUR MODEL
         </Text>
-        <Text fontSize={{ base: "32px", md: "40px", xl: "54px" }} fontWeight="900" color="#F8F8F6">
+        <Text
+          fontSize={{ base: "32px", md: "40px", xl: "54px" }}
+          fontWeight="900"
+          color="#F8F8F6"
+        >
           How we do
         </Text>
         <Text
@@ -48,9 +87,19 @@ const OurModelSection = () => {
         </Text>
       </Box>
 
-      <Box position="relative" w={{ base: "100%", md: "100%", lg: "80%", xl: "75%" }} h={{ base: "auto", md: "400px" }}>
+      <Box
+        position="relative"
+        w={{ base: "100%", md: "100%", lg: "80%", xl: "75%" }}
+        h={{ base: "auto", md: "400px" }}
+      >
         {isMobile ? (
-          <Flex flexDirection="column" alignItems="center" gap="50px" mb="20px" position="relative">
+          <Flex
+            flexDirection="column"
+            alignItems="center"
+            gap="50px"
+            mb="20px"
+            position="relative"
+          >
             {steps.map((step, index) => (
               <Flex
                 key={index}
@@ -59,7 +108,7 @@ const OurModelSection = () => {
                 bg="white"
                 borderRadius="10px"
                 alignItems="center"
-                justifyContent="flex-start"
+                justifyContent="center"
                 p="20px"
                 boxShadow="lg"
                 position="relative"
@@ -72,7 +121,7 @@ const OurModelSection = () => {
                   borderRadius="10px"
                   alignItems="center"
                   justifyContent="center"
-                  mr="20px"
+                  mb="8px"
                   overflow="hidden"
                 >
                   <Image
@@ -83,6 +132,10 @@ const OurModelSection = () => {
                     objectFit="contain"
                   />
                 </Flex>
+
+                <Text fontSize="16px" fontWeight="500" color="#26241C">
+                  {step.title}
+                </Text>
 
                 {index > 0 && (
                   <Box
@@ -98,8 +151,6 @@ const OurModelSection = () => {
                     zIndex={2}
                   />
                 )}
-
-                <Text fontSize="16px" fontWeight="500" color="#26241C">{step.title}</Text>
               </Flex>
             ))}
 
@@ -120,10 +171,29 @@ const OurModelSection = () => {
               <Flex
                 key={index}
                 position="absolute"
-                top={{ base: `calc(${step.position[1]} * 100px)`, md: `${step.position[1] * 150}px` }}
-                left={{ base: `calc(${step.position[0]} * 40vw)`, md: `${step.position[0] * 36}%`, lg: `${step.position[0] * 40}%` }}
-                w={{ base: "90%", md: "140px", lg: "160px", xl: "180px", "2xl": "200px" }}
-                h={{ base: "90%", md: "50px", lg: "60px", xl: "70px", "2xl": "80px" }}
+                top={{
+                  base: `calc(${step.position[1]} * 100px)`,
+                  md: `${step.position[1] * 150}px`,
+                }}
+                left={{
+                  base: `calc(${step.position[0]} * 40vw)`,
+                  md: `${step.position[0] * 36}%`,
+                  lg: `${step.position[0] * 40}%`,
+                }}
+                w={{
+                  base: "90%",
+                  md: "140px",
+                  lg: "160px",
+                  xl: "180px",
+                  "2xl": "200px",
+                }}
+                h={{
+                  base: "90%",
+                  md: "50px",
+                  lg: "60px",
+                  xl: "70px",
+                  "2xl": "80px",
+                }}
                 bg="white"
                 borderRadius="10px"
                 alignItems="center"
@@ -146,7 +216,13 @@ const OurModelSection = () => {
 
                 <Flex
                   w={{ base: "90%", md: "25px", lg: "70px", "2xl": "50px" }}
-                  h={{ base: "90%", md: "35px", lg: "40px", xl: "40px", "2xl": "50px" }}
+                  h={{
+                    base: "90%",
+                    md: "35px",
+                    lg: "40px",
+                    xl: "40px",
+                    "2xl": "50px",
+                  }}
                   bg="#FFFBE6"
                   borderRadius="10px"
                   alignItems="center"
@@ -163,7 +239,11 @@ const OurModelSection = () => {
                   />
                 </Flex>
 
-                <Text fontSize={{ lg: "12px", xl: "14px", "2xl": "16px" }} fontWeight="500" color="#26241C">
+                <Text
+                  fontSize={{ lg: "12px", xl: "14px", "2xl": "16px" }}
+                  fontWeight="500"
+                  color="#26241C"
+                >
                   {step.title}
                 </Text>
 

@@ -65,6 +65,36 @@ const projects = [
     image: "/targomo.png",
     link: "https://www.targomo.com/",
   },
+  {
+    title: "The Dentist of SummerLin",
+    image: "/dentist of summerlin.png",
+    link: "https://thedentistofsummerlin.com/",
+  },
+  {
+    title: "The Dentist CEO",
+    image: "/dentistceo.png",
+    link: "https://thedentistceo.com/",
+  },
+  {
+    title: "The Dentist Art",
+    image: "/dentistart.png",
+    link: "https://www.dentistart.com/",
+  },
+  {
+    title: "The Gentle Dentist ",
+    image: "/gentledentist.png",
+    link: "https://www.thegentledentist.com/",
+  },
+  {
+    title: "The Logan Florist ",
+    image: "/loganflorist.png",
+    link: "https://www.logcabinflorist.com/",
+  },
+  {
+    title: "The Flourishing Art ",
+    image: "/flourishingart.png",
+    link: "https://www.flourishingart.net/",
+  },
 ];
 
 const ProjectShowcase = () => {

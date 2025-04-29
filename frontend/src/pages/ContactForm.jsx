@@ -80,33 +80,59 @@ export default function ContactForm() {
     e.preventDefault();
 
     if (validateForm()) {
+      const payload = {
+        name: `${formData.firstName} ${formData.lastName}`,
+        email: formData.email,
+        phone: formData.phone,
+        country: formData.country,
+        message: formData.message,
+      };
+
       try {
-        const response = await fetch("https://api.web3forms.com/submit", {
+        // First submission
+        const response1 = await fetch("https://api.web3forms.com/submit", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
             Accept: "application/json",
           },
           body: JSON.stringify({
-            access_key: "aa109a66-539c-411d-8c45-a9867966cb45",
-            name: `${formData.firstName} ${formData.lastName}`,
-            email: formData.email,
-            phone: formData.phone,
-            country: formData.country,
-            message: formData.message,
-            bcc: [
-              "adil@asture.co",
-              "adil@webring.ltd",
-              "info@webring.ltd",
-              "maarijali29@gmail.com",
-            ],
+            access_key: "aa109a66-539c-411d-8c45-a9867966cb45", // Your original key
+            ...payload,
           }),
         });
 
-        const result = await response.json();
+        // Second submission (different access key)
+        const response2 = await fetch("https://api.web3forms.com/submit", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: JSON.stringify({
+            access_key: "c642fa03-85b3-4391-83e5-3eaf6419f0a4", // Replace this with your second key
+            ...payload,
+          }),
+        });
 
-        if (result.success) {
-          console.log("Success", result);
+        const response3 = await fetch("https://api.web3forms.com/submit", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: JSON.stringify({
+            access_key: "b3ae9dfd-9d32-457e-b35f-99f6ed35b446", // Replace this with your second key
+            ...payload,
+          }),
+        });
+
+        const result1 = await response1.json();
+        const result2 = await response2.json();
+        const result3 = await response3.json();
+
+        if (result1.success || result2.success || result3.success) {
+          console.log("Success", result1, result2, result3);
           setIsSubmitted(true);
           setFormData({
             firstName: "",
@@ -122,7 +148,7 @@ export default function ContactForm() {
             icon: "success",
           });
         } else {
-          console.error("Submission failed", result);
+          console.error("Submission failed", result1, result2, result3);
           setErrors({ submit: "Failed to send message. Please try again." });
         }
       } catch (error) {

@@ -68,6 +68,7 @@ const SkillCard = ({ image, title, description, navigateTo }) => {
       borderRadius="15px"
       p={{ base: "30px", md: "40px", lg: "50px" }}
       w="100%"
+      maxW="100%"
       h="auto"
       minH={{ base: "auto", md: "390px" }}
       onClick={() => navigateTo && navigate(navigateTo)}
@@ -102,11 +103,10 @@ const SkillCard = ({ image, title, description, navigateTo }) => {
 
 const ServicesSection = () => {
   const gridTemplateColumns = useBreakpointValue({
-    base: "repeat(1, 1fr)",
-    sm: "repeat(1, 1fr)",
+    base: "1fr",
     md: "repeat(2, 1fr)",
-    lg: "repeat(3, 1fr)",
-    xl: "repeat(4, 1fr)",
+    xl: "repeat(3, 1fr)",
+    "2xl": "repeat(4, 1fr)", // ultra-wide screens
   });
 
   return (

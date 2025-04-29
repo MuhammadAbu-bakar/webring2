@@ -89,12 +89,12 @@ const WebDevelopment = () => {
 
   return (
     <>
-      <Box width="100%" bg="black" gap={10}>
+      <Box width="100%" bg="white" gap={10}>
         {/* Hero Section */}
         <Box
           width="100%"
           maxW={{ base: "100%", xl: "1400px", "2xl": "1720px" }}
-          color="white"
+          color="black"
           py={{ base: 8, md: 10, xl: 14 }}
           px={{ base: 4, md: 6, xl: 8 }}
           mx="auto"
@@ -109,7 +109,7 @@ const WebDevelopment = () => {
           >
             <Text
               fontSize={{ base: "20px", md: "24px", xl: "26px" }}
-              color="yellow.400"
+              color="#FED904"
               fontWeight="bold"
               mb={2}
             >
@@ -127,7 +127,7 @@ const WebDevelopment = () => {
             <Stack
               spacing={{ base: 3, md: 4, xl: 5 }}
               fontSize={{ base: "16px", md: "18px", xl: "20px" }}
-              color="gray.300"
+              color="gray.700"
             >
               <Text>
                 Unlock the power of Shopify with our top-rated Shopify Store
@@ -158,7 +158,7 @@ const WebDevelopment = () => {
             {/* Pricing and CTA */}
             <Box mt={10}>
               <Text
-                color="yellow.400"
+                color="#FED904"
                 fontWeight="bold"
                 fontSize={{ base: "20px", md: "24px" }}
               >
@@ -206,7 +206,7 @@ const WebDevelopment = () => {
         <Box
           width="100%"
           maxW={{ base: "100%", xl: "1400px", "2xl": "1720px" }}
-          color="white"
+          color="black"
           py={{ base: 8, md: 10, xl: 14 }}
           px={{ base: 4, md: 6, xl: 8 }}
           mt={10}
@@ -302,11 +302,11 @@ const WebDevelopment = () => {
         </Box>
       </Box>
 
-      <Box width={"100%"} bg={"rgb(28, 28, 28)"}>
+      <Box width={"100%"} bg={"white"}>
         <Box
           width="100%"
           maxW={{ base: "100%", xl: "1400px", "2xl": "1720px" }}
-          color="white"
+          color="black"
           py={{ base: 8, md: 10, xl: 14 }}
           px={{ base: 4, md: 6, xl: 8 }}
           mx="auto"
@@ -347,14 +347,14 @@ const WebDevelopment = () => {
                 <Accordion.Item key={index} value={item.value} mt={5}>
                   <Accordion.ItemTrigger
                     onClick={() => handleToggle(index)}
-                    bg={"#2C2B2B"}
+                    bg={"#D3D3D3"}
                     height={"60px"}
                     borderRadius={"10px"}
                     padding={"10px"}
                     cursor="pointer"
                   >
                     <Span
-                      fontSize={{ base: "10px", sm: "15px" }}
+                      fontSize={{ base: "10px", sm: "15px", md: "18px" }}
                       flex="1"
                       ml={10}
                     >
@@ -372,7 +372,7 @@ const WebDevelopment = () => {
                   {openIndex === index && (
                     <Accordion.ItemContent>
                       <Accordion.ItemBody
-                        fontSize={{ base: "10px", sm: "15px" }}
+                        fontSize={{ base: "10px", sm: "15px", md: "18px" }}
                         ml={12}
                         mr={10}
                       >

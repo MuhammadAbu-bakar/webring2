@@ -154,11 +154,14 @@ const Testimonials = () => {
             >
               <Flex
                 direction={{ base: "column", md: "row" }}
-                align={{ base: "flex-start", md: "center" }}
+                align={{ base: "center", md: "center" }} // <--- Center align items on mobile
+                textAlign={{ base: "center", md: "left" }} // <--- Center text on mobile
                 gap={{ base: "20px", md: "30px" }}
-                textAlign="left"
               >
-                <VStack spacing="10px" align="flex-start">
+                <VStack
+                  spacing="10px"
+                  align={{ base: "center", md: "flex-start" }}
+                >
                   <Box
                     w={{ base: "120px", md: "160px" }}
                     h={{ base: "120px", md: "160px" }}
@@ -178,7 +181,7 @@ const Testimonials = () => {
                       alt={testimonial.name}
                     />
                   </Box>
-                  <Box textAlign="left">
+                  <Box textAlign={{ base: "center", md: "left" }}>
                     <Text
                       fontSize="18px"
                       fontWeight="700"
@@ -209,6 +212,7 @@ const Testimonials = () => {
                     fontWeight="700"
                     color="white"
                     fontFamily="DM Sans"
+                    textAlign={{ base: "center", md: "left" }} // <-- Center quote on mobile
                   >
                     "{testimonial.quote}"
                   </Text>
@@ -217,6 +221,8 @@ const Testimonials = () => {
                     color="#B7B39F"
                     lineHeight="1.6"
                     fontFamily="DM Sans"
+                    pt="10px"
+                    pb="55px"
                   >
                     {testimonial.feedback}
                   </Text>

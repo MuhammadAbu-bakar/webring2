@@ -42,6 +42,7 @@ const HeroBanner = () => {
         textAlign={{ base: "center", md: "left" }}
         ref={ref}
       >
+        {/* Desktop View */}
         <MotionVStack
           align={{ base: "center", md: "start" }}
           spacing={{ base: "20px", md: "40px" }}
@@ -108,6 +109,61 @@ const HeroBanner = () => {
             GET A QUOTE
           </Button>
         </MotionVStack>
+
+        {/* Mobile View */}
+        <VStack
+          display={{ base: "flex", md: "none" }}
+          spacing="15px"
+          textAlign="center"
+          color="white"
+        >
+          <Text
+            fontFamily="Syne"
+            fontWeight="600"
+            fontSize="14px"
+            letterSpacing="5px"
+            color="#FED904"
+            textTransform="uppercase"
+          >
+            Empowerment
+          </Text>
+          <Text
+            fontFamily="Yantramanav"
+            fontWeight="500"
+            fontSize="28px"
+            lineHeight="36px"
+            letterSpacing="-1px"
+            color="white"
+          >
+            One Stop Solution
+          </Text>
+          <Text
+            fontFamily="DM Sans"
+            fontWeight="400"
+            fontSize="14px"
+            lineHeight="22px"
+            color="white"
+            maxW="320px"
+          >
+            We are a full-service leading Web & App Development company offering
+            a wide range of digital solutions.
+          </Text>
+          <Button
+            w={{ base: "100px", md: "160px" }}
+            h={{ base: "30px", md: "50px" }}
+            borderRadius="5.38px"
+            p="15px 28px"
+            bg="#FED904"
+            color="black"
+            fontSize={{ base: "10px", md: "16px" }}
+            fontWeight="700"
+            _hover={{ bg: "yellow.500" }}
+            mt="10px"
+            onClick={() => navigate("/contact-form")}
+          >
+            GET A QUOTE
+          </Button>
+        </VStack>
       </Box>
     </Box>
   );

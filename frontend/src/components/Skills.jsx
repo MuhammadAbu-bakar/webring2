@@ -81,7 +81,7 @@ const SkillCard = ({ image, title, description, navigateTo }) => {
         boxShadow: "0px 10px 20px rgba(0, 0, 0, 0.1)",
       }}
     >
-      <VStack align="flex-start" spacing="25px">
+      <VStack align={{ base: "center", md: "flex-start" }} spacing="25px">
         <Image src={image} alt={title} boxSize="80px" objectFit="contain" />
         <Text
           fontSize={{ base: "22px", md: "26px", xl: "30px" }}

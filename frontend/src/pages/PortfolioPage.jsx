@@ -97,6 +97,54 @@ const portfolioCards = [
     image: "/targomoo.png",
     navigateTo: "/targomo",
   },
+  {
+    id: 12,
+    title: "The Desntist of SummerLin",
+    description:
+      "Targomo's location intelligence platform required a sophisticated yet accessible interface. We delivered a solution that effectively communicates complex spatial data through intuitive visualizations and clear navigation.",
+    image: "/portsummerlin.png",
+    navigateTo: "/targomo",
+  },
+  {
+    id: 13,
+    title: "The Dentist CEO",
+    description:
+      "Targomo's location intelligence platform required a sophisticated yet accessible interface. We delivered a solution that effectively communicates complex spatial data through intuitive visualizations and clear navigation.",
+    image: "/portdentistceo.png",
+    navigateTo: "/targomo",
+  },
+  {
+    id: 14,
+    title: "Dentist Art",
+    description:
+      "Targomo's location intelligence platform required a sophisticated yet accessible interface. We delivered a solution that effectively communicates complex spatial data through intuitive visualizations and clear navigation.",
+    image: "/portart.png",
+    navigateTo: "/targomo",
+  },
+  {
+    id: 15,
+    title: "The Gentle Dentist",
+    description:
+      "Targomo's location intelligence platform required a sophisticated yet accessible interface. We delivered a solution that effectively communicates complex spatial data through intuitive visualizations and clear navigation.",
+    image: "/portgentle.png",
+    navigateTo: "/targomo",
+  },
+  {
+    id: 16,
+    title: "Log Cabin Florist",
+    description:
+      "Targomo's location intelligence platform required a sophisticated yet accessible interface. We delivered a solution that effectively communicates complex spatial data through intuitive visualizations and clear navigation.",
+    image: "/portlogan.png",
+    navigateTo: "/targomo",
+  },
+  {
+    id: 17,
+    title: "Flourishing Art",
+    description:
+      "Targomo's location intelligence platform required a sophisticated yet accessible interface. We delivered a solution that effectively communicates complex spatial data through intuitive visualizations and clear navigation.",
+    image: "/portflorishart.png",
+    navigateTo: "/targomo",
+  },
 ];
 
 function Portfolio() {

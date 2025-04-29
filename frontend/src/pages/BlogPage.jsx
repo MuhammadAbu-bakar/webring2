@@ -174,7 +174,7 @@ function Blog() {
       </Box>
 
       {/* Animated Cards Section */}
-      <Box width="100%" padding={{ base: "20px", md: "50px", lg: "100px" }}>
+      {/* <Box width="100%" padding={{ base: "20px", md: "50px", lg: "100px" }}>
         <Container maxW="1920px">
           <MotionBox
             display="grid"
@@ -269,7 +269,7 @@ function Blog() {
             ))}
           </MotionBox>
         </Container>
-      </Box>
+      </Box> */}
     </Box>
   );
 }

@@ -67,7 +67,7 @@ const HomeHeader = () => {
     setActiveLink(item);
   };
 
-  const navItems = ["Home", "About", "Services", "Portfolio", "Blog"];
+  const navItems = ["Home", "About", "Services", "Portfolio"];
 
   useEffect(() => {
     const handleScroll = () => {
@@ -1148,7 +1148,7 @@ const HomeHeader = () => {
           transition="transform 0.3s ease-in-out, opacity 0.3s ease-in-out"
           opacity={isMobileMenuOpen ? 1 : 0}
         >
-          {["Home", "About", "Services", "Portfolio", "Blog"].map((item) => (
+          {["Home", "About", "Services", "Portfolio"].map((item) => (
             <Box key={item} w="100%">
               {item === "About" ? (
                 <Box>
