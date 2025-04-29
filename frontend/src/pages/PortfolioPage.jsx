@@ -206,8 +206,8 @@ function Portfolio() {
         />
         <MotionHeading
           position="absolute"
-          top="50%"
-          left="42%"
+          top={{ base: "45%", md: "45%" }}
+          left={{ base: "36%", md: "42%" }}
           transform="translate(-50%, -50%)"
           color="white"
           fontSize={{ base: "28px", md: "64px" }}
@@ -259,10 +259,15 @@ function Portfolio() {
                   objectFit="contain"
                 />
               </MotionBox>
-              <MotionHeading fontSize={{ base: "xl", md: "2xl" }}>
+              <MotionHeading fontSize={{ base: "xl", md: "3xl" }}>
                 {card.title}
               </MotionHeading>
-              <MotionText noOfLines={4} mt={2} color="gray.600">
+              <MotionText
+                noOfLines={4}
+                mt={2}
+                color="gray.600"
+                fontSize={{ base: "xl", md: "xl" }}
+              >
                 {card.description}
               </MotionText>
             </MotionBox>
