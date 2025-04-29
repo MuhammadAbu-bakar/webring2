@@ -24,7 +24,7 @@ const HeroBanner = () => {
       maxW="1920px"
       h={{ base: "500px", md: "916px" }}
       position="relative"
-      backgroundImage="url('/pic.png')"
+      backgroundImage="url('/hero1.jpg')"
       backgroundSize="cover"
       backgroundPosition="center"
       py={{ base: "50px", md: "0" }}
