@@ -382,7 +382,7 @@ const HomeHeader = () => {
                     position="absolute"
                     top="100%"
                     onClick={(e) => e.stopPropagation()}
-                    left={{ base: "0", md: "58%" }}
+                    left={{ base: "0", md: "-16%" }}
                     transform={{
                       base: "none",
                       md: "translateX(-30%)",
@@ -391,10 +391,10 @@ const HomeHeader = () => {
                     }}
                     bg="#FFFFFF"
                     w={{
-                      base: "100vw",
-                      md: "900px",
-                      lg: "1140px",
-                      xl: "1500px",
+                      base: "120vw",
+                      md: "2000px",
+                      lg: "2000px",
+                      xl: "1510px",
                     }}
                     boxShadow="md"
                     p="20px"
@@ -637,21 +637,9 @@ const HomeHeader = () => {
                       lg: "translateX(-60%)",
                       xl: "translateX(-60%)",
                     }}
+                    left="-50%"
                     bg="#FFFFFF"
-                    sx={{
-                      width: "100%", // Start with 100% width on smaller screens
-                      maxWidth: "100%",
-
-                      "@media screen and (min-width: 1536px)": {
-                        width: "110%",
-                      }, // For screens 1536px and up, width becomes 70%
-                      "@media screen and (min-width: 1760px)": {
-                        width: "120%",
-                      }, // For screens 1760px and up, width becomes 65%
-                      "@media screen and (min-width: 1920px)": {
-                        width: "130%",
-                      }, // For screens 1920px and up, width becomes 60%
-                    }}
+                    width="2100%"
                     boxShadow="md"
                     p="20px"
                     zIndex="1000"
@@ -662,9 +650,10 @@ const HomeHeader = () => {
                   >
                     <Box flex="1" minWidth="200px" ml="100px">
                       <Image
-                        src="/about.jpg"
+                        src="/about.png"
                         alt="About Us"
-                        width="100%"
+                        width="110%"
+                        height="70%"
                         maxWidth="400px"
                         borderRadius="8px"
                         objectFit="contain"
