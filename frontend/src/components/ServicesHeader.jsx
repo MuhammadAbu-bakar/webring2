@@ -381,7 +381,7 @@ const HomeHeader = () => {
                     position="absolute"
                     top="100%"
                     onClick={(e) => e.stopPropagation()}
-                    left={{ base: "0", md: "58%" }}
+                    left={{ base: "0", md: "-16%" }}
                     transform={{
                       base: "none",
                       md: "translateX(-30%)",
@@ -390,10 +390,10 @@ const HomeHeader = () => {
                     }}
                     bg="#FFFFFF"
                     w={{
-                      base: "100vw",
-                      md: "900px",
-                      lg: "1140px",
-                      xl: "1500px",
+                      base: "120vw",
+                      md: "2000px",
+                      lg: "2000px",
+                      xl: "1510px",
                     }}
                     boxShadow="md"
                     p="20px"
@@ -631,7 +631,7 @@ const HomeHeader = () => {
                     position="absolute"
                     onClick={(e) => e.stopPropagation()}
                     top="100%"
-                    left={{ base: "0", md: "125%" }}
+                    left={{ base: "0", md: "-50%" }}
                     transform={{
                       base: "none",
                       md: "translateX(-30%)",
@@ -639,7 +639,7 @@ const HomeHeader = () => {
                       xl: "translateX(-60%)",
                     }}
                     bg="#FFFFFF"
-                    w="1850%"
+                    w="2100%"
                     boxShadow="md"
                     p="20px"
                     zIndex="1000"
@@ -651,7 +651,7 @@ const HomeHeader = () => {
                   >
                     <Box flex="1" minWidth="200px" ml="100px">
                       <Image
-                        src="/about.jpg"
+                        src="/about.png"
                         alt="About Us"
                         width="100%"
                         maxWidth="400px"

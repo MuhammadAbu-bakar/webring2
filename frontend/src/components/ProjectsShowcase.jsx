@@ -67,47 +67,47 @@ const projects = [
   },
   {
     title: "The Dentist of SummerLin",
-    image: "/summerlin.jpeg",
+    image: "/q.png",
     link: "https://thedentistofsummerlin.com/",
   },
   {
     title: "The Dentist CEO",
-    image: "/denceo1.jpeg",
+    image: "/denceo1.png",
     link: "https://thedentistceo.com/",
   },
   {
     title: "The Dentist Art",
-    image: "/denart.jpeg",
+    image: "/denart.png",
     link: "https://www.dentistart.com/",
   },
   {
     title: "The Gentle Dentist ",
-    image: "/gentleden1.jpeg",
+    image: "/gentleden1.png",
     link: "https://www.thegentledentist.com/",
   },
   {
     title: "The Log Cabin ",
-    image: "/logcabin.jpeg",
+    image: "/logcabin.png",
     link: "https://www.logcabinflorist.com/",
   },
   {
     title: "The Flourishing Art ",
-    image: "/florishart.jpeg",
+    image: "/florishart.png",
     link: "https://www.flourishingart.net/",
   },
   {
     title: "Denstist Sonrisas ",
-    image: "/sonrisas1.jpeg",
+    image: "/sonrisas1.png",
     link: "https://sonrisas.dentist/",
   },
   {
     title: "Baker Field",
-    image: "/bakerfield1.jpeg",
+    image: "/bakerfield1.png",
     link: "https://oneofakinddesignsbakersfield.com/",
   },
   {
     title: "Chase Flower",
-    image: "/chaseflower1.jpeg",
+    image: "/chaseflower1.png",
     link: "https://www.chaseflowershop.com/",
   },
 ];
