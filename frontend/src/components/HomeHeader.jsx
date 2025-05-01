@@ -640,6 +640,7 @@ const HomeHeader = () => {
                     left="-50%"
                     bg="#FFFFFF"
                     width="2100%"
+                    height="495%"
                     boxShadow="md"
                     p="20px"
                     zIndex="1000"
@@ -648,16 +649,15 @@ const HomeHeader = () => {
                     gap="20px"
                     border="1px solid #f0f0f0"
                   >
-                    <Box flex="1" minWidth="200px" ml="100px">
+                    <Box flex="1" minWidth="200px" ml="11px" mb="70px">
                       <Image
                         src="/about.png"
                         alt="About Us"
-                        width="110%"
-                        height="70%"
+                        width="120%"
+                        height="120%"
                         maxWidth="400px"
                         borderRadius="8px"
                         objectFit="contain"
-                        mt="20px"
                       />
                     </Box>
                     <Box
