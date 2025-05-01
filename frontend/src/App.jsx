@@ -11,7 +11,6 @@ import WhoWeArePage from "./pages/WhoWeArePage";
 import OurPartnerPage from "./pages/OurPartnerPage";
 import BlogDetailPage from "./pages/BlogDetailPage";
 import OurMissionPage from "./pages/OurMissionPage";
-
 import ContactForm from "./pages/ContactForm";
 import AppDevPage from "./pages/AppDevPage";
 import ShopifyDevPage from "./pages/ShopifyDevPage";
@@ -35,6 +34,15 @@ import ChauffersPage from "./pages/ChauffersPage";
 import TargomoPage from "./pages/TargomoPage";
 import ScrollToTop from "./components/ScrollToTop";
 import BlogSevenPage from "./pages/BlogSevenPage";
+import DentistofSummerLinPage from "./pages/DentistofSummerLinPage";
+import DentistCeoPage from "./pages/DentistCeoPage";
+import DentistArtPage from "./pages/DentistArtPage";
+import GentleDentistPage from "./pages/GentleDentistPage";
+import LogCabinFloristPage from "./pages/LogCabinFloristPage";
+import FlourishingArtPage from "./pages/FlourishingArtPage";
+import DentistSonrisasPage from "./pages/DentistSonrisasPage";
+import BakerFieldPage from "./pages/BakerFieldPage";
+import ChaseFlowerPage from "./pages/ChaseFlowerPage";
 
 import "./App.css";
 
@@ -76,6 +84,15 @@ function App() {
         <Route path="/ustechnologies" element={<USTechnologiesPage />} />
         <Route path="/chauffers" element={<ChauffersPage />} />
         <Route path="/targomo" element={<TargomoPage />} />
+        <Route path="/dentist-summerlin" element={<DentistofSummerLinPage />} />
+        <Route path="/dentist-ceo" element={<DentistCeoPage />} />
+        <Route path="/dentist-art" element={<DentistArtPage />} />
+        <Route path="/gentle-dentist" element={<GentleDentistPage />} />
+        <Route path="/log-cabin-florist" element={<LogCabinFloristPage />} />
+        <Route path="/flourishing-art" element={<FlourishingArtPage />} />
+        <Route path="/dentist-sonrisas" element={<DentistSonrisasPage />} />
+        <Route path="/baker-field" element={<BakerFieldPage />} />
+        <Route path="/chase-flower" element={<ChaseFlowerPage />} />
       </Routes>
 
       <Footer />

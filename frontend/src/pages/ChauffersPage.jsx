@@ -2,14 +2,14 @@ import { Box, Heading, Text, List } from "@chakra-ui/react";
 
 function App() {
   return (
-    <Box bg="#151515" color="#FFFFFF">
+    <Box bg="white" color="black">
       <Box p={8} maxW="1000px" mx="auto">
         <Heading
           fontSize="48px"
           textAlign="center"
           mb="100px" // Increased margin-bottom for more space
           fontWeight="600"
-          color="#DDD0C8"
+          color="black"
         >
           13 Chauffers
         </Heading>

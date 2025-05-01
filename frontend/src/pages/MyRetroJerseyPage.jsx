@@ -2,14 +2,14 @@ import { Box, Heading, Text, List, Stack, ListRoot } from "@chakra-ui/react";
 
 function App() {
   return (
-    <Box bg="#151515" color="#FFFFFF">
+    <Box bg="white" color="black">
       <Box p={8} maxW="1000px" mx="auto">
         <Heading
           fontSize="48px"
           textAlign="center"
           mb="100px" // Increased margin-bottom for more space
           fontWeight="600"
-          color="#DDD0C8"
+          color="black"
         >
           My Retro Jersey E-Commerce
         </Heading>
@@ -87,7 +87,7 @@ function App() {
             {/* Increased margin-bottom */}
             Development Process:
           </Heading>
-          <Heading fontSize="36px" mb={4} fontWeight="600">
+          <Heading fontSize="30px" mt={5} mb={4} fontWeight="600">
             {" "}
             {/* Increased margin-bottom */}
             Discovery and Planning:
@@ -103,7 +103,7 @@ function App() {
             </List.Item>
           </List.Root>
 
-          <Heading fontSize="36px" mb={4} fontWeight="600">
+          <Heading fontSize="36px" mt={5} mb={4} fontWeight="600">
             {" "}
             {/* Increased margin-bottom */}
             Design and Development:
@@ -124,7 +124,7 @@ function App() {
             </List.Item>
           </ListRoot>
 
-          <Heading fontSize="36px" mb={4} fontWeight="600">
+          <Heading fontSize="36px" mb={4} mt={5} fontWeight="600">
             {" "}
             {/* Increased margin-bottom */}
             Integration of Payment Solutions:
@@ -141,7 +141,7 @@ function App() {
             </List.Item>
           </ListRoot>
 
-          <Heading fontSize="36px" mb={4} fontWeight="600">
+          <Heading fontSize="36px" mb={4} mt={5} fontWeight="600">
             {" "}
             {/* Increased margin-bottom */}
             Responsive Design:
@@ -155,7 +155,7 @@ function App() {
             </List.Item>
           </ListRoot>
 
-          <Heading fontSize="36px" mb={4} fontWeight="600">
+          <Heading fontSize="36px" mb={4} mt={5} fontWeight="600">
             {" "}
             {/* Increased margin-bottom */}
             Content Strategy:
@@ -172,7 +172,7 @@ function App() {
             </List.Item>
           </ListRoot>
 
-          <Heading fontSize="36px" mb={4} fontWeight="600">
+          <Heading fontSize="36px" mb={4} mt={5} fontWeight="600">
             {" "}
             {/* Increased margin-bottom */}
             Testing and Optimization:
@@ -191,7 +191,7 @@ function App() {
 
         {/* Results */}
         <Box mb={8}>
-          <Heading fontSize="36px" mb={4} fontWeight="600">
+          <Heading fontSize="36px" mb={4} mt={5} fontWeight="600">
             {" "}
             {/* Increased margin-bottom */}
             Results:
