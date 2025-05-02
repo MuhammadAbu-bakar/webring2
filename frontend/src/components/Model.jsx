@@ -133,7 +133,12 @@ const OurModelSection = () => {
                   />
                 </Flex>
 
-                <Text fontSize="16px" fontWeight="500" color="#26241C">
+                <Text
+                  fontSize="16px"
+                  fontWeight="500"
+                  color="#26241C"
+                  ml={{ base: "12px" }}
+                >
                   {step.title}
                 </Text>
 

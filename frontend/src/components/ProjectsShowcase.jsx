@@ -162,6 +162,15 @@ const ProjectShowcase = () => {
     };
   }, []);
 
+  // ✅ Autoplay every 4 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      handleNext();
+    }, 4000);
+
+    return () => clearInterval(interval);
+  }, [currentIndex]);
+
   return (
     <Box bg="#F8F8F6" maxW="100%" py="50px" px={{ base: "20px", lg: "100px" }}>
       <Flex
@@ -170,7 +179,6 @@ const ProjectShowcase = () => {
         align={{ base: "center", lg: "start" }}
         gap={{ base: "50px", lg: "0" }}
       >
-        {/* Left Text Section */}
         <VStack
           align={{ base: "flex-start", lg: "flex-start" }}
           textAlign={{ base: "left", lg: "left" }}
@@ -204,10 +212,7 @@ const ProjectShowcase = () => {
             Our collaborative approach ensures that we truly understand our
             clients' unique requirements and challenges.
           </Text>
-
-          {/* Custom Horizontal Line */}
           <Box w="100%" h="1px" bg="#C6C3B3" mt={5} />
-
           <VStack align="flex-start" spacing="10px" pt={6}>
             {[
               "Managed Services and Products",
@@ -224,7 +229,6 @@ const ProjectShowcase = () => {
           </VStack>
         </VStack>
 
-        {/* Custom Slider Section */}
         <Box
           position="relative"
           flex="1"
@@ -232,7 +236,6 @@ const ProjectShowcase = () => {
           ml={{ base: "0", lg: "50px" }}
           w={{ base: "100%", lg: "calc(100% - 479px)" }}
         >
-          {/* Navigation Arrows - Positioned outside the container */}
           <Flex
             position="absolute"
             left={{ base: "-10px", md: "-60px" }}
@@ -298,7 +301,6 @@ const ProjectShowcase = () => {
                       borderRadius: "10px",
                     }}
                   >
-                    {/* Front Face */}
                     <Box
                       css={{
                         position: "absolute",
@@ -321,7 +323,6 @@ const ProjectShowcase = () => {
                       />
                     </Box>
 
-                    {/* Back Face */}
                     <Box
                       css={{
                         position: "absolute",
@@ -329,7 +330,7 @@ const ProjectShowcase = () => {
                         height: "100%",
                         backfaceVisibility: "hidden",
                         transform: "rotateY(180deg)",
-                        bg: "gray.800",
+                        backgroundColor: "gray.800",
                         borderRadius: "10px",
                         display: "flex",
                         alignItems: "center",

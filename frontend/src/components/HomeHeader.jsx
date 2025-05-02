@@ -379,84 +379,76 @@ const HomeHeader = () => {
                 </Box>
                 {item === "Services" && isServicesDropdownOpen && (
                   <Box
-                    position="absolute"
-                    top="100%"
-                    onClick={(e) => e.stopPropagation()}
-                    left={{ base: "0", md: "-16%" }}
-                    transform={{
-                      base: "none",
-                      md: "translateX(-30%)",
-                      lg: "translateX(-66%)",
-                      xl: "translateX(-66%)",
-                    }}
+                    position="fixed"
+                    top="60px"
+                    left="0"
+                    right="0"
+                    width="100vw"
                     bg="#FFFFFF"
-                    w={{
-                      base: "120vw",
-                      md: "2000px",
-                      lg: "2000px",
-                      xl: "1510px",
-                    }}
                     boxShadow="md"
                     p="20px"
                     zIndex="1000"
                     display="flex"
                     flexDirection={{ base: "column", md: "row" }}
-                    gap="20px"
+                    flexWrap="wrap"
                     border="1px solid #f0f0f0"
+                    overflowX="hidden"
                   >
+                    {/* Image Column */}
                     <Box
-                      flex="1"
+                      flex={{ base: "none", md: "1" }}
                       mb={{ base: "20px", md: "0" }}
                       textAlign="center"
+                      display={{ base: "none", md: "block" }}
                     >
                       <Image
                         src="/Lphone.png"
                         alt="Design Image"
-                        width={{ base: "80%", md: "85%" }}
+                        width="85%"
                         borderRadius="8px"
-                        mx={{ base: "auto", md: "25px" }}
+                        mx="auto"
                       />
                     </Box>
+
+                    {/* Services Grid */}
                     <Box
-                      flex="2"
+                      flex="3"
                       display="grid"
                       gridTemplateColumns={{
                         base: "1fr",
                         sm: "1fr 1fr",
-                        md: "1fr 1fr 1fr",
+                        md: "repeat(3, 1fr)",
                       }}
-                      rowGap="20px"
-                      columnGap={{ base: "10px", md: "20px" }}
+                      gap="20px"
                       position="relative"
-                      pt="10px"
                     >
+                      {/* Horizontal Grid Lines */}
                       <Box
                         display={{ base: "none", md: "block" }}
                         position="absolute"
-                        top="70px"
+                        top="28%"
                         left="0"
-                        right="20px"
+                        right="0"
                         height="2px"
-                        width="83.5%"
                         bg="gray.300"
                       />
                       <Box
                         display={{ base: "none", md: "block" }}
                         position="absolute"
-                        top="170px"
+                        top="63%"
                         left="0"
-                        right="20px"
+                        right="0"
                         height="2px"
-                        width="83.5%"
                         bg="gray.300"
                       />
+
+                      {/* Vertical Grid Lines */}
                       <Box
                         display={{ base: "none", md: "block" }}
                         position="absolute"
                         top="0"
                         bottom="0"
                         left="25%"
-                        height="95%"
                         width="2px"
                         bg="gray.300"
                       />
@@ -467,292 +459,157 @@ const HomeHeader = () => {
                         bottom="0"
                         left="60%"
                         width="2px"
-                        height="95%"
                         bg="gray.300"
-                        fontSize="18px"
                       />
-                      <Box>
-                        <Text
-                          fontSize="18px"
-                          fontWeight="700"
-                          mb="28px"
-                          fontFamily="DM Sans"
-                          cursor="pointer"
-                          _hover={{
-                            color: "#FFD700",
-                            transform: "translateX(5px)",
-                          }}
-                          transition="all 0.2s"
-                          onClick={() =>
-                            handleNavigation(
-                              "Web Development",
-                              "/web-developmentt"
-                            )
-                          }
-                        >
-                          Web Development
-                        </Text>
-                      </Box>
-                      <Box>
-                        <Text
-                          fontSize="18px"
-                          fontWeight="700"
-                          ml="-10px"
-                          mb="10px"
-                          fontFamily="DM Sans"
-                          onClick={() =>
-                            handleNavigation(
-                              "Mobile App Development",
-                              "/app-development"
-                            )
-                          }
-                          cursor="pointer"
-                          _hover={{
-                            color: "#FFD700",
-                            transform: "translateX(5px)",
-                          }}
-                          transition="all 0.2s"
-                        >
-                          Mobile App Development
-                        </Text>
-                      </Box>
-                      <Box>
-                        <Text
-                          fontSize="18px"
-                          fontWeight="700"
-                          mb="10px"
-                          fontFamily="DM Sans"
-                          onClick={() =>
-                            handleNavigation(
-                              "Graphic Designing",
-                              "/graphic-designing"
-                            )
-                          }
-                          cursor="pointer"
-                          _hover={{
-                            color: "#FFD700",
-                            transform: "translateX(5px)",
-                          }}
-                          transition="all 0.2s"
-                        >
-                          Graphic Designing
-                        </Text>
-                      </Box>
-                      <Box>
-                        <Text
-                          fontSize="18px"
-                          fontWeight="700"
-                          mb="10px"
-                          fontFamily="DM Sans"
-                          onClick={() =>
-                            handleNavigation(
-                              "Social Media Marketing",
-                              "/social-media"
-                            )
-                          }
-                          cursor="pointer"
-                          _hover={{
-                            color: "#FFD700",
-                            transform: "translateX(5px)",
-                          }}
-                          transition="all 0.2s"
-                        >
-                          Social Media Marketing
-                        </Text>
-                      </Box>
-                      <Box>
-                        <Text
-                          fontSize="18px"
-                          fontWeight="700"
-                          mb="10px"
-                          fontFamily="DM Sans"
-                          onClick={() =>
-                            handleNavigation(
-                              "Shopify Development",
-                              "/shopify-development"
-                            )
-                          }
-                          cursor="pointer"
-                          _hover={{
-                            color: "#FFD700",
-                            transform: "translateX(5px)",
-                          }}
-                          transition="all 0.2s"
-                        >
-                          Shopify Development
-                        </Text>
-                        <Text
-                          mt="70px"
-                          ml="-7px"
-                          fontSize="18px"
-                          fontWeight="700"
-                          mb="10px"
-                          fontFamily="DM Sans"
-                          onClick={() =>
-                            handleNavigation("Services", "/perform-market")
-                          }
-                          cursor="pointer"
-                          _hover={{
-                            color: "#FFD700",
-                            transform: "translateX(5px)",
-                          }}
-                          transition="all 0.2s"
-                        >
-                          Performance Marketing
-                        </Text>
-                      </Box>
-                      <Box>
-                        <Text
-                          fontSize="18px"
-                          fontWeight="700"
-                          mb="10px"
-                          fontFamily="DM Sans"
-                          onClick={() =>
-                            handleNavigation(
-                              " Content Writing",
-                              "/content-writing"
-                            )
-                          }
-                          cursor="pointer"
-                          _hover={{
-                            color: "#FFD700",
-                            transform: "translateX(5px)",
-                          }}
-                          transition="all 0.2s"
-                        >
-                          Content Writing
-                        </Text>
-                      </Box>
+
+                      {/* Services Items */}
+                      {[
+                        { label: "Web Development", path: "/web-developmentt" },
+                        {
+                          label: "Mobile App Development",
+                          path: "/app-development",
+                        },
+                        {
+                          label: "Graphic Designing",
+                          path: "/graphic-designing",
+                        },
+                        {
+                          label: "Social Media Marketing",
+                          path: "/social-media",
+                        },
+                        {
+                          label: "Shopify Development",
+                          path: "/shopify-development",
+                        },
+                        {
+                          label: "Performance Marketing",
+                          path: "/perform-market",
+                        },
+                        { label: "Content Writing", path: "/content-writing" },
+                      ].map((service, idx) => (
+                        <Box key={idx}>
+                          <Text
+                            fontSize="18px"
+                            fontWeight="700"
+                            fontFamily="DM Sans"
+                            cursor="pointer"
+                            _hover={{
+                              color: "#FFD700",
+                              transform: "translateX(5px)",
+                            }}
+                            transition="all 0.2s"
+                            onClick={() =>
+                              handleNavigation(service.label, service.path)
+                            }
+                          >
+                            {service.label}
+                          </Text>
+                        </Box>
+                      ))}
                     </Box>
                   </Box>
                 )}
+
                 {item === "About" && isAboutDropdownOpen && (
                   <Box
-                    position="absolute"
-                    onClick={(e) => e.stopPropagation()}
-                    top="100%"
-                    transform={{
-                      base: "none",
-                      md: "translateX(-30%)",
-                      lg: "translateX(-60%)",
-                      xl: "translateX(-60%)",
-                    }}
-                    left="-50%"
+                    position="fixed"
+                    top="60px" // Adjust if your header height changes
+                    left="0"
+                    right="0"
+                    width="100vw"
                     bg="#FFFFFF"
-                    width="2100%"
-                    height="495%"
+                    height="auto"
                     boxShadow="md"
-                    p="20px"
+                    p={{ base: "15px", md: "30px" }}
                     zIndex="1000"
                     display="flex"
                     flexDirection={{ base: "column", md: "row" }}
-                    gap="20px"
-                    border="1px solid #f0f0f0"
+                    gap={{ base: "20px", md: "40px" }}
+                    borderTop="1px solid #f0f0f0"
+                    overflowX="hidden"
                   >
-                    <Box flex="1" minWidth="200px" ml="11px" mb="70px">
+                    {/* Left Image (Hidden on mobile) */}
+                    <Box flex="1" display={{ base: "none", md: "block" }}>
                       <Image
                         src="/about.png"
                         alt="About Us"
-                        width="120%"
-                        height="120%"
+                        width="60%"
                         maxWidth="400px"
                         borderRadius="8px"
                         objectFit="contain"
                       />
                     </Box>
+
+                    {/* Links Section */}
                     <Box
                       flex="2"
                       display="flex"
                       flexDirection="column"
-                      minWidth="200px"
-                      borderRight="1px dashed #E2E8F0"
-                      pr="40px"
-                      position="relative"
+                      justifyContent="center"
                     >
-                      <VStack align="start" spacing="15px" ml="30px">
-                        <Text
-                          fontFamily="DM Sans"
-                          fontWeight="600"
-                          fontSize="18px"
-                          color="#26241C"
-                          cursor="pointer"
-                          whiteSpace="nowrap"
-                          _hover={{
-                            color: "#FFD700",
-                            transform: "translateX(5px)",
-                          }}
-                          transition="all 0.2s"
-                          onClick={() =>
-                            handleNavigation("Who We Are", "/who-we-are")
-                          }
-                          mt="70px"
-                        >
-                          Who We Are
-                        </Text>
-                        <Text
-                          fontFamily="DM Sans"
-                          fontWeight="600"
-                          fontSize="18px"
-                          color="#26241C"
-                          cursor="pointer"
-                          whiteSpace="nowrap"
-                          _hover={{
-                            color: "#FFD700",
-                            transform: "translateX(5px)",
-                          }}
-                          transition="all 0.2s"
-                          onClick={() =>
-                            handleNavigation("Our Partner", "/our-partner")
-                          }
-                        >
-                          Our Partner
-                        </Text>
-                        <Text
-                          fontFamily="DM Sans"
-                          fontWeight="600"
-                          fontSize="18px"
-                          color="#26241C"
-                          cursor="pointer"
-                          whiteSpace="nowrap"
-                          _hover={{
-                            color: "#FFD700",
-                            transform: "translateX(5px)",
-                          }}
-                          transition="all 0.2s"
-                          onClick={() =>
-                            handleNavigation("Our Mission", "/our-mission")
-                          }
-                        >
-                          Our Mission
-                        </Text>
+                      <VStack align="start" spacing="20px" mt="10px">
+                        {[
+                          { label: "Who We Are", path: "/who-we-are" },
+                          { label: "Our Partner", path: "/our-partner" },
+                          { label: "Our Mission", path: "/our-mission" },
+                        ].map((link) => (
+                          <Text
+                            key={link.label}
+                            fontFamily="DM Sans"
+                            fontWeight="600"
+                            fontSize={{ base: "16px", md: "18px" }}
+                            color="#26241C"
+                            cursor="pointer"
+                            whiteSpace="nowrap"
+                            _hover={{
+                              color: "#FFD700",
+                              transform: "translateX(5px)",
+                            }}
+                            transition="all 0.2s"
+                            onClick={() =>
+                              handleNavigation(link.label, link.path)
+                            }
+                          >
+                            {link.label}
+                          </Text>
+                        ))}
                       </VStack>
                     </Box>
-                    <Box position="relative" zIndex="1">
-                      <Box position="relative" zIndex="1">
-                        <svg
-                          width="100%"
-                          height="250"
-                          viewBox="0 0 1300 250"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            d="M0 150 C 200 50, 400 50, 600 150 C 800 250, 1000 250, 1200 150 C 1400 50, 1600 50, 1600 150"
-                            stroke="#FFD700"
-                            strokeWidth="3"
-                            strokeLinecap="round"
-                          />
-                          <circle cx="0" cy="150" r="8" fill="#FFD700" />
-                          <circle cx="200" cy="50" r="8" fill="#FFD700" />
-                          <circle cx="400" cy="50" r="8" fill="#FFD700" />
-                          <circle cx="600" cy="150" r="8" fill="#FFD700" />
-                          <circle cx="800" cy="250" r="8" fill="#FFD700" />
-                          <circle cx="1000" cy="250" r="8" fill="#FFD700" />
-                          <circle cx="1200" cy="150" r="8" fill="#FFD700" />
-                          <circle cx="1400" cy="50" r="8" fill="#FFD700" />
-                          <circle cx="1600" cy="50" r="8" fill="#FFD700" />
-                        </svg>
-                      </Box>
+
+                    {/* SVG Graphic (Hidden on mobile) */}
+                    <Box
+                      flex="2"
+                      display={{ base: "none", md: "block" }}
+                      position="relative"
+                    >
+                      <svg
+                        width="100%"
+                        height="250"
+                        viewBox="0 0 1300 250"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        preserveAspectRatio="none"
+                      >
+                        <path
+                          d="M0 150 C 200 50, 400 50, 600 150 C 800 250, 1000 250, 1200 150 C 1400 50, 1600 50, 1600 150"
+                          stroke="#FFD700"
+                          strokeWidth="3"
+                          strokeLinecap="round"
+                        />
+                        {[0, 200, 400, 600, 800, 1000, 1200, 1400, 1600].map(
+                          (cx, i) => (
+                            <circle
+                              key={i}
+                              cx={cx}
+                              cy={
+                                cx % 400 === 0 ? 50 : cx % 800 === 0 ? 250 : 150
+                              }
+                              r="8"
+                              fill="#FFD700"
+                            />
+                          )
+                        )}
+                      </svg>
                     </Box>
                   </Box>
                 )}

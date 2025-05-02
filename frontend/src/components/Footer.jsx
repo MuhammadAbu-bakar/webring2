@@ -324,13 +324,6 @@ const Footer = () => {
               <Text
                 color="white"
                 cursor="pointer"
-                onClick={() => navigate("/blog")}
-              >
-                Blog
-              </Text>
-              <Text
-                color="white"
-                cursor="pointer"
                 onClick={() => navigate("/contact-form")}
               >
                 Contact Us

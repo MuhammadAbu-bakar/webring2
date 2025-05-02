@@ -9,6 +9,9 @@ import {
   Textarea,
   Image,
   Link,
+  useBreakpointValue,
+  VStack,
+  HStack,
 } from "@chakra-ui/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -89,50 +92,29 @@ export default function ContactForm() {
       };
 
       try {
-        // First submission
-        const response1 = await fetch("https://api.web3forms.com/submit", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Accept: "application/json",
-          },
-          body: JSON.stringify({
-            access_key: "aa109a66-539c-411d-8c45-a9867966cb45", // Your original key
-            ...payload,
-          }),
-        });
+        const accessKeys = [
+          "aa109a66-539c-411d-8c45-a9867966cb45",
+          "c642fa03-85b3-4391-83e5-3eaf6419f0a4",
+          "b3ae9dfd-9d32-457e-b35f-99f6ed35b446",
+        ];
 
-        // Second submission (different access key)
-        const response2 = await fetch("https://api.web3forms.com/submit", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Accept: "application/json",
-          },
-          body: JSON.stringify({
-            access_key: "c642fa03-85b3-4391-83e5-3eaf6419f0a4", // Replace this with your second key
-            ...payload,
-          }),
-        });
+        const responses = await Promise.all(
+          accessKeys.map((key) =>
+            fetch("https://api.web3forms.com/submit", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+                Accept: "application/json",
+              },
+              body: JSON.stringify({
+                access_key: key,
+                ...payload,
+              }),
+            }).then((res) => res.json())
+          )
+        );
 
-        const response3 = await fetch("https://api.web3forms.com/submit", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Accept: "application/json",
-          },
-          body: JSON.stringify({
-            access_key: "b3ae9dfd-9d32-457e-b35f-99f6ed35b446", // Replace this with your second key
-            ...payload,
-          }),
-        });
-
-        const result1 = await response1.json();
-        const result2 = await response2.json();
-        const result3 = await response3.json();
-
-        if (result1.success || result2.success || result3.success) {
-          console.log("Success", result1, result2, result3);
+        if (responses.some((res) => res.success)) {
           setIsSubmitted(true);
           setFormData({
             firstName: "",
@@ -148,40 +130,45 @@ export default function ContactForm() {
             icon: "success",
           });
         } else {
-          console.error("Submission failed", result1, result2, result3);
           setErrors({ submit: "Failed to send message. Please try again." });
         }
       } catch (error) {
-        console.error("Error:", error);
         setErrors({ submit: "An error occurred. Please try again." });
       }
     }
   };
 
   return (
-    <Flex maxW="6xl" mx="auto" py={10} gap={10} px={4}>
-      {/* Left Section */}
-      <Box w="40%" p={5} borderRadius="md" mt="50px">
+    <Flex
+      direction={{ base: "column", md: "row" }}
+      maxW="6xl"
+      mx="auto"
+      py={10}
+      px={{ base: 4, md: 8 }}
+      gap={10}
+    >
+      {/* Left Side */}
+      <Box w={{ base: "100%", md: "40%" }} mt={{ base: 0, md: 10 }}>
+        <Box w={{ base: "100%", md: "40%" }} mt={{ base: 0, md: 10 }}>
+          <Box mb={6}>
+            <Image src="/Vector (2).png" alt="Contact Info" />
+          </Box>
+          <Box mb={8}>
+            <Text fontSize="xl" fontWeight="bold" mb={4} color="#26241C">
+              Contact Info
+            </Text>
+            <Text fontSize="md" mb={1} color="#4F4B3B">
+              +92 319 6780744
+            </Text>
+            <Text fontSize="md" color="#4F4B3B">
+              info@webring.ltd
+            </Text>
+          </Box>
+        </Box>
+
         <Box textAlign="center" mb={6}>
-          <Image src="/Vector (2).png" alt="Contact Info" />
+          <Image src="/Vector (3).png" alt="Visit Us" />
         </Box>
-
-        <Box mb={8}>
-          <Text fontSize="xl" fontWeight="bold" mb={4} color="#26241C">
-            Contact Info
-          </Text>
-          <Text fontSize="md" mb={1} color="#4F4B3B">
-            +92 319 6780744
-          </Text>
-          <Text fontSize="md" color="#4F4B3B">
-            info@webring.ltd
-          </Text>
-        </Box>
-
-        <Box textAlign="center" mb={6}>
-          <Image src="/Vector (3).png" alt="Contact Info" />
-        </Box>
-
         <Box mb={8} color="#4F4B3B">
           <Text fontSize="xl" fontWeight="bold" mb={4} color="#26241C">
             Visit our office
@@ -191,74 +178,64 @@ export default function ContactForm() {
           <Text fontSize="md">Punjab 54810, PK</Text>
         </Box>
 
-        <Flex
-          as="a"
-          href="https://www.instagram.com/webring_ltd/"
-          target="_blank"
-          rel="noopener noreferrer"
-          align="center"
-          _hover={{ textDecoration: "none", opacity: 0.8 }}
-        >
-          <FontAwesomeIcon
-            icon={faInstagram}
-            style={{ color: "#FED904", h: "20px", w: "20px" }}
-          />
-          <Text fontSize="16px" fontWeight="bold" ml="10px" color="#5E5D5D">
-            Instagram
-          </Text>
-        </Flex>
-
-        <Flex
-          as="a"
-          href="https://www.linkedin.com/company/91013268/admin/dashboard/"
-          target="_blank"
-          rel="noopener noreferrer"
-          align="center"
-          _hover={{ textDecoration: "none", opacity: 0.8 }}
-        >
-          <FontAwesomeIcon
-            icon={faLinkedin}
-            style={{ color: "#FED904", h: "20px", w: "20px" }}
-          />
-          <Text fontSize="16px" fontWeight="bold" ml="10px" color="#5E5D5D">
-            Linkedin
-          </Text>
-        </Flex>
+        <VStack align="start" spacing={4}>
+          <Flex
+            as="a"
+            href="https://www.instagram.com/webring_ltd/"
+            target="_blank"
+            align="center"
+          >
+            <FontAwesomeIcon icon={faInstagram} style={{ color: "#FED904" }} />
+            <Text ml={2} color="#5E5D5D" fontWeight="bold">
+              Instagram
+            </Text>
+          </Flex>
+          <Flex
+            as="a"
+            href="https://www.linkedin.com/company/91013268/admin/dashboard/"
+            target="_blank"
+            align="center"
+          >
+            <FontAwesomeIcon icon={faLinkedin} style={{ color: "#FED904" }} />
+            <Text ml={2} color="#5E5D5D" fontWeight="bold">
+              LinkedIn
+            </Text>
+          </Flex>
+        </VStack>
       </Box>
 
-      {/* Right Section (Form) */}
+      {/* Right Side (Form) */}
       <Container
         as="form"
         onSubmit={handleSubmit}
-        maxW="4000px"
-        py={10}
+        bg="#F8F8F6"
+        p={6}
         border="1px solid #ddd"
         borderRadius="10px"
         boxShadow="lg"
-        w="60%"
-        h="46rem"
-        bg="#F8F8F6"
+        maxW="full"
+        w={{ base: "100%", md: "60%" }}
       >
         <Text
-          fontSize="16px"
-          fontWeight="700"
+          fontSize="sm"
+          fontWeight="bold"
           color="#FED904"
           letterSpacing="5px"
         >
           CONTACT
         </Text>
-        <Text fontSize="35px" fontWeight="700" mt={2}>
+        <Text fontSize="2xl" fontWeight="700" mt={2}>
           Let's get in touch
         </Text>
-        <Text fontSize="15px" color="gray.600" mt={1} fontWeight="400">
+        <Text fontSize="sm" color="gray.600" mt={1}>
           You can reach us anytime via{" "}
           <Text as="span" color="#FED904">
             info@webring.ltd
           </Text>
         </Text>
 
-        <Flex gap={4} mt={5}>
-          <Box flex={1}>
+        <HStack mt={5} spacing={4} flexWrap="wrap">
+          <Box flex="1" minW="100px">
             <Text fontSize="sm" mb={1}>
               First Name
             </Text>
@@ -267,9 +244,6 @@ export default function ContactForm() {
               value={formData.firstName}
               onChange={handleChange}
               placeholder="First Name"
-              borderRadius="5px"
-              borderColor="gray.300"
-              w="252px"
               bg="white"
               isInvalid={errors.firstName}
             />
@@ -279,7 +253,7 @@ export default function ContactForm() {
               </Text>
             )}
           </Box>
-          <Box flex={1}>
+          <Box flex="1" minW="100px">
             <Text fontSize="sm" mb={1}>
               Last Name
             </Text>
@@ -288,9 +262,6 @@ export default function ContactForm() {
               value={formData.lastName}
               onChange={handleChange}
               placeholder="Last Name"
-              borderRadius="5px"
-              borderColor="gray.300"
-              w="252px"
               bg="white"
               isInvalid={errors.lastName}
             />
@@ -300,7 +271,7 @@ export default function ContactForm() {
               </Text>
             )}
           </Box>
-        </Flex>
+        </HStack>
 
         <Box mt={4}>
           <Text fontSize="sm" mb={1}>
@@ -312,8 +283,6 @@ export default function ContactForm() {
             value={formData.email}
             onChange={handleChange}
             placeholder="Your Email"
-            borderRadius="none"
-            borderColor="gray.300"
             bg="white"
             isInvalid={errors.email}
           />
@@ -324,8 +293,8 @@ export default function ContactForm() {
           )}
         </Box>
 
-        <Flex gap={4} mt={4}>
-          <Box flex={1}>
+        <HStack mt={4} spacing={4} flexWrap="wrap">
+          <Box flex="1" minW="100px">
             <Text fontSize="sm" mb={1}>
               Phone Number
             </Text>
@@ -334,12 +303,10 @@ export default function ContactForm() {
               value={formData.phone}
               onChange={handleChange}
               placeholder="Your Number"
-              borderRadius="none"
-              borderColor="gray.300"
               bg="white"
             />
           </Box>
-          <Box flex={1}>
+          <Box flex="1" minW="100px">
             <Text fontSize="sm" mb={1}>
               Country
             </Text>
@@ -348,12 +315,10 @@ export default function ContactForm() {
               value={formData.country}
               onChange={handleChange}
               placeholder="Your Country"
-              borderRadius="none"
-              borderColor="gray.300"
               bg="white"
             />
           </Box>
-        </Flex>
+        </HStack>
 
         <Box mt={4}>
           <Text fontSize="sm" mb={1}>
@@ -364,8 +329,6 @@ export default function ContactForm() {
             value={formData.message}
             onChange={handleChange}
             placeholder="Your Message"
-            borderRadius="none"
-            borderColor="gray.300"
             h="120px"
             bg="white"
             isInvalid={errors.message}
@@ -377,22 +340,27 @@ export default function ContactForm() {
           )}
         </Box>
 
-        <Flex alignItems="center" mt={4}>
+        <Box mt={4}>
           <Checkbox.Root
             checked={checked}
-            onCheckedChange={(e) => setChecked(!!e.checked)}
-            bg="white"
+            onCheckedChange={(val) => setChecked(val)}
+            colorScheme="yellow"
+            className="chakra-checkbox"
           >
-            <Checkbox.HiddenInput />
             <Checkbox.Control />
             <Checkbox.Label>Accept terms and conditions</Checkbox.Label>
           </Checkbox.Root>
-        </Flex>
-        {errors.terms && (
-          <Text color="red.500" fontSize="sm">
-            {errors.terms}
-          </Text>
-        )}
+          {errors.terms && (
+            <Text color="red.500" fontSize="sm">
+              {errors.terms}
+            </Text>
+          )}
+          {errors.terms && (
+            <Text color="red.500" fontSize="sm">
+              {errors.terms}
+            </Text>
+          )}
+        </Box>
 
         {errors.submit && (
           <Text color="red.500" fontSize="sm" mt={2}>
@@ -404,13 +372,10 @@ export default function ContactForm() {
           type="submit"
           bg="#FED904"
           color="#26241C"
-          font="DM Sans"
           fontSize="18px"
           w="full"
           mt={6}
-          borderRadius="none"
           _hover={{ bg: "yellow.500" }}
-          fontWeight="400px"
         >
           Get Started
         </Button>

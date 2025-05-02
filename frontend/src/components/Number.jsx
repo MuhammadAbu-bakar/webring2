@@ -14,11 +14,11 @@ const StatsSection = () => {
       <Flex
         justify={{ base: "center", md: "space-evenly" }}
         align="center"
-        wrap={{ base: "wrap", md: "nowrap" }} // Ensures one row on desktop
+        wrap={{ base: "wrap", md: "nowrap" }}
         gap={{ base: "40px", md: "80px", lg: "134px" }}
       >
         {/* Active Users */}
-        <StatBox number="5M+" title="Active Users Worldwide" animate>
+        <StatBox number="1M+" title="Active Users Worldwide" animate={false}>
           <Box mt={1}>
             Delivering seamless digital experiences through cutting-edge web and
             mobile apps.
@@ -53,13 +53,13 @@ const StatBox = ({ number, title, children, animate }) => {
   });
 
   const getNumberValue = () => {
-    if (number === "5M+") return 5000000;
+    if (number === "1M+") return 1000000;
     if (number === "100+") return 100;
     return 0;
   };
 
   const getSuffix = () => {
-    if (number === "5M+") return "M+";
+    if (number === "1M+") return "M+";
     if (number === "100+") return "+";
     return "";
   };
@@ -85,7 +85,7 @@ const StatBox = ({ number, title, children, animate }) => {
             end={getNumberValue()}
             duration={2.5}
             formattingFn={(value) =>
-              number === "5M+"
+              number === "1M+"
                 ? `${Math.floor(value / 1000000)}M+`
                 : `${value}${getSuffix()}`
             }
