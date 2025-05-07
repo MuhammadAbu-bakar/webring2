@@ -68,7 +68,7 @@ function App() {
         <Route path="/shopify-development" element={<ShopifyDevPage />} />
         <Route path="/web-consultancy" element={<WebConsultancyPage />} />
         <Route path="/perform-market" element={<PerformMarketPage />} />
-        <Route path="/web-developmentt" element={<WebDevPage />} />
+        <Route path="/web-development" element={<WebDevPage />} />
         <Route path="/social-media" element={<SocialMediaPage />} />
         <Route path="/graphic-designing" element={<GraphicDesignPage />} />
         <Route path="/content-writing" element={<ContentWritingPage />} />

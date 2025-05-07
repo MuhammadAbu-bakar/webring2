@@ -6,14 +6,12 @@ import {
   Image,
   VStack,
   Text,
-  SimpleGrid,
-  Heading,
   Button,
   createIcon,
 } from "@chakra-ui/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import CustomButton from "./CustomButton";
-import { faCaretDown, faChevronRight } from "@fortawesome/free-solid-svg-icons";
+import { faCaretDown } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate, useLocation } from "react-router-dom";
 
 const HomeHeader = () => {
@@ -25,20 +23,17 @@ const HomeHeader = () => {
   const [lastScrollY, setLastScrollY] = useState(0);
   const [isAboutDropdownOpen, setIsAboutDropdownOpen] = useState(false);
   const [isServicesDropdownOpen, setIsServicesDropdownOpen] = useState(false);
-  const [isAiDropdownOpen, setIsAiDropdownOpen] = useState(false);
-  const [isIndustriesDropdownOpen, setIsIndustriesDropdownOpen] =
-    useState(false);
-  const [isTechnologiesDropdownOpen, setIsTechnologiesDropdownOpen] =
-    useState(false);
-  const [isInsightsDropdownOpen, setIsInsightsDropdownOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isMobileAboutDropdownOpen, setIsMobileAboutDropdownOpen] =
+    useState(false);
+  const [isMobileServicesDropdownOpen, setIsMobileServicesDropdownOpen] =
     useState(false);
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
     if (isMobileMenuOpen) {
       setIsMobileAboutDropdownOpen(false);
+      setIsMobileServicesDropdownOpen(false);
     }
   };
 
@@ -46,15 +41,16 @@ const HomeHeader = () => {
     setIsMobileAboutDropdownOpen(!isMobileAboutDropdownOpen);
   };
 
+  const toggleMobileServicesDropdown = () => {
+    setIsMobileServicesDropdownOpen(!isMobileServicesDropdownOpen);
+  };
+
   const closeAllDropdowns = () => {
     setIsAboutDropdownOpen(false);
     setIsServicesDropdownOpen(false);
-    setIsAiDropdownOpen(false);
-    setIsIndustriesDropdownOpen(false);
-    setIsTechnologiesDropdownOpen(false);
-    setIsInsightsDropdownOpen(false);
     setIsMobileMenuOpen(false);
     setIsMobileAboutDropdownOpen(false);
+    setIsMobileServicesDropdownOpen(false);
   };
 
   const handleNavigation = (item, path) => {
@@ -63,8 +59,8 @@ const HomeHeader = () => {
     if (location.pathname !== targetPath) {
       navigate(targetPath);
     }
-    closeAllDropdowns(); // Close all dropdowns and hamburger menu after navigation
     setActiveLink(item);
+    closeAllDropdowns();
   };
 
   const navItems = ["Home", "About", "Services", "Portfolio"];
@@ -83,183 +79,34 @@ const HomeHeader = () => {
     const path =
       location.pathname === "/" ? "Home" : location.pathname.slice(1);
     const capitalizedPath = path.charAt(0).toUpperCase() + path.slice(1);
+    const servicePaths = [
+      "web-development",
+      "app-development",
+      "graphic-designing",
+      "social-media",
+      "shopify-development",
+      "perform-market",
+      "content-writing",
+    ];
+    const aboutPaths = ["who-we-are", "our-partner", "our-mission"];
     if (navItems.includes(capitalizedPath)) {
       setActiveLink(capitalizedPath);
+    } else if (servicePaths.includes(path)) {
+      setActiveLink(
+        path
+          .split("-")
+          .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+          .join(" ")
+      );
+    } else if (aboutPaths.includes(path)) {
+      setActiveLink("About");
     }
-    closeAllDropdowns(); // Close dropdowns and hamburger menu on page change
+    closeAllDropdowns();
   }, [location.pathname]);
-
-  // const servicesCategories = [
-  //   {
-  //     title: "App Development",
-
-  //     services: [
-  //       { name: "ISO App Development", icon: faChevronRight },
-  //       { name: "Android App Development", icon: faChevronRight },
-  //       { name: "Cross Platform App Development", icon: faChevronRight },
-  //     ],
-  //   },
-  //   {
-  //     title: "Graphic Designing",
-
-  //     services: [
-  //       { name: "Hire Android App Developer", icon: faChevronRight },
-  //       { name: "Hire ISO App Developer", icon: faChevronRight },
-  //       { name: "Hire Node.js Developer", icon: faChevronRight },
-  //     ],
-  //   },
-  //   {
-  //     title: "Content Writing",
-
-  //     services: [
-  //       { name: "ERP Solution", icon: faChevronRight },
-  //       { name: "CRM Solution", icon: faChevronRight },
-  //       { name: "CMS Solution", icon: faChevronRight },
-  //     ],
-  //   },
-  //   {
-  //     title: "Web Development",
-
-  //     services: [
-  //       { name: "Ecommerce Website Development", icon: faChevronRight },
-  //       { name: "Web Portals", icon: faChevronRight },
-  //     ],
-  //   },
-  //   {
-  //     title: "Shopify Store Development",
-  //     link: "/shopify-development",
-  //     services: [
-  //       { name: "Generative AI", icon: faChevronRight },
-  //       { name: "Natural Language Processing", icon: faChevronRight },
-  //       { name: "Speech Recognition", icon: faChevronRight },
-  //     ],
-  //   },
-  //   {
-  //     title: "Social Media Marketing",
-
-  //     services: [
-  //       { name: "Social Media Marketing", icon: faChevronRight },
-  //       { name: "Search Engine Marketing", icon: faChevronRight },
-  //       { name: "Search Engine Optimization", icon: faChevronRight },
-  //     ],
-  //   },
-  //   {
-  //     title: "Performance Marketing",
-
-  //     services: [
-  //       { name: "Social Media Marketing", icon: faChevronRight },
-  //       { name: "Search Engine Marketing", icon: faChevronRight },
-  //       { name: "Search Engine Optimization", icon: faChevronRight },
-  //     ],
-  //   },
-  // ];
-
-  const aiServices = [
-    { name: "AI Chatbots", icon: faChevronRight, link: "/ai/chatbots" },
-    {
-      name: "Machine Learning",
-      icon: faChevronRight,
-      link: "/ai/machine-learning",
-    },
-    {
-      name: "Data Analytics",
-      icon: faChevronRight,
-      link: "/ai/data-analytics",
-    },
-  ];
-
-  const industries = [
-    {
-      title: "Automotive",
-      desc: "Transforming automotive industry with bespoke tech.",
-    },
-    {
-      title: "Healthcare",
-      desc: "Better, accessible healthcare through tailored tech solutions.",
-    },
-    { title: "Education", desc: "Enhancing education with new-age EdTech." },
-    {
-      title: "Music",
-      desc: "Advancing music industry with digital innovations.",
-    },
-    { title: "Real Estate", desc: "Innovating real estate with custom tech." },
-    { title: "SAAS", desc: "Developing custom solutions for SAAS platforms." },
-    { title: "Logistics", desc: "Optimizing logistics with intelligent tech." },
-    {
-      title: "Retail",
-      desc: "Scaling retail businesses through advanced technology.",
-    },
-    {
-      title: "On-Demand",
-      desc: "Elevating on-demand services with innovative tech.",
-    },
-    { title: "ECommerce", desc: "Driving e-commerce growth with smart tech." },
-    {
-      title: "Fintech",
-      desc: "Empowering fintech with specialized tech services.",
-    },
-  ];
-
-  const technologiesCategories = [
-    {
-      title: "Languages",
-      items: [
-        { name: ".Net", link: "/technologies/dotnet" },
-        { name: "HTML5", link: "/technologies/html5" },
-        { name: "Java", link: "/technologies/java" },
-        { name: "Node.Js", link: "/technologies/nodejs" },
-        { name: "PHP", link: "/technologies/php" },
-        { name: "Python", link: "/technologies/python" },
-      ],
-    },
-    {
-      title: "Platforms",
-      items: [
-        { name: "Azure", link: "/technologies/azure" },
-        { name: "GCP", link: "/technologies/gcp" },
-        { name: "Oracle", link: "/technologies/oracle" },
-        { name: "SAP", link: "/technologies/sap" },
-      ],
-    },
-  ];
-
-  const insights = [
-    {
-      title: "About Webring",
-      desc: "Empowering startups and enterprises with custom digital solutions for transformation.",
-    },
-    {
-      title: "Life At Webring",
-      desc: "Join our inclusive, dynamic tech team. Grow, innovate, and thrive with us.",
-    },
-    {
-      title: "Blogs",
-      desc: "Explore insights and trends in tech with our expert-written blogs.",
-    },
-    {
-      title: "Press",
-      desc: "Get the latest news and updates about TekRevol's impact.",
-    },
-    {
-      title: "Podcast",
-      desc: "Listen to expert talks on tech and digital transformation.",
-    },
-    {
-      title: "Events",
-      desc: "Attend our events and webinars to learn and network.",
-    },
-    {
-      title: "Referral Program",
-      desc: "Refer talent to Webring and earn rewards.",
-    },
-  ];
-
-  const noBorderItems2 = ["Podcast", "Events", "Referral Program"];
-  const noBorderItems = ["ECommerce", "Fintech", "On-Demand"];
 
   const HamburgerIcon = createIcon({
     displayName: "HamburgerIcon",
-    viewBox: "0 0 19 19",
+    viewBox: "0 0 24 24",
     path: (
       <>
         <path stroke="none" d="M0 0h24v24H0z" fill="none" />
@@ -276,7 +123,7 @@ const HomeHeader = () => {
 
   const CloseIcon = createIcon({
     displayName: "CloseIcon",
-    viewBox: "0 0 19 19",
+    viewBox: "0 0 24 24",
     path: (
       <>
         <path stroke="none" d="M0 0h24v24H0z" fill="none" />
@@ -324,7 +171,6 @@ const HomeHeader = () => {
           <HStack
             spacing="30px"
             display={{ base: "none", md: "none", lg: "flex" }}
-            font="DM Sans"
           >
             {navItems.map((item) => (
               <Box
@@ -332,30 +178,11 @@ const HomeHeader = () => {
                 position="relative"
                 onMouseEnter={() => {
                   if (item === "Services") setIsServicesDropdownOpen(true);
-                  if (item === "AI Services") setIsAiDropdownOpen(true);
-                  if (item === "Industries") setIsIndustriesDropdownOpen(true);
-                  if (item === "Technologies")
-                    setIsTechnologiesDropdownOpen(true);
-                  if (item === "Insights") setIsInsightsDropdownOpen(true);
                   if (item === "About") setIsAboutDropdownOpen(true);
                 }}
                 onMouseLeave={() => {
                   if (item === "Services") setIsServicesDropdownOpen(false);
-                  if (item === "AI Services") setIsAiDropdownOpen(false);
-                  if (item === "Industries") setIsIndustriesDropdownOpen(false);
-                  if (item === "Technologies")
-                    setIsTechnologiesDropdownOpen(false);
-                  if (item === "Insights") setIsInsightsDropdownOpen(false);
                   if (item === "About") setIsAboutDropdownOpen(false);
-                }}
-                onClick={() => {
-                  if (item === "Home") {
-                    handleNavigation("Home");
-                  } else if (item === "About") {
-                    return; // Do nothing when About is clicked
-                  } else {
-                    handleNavigation(item); // Other links work normally
-                  }
                 }}
                 cursor="pointer"
               >
@@ -367,6 +194,12 @@ const HomeHeader = () => {
                   justifyContent="center"
                   borderTop={activeLink === item ? "3px solid #FED904" : "none"}
                   py={6}
+                  onClick={() => {
+                    if (item === "About") {
+                      return; // No navigation for About
+                    }
+                    handleNavigation(item);
+                  }}
                 >
                   <Text
                     fontSize="18px"
@@ -394,7 +227,6 @@ const HomeHeader = () => {
                     border="1px solid #f0f0f0"
                     overflowX="hidden"
                   >
-                    {/* Image Column */}
                     <Box
                       flex={{ base: "none", md: "1" }}
                       mb={{ base: "20px", md: "0" }}
@@ -409,8 +241,6 @@ const HomeHeader = () => {
                         mx="auto"
                       />
                     </Box>
-
-                    {/* Services Grid */}
                     <Box
                       flex="3"
                       display="grid"
@@ -422,7 +252,6 @@ const HomeHeader = () => {
                       gap="20px"
                       position="relative"
                     >
-                      {/* Horizontal Grid Lines */}
                       <Box
                         display={{ base: "none", md: "block" }}
                         position="absolute"
@@ -441,8 +270,6 @@ const HomeHeader = () => {
                         height="2px"
                         bg="gray.300"
                       />
-
-                      {/* Vertical Grid Lines */}
                       <Box
                         display={{ base: "none", md: "block" }}
                         position="absolute"
@@ -461,10 +288,8 @@ const HomeHeader = () => {
                         width="2px"
                         bg="gray.300"
                       />
-
-                      {/* Services Items */}
                       {[
-                        { label: "Web Development", path: "/web-developmentt" },
+                        { label: "Web Development", path: "/web-development" },
                         {
                           label: "Mobile App Development",
                           path: "/app-development",
@@ -509,11 +334,10 @@ const HomeHeader = () => {
                     </Box>
                   </Box>
                 )}
-
                 {item === "About" && isAboutDropdownOpen && (
                   <Box
                     position="fixed"
-                    top="60px" // Adjust if your header height changes
+                    top="60px"
                     left="0"
                     right="0"
                     width="100vw"
@@ -524,30 +348,31 @@ const HomeHeader = () => {
                     zIndex="1000"
                     display="flex"
                     flexDirection={{ base: "column", md: "row" }}
-                    gap={{ base: "20px", md: "40px" }}
                     borderTop="1px solid #f0f0f0"
                     overflowX="hidden"
                   >
-                    {/* Left Image (Hidden on mobile) */}
-                    <Box flex="1" display={{ base: "none", md: "block" }}>
+                    <Box
+                      display={{ base: "none", md: "block" }}
+                      width="auto"
+                      pr={{ base: 0, md: 0 }}
+                    >
                       <Image
                         src="/about.png"
                         alt="About Us"
-                        width="60%"
-                        maxWidth="400px"
+                        w="60%"
+                        maxW="200px"
                         borderRadius="8px"
-                        objectFit="contain"
+                        objectFit="cover"
+                        display="block"
                       />
                     </Box>
-
-                    {/* Links Section */}
                     <Box
-                      flex="2"
                       display="flex"
                       flexDirection="column"
                       justifyContent="center"
+                      pl={{ base: 0, md: 0 }}
                     >
-                      <VStack align="start" spacing="20px" mt="10px">
+                      <VStack align="start" spacing="16px" mt="0">
                         {[
                           { label: "Who We Are", path: "/who-we-are" },
                           { label: "Our Partner", path: "/our-partner" },
@@ -574,42 +399,6 @@ const HomeHeader = () => {
                           </Text>
                         ))}
                       </VStack>
-                    </Box>
-
-                    {/* SVG Graphic (Hidden on mobile) */}
-                    <Box
-                      flex="2"
-                      display={{ base: "none", md: "block" }}
-                      position="relative"
-                    >
-                      <svg
-                        width="100%"
-                        height="250"
-                        viewBox="0 0 1300 250"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                        preserveAspectRatio="none"
-                      >
-                        <path
-                          d="M0 150 C 200 50, 400 50, 600 150 C 800 250, 1000 250, 1200 150 C 1400 50, 1600 50, 1600 150"
-                          stroke="#FFD700"
-                          strokeWidth="3"
-                          strokeLinecap="round"
-                        />
-                        {[0, 200, 400, 600, 800, 1000, 1200, 1400, 1600].map(
-                          (cx, i) => (
-                            <circle
-                              key={i}
-                              cx={cx}
-                              cy={
-                                cx % 400 === 0 ? 50 : cx % 800 === 0 ? 250 : 150
-                              }
-                              r="8"
-                              fill="#FFD700"
-                            />
-                          )
-                        )}
-                      </svg>
                     </Box>
                   </Box>
                 )}
@@ -703,7 +492,9 @@ const HomeHeader = () => {
                           transform: "translateX(5px)",
                         }}
                         transition="all 0.2s"
-                        onClick={() => handleNavigation("About", "/who-we-are")}
+                        onClick={() =>
+                          handleNavigation("Who We Are", "/who-we-are")
+                        }
                       >
                         Who We Are
                       </Text>
@@ -719,7 +510,7 @@ const HomeHeader = () => {
                         }}
                         transition="all 0.2s"
                         onClick={() =>
-                          handleNavigation("About", "/our-partner")
+                          handleNavigation("Our Partner", "/our-partner")
                         }
                       >
                         Our Partner
@@ -736,11 +527,99 @@ const HomeHeader = () => {
                         }}
                         transition="all 0.2s"
                         onClick={() =>
-                          handleNavigation("About", "/our-mission")
+                          handleNavigation("Our Mission", "/our-mission")
                         }
                       >
                         Our Mission
                       </Text>
+                    </VStack>
+                  )}
+                </Box>
+              ) : item === "Services" ? (
+                <Box>
+                  <Flex
+                    align="center"
+                    justify="space-between"
+                    onClick={toggleMobileServicesDropdown}
+                    cursor="pointer"
+                    py="5px"
+                    borderRadius="8px"
+                    _hover={{ bg: "#f4f4f4", transform: "scale(1.05)" }}
+                    transition="all 0.2s ease-in-out"
+                  >
+                    <Text
+                      fontFamily="DM Sans"
+                      fontWeight="600"
+                      fontSize="20px"
+                      color="white"
+                      onClick={() => handleNavigation("Services", "/services")}
+                    >
+                      {item}
+                    </Text>
+                    <FontAwesomeIcon
+                      icon={faCaretDown}
+                      color="white"
+                      style={{
+                        transform: isMobileServicesDropdownOpen
+                          ? "rotate(180deg)"
+                          : "rotate(0deg)",
+                        transition: "transform 0.3s ease-in-out",
+                      }}
+                    />
+                  </Flex>
+                  {isMobileServicesDropdownOpen && (
+                    <VStack
+                      align="start"
+                      spacing="10px"
+                      mt="10px"
+                      pl="20px"
+                      bg="#1a1a1a"
+                      borderRadius="8px"
+                      p="10px"
+                    >
+                      {[
+                        { label: "Web Development", path: "/web-development" },
+                        {
+                          label: "Mobile App Development",
+                          path: "/app-development",
+                        },
+                        {
+                          label: "Graphic Designing",
+                          path: "/graphic-designing",
+                        },
+                        {
+                          label: "Social Media Marketing",
+                          path: "/social-media",
+                        },
+                        {
+                          label: "Shopify Development",
+                          path: "/shopify-development",
+                        },
+                        {
+                          label: "Performance Marketing",
+                          path: "/perform-market",
+                        },
+                        { label: "Content Writing", path: "/content-writing" },
+                      ].map((service) => (
+                        <Text
+                          key={service.label}
+                          fontFamily="DM Sans"
+                          fontWeight="500"
+                          fontSize="18px"
+                          color="white"
+                          cursor="pointer"
+                          _hover={{
+                            color: "#FFD700",
+                            transform: "translateX(5px)",
+                          }}
+                          transition="all 0.2s"
+                          onClick={() =>
+                            handleNavigation(service.label, service.path)
+                          }
+                        >
+                          {service.label}
+                        </Text>
+                      ))}
                     </VStack>
                   )}
                 </Box>

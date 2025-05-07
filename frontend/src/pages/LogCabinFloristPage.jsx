@@ -1,4 +1,4 @@
-import { Box, Heading, Text, List } from "@chakra-ui/react";
+import { Box, Heading, Text } from "@chakra-ui/react";
 
 function App() {
   return (
@@ -19,14 +19,24 @@ function App() {
           <Heading fontSize="36px" mb={4} fontWeight="600">
             Studio Background:
           </Heading>
-          <Text fontSize="18px" fontWeight="400" mb={4}>
-            Log Cabin Florist is a boutique floral design studio blending rustic
-            charm with artistic elegance. Specializing in seasonal blooms and
-            custom arrangements, we create handcrafted florals for weddings,
-            special events, and everyday moments. Our designs reflect the
-            natural beauty of the countryside while maintaining sophisticated
-            floral artistry.
-          </Text>
+          <Box fontSize="18px" fontWeight="400" mb={4}>
+            <Text mb={4}>
+              Nestled in the heart of the countryside, Log Cabin Florist began
+              as a small passion project and has blossomed into a premier floral
+              design studio. Our journey started with a simple love for the
+              natural beauty of seasonal blooms and has grown into a
+              full-service floral atelier serving weddings, special events, and
+              everyday floral enthusiasts.
+            </Text>
+            <Text>
+              What sets us apart is our unique ability to blend rustic charm
+              with artistic elegance. Each arrangement tells a story, combining
+              the untamed beauty of nature with sophisticated design principles.
+              Our studio, housed in a beautifully restored log cabin, serves as
+              both our creative workshop and a welcoming space for clients to
+              explore floral possibilities.
+            </Text>
+          </Box>
         </Box>
 
         {/* Our Specialties */}
@@ -34,15 +44,40 @@ function App() {
           <Heading fontSize="36px" mb={4} fontWeight="600">
             Our Specialties:
           </Heading>
-          <List.Root as="ol" spacing="3">
-            <List.Item>Rustic-chic wedding florals and installations</List.Item>
-            <List.Item>Seasonal bouquet subscriptions</List.Item>
-            <List.Item>Custom floral designs for special events</List.Item>
-            <List.Item>
-              Fresh daily arrangements using locally-sourced blooms
-            </List.Item>
-            <List.Item>Floral workshops and design classes</List.Item>
-          </List.Root>
+          <Box fontSize="18px" fontWeight="400" mb={4}>
+            <Text mb={4}>
+              Our rustic-chic wedding florals have become sought-after for
+              couples wanting natural elegance with a touch of woodland magic.
+              We specialize in creating breathtaking installations that
+              transform venues while maintaining an organic, effortless beauty.
+              From floral arches that frame your vows to delicate bud vases that
+              adorn reception tables, every element is thoughtfully designed.
+            </Text>
+            <Text mb={4}>
+              For those who want to bring seasonal beauty into their homes
+              year-round, our bouquet subscription service delivers carefully
+              curated arrangements that celebrate each season's unique
+              offerings. These aren't just bouquets - they're carefully composed
+              seasonal stories told through blooms, foliage, and natural
+              textures.
+            </Text>
+            <Text mb={4}>
+              Our custom floral design service creates one-of-a-kind pieces for
+              special events and occasions. Whether it's an intimate anniversary
+              dinner or a grand corporate gala, we craft florals that perfectly
+              capture the essence of your vision. We take pride in using
+              predominantly locally-sourced blooms, supporting nearby growers
+              while ensuring the freshest possible flowers.
+            </Text>
+            <Text>
+              Beyond arrangements, we share our passion through floral workshops
+              and design classes held in our studio. These hands-on experiences
+              teach the art of floral design while fostering a deeper
+              appreciation for nature's beauty. From beginner basics to advanced
+              techniques, we love helping others discover the joy of working
+              with flowers.
+            </Text>
+          </Box>
         </Box>
 
         {/* Our Services */}
@@ -54,59 +89,98 @@ function App() {
           {/* Wedding Florals */}
           <Box mb={8}>
             <Heading fontSize="20px" mb={4} fontWeight="600">
-              1. Wedding & Event Florals:
+              Wedding & Event Florals
             </Heading>
-            <Text fontSize="18px" fontWeight="400" mb={4}>
-              <ul>
-                <li>Bridal bouquets and bridal party flowers</li>
-                <li>Ceremony installations and arches</li>
-                <li>Reception centerpieces and table runners</li>
-                <li>Boutonnieres and corsages</li>
-                <li>Full-service floral design coordination</li>
-              </ul>
-            </Text>
+            <Box fontSize="18px" fontWeight="400" mb={4}>
+              <Text mb={4}>
+                Creating wedding florals is our greatest passion and privilege.
+                Each bridal bouquet we craft is a unique work of art, designed
+                to complement the bride's personality and wedding aesthetic. We
+                carefully select blooms that hold their beauty throughout the
+                day, incorporating special touches like delicate ribbons or
+                meaningful charms when desired.
+              </Text>
+              <Text mb={4}>
+                Our ceremony installations range from simple floral arches to
+                dramatic hanging installations, all designed to enhance your
+                venue's natural beauty. For receptions, we create cohesive
+                tablescapes that might include lush centerpieces, delicate bud
+                vase arrangements, or sweeping table runners of greenery and
+                blooms.
+              </Text>
+              <Text>
+                The finishing touches - boutonnieres, corsages, and floral
+                hairpieces - receive the same careful attention as larger
+                pieces. Our full-service coordination ensures every floral
+                element works in harmony, from the first look to the final
+                dance.
+              </Text>
+            </Box>
           </Box>
 
           {/* Seasonal Arrangements */}
           <Box mb={8}>
             <Heading fontSize="20px" mb={4} fontWeight="600">
-              2. Seasonal Arrangements:
+              Seasonal Arrangements
             </Heading>
-            <Text fontSize="18px" fontWeight="400" mb={4}>
-              <ul>
-                <li>Weekly/Monthly subscription bouquets</li>
-                <li>Signature "Cabin Collection" arrangements</li>
-                <li>Holiday specials and centerpieces</li>
-                <li>Farmers market fresh bouquets</li>
-              </ul>
-            </Text>
+            <Box fontSize="18px" fontWeight="400" mb={4}>
+              <Text mb={4}>
+                Our seasonal arrangements celebrate nature's ever-changing
+                palette. The weekly and monthly subscription bouquets bring the
+                countryside's current beauty into homes and offices, with each
+                delivery featuring what's freshest and most vibrant from local
+                growers. These arrangements evolve throughout the year, from the
+                soft pastels of spring to the rich, warm tones of autumn.
+              </Text>
+              <Text mb={4}>
+                The signature "Cabin Collection" represents our design
+                philosophy in its purest form - arrangements that feel freshly
+                gathered from a woodland garden, with careful attention to
+                texture, color, and form. These pieces showcase the beauty of
+                imperfect, natural elements combined with premium blooms.
+              </Text>
+              <Text>
+                For holidays and special occasions, we create limited-edition
+                designs that capture the spirit of the season while maintaining
+                our distinctive style. Our farmers market bouquets bring
+                studio-quality designs to the local community, offering
+                accessible pieces of floral art.
+              </Text>
+            </Box>
           </Box>
 
           {/* Custom Design */}
           <Box mb={8}>
             <Heading fontSize="20px" mb={4} fontWeight="600">
-              3. Custom Floral Design:
+              Custom Floral Design
             </Heading>
-            <Text fontSize="18px" fontWeight="400" mb={4}>
-              <ul>
-                <li>
-                  <strong>Special Occasions:</strong> Birthdays, anniversaries,
-                  celebrations
-                </li>
-                <li>
-                  <strong>Sympathy Flowers:</strong> Thoughtful condolence
-                  arrangements
-                </li>
-                <li>
-                  <strong>Corporate Events:</strong> Office installations and
-                  event florals
-                </li>
-                <li>
-                  <strong>Photo Shoots:</strong> Stylized florals for
-                  photography
-                </li>
-              </ul>
-            </Text>
+            <Box fontSize="18px" fontWeight="400" mb={4}>
+              <Text mb={4}>
+                Special occasions deserve extraordinary florals. Our custom
+                designs for birthdays, anniversaries, and celebrations transform
+                events into unforgettable experiences. We work closely with
+                clients to understand their vision, then create pieces that
+                exceed expectations. A golden anniversary might call for elegant
+                roses with gilded accents, while a milestone birthday could
+                inspire a bold, vibrant arrangement bursting with personality.
+              </Text>
+              <Text mb={4}>
+                In times of loss, our sympathy flowers offer comfort and beauty.
+                These arrangements are designed with particular care and
+                sensitivity, often incorporating meaningful flowers or colors
+                that honor the departed. We handle each order with the utmost
+                respect and attention to detail.
+              </Text>
+              <Text mb={4}>
+                Corporate clients rely on us to elevate their spaces and events
+                with sophisticated florals. From weekly office arrangements to
+                large-scale event installations, we create designs that align
+                with brand aesthetics while bringing life and energy to
+                professional environments. Our photo shoot florals are crafted
+                with the camera in mind, ensuring they photograph beautifully
+                from every angle.
+              </Text>
+            </Box>
           </Box>
         </Box>
 
@@ -115,17 +189,40 @@ function App() {
           <Heading fontSize="36px" mb={4} fontWeight="600">
             Design Philosophy:
           </Heading>
-          <Text fontSize="18px" fontWeight="400" mb={4}>
-            Our approach combines natural, garden-style designs with thoughtful
-            artistry:
-          </Text>
-          <List.Root as="ol" spacing="3">
-            <List.Item>Emphasis on seasonal, locally-grown flowers</List.Item>
-            <List.Item>Hand-tied arrangements with organic movement</List.Item>
-            <List.Item>Signature rustic containers and vessels</List.Item>
-            <List.Item>Sustainable floral practices</List.Item>
-            <List.Item>Personalized consultations for custom orders</List.Item>
-          </List.Root>
+          <Box fontSize="18px" fontWeight="400" mb={4}>
+            <Text mb={4}>
+              At the heart of our work is a deep respect for nature's rhythms.
+              We prioritize seasonal, locally-grown flowers not just for their
+              freshness and reduced environmental impact, but because they
+              inherently reflect the beauty of the moment. There's magic in
+              working with peonies in late spring or dahlias in early fall -
+              flowers that can't be forced but arrive precisely when they're
+              meant to.
+            </Text>
+            <Text mb={4}>
+              Our hand-tied arrangements celebrate organic movement, allowing
+              each stem to find its natural place in the composition. This
+              approach creates designs that feel alive and effortless, as if
+              they were just gathered from a garden. We often incorporate
+              interesting foliages, seed pods, and other natural elements that
+              add texture and authenticity to our work.
+            </Text>
+            <Text mb={4}>
+              The containers and vessels we use are carefully selected to
+              complement our rustic aesthetic. From vintage pitchers to
+              handcrafted wooden boxes, these elements add character and warmth
+              to our arrangements. Sustainability guides many of our choices,
+              from using floral foam alternatives to composting waste and
+              recycling materials whenever possible.
+            </Text>
+            <Text>
+              Every custom order begins with a personalized consultation where
+              we listen carefully to your vision, preferences, and needs. These
+              conversations often spark creative ideas that make each piece
+              truly unique. Whether you know exactly what you want or need
+              guidance, we're here to translate your floral dreams into reality.
+            </Text>
+          </Box>
         </Box>
 
         {/* Client Experiences */}
@@ -133,16 +230,39 @@ function App() {
           <Heading fontSize="36px" mb={4} fontWeight="600">
             Client Experiences:
           </Heading>
-          <Text fontSize="18px" fontStyle="italic" mb={4}>
-            "Log Cabin Florist transformed our barn wedding into a floral
-            fairyland. Their arrangements were the most complimented element of
-            our entire celebration!" - Emily & James
-          </Text>
-          <Text fontSize="18px" fontStyle="italic" mb={4}>
-            "I've been getting the seasonal subscription for a year now, and
-            every bouquet is more beautiful than the last. It's like having a
-            piece of the countryside in my home." - Sarah T.
-          </Text>
+          <Box fontSize="18px" fontStyle="italic" mb={4}>
+            <Text mb={4}>
+              "Log Cabin Florist transformed our barn wedding into a floral
+              fairyland that still has our guests talking. From the lush bridal
+              bouquet that felt like it was picked from an enchanted garden to
+              the dramatic floral chandelier that took everyone's breath away -
+              every arrangement was more beautiful than we could have imagined.
+              Their team understood our vision perfectly and executed it with
+              such care and artistry. The flowers were the most complimented
+              element of our entire celebration!" - Emily & James
+            </Text>
+            <Text mb={4}>
+              "I've been receiving the seasonal subscription for over a year
+              now, and every bouquet surprises and delights me. The winter
+              arrangements with pinecones and berries made my home feel cozy
+              during the holidays, while the summer bouquets bursting with
+              peonies and garden roses brought the outdoors inside. It's like
+              having a little piece of the countryside in my city apartment each
+              month. The care instructions included with each delivery help me
+              enjoy them longer too." - Sarah T.
+            </Text>
+            <Text>
+              "After disappointing experiences with other florists, finding Log
+              Cabin Florist was a revelation. The sympathy arrangement they
+              created for my mother's service was profoundly beautiful -
+              incorporating her favorite flowers in a design that felt both
+              elegant and deeply personal. The care they took in understanding
+              what would be meaningful, and the gentle way they handled such a
+              sensitive order, meant more than I can express. These aren't just
+              florists - they're true artists who understand the emotional
+              language of flowers." - Michael R.
+            </Text>
+          </Box>
         </Box>
       </Box>
     </Box>

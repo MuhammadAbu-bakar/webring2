@@ -160,7 +160,7 @@ const TechLogosSection = () => {
                   src={logo.src}
                   alt={logo.name}
                   w={
-                    logo.name === "Amazon"
+                    logo.name === "Amazon" && "Android"
                       ? { base: "155px", md: "225px" }
                       : { base: "105px", md: "140px" }
                   }

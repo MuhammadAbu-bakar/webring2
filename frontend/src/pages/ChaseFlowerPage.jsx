@@ -1,4 +1,4 @@
-import { Box, Heading, Text, List } from "@chakra-ui/react";
+import { Box, Heading, Text, VStack } from "@chakra-ui/react";
 
 function App() {
   return (
@@ -25,134 +25,170 @@ function App() {
             elegance meets modern design. We specialize in handcrafted
             arrangements using the freshest seasonal blooms, creating floral art
             for weddings, special events, and everyday moments worth
-            celebrating. Each arrangement reflects our passion for organic
-            beauty and thoughtful composition.
+            celebrating. Our approach blends creativity, sustainability, and
+            unmatched attention to detail to ensure every bouquet makes a
+            lasting impression.
           </Text>
         </Box>
 
-        {/* Signature Offerings */}
+        {/* Client Objectives */}
         <Box mb={8}>
           <Heading fontSize="36px" mb={4} fontWeight="600">
-            Our Signature Offerings:
-          </Heading>
-          <List.Root as="ol" spacing="3">
-            <List.Item>Wedding floral design and installations</List.Item>
-            <List.Item>Seasonal subscription bouquets</List.Item>
-            <List.Item>Custom event floral arrangements</List.Item>
-            <List.Item>Daily fresh flower deliveries</List.Item>
-            <List.Item>Floral workshops and private lessons</List.Item>
-          </List.Root>
-        </Box>
-
-        {/* Services */}
-        <Box mb={8}>
-          <Heading fontSize="36px" mb={4} fontWeight="600">
-            Floral Services:
-          </Heading>
-
-          {/* Weddings & Events */}
-          <Box mb={8}>
-            <Heading fontSize="20px" mb={4} fontWeight="600">
-              1. Weddings & Special Events:
-            </Heading>
-            <Text fontSize="18px" fontWeight="400" mb={4}>
-              <ul>
-                <li>Bridal bouquets and bridal party flowers</li>
-                <li>Ceremony arches and installations</li>
-                <li>Reception centerpieces and table runners</li>
-                <li>Boutonnieres and corsages</li>
-                <li>Full-service floral design coordination</li>
-              </ul>
-            </Text>
-          </Box>
-
-          {/* Everyday Arrangements */}
-          <Box mb={8}>
-            <Heading fontSize="20px" mb={4} fontWeight="600">
-              2. Everyday Florals:
-            </Heading>
-            <Text fontSize="18px" fontWeight="400" mb={4}>
-              <ul>
-                <li>Signature "Chase Collection" bouquets</li>
-                <li>Custom arrangements for any occasion</li>
-                <li>Subscription flower services</li>
-                <li>Same-day local delivery</li>
-                <li>Corporate accounts and weekly office flowers</li>
-              </ul>
-            </Text>
-          </Box>
-
-          {/* Specialty Services */}
-          <Box mb={8}>
-            <Heading fontSize="20px" mb={4} fontWeight="600">
-              3. Specialty Services:
-            </Heading>
-            <Text fontSize="18px" fontWeight="400" mb={4}>
-              <ul>
-                <li>
-                  <strong>Preserved Arrangements:</strong> Long-lasting floral
-                  art
-                </li>
-                <li>
-                  <strong>Sympathy Flowers:</strong> Thoughtful condolence
-                  tributes
-                </li>
-                <li>
-                  <strong>Holiday Collections:</strong> Seasonal centerpieces
-                  and wreaths
-                </li>
-                <li>
-                  <strong>Floral Styling:</strong> For photoshoots and special
-                  projects
-                </li>
-              </ul>
-            </Text>
-          </Box>
-        </Box>
-
-        {/* Design Approach */}
-        <Box mb={8}>
-          <Heading fontSize="36px" mb={4} fontWeight="600">
-            Our Design Approach:
+            Client Objectives:
           </Heading>
           <Text fontSize="18px" fontWeight="400" mb={4}>
-            What makes our florals unique:
+            Chase Flower Shop aimed to elevate their online presence through a
+            visually captivating website that reflects the artistry of their
+            floral designs. Their goals included showcasing their portfolio,
+            enabling online orders, and building a strong brand identity that
+            resonates with local and destination clients. The site needed to
+            offer smooth navigation, mobile optimization, and simple backend
+            management for daily updates.
           </Text>
-          <List.Root as="ol" spacing="3">
-            <List.Item>
-              Seasonally-inspired designs using locally-sourced blooms when
-              possible
-            </List.Item>
-            <List.Item>
-              Hand-tied arrangements with organic, garden-style movement
-            </List.Item>
-            <List.Item>
-              Custom color palettes tailored to each client's vision
-            </List.Item>
-            <List.Item>
-              Attention to texture, fragrance, and longevity
-            </List.Item>
-            <List.Item>
-              Sustainable floral practices and composting program
-            </List.Item>
-          </List.Root>
         </Box>
 
-        {/* Client Experiences */}
+        {/* Our Solution */}
         <Box mb={8}>
           <Heading fontSize="36px" mb={4} fontWeight="600">
-            Client Stories:
+            Our Solution:
           </Heading>
-          <Text fontSize="18px" fontStyle="italic" mb={4}>
-            "Chase Flower Shop transformed our wedding venue into a floral
-            paradise. The arrangements were even more beautiful than we
-            imagined, and they lasted perfectly through the entire celebration."
-            - Sophia & Mark
+          <Text fontSize="18px" fontWeight="400" mb={4}>
+            We created a visually enchanting website that brings Chase Flower
+            Shop’s floral artistry to life. From an immersive gallery to an
+            intuitive booking system, every element of the website was designed
+            to deliver a seamless experience. We combined visual storytelling
+            with technical performance to help the brand attract new clients
+            while staying true to its boutique charm.
           </Text>
-          <Text fontSize="18px" fontStyle="italic" mb={4}>
-            "I've been getting the seasonal subscription for six months, and
-            every bouquet surprises me with its creativity and freshness. It's
-            become the highlight of my home decor." - Danielle R.
+        </Box>
+
+        {/* Key Features */}
+        <Box mb={8}>
+          <Heading fontSize="20px" mb={4} fontWeight="600">
+            1. Immersive Visual Design:
+          </Heading>
+          <Text fontSize="18px" fontWeight="400" mb={4}>
+            The design draws inspiration from floral textures and natural
+            palettes. We used soft color tones, flowing layouts, and large
+            photography to capture the delicate nature of Chase’s work. The
+            result is an elegant, editorial-style interface that mirrors the
+            brand’s artistic vision.
+          </Text>
+        </Box>
+
+        <Box mb={8}>
+          <Heading fontSize="20px" mb={4} fontWeight="600">
+            2. Seamless E-Commerce Integration:
+          </Heading>
+          <Text fontSize="18px" fontWeight="400" mb={4}>
+            The site features a secure and easy-to-navigate shop where users can
+            browse seasonal collections, customize orders, and schedule
+            deliveries. We ensured a frictionless checkout experience, enabling
+            customers to complete purchases in under two minutes across all
+            devices.
+          </Text>
+        </Box>
+
+        <Box mb={8}>
+          <Heading fontSize="20px" mb={4} fontWeight="600">
+            3. Booking and Event Management:
+          </Heading>
+          <Text fontSize="18px" fontWeight="400" mb={4}>
+            We built a custom booking system for event consultations, allowing
+            clients to choose appointment types, provide event details, and
+            receive instant confirmations. This feature reduced manual
+            scheduling time by 60% and increased conversion from inquiries to
+            bookings.
+          </Text>
+        </Box>
+
+        <Box mb={8}>
+          <Heading fontSize="20px" mb={4} fontWeight="600">
+            4. Mobile-First Optimization:
+          </Heading>
+          <Text fontSize="18px" fontWeight="400" mb={4}>
+            With over 70% of traffic coming from mobile users, we designed the
+            interface to be fully responsive with fast load times, intuitive
+            gestures, and adaptive layouts. This ensured a consistently
+            beautiful experience across phones, tablets, and desktops.
+          </Text>
+        </Box>
+
+        <Box mb={8}>
+          <Heading fontSize="20px" mb={4} fontWeight="600">
+            5. Content Management System:
+          </Heading>
+          <Text fontSize="18px" fontWeight="400" mb={4}>
+            A simple yet powerful CMS empowers the Chase team to update floral
+            collections, blog posts, and press features with ease. This autonomy
+            has improved content freshness and supported timely seasonal
+            promotions.
+          </Text>
+        </Box>
+
+        {/* Results */}
+        <Box mb={8}>
+          <Heading fontSize="36px" mb={4} fontWeight="600">
+            Results:
+          </Heading>
+          <Text fontSize="18px" fontWeight="400" mb={4}>
+            The redesigned website positioned Chase Flower Shop as a premium
+            floral studio in its market. The new digital presence has become an
+            effective marketing and sales tool that aligns beautifully with the
+            brand’s core values and vision.
+          </Text>
+
+          <Heading fontSize="24px" mb={4} mt={8} fontWeight="600">
+            Brand Recognition:
+          </Heading>
+          <Text fontSize="18px" fontWeight="400" mb={4}>
+            The refined aesthetic and cohesive branding led to a 45% increase in
+            social shares and mentions. Clients often compliment the elegant web
+            experience, which now matches the quality of the physical
+            arrangements.
+          </Text>
+
+          <Heading fontSize="24px" mb={4} mt={8} fontWeight="600">
+            Online Sales Growth:
+          </Heading>
+          <Text fontSize="18px" fontWeight="400" mb={4}>
+            E-commerce orders rose by 63% within the first three months
+            post-launch, with average order value increasing by 18% due to
+            curated product recommendations and better seasonal campaign
+            management.
+          </Text>
+
+          <Heading fontSize="24px" mb={4} mt={8} fontWeight="600">
+            Operational Efficiency:
+          </Heading>
+          <Text fontSize="18px" fontWeight="400" mb={4}>
+            The CMS and booking tools significantly reduced time spent on
+            customer service tasks. The team can now focus more on design and
+            fulfillment rather than administrative work.
+          </Text>
+
+          <Heading fontSize="24px" mb={4} mt={8} fontWeight="600">
+            Community Engagement:
+          </Heading>
+          <Text fontSize="18px" fontWeight="400" mb={4}>
+            The blog and press section has helped build stronger local
+            visibility, positioning Chase Flower Shop as a go-to floral artist
+            for upscale events, brand collaborations, and media features.
+          </Text>
+        </Box>
+
+        {/* Conclusion */}
+        <Box mb={8}>
+          <Heading fontSize="36px" mb={4} fontWeight="600">
+            Conclusion:
+          </Heading>
+          <Text fontSize="18px" fontWeight="400" mb={4}>
+            The Chase Flower Shop website exemplifies how thoughtful digital
+            design can elevate a creative business. With a focus on
+            storytelling, functionality, and brand consistency, we delivered a
+            site that delights customers and supports business growth. The
+            transformation continues to blossom, reflecting the vibrant,
+            evolving spirit of Chase Flower Shop.
           </Text>
         </Box>
       </Box>
