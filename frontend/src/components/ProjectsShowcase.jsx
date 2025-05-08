@@ -229,166 +229,163 @@ const ProjectShowcase = () => {
           </VStack>
         </VStack>
 
-        <Box
+        <Flex
+          justify="center"
+          align="center"
           position="relative"
-          flex="1"
-          py="10px"
-          ml={{ base: "0", lg: "50px" }}
-          w={{ base: "100%", lg: "calc(100% - 479px)" }}
+          maxW={{ base: "100%", md: "85%" }}
+          direction="column"
         >
-          <Flex
+          <Box
             position="absolute"
-            left={{ base: "-10px", md: "-60px" }}
-            top="0"
-            h="100%"
-            align="center"
-            zIndex="10"
+            left={{ base: "-10px", md: "133px" }}
+            top="50%"
+            transform="translateY(-50%)"
+            zIndex={2}
+            w={{ base: "30px", md: "40px" }}
+            h={{ base: "30px", md: "40px" }}
+            bg="#FED904"
+            borderRadius="50%"
             display="flex"
+            alignItems="center"
+            justifyContent="center"
+            cursor="pointer"
+            onClick={handlePrev}
           >
-            <IconButton
-              aria-label="Previous slide"
-              bg="#FED904"
-              borderRadius="full"
-              boxShadow="md"
-              color="gray.700"
-              _hover={{ bg: "gray.100" }}
-              size={{ base: "sm", md: "md" }}
-              onClick={handlePrev}
-            >
-              <FontAwesomeIcon icon={faArrowLeft} />
-            </IconButton>
-          </Flex>
-
-          <Box width="100%" overflow="hidden">
-            <Flex
-              ref={sliderRef}
-              overflowX="auto"
-              scrollBehavior="smooth"
-              gap="20px"
-              px={{ base: "20px", lg: "10px" }}
-              css={{
-                scrollbarWidth: "none",
-                msOverflowStyle: "none",
-                "&::-webkit-scrollbar": {
-                  display: "none",
-                },
-              }}
-            >
-              {projects.map((project, index) => (
-                <Box
-                  key={index}
-                  w={{ base: "250px", md: "300px", lg: "346px" }}
-                  h={{ base: "450px", md: "500px", lg: "595px" }}
-                  borderRadius="10px"
-                  position="relative"
-                  flexShrink="0"
-                  className="flip-card"
-                  css={{
-                    perspective: "1000px",
-                    "&:hover .flip-card-inner": {
-                      transform: "rotateY(180deg)",
-                    },
-                  }}
-                >
+            <FontAwesomeIcon icon={faArrowLeft} color="#000" />
+          </Box>
+          <Box
+            position="relative"
+            flex="1"
+            py="10px"
+            w={{ base: "80%", lg: "calc(100% - 479px)" }}
+          >
+            <Box width="100%" overflow="hidden">
+              <Flex
+                ref={sliderRef}
+                overflowX="auto"
+                scrollBehavior="smooth"
+                gap="20px"
+                px={{ base: "20px", lg: "10px" }}
+                css={{
+                  scrollbarWidth: "none",
+                  msOverflowStyle: "none",
+                  "&::-webkit-scrollbar": {
+                    display: "none",
+                  },
+                }}
+              >
+                {projects.map((project, index) => (
                   <Box
-                    className="flip-card-inner"
+                    key={index}
+                    w={{ base: "250px", md: "300px", lg: "346px" }}
+                    h={{ base: "450px", md: "500px", lg: "595px" }}
+                    borderRadius="10px"
+                    position="relative"
+                    flexShrink="0"
+                    className="flip-card"
                     css={{
-                      position: "relative",
-                      width: "100%",
-                      height: "100%",
-                      transition: "transform 0.6s",
-                      transformStyle: "preserve-3d",
-                      borderRadius: "10px",
+                      perspective: "1000px",
+                      "&:hover .flip-card-inner": {
+                        transform: "rotateY(180deg)",
+                      },
                     }}
                   >
                     <Box
+                      className="flip-card-inner"
                       css={{
-                        position: "absolute",
+                        position: "relative",
                         width: "100%",
                         height: "100%",
-                        backfaceVisibility: "hidden",
+                        transition: "transform 0.6s",
+                        transformStyle: "preserve-3d",
                         borderRadius: "10px",
-                        overflow: "hidden",
                       }}
                     >
-                      <img
-                        src={project.image}
-                        alt={project.title}
-                        style={{
+                      <Box
+                        css={{
+                          position: "absolute",
                           width: "100%",
                           height: "100%",
-                          objectFit: "cover",
+                          backfaceVisibility: "hidden",
                           borderRadius: "10px",
+                          overflow: "hidden",
                         }}
-                      />
-                    </Box>
-
-                    <Box
-                      css={{
-                        position: "absolute",
-                        width: "100%",
-                        height: "100%",
-                        backfaceVisibility: "hidden",
-                        transform: "rotateY(180deg)",
-                        backgroundColor: "gray.800",
-                        borderRadius: "10px",
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        overflow: "hidden",
-                      }}
-                    >
-                      <a
-                        href={project.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        style={{ textDecoration: "none" }}
                       >
-                        <Button
-                          bg="#FED904"
-                          color="black"
-                          size="lg"
-                          opacity={0}
-                          css={{
-                            transition: "opacity 0.3s ease 0.3s",
-                            ".flip-card:hover &": {
-                              opacity: 1,
-                            },
+                        <img
+                          src={project.image}
+                          alt={project.title}
+                          style={{
+                            width: "100%",
+                            height: "100%",
+                            objectFit: "cover",
+                            borderRadius: "10px",
                           }}
+                        />
+                      </Box>
+
+                      <Box
+                        css={{
+                          position: "absolute",
+                          width: "100%",
+                          height: "100%",
+                          backfaceVisibility: "hidden",
+                          transform: "rotateY(180deg)",
+                          backgroundColor: "gray.800",
+                          borderRadius: "10px",
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          overflow: "hidden",
+                        }}
+                      >
+                        <a
+                          href={project.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          style={{ textDecoration: "none" }}
                         >
-                          View Website
-                        </Button>
-                      </a>
+                          <Button
+                            bg="#FED904"
+                            color="black"
+                            size="lg"
+                            opacity={0}
+                            css={{
+                              transition: "opacity 0.3s ease 0.3s",
+                              ".flip-card:hover &": {
+                                opacity: 1,
+                              },
+                            }}
+                          >
+                            View Website
+                          </Button>
+                        </a>
+                      </Box>
                     </Box>
                   </Box>
-                </Box>
-              ))}
-            </Flex>
+                ))}
+              </Flex>
+            </Box>
           </Box>
-
-          <Flex
+          <Box
             position="absolute"
-            right={{ base: "-10px", md: "-60px" }}
-            top="0"
-            h="100%"
-            align="center"
-            zIndex="10"
+            right={{ base: "-18px", md: "150px" }}
+            top="50%"
+            transform="translateY(-50%)"
+            zIndex={2}
+            w={{ base: "30px", md: "40px" }}
+            h={{ base: "30px", md: "40px" }}
+            bg="#FED904"
+            borderRadius="50%"
             display="flex"
+            alignItems="center"
+            justifyContent="center"
+            cursor="pointer"
+            onClick={handleNext}
           >
-            <IconButton
-              aria-label="Next slide"
-              bg="#FED904"
-              borderRadius="full"
-              boxShadow="md"
-              color="gray.700"
-              _hover={{ bg: "gray.100" }}
-              size={{ base: "sm", md: "md" }}
-              onClick={handleNext}
-            >
-              <FontAwesomeIcon icon={faArrowRight} />
-            </IconButton>
-          </Flex>
-        </Box>
+            <FontAwesomeIcon icon={faArrowRight} color="#000" />
+          </Box>
+        </Flex>
       </Flex>
     </Box>
   );

@@ -95,7 +95,7 @@ const TestimonialSlider = () => {
         {/* Left Arrow - Fixed Vertically Centered */}
         <Box
           position="absolute"
-          left={{ base: "-20px", md: "100px" }}
+          left={{ base: "-18px", md: "100px" }}
           top="50%"
           transform="translateY(-50%)"
           zIndex={2}
@@ -113,7 +113,7 @@ const TestimonialSlider = () => {
         </Box>
 
         {/* Slider */}
-        <Box w={{ base: "100%", md: "80%" }} maxW="900px" position="relative">
+        <Box w={{ base: "85%", md: "80%" }} maxW="900px" position="relative">
           <AnimatePresence mode="wait">
             <MotionBox
               key={index}
@@ -209,7 +209,7 @@ const TestimonialSlider = () => {
         {/* Right Arrow - Fixed Vertically Centered */}
         <Box
           position="absolute"
-          right={{ base: "-21px", md: "100px" }}
+          right={{ base: "-18px", md: "100px" }}
           top="50%"
           transform="translateY(-50%)"
           zIndex={2}

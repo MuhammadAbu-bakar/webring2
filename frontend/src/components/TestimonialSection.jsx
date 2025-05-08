@@ -87,7 +87,7 @@ const Testimonials = () => {
           <IconButton
             aria-label="Previous slide"
             position="absolute"
-            left={{ base: "-20px", md: "-75px" }}
+            left={{ base: "-15px", md: "-75px" }}
             top={{ base: "50%", md: "40%" }}
             transform="translateY(-50%)"
             zIndex="10"
@@ -114,8 +114,8 @@ const Testimonials = () => {
           <IconButton
             aria-label="Next slide"
             position="absolute"
-            right={{ base: "-20px", md: "-75px" }}
-            top={{ base: "50%", md: "40%" }}
+            right={{ base: "-10px", md: "-75px" }}
+            top={{ base: "50%", md: "41%" }}
             transform="translateY(-50%)"
             zIndex="10"
             bg="#FED904"
@@ -150,7 +150,8 @@ const Testimonials = () => {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.4 }}
-              w="100%"
+              w={{ base: "80%", md: "100%" }}
+              ml={{ base: "29px", md: "-1px" }}
             >
               <Flex
                 direction={{ base: "column", md: "row" }}

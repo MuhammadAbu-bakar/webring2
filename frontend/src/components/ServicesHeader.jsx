@@ -13,6 +13,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import CustomButton from "./CustomButton";
 import { faCaretDown } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const HomeHeader = () => {
   const navigate = useNavigate();
@@ -154,12 +155,14 @@ const HomeHeader = () => {
     >
       <Flex align="center" justify="space-between" w="100%" h="100%">
         <HStack spacing={2}>
-          <Image
-            src="/webring.png"
-            alt="Webring Logo"
-            width={{ base: "90px", md: "100px" }}
-            height="auto"
-          />
+          <Link to="/">
+            <Image
+              src="/webring.png"
+              alt="Webring Logo"
+              width={{ base: "90px", md: "100px" }}
+              height="auto"
+            />
+          </Link>
         </HStack>
         <Flex
           display={{ base: "none", md: "flex" }}
