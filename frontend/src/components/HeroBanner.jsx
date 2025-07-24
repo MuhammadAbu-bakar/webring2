@@ -22,12 +22,12 @@ const HeroBanner = () => {
     <Box
       w="100%"
       maxW="1920px"
-      h={{ base: "500px", md: "916px" }}
+      h="100vh" // Changed to viewport height
+      minH="600px" // Minimum height to ensure content fits
       position="relative"
       backgroundImage="url('/hero1.jpg')"
       backgroundSize="cover"
-      backgroundPosition="center"
-      py={{ base: "50px", md: "0" }}
+      backgroundPosition="fit"
       px={{ base: "20px", md: "50px" }}
       display="flex"
       alignItems="center"
@@ -39,7 +39,7 @@ const HeroBanner = () => {
         left="0"
         w="100%"
         h="100%"
-        bg="rgba(0, 0, 0, 0.6)" // adjust opacity as needed
+        bg="rgba(0, 0, 0, 0.6)"
         zIndex="1"
       />
 
@@ -55,6 +55,7 @@ const HeroBanner = () => {
         alignItems={{ base: "center", md: "flex-start" }}
         textAlign={{ base: "center", md: "left" }}
         ref={ref}
+        mt="40"
       >
         {/* Desktop View */}
         <MotionVStack

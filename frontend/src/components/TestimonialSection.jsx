@@ -10,24 +10,24 @@ const testimonials = [
   {
     name: "Amelia Carter",
     role: "CMO at NovaTech\n Solutions",
-    image: "/w1.png",
-    quote: "Flawless execution from start to finish",
+    image: "/amelia.jpg",
+
     feedback:
       "We partnered with Webring for a complete overhaul of our digital presence, and the results were nothing short of remarkable. From intuitive UX/UI design to the seamless integration of advanced features like real-time data syncing, AI-based automation, and multi-device responsiveness, Webring delivered a website that truly represents the future of our brand. Their team anticipated our needs, offered strategic insights, and executed flawlessly. Not only did they meet our technical requirements, but they also elevated our entire digital strategy. We now have a scalable, secure, and high-performance platform that is already driving engagement and conversions.",
   },
   {
     name: "Adam Smith",
     role: "Head of Product at\n CoreMobile Solutions",
-    image: "/m2.png",
-    quote: "A dream team for any serious project",
+    image: "/adam.jpg",
+
     feedback:
       "Collaborating with Webring was one of the best decisions we made for our digital product. Their team didn’t just develop an app, they crafted a high-performing, secure, and beautifully intuitive experience across both iOS and Android platforms. Features like biometric login, in-app analytics, real-time notifications, offline mode functionality, and seamless third-party integrations made all the difference. What truly impressed us was their proactive approach to UI/UX design and performance optimization. From wireframes to final launch, they were meticulous, agile, and always ahead of the curve. Our users love the app, and so do we.",
   },
   {
     name: "Rikie Lambert",
     role: "Chief Marketing Officer\n at Lumino Labs",
-    image: "/m3.jpg",
-    quote: "Professional, reliable, and incredibly skilled",
+    image: "/rikie.jpg",
+
     feedback:
       "Before working with Webring, our brand visibility was scattered and inconsistent. They came in with a crystal-clear strategy and executed across every major platformYouTube, Instagram, LinkedIn, and beyond. Their content marketing was on point, their creatives were scroll-stopping, and their data-driven approach made sure every move had impact. Within weeks, we saw increased engagement, subscriber growth on YouTube, and a noticeable uplift in inbound leads through social channels. From content planning to paid ads and analytics reporting, Webring handled everything with precision and creativity. They're not just marketers, they're growth partners.",
   },
@@ -211,15 +211,6 @@ const Testimonials = () => {
                   flex="1"
                   textAlign="left"
                 >
-                  <Text
-                    fontSize={{ base: "16px", md: "20px" }}
-                    fontWeight="700"
-                    color="white"
-                    fontFamily="DM Sans"
-                    textAlign={{ base: "center", md: "left" }} // <-- Center quote on mobile
-                  >
-                    "{testimonial.quote}"
-                  </Text>
                   <Text
                     fontSize={{ base: "14px", md: "16px" }}
                     color="#B7B39F"

@@ -29,19 +29,19 @@ const testimonials = [
     subtext:
       "My mission is to architect robust, scalable systems while embracing the latest technologies. At Webring, we craft future-ready solutions that empower clients to stay ahead in the digital landscape.",
     name: "Adil Waqar",
-    position: "CTO",
+    position: "Operational Manager",
     image: "/adilll.png",
     linkedin: "https://www.linkedin.com/in/muhammad-adil-waqar/",
   },
-  {
-    text: "Thoughts of Director",
-    subtext:
-      "I focus on aligning project execution with client goals to ensure timely delivery and exceptional outcomes. At Webring, we manage each project with agility, transparency, and a clear vision for success.",
-    name: "Muhammad Ibrahim",
-    position: "Director",
-    image: "/ibrahim.jpg",
-    linkedin: "https://www.linkedin.com/in/syed490/",
-  },
+  // {
+  //   text: "Thoughts of Director",
+  //   subtext:
+  //     "I focus on aligning project execution with client goals to ensure timely delivery and exceptional outcomes. At Webring, we manage each project with agility, transparency, and a clear vision for success.",
+  //   name: "Muhammad Ibrahim",
+  //   position: "Director",
+  //   image: "/ibrahim.jpg",
+  //   linkedin: "https://www.linkedin.com/in/syed490/",
+  // },
 ];
 
 const TestimonialSlider = () => {
