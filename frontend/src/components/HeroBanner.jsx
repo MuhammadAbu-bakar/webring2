@@ -160,7 +160,7 @@ const HeroBanner = () => {
             color="white"
             maxW="320px"
           >
-            We are a full-service leading Web & App Development company offering
+            We are a ull-service leading Web & App Development company offering
             a wide range of digital solutions.
           </Text>
           <Button
