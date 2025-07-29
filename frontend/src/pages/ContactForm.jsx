@@ -378,7 +378,7 @@ export default function ContactForm() {
           _hover={{ bg: "yellow.500" }}
         >
           Get Started
-        </Button> */
+        </Button> */}
   <Box mt={4}>
   <Text fontSize="sm" mb={1}>
     Message
