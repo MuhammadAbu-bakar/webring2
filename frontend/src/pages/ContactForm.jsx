@@ -379,32 +379,6 @@ export default function ContactForm() {
         >
           Get Started
         </Button> */}
-  <Box mt={4}>
-  <Text fontSize="sm" mb={1}>
-    Message
-  </Text>
-  <Textarea
-    name="message"
-    value={formData.message}
-    onChange={handleChange}
-    placeholder="Your Message"
-    h="120px"
-    bg="white"
-    isInvalid={errors.message}
-  />
-  {errors.message && (
-    <Text color="red.500" fontSize="sm">
-      {errors.message}
-    </Text>
-  )}
-</Box>
-
-{errors.submit && (
-  <Text color="red.500" fontSize="sm" mt={2}>
-    {errors.submit}
-  </Text>
-)}
-
 <Button
   type="submit"
   bg="#FED904"
