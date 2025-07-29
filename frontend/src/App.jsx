@@ -233,7 +233,7 @@ function Chatbot() {
         bottom: "70px",
         right: "20px",
         width: "360px",
-        maxHeight: "600px",
+        maxHeight: "500px",
         background: "#fff",
         boxShadow: "0 6px 24px rgba(58,93,35,0.09)",
         borderRadius: "10px",
