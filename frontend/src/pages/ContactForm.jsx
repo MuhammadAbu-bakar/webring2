@@ -79,64 +79,113 @@ export default function ContactForm() {
     }));
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
 
-    if (validateForm()) {
-      const payload = {
-        name: `${formData.firstName} ${formData.lastName}`,
-        email: formData.email,
-        phone: formData.phone,
-        country: formData.country,
-        message: formData.message,
-      };
+  //   if (validateForm()) {
+  //     const payload = {
+  //       name: `${formData.firstName} ${formData.lastName}`,
+  //       email: formData.email,
+  //       phone: formData.phone,
+  //       country: formData.country,
+  //       message: formData.message,
+  //     };
 
-      try {
-        const accessKeys = [
-          "aa109a66-539c-411d-8c45-a9867966cb45",
-          "c642fa03-85b3-4391-83e5-3eaf6419f0a4",
-          "b3ae9dfd-9d32-457e-b35f-99f6ed35b446",
-        ];
+  //     try {
+  //       const accessKeys = [
+  //         "aa109a66-539c-411d-8c45-a9867966cb45",
+  //         "c642fa03-85b3-4391-83e5-3eaf6419f0a4",
+  //         "b3ae9dfd-9d32-457e-b35f-99f6ed35b446",
+  //       ];
 
-        const responses = await Promise.all(
-          accessKeys.map((key) =>
-            fetch("https://api.web3forms.com/submit", {
-              method: "POST",
-              headers: {
-                "Content-Type": "application/json",
-                Accept: "application/json",
-              },
-              body: JSON.stringify({
-                access_key: key,
-                ...payload,
-              }),
-            }).then((res) => res.json())
-          )
-        );
+  //       const responses = await Promise.all(
+  //         accessKeys.map((key) =>
+  //           fetch("https://api.web3forms.com/submit", {
+  //             method: "POST",
+  //             headers: {
+  //               "Content-Type": "application/json",
+  //               Accept: "application/json",
+  //             },
+  //             body: JSON.stringify({
+  //               access_key: key,
+  //               ...payload,
+  //             }),
+  //           }).then((res) => res.json())
+  //         )
+  //       );
 
-        if (responses.some((res) => res.success)) {
-          setIsSubmitted(true);
-          setFormData({
-            firstName: "",
-            lastName: "",
-            email: "",
-            phone: "",
-            country: "",
-            message: "",
-          });
-          Swal.fire({
-            title: "Success!",
-            text: "Message sent successfully!",
-            icon: "success",
-          });
-        } else {
-          setErrors({ submit: "Failed to send message. Please try again." });
-        }
-      } catch (error) {
-        setErrors({ submit: "An error occurred. Please try again." });
+  //       if (responses.some((res) => res.success)) {
+  //         setIsSubmitted(true);
+  //         setFormData({
+  //           firstName: "",
+  //           lastName: "",
+  //           email: "",
+  //           phone: "",
+  //           country: "",
+  //           message: "",
+  //         });
+  //         Swal.fire({
+  //           title: "Success!",
+  //           text: "Message sent successfully!",
+  //           icon: "success",
+  //         });
+  //       } else {
+  //         setErrors({ submit: "Failed to send message. Please try again." });
+  //       }
+  //     } catch (error) {
+  //       setErrors({ submit: "An error occurred. Please try again." });
+  //     }
+  //   }
+  // };
+const handleSubmit = async (e) => {
+  e.preventDefault();
+
+  if (validateForm()) {
+    const payload = {
+      access_key: "691f279c-21e1-4a57-bb39-5f6168901922",
+      subject: "New Contact Form Submission",
+      name: `${formData.firstName} ${formData.lastName}`,
+      email: formData.email,
+      phone: formData.phone,
+      country: formData.country,
+      message: formData.message,
+    };
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        setIsSubmitted(true);
+        setFormData({
+          firstName: "",
+          lastName: "",
+          email: "",
+          phone: "",
+          country: "",
+          message: "",
+        });
+        Swal.fire({
+          title: "Success!",
+          text: "Message sent successfully!",
+          icon: "success",
+        });
+      } else {
+        setErrors({ submit: "Failed to send message. Please try again." });
       }
+    } catch (error) {
+      setErrors({ submit: "An error occurred. Please try again." });
     }
-  };
+  }
+};
 
   return (
     <Flex
