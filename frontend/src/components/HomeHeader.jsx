@@ -338,23 +338,42 @@ const HomeHeader = () => {
                   </Box>
                 )}
                 {item === "About" && isAboutDropdownOpen && (
-                  <Box
-                    position="absolute"
-                    top="100%"
-                    left={{ base: "0", md: "50%" }}
-                    transform={{ base: "none", md: "translateX(-50%)" }}
-                    width={{ base: "100vw", md: "400px" }}
-                    bg="#FFFFFF"
-                    height="auto"
-                    boxShadow="md"
-                    p={{ base: "15px", md: "20px" }}
-                    zIndex="1000"
-                    display="flex"
-                    flexDirection={{ base: "column", md: "row" }}
-                    borderTop="1px solid #f0f0f0"
-                    overflowX="hidden"
-                    borderRadius="8px"
-                  >
+                  // <Box
+                  //   position="absolute"
+                  //   top="100%"
+                  //   left={{ base: "0", md: "50%" }}
+                  //   transform={{ base: "none", md: "translateX(-50%)" }}
+                  //   width={{ base: "100vw", md: "400px" }}
+                  //   bg="#FFFFFF"
+                  //   height="auto"
+                  //   boxShadow="md"
+                  //   p={{ base: "15px", md: "20px" }}
+                  //   zIndex="1000"
+                  //   display="flex"
+                  //   flexDirection={{ base: "column", md: "row" }}
+                  //   borderTop="1px solid #f0f0f0"
+                  //   overflowX="hidden"
+                  //   borderRadius="8px"
+                  // >
+                    <Box
+                      position="absolute"
+                      top="100%"
+                      left={{ base: "0", md: "0" }}
+                      transform={{ base: "none", md: "none" }}
+                      width={{ base: "100vw", md: "auto" }}
+                      minWidth={{ base: "auto", md: "240px" }}
+                      bg="#FFFFFF"
+                      height="auto"
+                      boxShadow="md"
+                      p={{ base: "15px", md: "20px" }}
+                      zIndex="1000"
+                      display="flex"
+                      flexDirection={{ base: "column", md: "row" }}
+                      borderTop="1px solid #f0f0f0"
+                      overflowX="hidden"
+                      borderRadius="8px"
+                    >
+
                     <Box
                       display={{ base: "none", md: "block" }}
                       width="auto"
