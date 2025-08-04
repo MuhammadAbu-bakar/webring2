@@ -25,7 +25,7 @@ const testimonials = [
     linkedin: "https://www.linkedin.com/in/daniyal-sultan/",
   },
   {
-    text: "Insights of CTO",
+    text: "Insights of Operational Manager",
     subtext:
       "My mission is to architect robust, scalable systems while embracing the latest technologies. At Webring, we craft future-ready solutions that empower clients to stay ahead in the digital landscape.",
     name: "Adil Waqar",

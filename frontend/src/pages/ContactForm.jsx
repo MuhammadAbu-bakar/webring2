@@ -89,7 +89,6 @@ export default function ContactForm() {
         phone: formData.phone,
         country: formData.country,
         message: formData.message,
-        bcc: ["abubakarcs127@gmail.com"], // Moved to top level and as array
       };
 
       try {

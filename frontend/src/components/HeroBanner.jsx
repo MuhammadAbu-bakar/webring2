@@ -25,7 +25,7 @@ const HeroBanner = () => {
       h="100vh" // Changed to viewport height
       minH="600px" // Minimum height to ensure content fits
       position="relative"
-      backgroundImage="url('/hero1.jpg')"
+      backgroundImage="url('/young-business-colleagues-using-computer-while-working-together-office 1.png')"
       backgroundSize="cover"
       backgroundPosition="fit"
       px={{ base: "20px", md: "50px" }}

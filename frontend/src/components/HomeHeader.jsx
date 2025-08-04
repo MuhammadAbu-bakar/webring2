@@ -355,6 +355,7 @@ const HomeHeader = () => {
                     overflowX="hidden"
                     borderRadius="8px"
                   >
+                    
                     <Box
                       display={{ base: "none", md: "block" }}
                       width="auto"

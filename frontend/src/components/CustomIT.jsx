@@ -26,7 +26,7 @@ const CustomITSection = () => {
         </Text>
         <Text
           fontWeight="900"
-          fontSize={{ base: "40px", xl: "46px" }}
+          fontSize={{ base: "20px", xl: "46px" }}
           lineHeight={{ base: "50px", xl: "50px" }}
           color="#FED904"
         >
@@ -34,7 +34,7 @@ const CustomITSection = () => {
         </Text>
         <Text
           fontWeight="400"
-          fontSize="18px"
+          fontSize="14px"
           lineHeight="28px"
           color="#4F4B3B"
           mt="18px"
@@ -45,7 +45,7 @@ const CustomITSection = () => {
         </Text>
         <Text
           fontWeight="400"
-          fontSize="18px"
+          fontSize="14px"
           lineHeight="28px"
           color="#4F4B3B"
           mt="18px"
