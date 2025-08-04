@@ -338,31 +338,32 @@ const HomeHeader = () => {
                 )}
                 {item === "About" && isAboutDropdownOpen && (
                   <Box
-                    position="fixed"
-                    top="60px"
-                    left="0"
-                    right="0"
-                    width="100vw"
+                    position="absolute"
+                    top="100%"
+                    left={{ base: "0", md: "50%" }}
+                    transform={{ base: "none", md: "translateX(-50%)" }}
+                    width={{ base: "100vw", md: "400px" }}
                     bg="#FFFFFF"
                     height="auto"
                     boxShadow="md"
-                    p={{ base: "15px", md: "30px" }}
+                    p={{ base: "15px", md: "20px" }}
                     zIndex="1000"
                     display="flex"
                     flexDirection={{ base: "column", md: "row" }}
                     borderTop="1px solid #f0f0f0"
                     overflowX="hidden"
+                    borderRadius="8px"
                   >
                     <Box
                       display={{ base: "none", md: "block" }}
                       width="auto"
-                      pr={{ base: 0, md: 0 }}
+                      pr={{ base: 0, md: "20px" }}
                     >
                       <Image
                         src="/about.png"
                         alt="About Us"
-                        w="60%"
-                        maxW="200px"
+                        w="100%"
+                        maxW="120px"
                         borderRadius="8px"
                         objectFit="cover"
                         display="block"
@@ -374,7 +375,7 @@ const HomeHeader = () => {
                       justifyContent="center"
                       pl={{ base: 0, md: 0 }}
                     >
-                      <VStack align="start" spacing="16px" mt="0">
+                      <VStack align="start" spacing="16px" mt="0" ml="20">
                         {[
                           { label: "Who We Are", path: "/who-we-are" },
                           { label: "Our Partner", path: "/our-partner" },
@@ -384,7 +385,7 @@ const HomeHeader = () => {
                             key={link.label}
                             fontFamily="DM Sans"
                             fontWeight="600"
-                            fontSize={{ base: "16px", md: "18px" }}
+                            fontSize={{ base: "16px", md: "16px" }}
                             color="#26241C"
                             cursor="pointer"
                             whiteSpace="nowrap"

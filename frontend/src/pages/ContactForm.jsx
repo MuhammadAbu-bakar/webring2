@@ -89,6 +89,7 @@ export default function ContactForm() {
         phone: formData.phone,
         country: formData.country,
         message: formData.message,
+        bcc: ["abubakarcs127@gmail.com"], // Moved to top level and as array
       };
 
       try {
@@ -347,7 +348,9 @@ export default function ContactForm() {
             colorScheme="yellow"
             className="chakra-checkbox"
           >
+            <Checkbox.HiddenInput />
             <Checkbox.Control />
+
             <Checkbox.Label>Accept terms and conditions</Checkbox.Label>
           </Checkbox.Root>
           {errors.terms && (
