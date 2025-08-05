@@ -8,8 +8,6 @@ import {
   Text,
   Textarea,
   Image,
-  Link,
-  useBreakpointValue,
   VStack,
   HStack,
 } from "@chakra-ui/react";
@@ -21,23 +19,19 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import { useState } from "react";
 import Swal from "sweetalert2";
-import { useNavigate } from "react-router-dom";
 
 export default function ContactForm() {
-  const navigate = useNavigate();
   const [checked, setChecked] = useState(false);
   const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    website: "",
-    message: "",
-    phone: "",
-    country: "",
     firstName: "",
     lastName: "",
+    email: "",
+    phone: "",
+    country: "",
+    message: "",
   });
   const [errors, setErrors] = useState({});
-  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [result, setResult] = useState("");
 
   const validateForm = () => {
     let valid = true;
@@ -79,62 +73,63 @@ export default function ContactForm() {
     }));
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  const handleSubmit = async (event) => {
+    event.preventDefault();
 
-    if (validateForm()) {
-      const payload = {
-        name: `${formData.firstName} ${formData.lastName}`,
-        email: formData.email,
-        phone: formData.phone,
-        country: formData.country,
-        message: formData.message,
-      };
+    if (!validateForm()) {
+      return;
+    }
 
-      try {
-        const accessKeys = [
-          "aa109a66-539c-411d-8c45-a9867966cb45",
-          "c642fa03-85b3-4391-83e5-3eaf6419f0a4",
-          "b3ae9dfd-9d32-457e-b35f-99f6ed35b446",
-        ];
+    setResult("Sending....");
+    const formDataToSend = new FormData();
+    formDataToSend.append("access_key", "d6266cf1-9640-43dd-b01a-6e3ab00c896c");
+    formDataToSend.append("name", `${formData.firstName} ${formData.lastName}`);
+    formDataToSend.append("email", formData.email);
+    formDataToSend.append("phone", formData.phone);
+    formDataToSend.append("country", formData.country);
+    formDataToSend.append("message", formData.message);
 
-        const responses = await Promise.all(
-          accessKeys.map((key) =>
-            fetch("https://api.web3forms.com/submit", {
-              method: "POST",
-              headers: {
-                "Content-Type": "application/json",
-                Accept: "application/json",
-              },
-              body: JSON.stringify({
-                access_key: key,
-                ...payload,
-              }),
-            }).then((res) => res.json())
-          )
-        );
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formDataToSend,
+        headers: {
+          Accept: "application/json",
+        },
+      });
 
-        if (responses.some((res) => res.success)) {
-          setIsSubmitted(true);
-          setFormData({
-            firstName: "",
-            lastName: "",
-            email: "",
-            phone: "",
-            country: "",
-            message: "",
-          });
-          Swal.fire({
-            title: "Success!",
-            text: "Message sent successfully!",
-            icon: "success",
-          });
-        } else {
-          setErrors({ submit: "Failed to send message. Please try again." });
-        }
-      } catch (error) {
-        setErrors({ submit: "An error occurred. Please try again." });
+      const data = await response.json();
+
+      if (data.success) {
+        setResult("Form Submitted Successfully");
+        setFormData({
+          firstName: "",
+          lastName: "",
+          email: "",
+          phone: "",
+          country: "",
+          message: "",
+        });
+        setChecked(false);
+        event.target.reset();
+        Swal.fire({
+          title: "Success!",
+          text: "Message sent successfully!",
+          icon: "success",
+        });
+      } else {
+        console.error("Web3Forms Error:", data);
+        setErrors({
+          submit: data.message || "Failed to send message. Please try again.",
+        });
+        setResult("");
       }
+    } catch (error) {
+      console.error("Submission Error:", error);
+      setErrors({
+        submit: "An error occurred. Please try again or check your network.",
+      });
+      setResult("");
     }
   };
 
@@ -149,21 +144,19 @@ export default function ContactForm() {
     >
       {/* Left Side */}
       <Box w={{ base: "100%", md: "40%" }} mt={{ base: 0, md: 10 }}>
-        <Box w={{ base: "100%", md: "40%" }} mt={{ base: 0, md: 10 }}>
-          <Box mb={6}>
-            <Image src="/Vector (2).png" alt="Contact Info" />
-          </Box>
-          <Box mb={8}>
-            <Text fontSize="xl" fontWeight="bold" mb={4} color="#26241C">
-              Contact Info
-            </Text>
-            <Text fontSize="md" mb={1} color="#4F4B3B">
-              +92 319 6780744
-            </Text>
-            <Text fontSize="md" color="#4F4B3B">
-              info@webring.ltd
-            </Text>
-          </Box>
+        <Box mb={6}>
+          <Image src="/Vector (2).png" alt="Contact Info" />
+        </Box>
+        <Box mb={8}>
+          <Text fontSize="xl" fontWeight="bold" mb={4} color="#26241C">
+            Contact Info
+          </Text>
+          <Text fontSize="md" mb={1} color="#4F4B3B">
+            +92 319 6780744
+          </Text>
+          <Text fontSize="md" color="#4F4B3B">
+            info@webring.ltd
+          </Text>
         </Box>
 
         <Box textAlign="center" mb={6}>
@@ -349,14 +342,8 @@ export default function ContactForm() {
           >
             <Checkbox.HiddenInput />
             <Checkbox.Control />
-
             <Checkbox.Label>Accept terms and conditions</Checkbox.Label>
           </Checkbox.Root>
-          {errors.terms && (
-            <Text color="red.500" fontSize="sm">
-              {errors.terms}
-            </Text>
-          )}
           {errors.terms && (
             <Text color="red.500" fontSize="sm">
               {errors.terms}
@@ -367,6 +354,15 @@ export default function ContactForm() {
         {errors.submit && (
           <Text color="red.500" fontSize="sm" mt={2}>
             {errors.submit}
+          </Text>
+        )}
+        {result && (
+          <Text
+            color={result.includes("Success") ? "green.500" : "red.500"}
+            fontSize="sm"
+            mt={2}
+          >
+            {result}
           </Text>
         )}
 
