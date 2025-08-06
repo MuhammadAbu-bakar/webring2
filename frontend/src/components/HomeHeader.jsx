@@ -345,7 +345,7 @@ const HomeHeader = () => {
                     transform={{ base: "none", md: "translateX(-50%)" }}
                     width={{ base: "100vw", md: "400px" }}
                     bg="#FFFFFF"
-                    height="auto"
+                    height=200px
                     boxShadow="md"
                     p={{ base: "15px", md: "20px" }}
                     zIndex="1000"
@@ -353,7 +353,6 @@ const HomeHeader = () => {
                     flexDirection={{ base: "column", md: "row" }}
                     borderTop="1px solid #f0f0f0"
                     overflowX="hidden"
-                    borderRadius="8px"
                   >
                     
                     <Box
@@ -362,11 +361,10 @@ const HomeHeader = () => {
                       pr={{ base: 0, md: "20px" }}
                     >
                       <Image
-                        src="/about.png"
+                        src="/vecteezy_about-us-button-web-banner-templates-vector-illustration_23649106.jpg"
                         alt="About Us"
                         w="100%"
-                        maxW="120px"
-                        borderRadius="8px"
+                        maxW="170px"
                         objectFit="cover"
                         display="block"
                       />

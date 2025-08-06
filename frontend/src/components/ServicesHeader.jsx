@@ -360,10 +360,10 @@ const HomeHeader = () => {
                       pr={{ base: 0, md: "20px" }}
                     >
                       <Image
-                        src="/about.png"
+                        src="/vecteezy_about-us-button-web-banner-templates-vector-illustration_23649106.jpg"
                         alt="About Us"
                         w="100%"
-                        maxW="120px"
+                        maxW="150px"
                         borderRadius="8px"
                         objectFit="cover"
                         display="block"
