@@ -353,7 +353,6 @@ const HomeHeader = () => {
                     flexDirection={{ base: "column", md: "row" }}
                     borderTop="1px solid #f0f0f0"
                     overflowX="hidden"
-                    borderRadius="8px"
                   >
                     
                     <Box
