@@ -359,14 +359,16 @@ const HomeHeader = () => {
                       width="auto"
                       pr={{ base: 0, md: "20px" }}
                     >
-                      <Image
-                        src="/vecteezy_about-us-button-web-banner-templates-vector-illustration_23649106.jpg"
-                        alt="About Us"
-                        w="100%"
-                        maxW="170px"
-                        objectFit="cover"
-                        display="block"
-                      />
+                    <Image
+                      src="/vecteezy_about-us-button-web-banner-templates-vector-illustration_23649106.jpg"
+                      alt="About Us"
+                      w="100%"
+                      maxW="170px"
+                      objectFit="cover"
+                      display="block"
+                      style={{ marginTop: '50px' }}
+                    />
+
                     </Box>
                     <Box
                       display="flex"
@@ -374,7 +376,7 @@ const HomeHeader = () => {
                       justifyContent="center"
                       pl={{ base: 0, md: 0 }}
                     >
-                      <VStack align="start" spacing="16px" mt="0" ml="20">
+                      <VStack align="start" spacing="16px" mt="0" ml="80">
                         {[
                           { label: "Who We Are", path: "/who-we-are" },
                           { label: "Our Partner", path: "/our-partner" },
