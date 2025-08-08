@@ -345,7 +345,7 @@ const HomeHeader = () => {
                     transform={{ base: "none", md: "translateX(-50%)" }}
                     width={{ base: "100vw", md: "400px" }}
                     bg="#FFFFFF"
-                    height=200px
+                    height="200px"
                     boxShadow="md"
                     p={{ base: "15px", md: "20px" }}
                     zIndex="1000"
@@ -354,7 +354,6 @@ const HomeHeader = () => {
                     borderTop="1px solid #f0f0f0"
                     overflowX="hidden"
                   >
-                    
                     <Box
                       display={{ base: "none", md: "block" }}
                       width="auto"
