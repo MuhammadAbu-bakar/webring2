@@ -366,6 +366,7 @@ const HomeHeader = () => {
                         maxW="170px"
                         objectFit="cover"
                         display="block"
+                        style={{ marginTop: '22px' }}
                       />
                     </Box>
                     <Box
