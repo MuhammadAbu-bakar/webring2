@@ -80,9 +80,10 @@ export default function ContactForm() {
       return;
     }
 
-    setResult("Sending....");
+    setResult("Sending...");
     const formDataToSend = new FormData();
     formDataToSend.append("access_key", "a91805ee-1a78-4b3a-94a5-55becba4d113");
+
     formDataToSend.append("name", `${formData.firstName} ${formData.lastName}`);
     formDataToSend.append("email", formData.email);
     formDataToSend.append("phone", formData.phone);
