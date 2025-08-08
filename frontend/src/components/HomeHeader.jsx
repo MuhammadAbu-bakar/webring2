@@ -159,8 +159,8 @@ const HomeHeader = () => {
             <Image
               src="/logo.png"
               alt="Webring Logo"
-              width="100%"
-              height="60px"
+              width="80%"
+              height="50px"
             />
           </Link>
         </HStack>
